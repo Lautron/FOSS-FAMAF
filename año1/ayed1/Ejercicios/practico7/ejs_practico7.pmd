@@ -1,0 +1,372 @@
+# Ejercicios Práctico 7 #
+
+1)a)Section Name
+
+Primero realicemos la especificacion del programa:
+\begin{align*}
+& \{P:N\ge 0\}\\
+& S\\
+& \{Q:x^3 + x \ge N \wedge \langle \forall i : 0\le i < x : i^3 + i < N \rangle\}\\
+\end{align*}
+Teniendo en cuenta la tecnica de tomar el termino de una conjuncion, tenemos que:
+$$B \equiv x^3 + x < N$$
+$$I \equiv \langle \forall i : 0\le i < x : i^3 + i < N \rangle$$
+
+Estructura del programa:
+\begin{align*}
+& \{N\ge 0\}\\
+& S_0\\
+& \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+& do~x^3+x<N \rightarrow\\
+& \quad \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle \wedge x^3+x<N\}\\
+& \quad S_1\\
+& \quad \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+& od\\
+& \{x^3+x \ge N \wedge \langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+\end{align*}
+
+Primero derivemos $S_0$:
+\begin{align*}
+& \{N\ge 0\}\\
+& S_0\\
+& \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+\end{align*}
+
+En la hipotesis no aparece x así que tenemos que encontrar alguna x de la forma $x:=E$.
+Para ello asumimos la hipotesis y realizamos la wp:
+\begin{align*}
+& wp.(x:=E).(\langle \forall i : 0 \le i< x : i^3 + i <N \rangle)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& \langle \forall i : 0 \le i< E : i^3 + i <N \rangle\\
+& \equiv \{ \text{Elijo $E=0$} \}\\
+& \langle \forall i : 0 \le i< 0 : i^3 + i <N \rangle\\
+& \equiv \{ \text{Rango vacio} \}\\
+& True\\
+\end{align*}
+Por ende tenemos que $S_0 \equiv x:=0$.
+
+Ahora derivemos el cuerpo del bucle:
+\begin{align*}
+& \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle \wedge x^3+x<N\}\\
+& S_1\\
+& \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+\end{align*}
+
+Probemos con $x:=x+1$.
+Supongamos la precondicion y veamos la wp:
+\begin{align*}
+& wp.(x:=x+1).(\langle \forall i : 0 \le i< x : i^3 + i <N \rangle)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& \langle \forall i : 0 \le i< x+1 : i^3 + i <N \rangle\\
+& \equiv \{ \text{Aritmetica} \}\\
+& \langle \forall i : 0 \le i \le x : i^3 + i <N \rangle\\
+& \equiv \{ \text{Aritmetica} \}\\
+& \langle \forall i : 0 \le i < x \vee i=x : i^3 + i <N \rangle\\
+& \equiv \{ \text{Particion de rango y rango unitario} \}\\
+& \langle \forall i : 0 \le i < x: i^3 + i <N \rangle \wedge x^3 + x <N\\
+& \equiv \{ \text{Por primer termino de la suposicion} \}\\
+& True \wedge x^3 + x <N\\
+& \equiv \{ \text{Por segundo termino de la suposicion} \}\\
+& True \wedge True\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+Por ende, tenemos que $S_1 \equiv x:=x+1$.
+
+Resultado final:
+
+\begin{align*}
+& \{N\ge 0\}\\
+& x:=0\\
+& \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+& do~x^3+x<N \rightarrow\\
+& \quad \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle \wedge x^3+x<N\}\\
+& \quad x:=x+1\\
+& \quad \{\langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+& od\\
+& \{x^3+x \ge N \wedge \langle \forall i : 0 \le i< x : i^3 + i <N \rangle\}\\
+\end{align*}
+
+2)
+Estructura del programa:
+\begin{align*}
+& \{N\ge 0\}\\
+& S_0\\
+& \{I\}\\
+& do~B \rightarrow\\
+& \quad \{I \wedge B\}\\
+& \quad S_1\\
+& \quad \{I\}\\
+& od\\
+& \{s = \langle \Sigma i: 0 \le i < N : A.i \rangle\}\\
+\end{align*}
+
+Determinamos el invariante:
+Para determinar el invariante hacemos uso de la tecnica de reemplazo de constante por variable, obteniendo lo siguiente:
+$$I: s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N$$
+
+Veamos si $P \Rightarrow I$:
+\begin{align*}
+& \{P: N\ge 0\}\\
+& S_0\\
+& \{I: s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N\}\\
+\end{align*}
+$S_0$ no puede ser skip ya que s no aparece en la precondicion.
+Probemos encontrar un $S_0$ de la forma $s,k:=E,F$ suponiendo la precondicion y viendo la wp de la asignacion:
+\begin{align*}
+& P \Rightarrow wp.(s,k:=E,F).(s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N)\\
+& \equiv \{ \text{Suponemos P} \}\\
+& wp.(s,k:=E,F).(s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& E = \langle \Sigma i: 0 \le i \le F : A.i \rangle \wedge 0\le F \le N\\
+& \equiv \{ \text{Elijo F=0} \}\\
+& E = \langle \Sigma i: 0 \le i \le 0 : A.i \rangle \wedge 0\le 0 \le N\\
+& \equiv \{ \text{Por suposicion $N\ge 0$} \}\\
+& E = \langle \Sigma i: 0 \le i \le 0 : A.i \rangle\\
+& \equiv \{ \text{Rango vacio} \}\\
+& E = 0\\
+& \equiv \{ \text{Elijo E=0} \}\\
+& 0 = 0\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+
+Por ende tenemos que $S_0 \equiv s,k:=0,0$.
+
+Finalizacion:
+Veamos si se cumple $I \wedge \neg B \Rightarrow Q$:
+\begin{align*}
+& (s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N) \wedge \neg (k\ne N)\\
+& \Rightarrow s = \langle \Sigma i: 0 \le i \le N : A.i \rangle\\
+& \equiv \{ \text{Logica} \}\\
+& (s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N) \wedge k=N\\
+& \Rightarrow s = \langle \Sigma i: 0 \le i < N : A.i \rangle\\
+& \equiv \{ \text{Suponemos precedente y demostramos consecuente} \}\\
+& s = \langle \Sigma i: 0 \le i < N : A.i \rangle\\
+& \equiv \{ \text{Por suposicion $k=N$} \}\\
+& s = \langle \Sigma i: 0 \le i < k : A.i \rangle\\
+& \equiv \{ \text{Por suposicion de s} \}\\
+& True\\
+\end{align*}
+Por ende, obtuvimos que $B \equiv k\ne N$
+
+Programa hasta ahora:
+\begin{align*}
+& \{N\ge 0\}\\
+& s,k:=0,0\\
+& \{I: s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N\}\\
+& do~k\ne N \rightarrow\\
+& \quad \{I \wedge B\}\\
+& \quad S_1\\
+& \quad \{I\}\\
+& od\\
+& \{s = \langle \Sigma i: 0 \le i < N : A.i \rangle\}\\
+\end{align*}
+
+Cota candidata: $N-k$
+
+Cuerpo del bucle:
+\begin{align*}
+& \{I \wedge B\}\\
+& S_1\\
+& \{I\}\\
+\end{align*}
+
+Veamos si podemos encontrar un $S_1$ de la forma $s,k:=E,k+1$, para ello 
+supongamos $I \wedge (k\ne N)$ y veamos la wp:
+\begin{align*}
+& wp.(s,k:=E,k+1).(s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& (E = \langle \Sigma i: 0 \le i < (k+1) : A.i \rangle \wedge 0\le (k+1) \le N)\\
+& \equiv \{ \text{Aritmetica} \}\\
+& (E = \langle \Sigma i: 0 \le i < (k+1) : A.i \rangle \wedge 0\le (k+1) \le N)\\
+& \equiv \{ \text{Aritmetica} \}\\
+& (E = \langle \Sigma i: 0 \le i < k \vee i=k : A.i \rangle \wedge 0\le (k+1) \le N)\\
+& \equiv \{ \text{Suposicion $k\ne N \wedge 0\le k \le N$} \}\\
+& (E = \langle \Sigma i: 0 \le i < k \vee i=k : A.i \rangle\\
+& \equiv \{ \text{Particion de rango y rango unitario} \}\\
+& (E = \langle \Sigma i: 0 \le i < k : A.i \rangle + A.k\\
+& \equiv \{ \text{Por suposicion s} \}\\
+& E = s + A.k\\
+& \equiv \{ \text{Elegimos $E=s+A.k$} \}\\
+& s + A.k = s + A.k\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+
+Demostracion de que la cota es positiva:
+\begin{align*}
+& s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N \wedge k\ne N\\
+& \Rightarrow N-k \ge 0\\
+& \equiv \{ \text{Asumimos precedente y demostramos consecuente} \}\\
+& N-k \ge 0\\
+& \equiv \{ \text{Aritmetica} \}\\
+& N \ge k\\
+& \equiv \{ \text{Suposicion $0\le k \le N \wedge k\ne N$} \}\\
+& True\\
+\end{align*}
+
+Demostracion de que la cota disminiye:
+\begin{align*}
+& \{s = \langle \Sigma i: 0 \le i < k : A.i \rangle \wedge 0\le k \le N \wedge k\ne N \wedge N-k = T\}\\
+& s,k:=s+A.k,k+1\\
+& \{N-k < T\}\\
+& \equiv \{ \text{Suponemos antecedente y demostramos consecuente} \}\\
+& wp.(s,k:=s+A.k,k+1).(N-k < T)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& N-(k+1) < T\\
+& \equiv \{ \text{Aritmetica} \}\\
+& N-k-1 < T\\
+& \equiv \{ \text{Suposicion $N-k = T$} \}\\
+& N-k-1 < N-k\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+
+
+
+
+
+3)
+
+Especificacion:
+\begin{align*}
+& Var a : array [0, N) of Int;\\
+& \{N\ge 0\}\\
+& S_0\\
+& \{r = \langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\}\\
+\end{align*}
+
+Determinemos el invariante utilizando la tecnica de reemplazar una constante por una variable:
+$$I: r =  \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N$$
+
+Estructura del programa:
+\begin{align*}
+& \{N\ge 0\}\\
+& S_0\\
+& \{I\}\\
+& do~B \rightarrow\\
+& \quad \{I \wedge B\}\\
+& \quad S_1\\
+& \quad \{I\}\\
+& od\\
+& \{\langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\}\\
+\end{align*}
+
+Inicializacion:
+\begin{align*}
+& \{N\ge 0\}\\
+& S_0\\
+& \{I: r =  \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N\}\\
+\end{align*}
+
+Busquemos algun $S_0$ de la forma $r,k:=E,F$, para ello supongamos 
+la hipotesis($N\ge 0$) y veamos la wp:
+
+\begin{align*}
+& wp.(r,k:=E,F).(r =\quad \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& (E =\quad \langle \forall i: 0 \le i < F : A.i \ge 0 \rangle \wedge 0\le F \le N)\\
+& \equiv \{ \text{Elijo F=0} \}\\
+& (E =\quad \langle \forall i: 0 \le i < 0 : A.i \ge 0 \rangle \wedge 0\le 0 \le N)\\
+& \equiv \{ \text{Por suposicion $N\ge 0$} \}\\
+& (E =\quad \langle \forall i: 0 \le i < 0 : A.i \ge 0 \rangle\\
+& \equiv \{ \text{Rango vacio} \}\\
+& E = True\\
+& \equiv \{ \text{Elijo E=True} \}\\
+& True = True\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+
+Por ende, tenemos que $S_0 \equiv r,k:=True,0$
+
+Finalizacion:
+Para demostrar $I \wedge \neg B \Rightarrow Q$ elegimos un $B \equiv k\ne N$:
+\begin{align*}
+& r =\quad \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N \wedge \neg (k\ne N)\\
+& \Rightarrow \langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\\
+& \equiv \{ \text{Logica} \}\\
+& r =\quad \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N \wedge k = N\\
+& \Rightarrow \langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\\
+& \equiv \{ \text{Suponemos antecedente y demostramos consecuente} \}\\
+& \langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\\
+& \equiv \{ \text{Por suposicion $k=N$} \}\\
+& \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle\\
+& \equiv \{ \text{Por suposicion $r$} \}\\
+& True\\
+\end{align*}
+
+Programa hasta ahora:
+\begin{align*}
+& \{N\ge 0\}\\
+& r,k:=True,0\\
+& \{I\}\\
+& do~k\ne N \rightarrow\\
+& \quad \{I \wedge B\}\\
+& \quad S_1\\
+& \quad \{I\}\\
+& od\\
+& \{\langle \forall i: 0 \le i < N : A.i \ge 0 \rangle\}\\
+\end{align*}
+
+Elegimos cota candidata: $t = N-k$
+
+Cuerpo del bucle:
+Busquemos algun $S_1$ de la forma $r,k:=E,k+1$, para ello asumamos 
+$r =\langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N \wedge k\ne N$
+y veamos la wp:
+
+\begin{align*}
+& wp.(r,k:=E,k+1).(r =\quad \langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& E =\langle \forall i: 0 \le i < (k+1) : A.i \ge 0 \rangle \wedge 0\le (k+1) \le N\\
+& \equiv \{ \text{Aritmetica} \}\\
+& E =\langle \forall i: 0 \le i < k \vee i=k: A.i \ge 0 \rangle \wedge 0\le (k+1) \le N\\
+& \equiv \{ \text{Por supocicion $0\le k \le N \wedge k\ne N$} \}\\
+& E = \langle \forall i: 0 \le i < k \vee i=k: A.i \ge 0 \rangle \wedge True\\
+& \equiv \{ \text{Particion de rango y rango unitario} \}\\
+& E = \langle \forall i: 0 \le i < k: A.i \ge 0 \rangle \wedge A.k\ge 0\\
+& \equiv \{ \text{Por suposicion r} \}\\
+& E =r \wedge A.k\ge 0\\
+& \equiv \{ \text{Elijo $E=r \wedge A.k \ge 0$} \}\\
+& r \wedge A.k\ge 0 = r \wedge A.k\ge 0\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+Por ende $S_1 \equiv r,k:=r \wedge A.k\ge 0,k+1$
+
+Demostracion de que la cota es positiva:
+\begin{align*}
+& r =\langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N \wedge k\ne N\\
+& \Rightarrow N-k \ge 0\\
+& \equiv \{ \text{Suponemos antecedente y demostramos consecuente} \}\\
+& N-k \ge 0\\
+& \equiv \{ \text{Aritmetica} \}\\
+& N \ge k\\
+& \equiv \{ \text{Por suposicion $k\ne N$} \}\\
+& N > k\\
+& \equiv \{ \text{Por suposicion $0\le k \le N$} \}\\
+& True\\
+\end{align*}
+
+Demotracion de que la cota disminuye:
+\begin{align*}
+& \{r =\langle \forall i: 0 \le i < k : A.i \ge 0 \rangle \wedge 0\le k \le N \wedge k\ne N \wedge N-k = T\}\\
+& r,k:=r \wedge A.k\ge 0,k+1\\
+& \{N-k < T\}\\
+& \equiv \{ \text{Asumamos la precondicion y veamos la wp} \}\\
+& wp.(r,k:=r \wedge A.k\ge 0,k+1).(N-k < T)\\
+& \equiv \{ \text{Def wp asignacion} \}\\
+& N-(k+1) < T\\
+& \equiv \{ \text{Supocicion $N-k = T$} \}\\
+& N-(k+1) < N-k\\
+& \equiv \{ \text{Aritmetica} \}\\
+& N-k-1 < N-k\\
+& \equiv \{ \text{Logica} \}\\
+& True\\
+\end{align*}
+
+
+
+

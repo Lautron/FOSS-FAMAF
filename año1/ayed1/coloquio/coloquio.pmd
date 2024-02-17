@@ -1,0 +1,414 @@
+\tableofcontents
+\newpage
+
+# Coloquio #
+
+\newcommand{\concat}{%
+  \mathbin{{+}\mspace{-8mu}{+}}%
+}
+
+$$\langle Max~p,q : 0 \le p \le q < \#xs \wedge \langle \forall i: p \le i < q : b < xs~!~i < a \rangle : q-p \rangle$$
+
+## Definicion alternativa: ##
+
+$$\langle Max~bs,cs,ds : xs = bs \concat cs \concat ds \wedge ds \neq [] \wedge \langle \forall i : 0\le i < \#cs : b < cs~!~i < a \rangle : \#cs \rangle$$
+
+## Evaluacion manual: ##
+
+$xs=[1,3,5], b=2, a=8$
+
+### Especificacion original ###
+
+\begin{align*}
+& \langle Max~p,q : 0 \le p \le q < \#[1,3,5] \wedge \langle \forall i: p \le i < q : 2 < xs~!~i < 8 \rangle : q-p \rangle\\
+& \equiv \{ \text{def cardinal} \}\\
+& \langle Max~p,q : 0 \le p \le q < 3 \wedge \langle \forall i: p \le i < q : 2 < xs~!~i < 8 \rangle : q-p \rangle\\
+& \equiv \{ \text{Evaluo rango} \}\\
+& \langle Max~p,q : (p,q) \in ((0,0),(0,1),(1,1),(1,2),(2,2)): q-p \rangle\\
+& \equiv \{ \text{Evaluo rango en el termino} \}\\
+& 0-0~max~1-0~max~1-1~max~2-1~max~2-2\\
+& \equiv \{ \text{Aritmetica} \}\\
+& 0~max~1~max~0~max~1~max~0\\
+& \equiv \{ \text{Def de max} \}\\
+& 1\\
+\end{align*}
+
+### Especificacion segmentos ###
+\begin{gather*}
+\langle Max~bs,cs,ds : [1,3,5] = bs \concat cs \concat ds \wedge cs \neq [] \wedge ds \neq [] \wedge \langle \forall i : 0\le i < \#cs : 2 < cs~!~i < 8 \rangle : \#cs \rangle\\
+\equiv \{ \text{Evaluo rango} \}\\
+\langle Max~bs,cs,ds : cs \in ([3]) : 0\le i < \#cs : 2 < cs~!~i < 8 \rangle : \#cs \rangle\\
+\equiv \{ \text{Evaluo rango en el termino } \}\\
+\#[3]\\
+\equiv \{ \text{Def de cardinal} \}\\
+1\\
+\end{gather*}
+
+## Derivacion ##
+
+### estaEnRango ###
+
+Primero que nada derivemos la especificacion $estaEnRango.b.a.xs = \langle \forall i : 0\le i < \#xs : b < cs~!~i < a \rangle$
+
+Caso base:
+\begin{gather*}
+estaEnRango.b.a.[]\\
+\equiv \{ \text{Especificacion} \}\\
+\langle \forall i : 0\le i < \#[] : b < cs~!~i < a \rangle\\
+\equiv \{ \text{Def cardinal} \}\\
+\langle \forall i : 0\le i < 0 : b < cs~!~i < a \rangle\\
+\equiv \{ \text{Rango vacio} \}\\
+True\\
+\end{gather*}
+
+Caso inductivo: $xs:=(x:xs)$
+$$HI = estaEnRango.b.a.xs = \langle \forall i : 0\le i < \#xs : b < cs~!~i < a \rangle$$
+
+\begin{gather*}
+estaEnRango.b.a.(x:xs)\\
+\equiv \{ \text{Especificacion} \}\\
+\langle \forall i : 0\le i < \#(x:xs) : b < (x:xs)~!~i < a \rangle\\
+\equiv \{ \text{Def cardinal} \}\\
+\langle \forall i : 0\le i < 1+\#xs : b < (x:xs)~!~i < a \rangle\\
+\equiv \{ \text{Aritmetica} \}\\
+\langle \forall i : i=0 \vee 1 \le i < 1+\#xs : b < (x:xs)~!~i < a \rangle\\
+\equiv \{ \text{Particion de rango} \}\\
+\langle \forall i : i=0: b < (x:xs)~!~i < a \rangle \wedge \langle \forall i : 1 \le i < 1+\#xs : b < (x:xs)~!~i < a \rangle\\
+\equiv \{ \text{Rango unitario} \}\\
+b < (x:xs)~!~0 < a \wedge \langle \forall i : 1 \le i < 1+\#xs : b < (x:xs)~!~i < a \rangle\\
+\equiv \{ \text{cambio de variable $i \leftarrow i+1$} \}\\
+b < (x:xs)~!~0 < a \wedge \langle \forall i : 1 \le i+1 < 1+\#xs : b < (x:xs)~!~i+1 < a \rangle\\
+\equiv \{ \text{Aritmetica} \}\\
+b < (x:xs)~!~0 < a \wedge \langle \forall i : 0 \le i < \#xs : b < (x:xs)~!~i+1 < a \rangle\\
+\equiv \{ \text{Def de $!!$} \}\\
+b < x < a \wedge \langle \forall i : 0 \le i < \#xs : b < xs~!!~i < a \rangle\\
+\equiv \{ \text{HI} \}\\
+b < x < a \wedge estaEnRango.b.a.xs\\
+\end{gather*}
+
+### Resultado final estaEnRango ###
+
+\begin{align*}
+& estaEnRango.b.a.[] = True\\
+& estaEnRango.b.a.(x:xs) = b < x < a \wedge estaEnRango.b.a.xs\\
+\end{align*}
+
+Habiendo derivado $estaEnRango.b.a.xs$, reemplacemoslo en la especificacion y procedamos
+a derivarla.
+
+### queHace ###
+
+Especificacion: $queHace.b.a.xs = \langle Max~bs,cs,ds : xs = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle$
+
+Caso base: $xs = []$
+
+**(deberia reemplazar estaEnRango pero es mucho laburo)**
+\begin{gather*}
+\langle Max~bs,cs,ds : [] = bs \concat cs \concat ds  \wedge ds \neq [] \wedge \langle \forall i : 0\le i < \#cs : b < cs~!~i < a \rangle : \#cs \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+\langle Max~bs,cs,ds : [] = bs \wedge [] = cs \wedge [] = ds  \wedge ds \neq [] : 0\le i < \#cs : b < cs~!~i < a \rangle : \#cs \rangle\\
+\equiv \{ \text{Exclusion de milagros} \}\\
+\langle Max~bs,cs,ds : [] = bs \wedge [] \wedge []=cs \wedge False : 0\le i < \#cs : b < cs~!~i < a \rangle : \#cs \rangle\\
+\equiv \{ \text{elemento absorbente de la conjuncion} \}\\
+\langle Max~bs,cs,ds : False : 0\le i < \#cs : b < cs~!~i < a \rangle : \#cs \rangle\\
+\equiv \{ \text{Rango vacio} \}\\
+-\infty\\
+\end{gather*}
+
+Caso inductivo:
+
+$$HI = queHace.b.a.xs = \langle Max~bs,cs,ds : xs = bs \concat cs \concat ds  \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle$$
+
+\begin{gather*}
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Elemento neutro conjuncion y tercero excluido} \}\\
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge (bs=[] \vee bs \neq []) : \#cs \rangle\\
+\equiv \{ \text{Distributividad} \}\\
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs=[] \vee \\
+(x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs \neq []\\
+: \#cs \rangle\\
+\equiv \{ \text{Particion de rango} \}\\
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs=[] : \#cs \rangle~max\\
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Llamemos E a la primer expresion cuantificada} \}\\
+E~max~\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Cambio de variable $bs \leftarrow b:bs$} \}\\
+E~max~\langle Max~b,bs,cs,ds : (x:xs) = (b:bs) \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge (b:bs) \neq [] : \#cs \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+E~max~\langle Max~b,bs,cs,ds : x=b \wedge xs = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Logica y elemento neutro conjuncion} \}\\
+E~max~\langle Max~b,bs,cs,ds : x=b \wedge xs = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Eliminacion de variable x} \}\\
+E~max~\langle Max~b,bs,cs,ds : xs = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{HI} \}\\
+E~max~queHace.b.a.xs\\
+\equiv \{ \text{Reemplazamos E por la expresion original} \}\\
+\langle Max~bs,cs,ds : (x:xs) = bs \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge bs=[] : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Eliminacion de variable bs} \}\\
+\langle Max~cs,ds : (x:xs) = [] \concat cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Def concatenacion} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Modularizamos queHace2.b.a.xs} \}\\
+queHace2.b.a.xs~max~queHace.b.a.xs
+\end{gather*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### queHace2 ###
+
+Ahora derivemos la especificacion $queHace2.b.a.xs = \langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle$:
+
+Caso base: $xs:=[]$
+\begin{gather*}
+queHace2.b.a.[]\\
+\equiv \{ \text{Especificacion} \}\\
+\langle Max~cs,ds : [] = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+\langle Max~cs,ds : [] = cs \wedge [] = ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Eliminacion de variable cs} \}\\
+\langle Max~ds : [] = ds \wedge ds \neq [] \wedge estaEnRango.b.a.[] : \#cs \rangle\\
+\equiv \{ \text{Caso base estaEnRango} \}\\
+\langle Max~ds : [] = ds \wedge ds \neq [] \wedge True : \#cs \rangle\\
+\equiv \{ \text{Elemento neutro conjuncion} \}\\
+\langle Max~ds : [] = ds \wedge ds \neq []: \#cs \rangle\\
+\equiv \{ \text{Exclusion de milagros} \}\\
+\langle Max~ds : False: \#cs \rangle\\
+\equiv \{ \text{Rango vacio} \}\\
+-\infty\\
+\end{gather*}
+
+Caso base: $xs:=(x:[])$
+\begin{gather*}
+queHace2.b.a.(x:[])\\
+\equiv \{ \text{Especificacion} \}\\
+\langle Max~cs,ds : (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Elemento neutro conjuncion y tercero excluido} \}\\
+\langle Max~cs,ds : (cs=[] \vee cs \neq []) \wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Distributividad conjuncion disyuncion} \}\\
+\langle Max~cs,ds : cs=[]\wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \vee\\
+cs \neq []\wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs\\
+: \#cs \rangle\\
+\equiv \{ \text{Particion de rango} \}\\
+\langle Max~cs,ds : cs=[] \wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max\\
+\langle Max~cs,ds : cs \neq [] \wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Llamamos E a la segunda expresion} \}\\
+\langle Max~cs,ds : cs=[] \wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~E\\
+\equiv \{ \text{Eliminacion de variable cs} \}\\
+\langle Max~ds : (x:[]) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[] : \#[] \rangle~max~E\\
+\equiv \{ \text{def cardinal} \}\\
+\langle Max~ds : (x:[]) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[] : 0 \rangle~max~E\\
+\equiv \{ \text{Termino constante} \}\\
+0~max~E\\
+\equiv \{ \text{Reemplazo E} \}\\
+0~max~\langle Max~cs,ds : cs \neq [] \wedge (x:[]) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Cambio de variable $cs \leftarrow (c:cs)$} \}\\
+0~max~\langle Max~c,cs,ds : (c:cs) \neq [] \wedge (x:[]) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle\\
+\equiv \{ \text{logica y elemento neutro conjuncion} \}\\
+0~max~\langle Max~c,cs,ds : (x:[]) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+0~max~\langle Max~c,cs,ds : x=c \wedge [] = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle\\
+\equiv \{ \text{Eliminacion de variable c} \}\\
+0~max~\langle Max~c,cs,ds : [] = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(x:cs) : \#(x:cs) \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+0~max~\langle Max~c,cs,ds : [] = cs \wedge [] = ds \wedge ds \neq [] \wedge estaEnRango.b.a.(x:cs) : \#(x:cs) \rangle\\
+\equiv \{ \text{Principio de no constradiccion} \}\\
+0~max~\langle Max~c,cs,ds : [] = cs \wedge False \wedge estaEnRango.b.a.(x:cs) : \#(x:cs) \rangle\\
+\equiv \{ \text{Elemento absorbente de la conjuncion} \}\\
+0~max~\langle Max~c,cs,ds : False : \#(x:cs) \rangle\\
+\equiv \{ \text{Rango vacio} \}\\
+0~max~-\infty\\
+\equiv \{ \text{Elemento neutro max} \}\\
+0\\
+\end{gather*}
+
+Caso inductivo: $xs:=(x:xs)$
+$$HI = queHace2.b.a.xs = \langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle$$
+
+\begin{gather*}
+queHace2.b.a.(x:xs)\\
+\equiv \{ \text{Especificacion} \}
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle\\
+\equiv \{ \text{Elemento neutro de la conjuncion y tercero excluido} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge (cs=[] \vee cs \neq []) : \#cs \rangle\\
+\equiv \{ \text{Distributividad} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs=[] \vee\\
+(x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Particion de rango} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs=[] : \#cs \rangle~max\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Llamemos E a la segunda expresion} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs=[] : \#cs \rangle~max~E\\
+\equiv \{ \text{Eliminacion de variable} \}\\
+\langle Max~cs,ds : (x:xs) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[]: \#[] \rangle~max~E\\
+\equiv \{ \text{Def cardinal} \}\\
+\langle Max~cs,ds : (x:xs) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[]: 0 \rangle~max~E\\
+\equiv \{ \text{Termino constante} \}\\
+0~max~E\\
+\equiv \{ \text{Reemplazo E} \}\\
+0~max~\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs \wedge cs \neq [] : \#cs \rangle\\
+\equiv \{ \text{Cambio de variable $c \leftarrow (c:cs)$} \}\\
+0~max~\langle Max~c,cs,ds : (x:xs) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) \wedge (c:cs) \neq [] : \#(c:cs) \rangle\\
+\equiv \{ \text{Logica y elemento neutro conjuncion} \}\\
+0~max~\langle Max~c,cs,ds : (x:xs) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle\\
+\equiv \{ \text{Propiedad de listas} \}\\
+0~max~\langle Max~c,cs,ds : x=c \wedge xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle\\
+\equiv \{ \text{Def de estaEnRango y cardinal} \}\\
+0~max~\langle Max~c,cs,ds : x=c \wedge xs = cs \concat ds \wedge ds \neq [] \wedge b < c < a \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Eliminacion de variable c} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x < a \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\end{gather*}
+
+### Analisis por casos: ###
+
+Caso 1: $b < x < a \equiv True$
+\begin{gather*}
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x < a \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Por hipotesis} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge True \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Elemento neutro conjuncion} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Distributividad max} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle +1\\
+\equiv \{ \text{HI} \}\\
+0~max~(queHace2.b.a.xs + 1)\\
+\end{gather*}
+
+Caso 2: $b < x < a \equiv False$
+\begin{gather*}
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x < a \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Por hipotesis} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge False \wedge estaEnRango.b.a.cs : 1+\#cs \rangle\\
+\equiv \{ \text{Elemento absorbente conjuncion} \}\\
+0~max~\langle Max~cs,ds : False : 1+\#cs \rangle\\
+\equiv \{ \text{Rango vacio} \}\\
+0 max -\infty\\
+\equiv \{ \text{Elemento neutro max} \}\\
+0\\
+\end{gather*}
+
+## Resultado final: ##
+\begin{align*}
+& queHace.b.a.[] = -\infty\\
+& queHace.b.a.(x:xs) = queHace2.b.a.xs~max~queHace.b.a.xs\\
+& \quad donde\\
+& \quad queHace2.b.a.[] = -\infty\\
+& \quad queHace2.b.a.(x:[]) = 0\\
+& \quad queHace2.b.a.(x:xs)\\
+& \quad \quad b < x < a \rightarrow 0~max~(queHace2.b.a.xs + 1)\\
+& \quad \quad [] \neg (b < x < a) \rightarrow 0\\
+\end{align*}
+
+# Final alternativo #
+## queHace ##
+\begin{gather*}
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Elemento neutro conjuncion y tercero excluido} \}\\
+\langle Max~cs,ds : (cs = [] \vee cs \neq []) \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max\\
+queHace.b.a.xs\\
+\equiv \{ \text{Distributividad conjuncion disyuncion y particion de rango} \}\\
+\langle Max~cs,ds : cs = [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max\\
+\langle Max~cs,ds : cs \neq [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Eliminacion de variable} \}\\
+\langle Max~ds : (x:xs) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[] : \#[] \rangle~max\\
+\langle Max~cs,ds : cs \neq [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Def cardinal} \}\\
+\langle Max~ds : (x:xs) = [] \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.[] : 0 \rangle~max\\
+\langle Max~cs,ds : cs \neq [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Termino constante} \}\\
+0 max \langle Max~cs,ds : cs \neq [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.cs : \#cs \rangle~max~queHace.b.a.xs\\
+\equiv \{ \text{Cambio de variable $cs \leftarrow (c:cs)$} \}\\
+0~max\\
+\langle Max~c,cs,ds : (c:cs) \neq [] \wedge (x:xs) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle~max\\
+queHace.b.a.xs\\
+\equiv \{ \text{Logica y elemento neutro conjuncion} \}\\
+0~max~\langle Max~c,cs,ds : (x:xs) = (c:cs) \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle~max\\
+queHace.b.a.xs\\
+\equiv \{ \text{Concatenacion y propiedad de listas} \}\\
+0~max~\langle Max~c,cs,ds : x=c \wedge xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(c:cs) : \#(c:cs) \rangle~max~\\
+queHace.b.a.xs\\
+\equiv \{ \text{Eliminacion de variable} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge estaEnRango.b.a.(x:cs) : \#(x:cs) \rangle~max~\\
+queHace.b.a.xs\\
+\equiv \{ \text{Def recursiva estaEnRango} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#(x:cs) \rangle~max~\\
+queHace.b.a.xs\\
+\equiv \{ \text{Def cardinal} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : 1+\#cs \rangle~max~\\
+queHace.b.a.xs\\
+\equiv \{ \text{Distributividad Max} \}\\
+0~max~(\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle + 1)~max\\
+queHace.b.a.xs\\
+\equiv \{ \text{Modularizamos queHace2.b.a.xs} \}\\
+0~max~queHace2.b.a.xs~max~queHace.b.a.xs\\
+\end{gather*}
+
+## queHace2 ##
+
+### Caso base: ###
+
+\begin{gather*}
+queHace2.b.a.[]\\
+\equiv \{ \text{Especificacion} \}\\
+\langle Max~cs,ds : [] = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle + 1\\
+\equiv \{ \text{Magia negra} \}\\
+\equiv \{ \text{Def cardinal y termino constante} \}\\
+\equiv \{ \text{Aritmetica} \}\\
+1\\
+\end{gather*}
+
+### Caso inductivo: ###
+
+$$HI = queHace2.b.a.xs = \langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle$$
+
+\begin{gather*}
+queHace2.b.a.(x:xs)\\
+\equiv \{ \text{Especificacion} \}\\
+\langle Max~cs,ds : (x:xs) = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle + 1\\
+\equiv \{ \text{Elemento neutro, tercero excluido} \}\\
+\equiv \{ \text{Distributividad conjuncion disyuncion} \}\\
+\equiv \{ \text{Particion de rango} \}\\
+\equiv \{ \text{Def de cardinal y termino constante} \}\\
+0~max~\langle Max~cs,ds : cs \neq [] \wedge (x:xs) = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle + 1\\
+\equiv \{ \text{Cambio de variable $cs \leftarrow (c:cs)$} \}\\
+\equiv \{ \text{Logica y elementro neutro} \}\\
+\equiv \{ \text{Concatenacion y propiedad de listas} \}\\
+\equiv \{ \text{Eliminacion de variable c} \}\\
+\equiv \{ \text{Definicion recursiva estaEnRango} \}\\
+\equiv \{ \text{Idempotencia conjuncion} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#(c:cs) \rangle + 1\\
+\equiv \{ \text{Def cardinal} \}\\
+\equiv \{ \text{Distributividad Max} \}\\
+0~max~\langle Max~cs,ds : xs = cs \concat ds \wedge ds \neq [] \wedge b < x \wedge x < a \wedge estaEnRango.b.a.cs : \#cs \rangle + 1 + 1\\
+\equiv \{ \text{HI} \}\\
+0~max~(queHace2.b.a.xs + 1)\\
+\end{gather*}
+
+### Resultado final (MAL) ###
+
+\begin{align*}
+& queHace.b.a.[] = -\infty\\
+& queHace.b.a.(x:xs) = 0~max~queHace2.b.a.xs~max~ queHace.b.a.xs\\
+& \quad queHace2.b.a.[] = 1\\
+& \quad queHace2.b.a.(x:xs) = 0~max~(queHace2.b.a.xs + 1)\\
+\end{align*}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,300 @@
+---
+header-includes: |
+            \usepackage{amsmath}
+---
+# Práctico 2 #
+
+1)
+a) Suma todos los elementos de una lista.
+b) $\langle \Sigma i: 0 \leq i < \#xs : xs~!!~i \rangle$
+d)
+Caso base: xs = []
+$$sum.[] =\langle \Sigma i: 0 \leq i < \underline{\#[]} : xs~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$sum.[] =\langle \Sigma i: 0 \leq i < 0 : xs~!!~i \rangle$$
+$$\equiv \{ \text{Evaluamos rango} \}$$
+$$sum.[] =\langle \Sigma i: False : xs~!!~i \rangle$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$sum.[] = 0$$
+
+Caso inductivo: $xs = y\triangleright ys$
+$$HI = \boxed{sum.ys =\langle \Sigma i: 0 \leq i < \#ys : ys~!!~i \rangle}$$
+
+$$sum.(y\triangleright ys) =\langle \Sigma i: 0 \leq i < \#(y\triangleright ys) : (y\triangleright ys)~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$sum.(y\triangleright ys) =\langle \Sigma i: 0 \leq i < 1 + \#ys : (y\triangleright ys)~!!~i \rangle$$
+$$\equiv \{ \text{Cambio de variable f.x = x+1} \}$$
+$$sum.(y\triangleright ys) =\langle \Sigma i: 0 \leq i+1 < 1 + \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$sum.(y\triangleright ys) =\langle \Sigma i: i=0 \vee 1 \leq i+1 < 1 + \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$sum.(y\triangleright ys) =\langle \Sigma i: i=0 \vee 0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$sum.(y\triangleright ys) = \langle \Sigma i : i=0: (y\triangleright ys)~!!~i \rangle + \langle \Sigma i: 0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$sum.(y\triangleright ys) = (y\triangleright ys)~!!~0 + \langle \Sigma i: 0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de ~!!~} \}$$
+$$sum.(y\triangleright ys) = y + \langle \Sigma i: 0 \leq i < \#ys : ys~!!~i \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$sum.(y\triangleright ys) = y + sum.ys$$
+
+2)
+b)
+$iga.e.xs = \langle \forall i : 0 \leq i < \#xs : xs~!!~i = e \rangle$
+
+Caso Base: xs = []
+$iga.e.[] = \langle \forall i : 0 \leq i < \#[] : []~!!~i = e \rangle$
+$$\equiv \{ \text{Def de \#} \}$$
+$iga.e.[] = \langle \forall i : 0 \leq i < 0 : []~!!~i = e \rangle$
+$$\equiv \{ \text{Evaluamos rango} \}$$
+$iga.e.[] = \langle \forall i :False: []~!!~i = e \rangle$
+$$\equiv \{ \text{Rango vacio} \}$$
+iga.e.[] = True
+
+Caso Inductivo: $xs = y\triangleright ys$
+$$HI = \boxed{iga.e.ys = \langle \forall i : 0 \leq i < \#ys : ys~!!~i = e \rangle}$$
+$$iga.e.(y\triangleright ys) = \langle \forall i : 0 \leq i < \#(y\triangleright ys) : (y\triangleright ys)~!!~i = e \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$iga.e.(y\triangleright ys) = \langle \forall i : 0 \leq i < 1+\#ys : (y\triangleright ys)~!!~i = e \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$iga.e.(y\triangleright ys) = \langle \forall i : i=0 \vee 1 \leq i < 1+\#ys : (y\triangleright ys)~!!~i = e \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$iga.e.(y\triangleright ys) =\langle \forall i : i=0: (y\triangleright ys)~!!~i = e \rangle \wedge  \langle \forall i :1 \leq i < 1+\#ys : (y\triangleright ys)~!!~i = e \rangle$$
+$$\equiv \{ \text{Cambio de variable f.x=x+1} \}$$
+$$iga.e.(y\triangleright ys) =\langle \forall i:i=0:(y\triangleright ys)~!!~i =e \rangle\wedge\langle \forall i :1 \leq i+1 < 1+\#ys : (y\triangleright ys)~!!~i+1 = e \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$iga.e.(y\triangleright ys) =\langle \forall i:i=0:(y\triangleright ys)~!!~i =e \rangle\wedge\langle \forall i :0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 = e \rangle$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$iga.e.(y\triangleright ys) =((y\triangleright ys)~!!~0 = e) \wedge\langle \forall i :0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 = e \rangle$$
+$$\equiv \{ \text{Def de ~!!~} \}$$
+$$iga.e.(y\triangleright ys) = (y = e) \wedge\langle \forall i :0 \leq i < \#ys : ys~!!~i = e \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$iga.e.(y\triangleright ys) = (y = e) \wedge iga.e.ys$$
+
+d) $sumPar.n = \langle \Sigma i: 0 \leq i \leq n \wedge par.i : i \rangle$
+Caso base: n = 0
+$$sumPar.0 = \langle \Sigma i: 0 \leq i \leq 0 \wedge par.i : i \rangle$$
+$$\equiv \{ \text{Evaluo rango} \}$$
+$$\equiv \{ \text{rango unitario y condicion} \}$$
+$$(par.i \rightarrow 0 \quad \square \neg par.i \rightarrow 0)$$
+$$\equiv \{ \text{Ambos casos comparten resultado} \}$$
+  $$0$$
+
+Caso inductivo: n = m + 1
+$$HI = \boxed{sumPar.m = \langle \Sigma i: 0 \leq i \leq m \wedge par.i : i \rangle}$$
+$$sumPar.(m+1) = \langle \Sigma i: 0 \leq i \leq (m+1) \wedge par.i : i \rangle$$
+$$\equiv \{ \text{Aritmética} \}$$
+$$\equiv \{ \text{Distributiva de $\wedge$ con $\vee$} \}$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle \Sigma i : i=m+1 \wedge par.i:i \rangle + \langle \Sigma i: 0 \leq i \leq m \wedge par.i : i \rangle$$
+$$\equiv \{ \text{Cambio de variable f.x=x+1} \}$$
+$$\equiv \{ \text{Rango unitario y condicion} \}$$
+$$\equiv \{ \text{HI} \}$$
+$$[par.(m+1) \rightarrow m+1 ~|~ \neg par.(m+1) \rightarrow 0] + sumPar.m$$
+$$\equiv \{ \text{Incluyo a la funcion en el analisis por casos} \}$$
+$$[par.(m+1) \rightarrow m+1 + sumPar.m ~|~ \neg par.(m+1) \rightarrow 0 + sumPar.m ]$$
+\begin{equation*}
+\begin{aligned}
+  sumPar.(m+1) = &(\\
+  &par.(m+1) \rightarrow (m+1) + sumPar.m\\
+  &\square \neg par.(m+1) \rightarrow sumPar.m\\
+  )
+\end{aligned}
+\end{equation*}
+
+4)
+a)
+$$sumPot.x.n = \langle \Sigma i: 0 \leq i < n : x^i \rangle$$
+
+ Caso base: n=0
+$$\langle \Sigma i: 0 \leq i < 0 : x^i \rangle$$
+$$\equiv \{ \text{Evaluo rango, rango Vacio} \}$$
+$$0$$
+
+Caso inductivo: n=k+1
+$$HI = \boxed{sumPot.x.k = \langle \Sigma i: 0 \leq i < k : x^i \rangle}$$
+$$sumPot.x.(k+1) = \langle \Sigma i: 0 \leq i < (k+1) : x^i \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle \Sigma i: 0 \leq i < k \vee i=k : x^i \rangle$$
+$$\equiv \{ \text{Particion de rango, conmutatividad y rango unitario} \}$$
+$$x^k+\langle \Sigma i: 0 \leq i < k : x^i \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$x^k+sumPot.x.k$$
+
+Ahora derivemos $x^k$ para obtener algo programable
+$$exp.x.k = x^k$$
+
+Caso base: k=0
+$$exp.x.0 = x^0$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$exp.x.0 = 1$$
+
+Caso inductivo: k=n+1
+$$HI = \boxed{exp.x.n = x^n}$$
+$$exp.x.(n+1) = x^{(n+1)}$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$exp.x.(n+1) = x * x^n $$
+$$\equiv \{ \text{HI} \}$$
+$$exp.x.(n+1) = x * exp.x.n $$
+
+Resultado final:
+$$sumPot.x.0 = 0$$
+$$sumPot.x.(k+1) = exp.x.k + sumPot.x.k$$
+
+c)
+$$cubo.x = x^3$$
+
+Caso base: x=0
+$$cubo.x = 0$$
+
+Paso inductivo: x=n+1
+$$cubo.(n+1) = (n+1)^3$$
+$$n^3 + 3n^2 + 3n + 1$$
+ $$\equiv \{ \text{HI} \}$$
+$$cubo.n + 3n^2 + 3n + 1$$
+$$\equiv \{ \text{Aritmetica y modularizacion} \}$$
+$$cubo.n + sumMult.3n.n + sumMult.3.n + 1$$
+
+$$sumMult.x.y = \langle \Sigma i: 1 \leq i \leq y: x \rangle$$
+
+Caso base: y=0
+$$sumMult.x.0 = 0$$
+
+Paso inductivo: $y=(n+1)$
+$$Hi = sumMult.x.n = \langle \Sigma i: 1 \leq i \leq n : x \rangle$$ 
+
+$$sumMult.x.(n+1) =$$ 
+$$\langle \Sigma i: 1 \leq i \leq (n+1): x \rangle$$
+$$\equiv \{ \text{Aritmetica, particion de rango, rango unitario} \}$$
+$$x + \langle \Sigma i: 1 \leq i \leq n: x \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$x+ sumMult.x.n$$
+
+Solucion:
+```
+cubo.0 = 0
+cubo.(n+1) = sumMult.3.(suMult.n.n) + sumMult.3.n + cubo.n
+  donde
+    sumMult.x.0 = 0
+    sumMult.x.(n+1) = x+sumMult.x.n
+```
+
+5)
+a)
+iguales [A] -> Bool
+$$iguales.xs = \langle \forall i: 0 \leq i < \#xs-1: xs~!!~i == xs~!!~(i+1) \rangle$$
+
+Caso base: $xs=[]$
+$$iguales.[] =$$ 
+$$\langle \forall i: 0 \leq i < \#[]-1: x~!!~i == x~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Def \#} \}$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$True$$
+
+Caso recursivo: $xs = x\triangleright ls$
+i) $ls = []$
+$$iguales.(x\triangleright []) = \langle \forall i: 0 \leq i < \#(x\triangleright [])-1: (x\triangleright [])~!!~i == (x\triangleright [])~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Def de \# y aritmetica} \}$$
+$$iguales.(x\triangleright []) = \langle \forall i: 0 \leq i < 0: (x\triangleright [])~!!~i == (x\triangleright [])~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$iguales.(x\triangleright []) = True$$
+
+ii) $ls = y\triangleright ys$
+$$HI = iguales.(y\triangleright ys) = \langle \forall i: 0 \leq i < \#(y\triangleright ys) -1: (y\triangleright ys)~!!~i == (y\triangleright ys)~!!~(i+1) \rangle$$
+$$iguales.(x\triangleright y\triangleright ys)=$$
+$$\langle \forall i: 0 \leq i < \#(x\triangleright y\triangleright ys)-1: (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Def de \# y aritmetica} \}$$
+$$\langle \forall i: 0 \leq i < \#(y\triangleright ys): (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle \forall i: i=0:  (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle \wedge \\
+    \langle \forall i: 1 \leq i < \#(y\triangleright ys): (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Rango unitario y aritmetica} \}$$
+$$ (x\triangleright y\triangleright ys)~!!~0 == (x\triangleright y\triangleright ys)~!!~1 \wedge \\
+      \langle \forall i: 1 \leq i < \#(y\triangleright ys): (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$ x == y \wedge \langle \forall i: 1 \leq i < \#(y\triangleright ys): (x\triangleright y\triangleright ys)~!!~i == (x\triangleright y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{Cambio de variable f.x=x+1} \}$$
+$$ x == y \wedge \langle \forall i: 1 \leq i+1 < \#(y\triangleright ys): (x\triangleright y\triangleright ys)~!!~i+1 == (x\triangleright y\triangleright ys)~!!~(i+1+1) \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$ x == y \wedge \langle \forall i: 0 \leq i < \#(y\triangleright ys)-1: (x\triangleright y\triangleright ys)~!!~i+1 == (x\triangleright y\triangleright ys)~!!~(i+1+1) \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$ x == y \wedge \langle \forall i: 0 \leq i < \#(y\triangleright ys)-1: (y\triangleright ys)~!!~i == (y\triangleright ys)~!!~(i+1) \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$x == y \wedge iguales.(y\triangleright ys)$$
+
+b) $minimo.xs = \langle Min i: 0 \leq i < \#xs : xs~!!~i \rangle$
+
+Caso base: $xs = x\triangleright []$
+$$minimo.x\triangleright []$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min i: 0 \leq i < \#x\triangleright [] : x\triangleright []~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$\langle Min i: 0 \leq i < 1 : x\triangleright []~!!~i \rangle$$
+$$\equiv \{ \text{Evaluo rango} \}$$
+$$\langle Min i: i=0 : x\triangleright []~!!~i \rangle$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$x\triangleright []~!!~0$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$x$$
+
+Caso recursivo: $xs = (y\triangleright ys)$
+$$HI = minimo.ys = \langle Min i: 0 \leq i < \#ys : ys~!!~i \rangle$$
+
+$$minimo.(y\triangleright ys)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min i: 0 \leq i < \#(y\triangleright ys) : (y\triangleright ys)~!!~i \rangle$$
+$$\equiv \{ \text{Aritmetica, separacion de rango, rango unitario} \}$$
+$$(y\triangleright ys)~!!~0 ~min~ \langle Min~i: 1 \leq i < \#(y\triangleright ys) : (y\triangleright ys)~!!~i \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$y~min~ \langle Min~i: 1 \leq i < \#(y\triangleright ys) : (y\triangleright ys)~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$\equiv \{ \text{Cambio de variable f.x=x+1} \}$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$y~min~ \langle Min~i: 0 \leq i < \#ys : (y\triangleright ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$y~min~ \langle Min~i: 0 \leq i < \#ys : ys~!!~i \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$y~ min~ minimo.ys$$
+
+c) $creciente.xs = \langle \forall i: 0 \leq i < \#xs-1 : xs~!!~i < xs~!!~i+1 \rangle$
+
+Caso base: $xs = []$
+
+$$creciente.(x\triangleright [])$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \forall i: 0 \leq i < \#[]-1 : []~!!~i < []~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de \# y evaluo rango} \}$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$True$$
+
+Caso recursivo: $xs = (x\triangleright ls)$
+
+i) $ls = []$
+$$creciente.(x\triangleright [])$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \forall i: 0 \leq i < \#(x\triangleright [])-1 : (x\triangleright [])~!!~i < (x\triangleright [])~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de \# y evaluo rango} \}$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$True$$
+
+\newpage
+ii) $ls = y\triangleright ys$
+$$HI = creciente.(y:ys) = \langle \forall i: 0 \leq i < \#(y:ys)-1: (y:ys)~!!~i < (y:ys)~!!~i+1 \rangle$$
+$$creciente.(x\triangleright y\triangleright ys)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \forall i: 0 \leq i < \#(x:y:ys)-1 : (x:y:ys)~!!~i < (x:y:ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de \# y aritmetica} \}$$
+$$\langle \forall i: 0 \leq i < (y:ys) : (x:y:ys)~!!~i < (x:y:ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Aritmetica, particion de rango, rango unitario} \}$$
+$$(x:y:ys)~!!~0 < (x:y:ys)~!!~1 \wedge
+      \langle \forall i: 1 \leq i < (y:ys) : (x:y:ys)~!!~i < (x:y:ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$x < y \wedge \langle \forall i: 1 \leq i < (y:ys) : (x:y:ys)~!!~i < (x:y:ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Cambio de variable f.x=x+1} \}$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$x < y \wedge \langle \forall i: 0 \leq i < (y:ys)-1 : (x:y:ys)~!!~i+1 < (x:y:ys)~!!~i+1+1 \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$x < y \wedge \langle \forall i: 0 \leq i < (y:ys)-1 : (y:ys)~!!~i < (y:ys)~!!~i+1 \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$x < y \wedge creciente.(y:ys)$$

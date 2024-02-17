@@ -1,0 +1,379 @@
+\newcommand{\concat}{%
+  \mathbin{{+}\mspace{-8mu}{+}}%
+}
+
+8 ) b )
+$maxLongEq2.e.xs = \langle Max~bs,cs : xs = bs \concat cs \wedge iga.e.bs: \#bs \rangle$
+
+Caso base: $xs := []$
+$$maxLongEq2.e.[]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~bs,cs : [] = bs \concat cs \wedge iga.e.bs: \#bs \rangle$$
+$$\equiv \{ \text{Ya estoy podrido así que: magia negra y metafísica} \}$$
+$$0$$
+
+Caso inductivo: $xs:= (x:xs)$
+
+$HI = maxLongEq2.e.xs = \langle Max~bs,cs : xs = bs \concat cs \wedge iga.e.bs: \#bs \rangle$
+
+$$maxLongEq2.e.(x:xs)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~bs,cs : (x:xs) = bs \concat cs \wedge iga.e.bs: \#bs \rangle$$
+$$\equiv \{ \text{Magia negra y metafisica} \}$$
+$$\langle Max~bs,cs : (x:xs) = bs \concat cs \wedge iga.e.bs \wedge bs=[]: \#bs \rangle max maxLongEq2.e.xs$$
+$$\equiv \{ \text{Eliminacion de variable bs} \}$$
+$$\langle Max~cs : (x:xs) = [] \concat cs \wedge iga.e.bs : \#[] \rangle max maxLongEq2.e.xs$$
+$$\equiv \{ \text{Termino constante y def de \#} \}$$
+$$0~max~ maxLongEq2.e.xs$$
+
+Resultado final:
+``` 
+maxLongEq.e.[] = 0
+maxLongEq.e.(x:xs) = maxLongEq2.e.(x:xs) max maxLongEq.e.xs
+  where
+    maxLongEq2.e.[] = 0
+    maxLongEq2.e.(x:xs) = 0 max maxLongEq2.e.xs
+``` 
+CORREGIR
+\newpage
+9 )
+
+**a )**
+
+**Tipo**: g :: [Int] -> Int
+
+**Descripcion**: Funcion que devuelve el mayor numero resultante de sumar dos elementos 
+de una lista.
+
+**b )**
+$h.xs = \langle N~k: 0 \leq k < \#xs : \langle \forall i : 0 \leq i < k : xs~!!~i < xs~!!~k \rangle \rangle$
+
+**Definicion alternativa**: 
+$$h.xs = \langle N~as,bs : xs = as\concat bs : \langle \forall i: 0 \leq i < \#as-1 : as~!!~i < as~!!~(\#as-1)  \rangle \rangle$$
+
+**Tipo**: h :: (Ord a) => [a] -> Int
+
+**Descripcion**: Cantidad de prefijos de xs que cumplen que todos los elementos que no estén en el ultimo lugar del prefijo son menores al elemento en el ultimo lugar del prefijo.
+
+**Otra descripcion**: Cantidad de prefijos de xs que cumplen que el ultimo elemento del prefijo es el elemento más grande
+
+
+
+**c )**
+$k.xs = \langle \forall i,j : 0 \leq i \wedge 0\leq j \wedge i+j = \#xs-1 : xs~!!~i = xs~!!~j \rangle$
+
+**Tipo**: k:: (Eq a) => [a] -> Bool
+
+**Descripcion**: La lista xs es un palindromo.\
+
+
+**d )**
+$l.xs = \langle Max~p,q : 0 \leq p \leq q < \#xs \wedge \langle \forall i : p \leq i < q : xs~!!~i \geq 0 \rangle : q-p \rangle$
+
+**Definicion alternativa**:
+$$l.xs =\langle Max~as,bs,cs : xs=as\concat bs\concat cs \wedge \langle \forall i: 0 \leq i < \#bs : bs~!!~i \geq 0 \rangle : \#bs \rangle$$
+
+**Tipo**: l:: [Int] -> Int
+
+**Descripcion**: El largo del mayor segmento de xs para el cual se cumpla
+que todos sus elementos son mayores o iguales a 0
+
+Evaluaciones manuales:
+
+b ) 
+Evaluacion manual: $xs = [1,2,3,4]$
+$$h.[1,2,3,4]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle N~k: 0 \leq k < \#[1,2,3,4] : \langle \forall i : 0 \leq i < k : [1,2,3,4]~!!~i < [1,2,3,4]~!!~k \rangle \rangle$$
+$$\langle N~k: 0 \leq k < 4 : \langle \forall i : 0 \leq i < k : [1,2,3,4]~!!~i < [1,2,3,4]~!!~k \rangle \rangle$$
+$$\langle N~k: k \in \{0,1,2,3\} : \langle \forall i : 0 \leq i < k : [1,2,3,4]~!!~i < [1,2,3,4]~!!~k \rangle \rangle$$
+$$\equiv \{ \text{Evaluo termino en el rango} \}$$
+$$\langle \forall i : 0 \leq i < 0 : [1,2,3,4]~!!~i < [1,2,3,4]~!!~0 \rangle +$$
+$$\langle \forall i : 0 \leq i < 1 : [1,2,3,4]~!!~i < [1,2,3,4]~!!~1 \rangle +$$
+$$\langle \forall i : 0 \leq i < 2 : [1,2,3,4]~!!~i < [1,2,3,4]~!!~2 \rangle +$$
+$$\langle \forall i : 0 \leq i < 3 : [1,2,3,4]~!!~i < [1,2,3,4]~!!~3 \rangle +$$
+$$\equiv \{ \text{Evaluo indexacion} \}$$
+$$\langle \forall i : 0 \leq i < 0 : [1,2,3,4]~!!~i < 1 \rangle +$$
+$$\langle \forall i : 0 \leq i < 1 : [1,2,3,4]~!!~i < 2 \rangle +$$
+$$\langle \forall i : 0 \leq i < 2 : [1,2,3,4]~!!~i < 3 \rangle +$$
+$$\langle \forall i : 0 \leq i < 3 : [1,2,3,4]~!!~i < 4 \rangle +$$
+$$\equiv \{ \text{Evaluo Rangos} \}$$
+$$\langle \forall i : False : [1,2,3,4]~!!~i < 1 \rangle +$$
+$$\langle \forall i : i=0 : [1,2,3,4]~!!~i < 2 \rangle +$$
+$$\langle \forall i : i \in \{0,1\} : [1,2,3,4]~!!~i < 3 \rangle +$$
+$$\langle \forall i : i \in \{0,1,2\} : [1,2,3,4]~!!~i < 4 \rangle +$$
+$$\equiv \{ \text{Evaluo rango en termino} \}$$
+$$True +$$
+$$([1,2,3,4]~!!~0 < 2) +$$
+$$([1,2,3,4]~!!~0 < 3) \wedge ([1,2,3,4]~!!~1 < 3)$$
+$$([1,2,3,4]~!!~0 < 4) \wedge ([1,2,3,4]~!!~1 < 4) \wedge ([1,2,3,4]~!!~2 < 4)$$
+$$\equiv \{ \text{Evaluo indexaciones} \}$$
+$$True +$$
+$$(1 < 2) +$$
+$$(1 < 3) \wedge (2 < 3)$$
+$$(1 < 4) \wedge (2 < 4) \wedge (3 < 4)$$
+$$\equiv \{ \text{Logica} \}$$
+$$True +$$
+$$True +$$
+$$True \wedge True$$
+$$True \wedge True \wedge True$$
+$$\equiv \{ \text{Logica} \}$$
+$$True + True + True + True $$
+$$\equiv \{ \text{Cuantificador de conteo} \}$$
+$$1+1+1+1$$
+$$4$$
+
+
+
+
+$$\langle \forall i : 0 \leq i < k : xs~!!~i < xs~!!~k \rangle$$
+$$\equiv \{ \text{k:=3, xs:=[2,4,1,6]} \}$$
+$$\langle \forall i : 0 \leq i < 3 : [2,4,1,6]~!!~i < xs~!!~3 \rangle$$
+$$\langle \forall i : i \in \{0,1,2\}  : [2,4,1,6]~!!~i < 6 \rangle$$
+$$2 < 6 \wedge 4 < 6 \wedge 1 < 6$$
+$$True \wedge True \wedge True $$
+$$True$$
+
+c )
+Evaluacion manual:  $xs:=[1,0,0,1]$ 
+$$k.[1,0,0,1]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \forall i,j : 0 \leq i \wedge 0\leq j \wedge i+j = \#[1,0,0,1]-1 : [1,0,0,1]~!!~i = [1,0,0,1]~!!~j \rangle$$
+$$\langle \forall i,j : 0 \leq i \wedge 0\leq j \wedge i+j = 3 : [1,0,0,1]~!!~i = [1,0,0,1]~!!~j \rangle$$
+$$\equiv \{ \text{Evaluo rango} \}$$
+$$\langle \forall i,j : i,j \in \{(0,3),(1,2),(2,1),(3,0)\}  : [1,0,0,1]~!!~i = [1,0,0,1]~!!~j \rangle$$
+$$([1,0,0,1]~!!~0 = [1,0,0,1]~!!~3) \wedge ([1,0,0,1]~!!~1 = [1,0,0,1]~!!~2) \wedge ([1,0,0,1]~!!~2 = [1,0,0,1]~!!~1) \wedge ([1,0,0,1]~!!~3 = [1,0,0,1]~!!~0)$$
+$$\equiv \{ \text{Evaluo indexacion} \}$$
+$$(1 = 1) \wedge (0 = 0) \wedge (0 = 0) \wedge (1 = 1)$$
+$$True \wedge True \wedge True \wedge True$$
+$$True$$ 
+
+10 )
+
+$g.xs = \langle Max~p,q : 0 \leq p < q < \#xs : xs~!!~p + xs~!!~q \rangle$
+
+Caso base: $xs:=[]$
+$$g.[]$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~p,q : 0 \leq p < q < \#[] : []~!!~p + []~!!~q \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$\langle Max~p,q : 0 \leq p < q < 0 : []~!!~p + []~!!~q \rangle$$
+$$\equiv \{ \text{Evaluo Rango} \}$$
+$$\langle Max~p,q : False : []~!!~p + []~!!~q \rangle$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$-\infty$$
+
+Caso inductivo: $xs:=(x:xs)$
+
+$HI = g.xs = \langle Max~p,q : 0 \leq p < q < \#xs : xs~!!~p + xs~!!~q \rangle$
+
+$$g.(x:xs)$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~p,q : 0 \leq p < q < \#(x:xs) : (x:xs)~!!~p + (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Def de \#} \}$$
+$$\langle Max~p,q : 0 \leq p < q < \#xs+1 : (x:xs)~!!~p + (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle Max~p,q : (p=0 \wedge p < q < \#xs+1) \vee (1 \leq p < q < \#xs+1) : (x:xs)~!!~p + (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle Max~p,q : (p=0 \wedge p < q < \#xs+1) : (x:xs)~!!~p + (x:xs)~!!~q \rangle ~max$$
+$$\langle Max~p,q : (1 \leq p < q < \#xs+1) : (x:xs)~!!~p + (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Llamemos X a la primer expresion cuantificada} \}$$
+$$X~max~\langle Max~p,q : (1 \leq p < q < \#xs+1) : (x:xs)~!!~p + (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Cambio de variable p->p+1, q->q+1} \}$$
+$$X~max~\langle Max~p,q : (1 \leq p+1 < q+1 < \#xs+1) : (x:xs)~!!~p+1 + (x:xs)~!!~q+1 \rangle$$
+$$\equiv \{ \text{Aritmetica y def de !!} \}$$
+$$X~max~\langle Max~p,q : 0 \leq p < q < \#xs : xs~!!~p + xs~!!~q \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$X~max~g.xs$$
+ $$\equiv \{ \text{Ahora reemplacemos X por la expresion original} \}$$
+$$\langle Max~p,q : (p=0 \wedge p < q < \#xs+1) : (x:xs)~!!~p + (x:xs)~!!~q \rangle ~max~ g.xs$$
+$$\equiv \{ \text{Eliminacion de variable} \}$$
+$$\langle Max~q : 0 < q < \#xs+1 : (x:xs)~!!~0 + (x:xs)~!!~q \rangle ~max~ g.xs$$
+$$\equiv \{ \text{Def de !! y aritmetica} \}$$
+$$\langle Max~q : 1 \leq q < \#xs+1 : x + (x:xs)~!!~q \rangle ~max~ g.xs$$
+$$\equiv \{ \text{Cambio de variable q->q+1, aritmetica y def de !!} \}$$
+$$\langle Max~q : 0 \leq q < \#xs : x + xs~!!~q \rangle ~max~ g.xs$$
+$$\equiv \{ \text{Distributividad} \}$$
+$$(\langle Max~q : 0 \leq q < \#xs : xs~!!~q \rangle + x) ~max~ g.xs$$
+$$\equiv \{ \text{Modularizamos} \}$$
+$$maxLista.xs + x~max~ g.xs$$
+
+Resultado parcial:
+``` 
+g.[] = -infinity
+g.(x:xs) = (maxLista.xs + x) `max` g.xs
+``` 
+
+Ahora derivemos maxLista:
+
+$maxLista.xs = \langle Max~q : 0 \leq q < \#xs : xs~!!~q \rangle$
+
+Caso base: $xs:=[]$
+$$maxLista.[]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~q : 0 \leq q < \#[] : []~!!~q \rangle$$
+$$\equiv \{ \text{Def de \#, evaluo rango, rango vacio} \}$$
+$$-\infty$$
+
+Caso inductivo: $xs:=(x:xs)$
+
+$HI = maxLista.xs = \langle Max~q : 0 \leq q < \#xs : xs~!!~q \rangle$
+
+$$maxLista.(x:xs)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Max~q : 0 \leq q < \#(x:xs) : (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Def de \#, aritmetica} \}$$
+$$\langle Max~q : q=0 \vee 1 \leq q < \#xs+1 : (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Particion de rango, rango unitario} \}$$
+$$(x:xs)~!!~0 ~max~\langle Max~q : 1 \leq q < \#xs+1 : (x:xs)~!!~q \rangle$$
+$$\equiv \{ \text{Cambio de variable q->q+1, aritmetica, def de !!} \}$$
+$$x~max~ \langle Max~q : 0 \leq q < \#xs : xs~!!~q \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$x~max~maxLista.xs$$
+
+Resultado final de la derivacion:
+```
+g.[] = -infinity
+g.(x:xs) = (maxLista.xs + x) `max` g.xs
+  where
+    maxLista.[] = -infinity
+    maxLista.(x:xs) = x max maxLista.xs
+```
+
+11 )
+
+$f.xs.ys = \langle Min~i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#ys : |xs~!!~i - ys~!!~j|  \rangle$
+
+Caso base:
+i ) $xs:=[]$
+
+$$f.[].ys$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min~i,j : 0 \leq i < \#[] \wedge 0 \leq j < \#ys : |[]~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Def de \#, evaluo rango} \}$$
+$$\langle Min~i,j : False \wedge 0 \leq j < \#ys : |[]~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Elemento absorbente de la conjuncion} \}$$
+$$\langle Min~i,j : False : |[]~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$+\infty$$
+ 
+ii ) $ys:=[]$
+
+$$f.xs.[]$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min~i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#[] : |xs~!!~i - []~!!~j|  \rangle$$
+$$\equiv \{ \text{Def de \#, evaluo rango} \}$$
+$$\equiv \{ \text{Elemento absorbente de la conjuncion} \}$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$+\infty$$
+
+Caso inductivo: $xs:=(x:xs)$
+
+$HI = f.xs.ys = \langle Min~i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#ys : |xs~!!~i - ys~!!~j|  \rangle$
+
+$$f.(x:xs).ys$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min~i,j : 0 \leq i < \#(x:xs) \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Def de \#, aritmetica} \}$$
+$$\langle Min~i,j : (i=0 \vee 1 \leq i < \#xs+1) \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Distributividad conjuncion disyuncion} \}$$
+$$\langle Min~i,j : (i=0 \wedge 0 \leq j < \#ys) \vee (1 \leq i < \#xs+1 \wedge 0 \leq j < \#ys)  : |(x:xs)~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle Min~i,j : i=0 \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle ~min$$
+$$\langle Min~i,j : 1 \leq i < \#xs+1 \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Llamemos X a la primer expresion cuantificada y trabajemos sobre la segunda expresion} \}$$
+$$X~min~\langle Min~i,j : 1 \leq i < \#xs+1 \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{Cambio de variable i->i+1, aritmetica y def de !!} \}$$
+$$X~min~\langle Min~i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#ys : |xs~!!~i - ys~!!~j|  \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$X~min~f.xs.ys$$
+$$\equiv \{ \text{Ahora reemplacemos X por la expresion original} \}$$
+$$\langle Min~i,j : i=0 \wedge 0 \leq j < \#ys : |(x:xs)~!!~i - ys~!!~j|  \rangle ~min~f.xs.ys$$
+$$\equiv \{ \text{Eliminacion de variable i} \}$$
+$$\langle Min~j : 0 \leq j < \#ys : |(x:xs)~!!~0 - ys~!!~j|  \rangle ~min~f.xs.ys$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$\langle Min~j : 0 \leq j < \#ys : |x - ys~!!~j|  \rangle ~min~f.xs.ys$$
+$$\equiv \{ \text{Modularizacion} \}$$
+$$distancia.x.ys~min~f.xs.ys$$
+
+Ahora derivemos distancia:
+
+$distancia.x.ys = \langle Min~j : 0 \leq j < \#ys : |x - ys~!!~j|$
+
+Caso base: $ys=[]$
+$$distancia.x.[]$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min~j : 0 \leq j < \#[] : |x - []~!!~j|$$
+$$\equiv \{ \text{Def de \#, evaluo rango, rango vacio} \}$$
+$$+\infty$$
+
+Caso inductivo:
+
+$HI = distancia.x.ys = \langle Min~j : 0 \leq j < \#ys : |x - ys~!!~j|$
+
+$$distancia.x.(y:ys)$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle Min~j : 0 \leq j < \#(y:ys) : |x - (y:ys)~!!~j| \rangle$$
+$$\equiv \{ \text{Def de \#, aritmetica, particion de rango} \}$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$|x-(y:ys)~!!~0|~min~\langle Min~j : 1 \leq j < \#ys+1 : |x - (y:ys)~!!~j| \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$|x-y|~min~\langle Min~j : 1 \leq j < \#ys+1 : |x - (y:ys)~!!~j| \rangle$$
+$$\equiv \{ \text{Cambio de variable: i->i+1, aritmetica y def de !!} \}$$
+$$|x-y|~min~\langle Min~j : 0 \leq j < \#ys : |x - ys~!!~j| \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$|x-y|~min~distancia.x.ys$$
+
+Resultado final de la derivacion:
+```
+f.[].ys = +infinity
+f.(x:xs) = distancia.x.ys min f.xs.ys
+  where
+    distancia.x.[] = +infinity
+    distancia.x.(y:ys) = |x-y| min distancia.x.ys
+```
+
+12 )
+
+$lex.xs.ys = \langle \exists as,bs,c,cs : xs = as \concat bs \wedge ys = as \concat (c:cs) : bs = [] \vee bs~!!~0 \prec c \rangle$
+\newpage
+Evaluacion manual: $xs:="fa", ys:="fase"$
+
+$$lex."fa"."fase"$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists as,bs,c,cs : "fa" = as \concat bs \wedge "fase" = as \concat (c:cs) : bs = [] \vee bs~!!~0 \prec c \rangle$$
+$$\equiv \{ \text{Evaluo rango} \}$$
+
+| bs | c |Termino|Evaluacion|
+|:--:|:-:|:-----:|:--------:|
+|[]  |f  |True   | True
+|[]  |a  |True   | True
+|[]  |s  |True   | True
+|[]  |e  |True   | True
+|[a] |f  |$a \prec f$| True
+|[a] |a  |$a \prec a$| False
+|[a] |s  |$a \prec s$| True
+|[a] |e  |$a \prec e$| True
+|[fa]|f  |$f \prec f$| False
+|[fa]|a  |$f \prec a$| False
+|[fa]|s  |$f \prec s$| True
+|[fa]|e  |$f \prec e$| False
+
+$$bs \in \{[], a, fa\}, c \in \{f,a,s,e\} $$
+
+
+
+
+\newpage
+
+Caso base:
+$$lex.xs.ys$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists as,bs,c,cs : xs = as \concat bs \wedge ys = as \concat (c:cs) : bs = [] \vee bs~!!~0 \prec c \rangle$$
+
+Caso inductivo:
+$HI = lex.xs.ys = \langle \exists as,bs,c,cs : xs = as \concat bs \wedge ys = as \concat (c:cs) : bs = [] \vee bs~!!~0 \prec c \rangle$
+
+$$lex.xs.ys$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists as,bs,c,cs : xs = as \concat bs \wedge ys = as \concat (c:cs) : bs = [] \vee bs~!!~0 \prec c \rangle$$

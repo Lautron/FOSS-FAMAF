@@ -1,0 +1,165 @@
+# Ejs Práctico 5 #
+
+1) 
+a)
+
+Primer programa:
+
+$Var~i,r:~Int;$\
+$\ell_{1}\quad i,r := 0,0;$\
+$\ell_{2}\quad do~i \leq N \rightarrow$\
+$\ell_{3}\quad \quad r := r + i;$\
+$\ell_{4}\quad \quad i := i + 1;$\
+$\ell_{5}\quad od$\
+
+Segundo programa:
+
+$Var~r:Int;$\
+$\ell_{1}\quad r:=N*(N+1)/2$\
+
+b) Tablas de estados:
+
+Primer programa:
+
+|    linea   | nombre del estado |            estado/guardas            |   aclaracion   |
+|:----------:|:-----------------:|:------------------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |             $N\mapsto 3$             | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   | $N\mapsto 3, i\mapsto 0, r\mapsto 0$ |                |
+| $\ell_{2}$ |                   |                 True                 |  Evaluo guarda |
+| $\ell_{3}$ |    $\sigma_{2}$   | $N\mapsto 3, i\mapsto 0, r\mapsto 0$ |                |
+| $\ell_{4}$ |    $\sigma_{3}$   | $N\mapsto 3, i\mapsto 1, r\mapsto 0$ |                |
+| $\ell_{2}$ |                   |                 True                 |  Evaluo guarda |
+| $\ell_{3}$ |    $\sigma_{4}$   | $N\mapsto 3, i\mapsto 1, r\mapsto 1$ |                |
+| $\ell_{4}$ |    $\sigma_{5}$   | $N\mapsto 3, i\mapsto 2, r\mapsto 1$ |                |
+| $\ell_{2}$ |                   |                 True                 |  Evaluo guarda |
+| $\ell_{3}$ |    $\sigma_{4}$   | $N\mapsto 3, i\mapsto 2, r\mapsto 3$ |                |
+| $\ell_{4}$ |    $\sigma_{5}$   | $N\mapsto 3, i\mapsto 3, r\mapsto 3$ |                |
+| $\ell_{2}$ |                   |                 True                 |  Evaluo guarda |
+| $\ell_{3}$ |    $\sigma_{4}$   | $N\mapsto 3, i\mapsto 3, r\mapsto 6$ |                |
+| $\ell_{4}$ |    $\sigma_{5}$   | $N\mapsto 3, i\mapsto 4, r\mapsto 6$ |                |
+| $\ell_{2}$ |                   |                 False                |  Evaluo guarda |
+
+\newpage
+
+Segundo Programa:
+
+|    linea   | nombre del estado |      estado/guardas      |   aclaracion   |
+|:----------:|:-----------------:|:------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |       $N\mapsto 3$       | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   | $N\mapsto 3, r\mapsto 6$ |  Estado final  |
+
+c) Si, el valor final de las variables depende de su valor inicial.
+
+2)
+
+a)
+
+$Var~r, i:Int$\
+$\ell_{1}\quad i,r := 1,1;$\
+$\ell_{2}\quad do~i \leq N \rightarrow$\
+$\ell_{3}\quad \quad r = r*i;$\
+$\ell_{4}\quad \quad i = i + 1;$\
+$\ell_{5}\quad od$\
+
+b)
+
+$Var~r, i:Int$\
+$\ell_{1}\quad i,r := 1,1;$\
+$\ell_{2}\quad do~i \leq N \rightarrow$\
+$\ell_{3}\quad \quad r = i*r;$\
+$\ell_{4}\quad \quad i = i + 1;$\
+$\ell_{5}\quad od$\
+
+\newpage
+
+c)
+
+|    linea   | nombre del estado |             estado/guardas             |   aclaracion   |
+|:----------:|:-----------------:|:--------------------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |              $N\mapsto 5$              | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   |        $N\mapsto 5, i\mapsto 1$        |                |
+| $\ell_{2}$ |    $\sigma_{2}$   |  $N\mapsto 5, i\mapsto 1, r\mapsto 5$  |                |
+| $\ell_{3}$ |                   |                  True                  |  Evaluo guarda |
+| $\ell_{4}$ |    $\sigma_{3}$   |  $N\mapsto 5, i\mapsto 1, r\mapsto 20$ |                |
+| $\ell_{5}$ |    $\sigma_{4}$   |  $N\mapsto 5, i\mapsto 2, r\mapsto 20$ |                |
+| $\ell_{3}$ |                   |                  True                  |  Evaluo guarda |
+| $\ell_{4}$ |    $\sigma_{5}$   |  $N\mapsto 5, i\mapsto 2, r\mapsto 60$ |                |
+| $\ell_{5}$ |    $\sigma_{6}$   |  $N\mapsto 5, i\mapsto 3, r\mapsto 60$ |                |
+| $\ell_{3}$ |                   |                  True                  |  Evaluo guarda |
+| $\ell_{4}$ |    $\sigma_{7}$   | $N\mapsto 5, i\mapsto 3, r\mapsto 120$ |                |
+| $\ell_{5}$ |    $\sigma_{8}$   | $N\mapsto 5, i\mapsto 4, r\mapsto 120$ |                |
+| $\ell_{3}$ |                   |                  True                  |  Evaluo guarda |
+| $\ell_{4}$ |    $\sigma_{9}$   | $N\mapsto 5, i\mapsto 4, r\mapsto 120$ |                |
+| $\ell_{5}$ |   $\sigma_{10}$   | $N\mapsto 5, i\mapsto 5, r\mapsto 120$ |  Estado final  |
+| $\ell_{3}$ |                   |                  False                 |  Evaluo guara  |
+
+3)
+
+a)
+$Var~i,p,m:Int$\
+$\ell_{1}\quad i,p,m := N,0,0;$\
+$\ell_{2}\quad do~i < M \rightarrow$\
+$\ell_{3}\quad \quad if~ i \% 2 == 0 \rightarrow$\
+$\ell_{4}\quad \quad \quad p := p + i;$\
+$\ell_{5}\quad \quad if~i \% 3 == 0 \rightarrow$\
+$\ell_{6}\quad \quad \quad m := m + i;$\
+$\ell_{7}\quad \quad i:= i+1$\
+$\ell_{8}\quad od$\
+
+\newpage
+
+b)
+
+|    linea   | nombre del estado |              estado/guardas             |   aclaracion   |
+|:----------:|:-----------------:|:---------------------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |        $N\mapsto 25, M\mapsto 30$       | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   |  $i\mapsto 25, p\mapsto 0, m\mapsto 0$  |                |
+| $\ell_{2}$ |                   |                   True                  |  Evaluo guarda |
+| $\ell_{3}$ |                   |                  False                  |                |
+| $\ell_{5}$ |                   |                  False                  |                |
+| $\ell_{7}$ |    $\sigma_{2}$   |  $i\mapsto 26, p\mapsto 0, m\mapsto 0$  |                |
+| $\ell_{2}$ |                   |                   True                  |  Evaluo guarda |
+| $\ell_{3}$ |                   |                   True                  |                |
+| $\ell_{4}$ |    $\sigma_{3}$   |  $i\mapsto 26, p\mapsto 26, m\mapsto 0$
+| $\ell_{5}$ |                   |                  False                  |                |
+| $\ell_{7}$ |    $\sigma_{4}$   |  $i\mapsto 27, p\mapsto 26, m\mapsto 0$ |                |
+| $\ell_{2}$ |                   |                   True                  |  Evaluo guarda |
+| $\ell_{3}$ |                   |                  False                  |                |
+| $\ell_{5}$ |                   |                   True                  |                |
+| $\ell_{6}$ |    $\sigma_{5}$   | $i\mapsto 27, p\mapsto 26, m\mapsto 27$ |                |
+| $\ell_{7}$ |    $\sigma_{6}$   | $i\mapsto 28, p\mapsto 26, m\mapsto 27$ |                |
+| $\ell_{2}$ |                   |                   True                  |  Evaluo guarda |
+| $\ell_{3}$ |                   |                   True                  |                |
+| $\ell_{4}$ |    $\sigma_{7}$   | $i\mapsto 28, p\mapsto 54, m\mapsto 27$
+| $\ell_{5}$ |                   |                  False                  |                |
+| $\ell_{7}$ |    $\sigma_{8}$   | $i\mapsto 29, p\mapsto 54, m\mapsto 27$ |                |
+| $\ell_{2}$ |                   |                   True                  |  Evaluo guarda |
+| $\ell_{3}$ |                   |                  False                  |                |
+| $\ell_{5}$ |                   |                  False                  |                |
+| $\ell_{7}$ |    $\sigma_{2}$   | $i\mapsto 30, p\mapsto 54, m\mapsto 27$ |                |
+| $\ell_{2}$ |                   |                  False                  |  Evaluo guarda |
+
+4)
+
+a) Es correcta ya que \{P\} S \{True\} siempre vale si el programa termina. En este caso como la sentencia es una asignacion, podemos afirmar que termina, y por ende la terna es valida.
+ 
+b) La terna es valida ya que $x*x$ siempre da un resultado mayor o igual a 0.
+
+c) La terna es valida ya que $x*x$ siempre da un resultado mayor o igual a 0.
+
+d) La terna no es valida ya que $x*x$ siempre da un resultado mayor o igual a 0.
+
+e) La terna no es valida ya que $x*x$ siempre da un resultado mayor o igual a 0.
+
+f) La terna vale ya que $x*x$ siempre da un resultado mayor o igual a 0
+
+5) 
+
+a) $\{P\}~S~\{r:= \langle \Sigma i: 0 \leq i \leq n : i \rangle\}$
+
+b) No, ya que el programa no funciona con $x<0$.
+
+6) $\{N \geq 0\}~S~\{r = N!\}$
+
+
+

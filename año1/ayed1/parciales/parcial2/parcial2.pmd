@@ -1,0 +1,95 @@
+# Parcial 2 #
+
+1)
+
+|    linea   | nombre del estado |               estado/guardas              |   aclaracion   |
+|:----------:|:-----------------:|:-----------------------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $x \mapsto 20,r \mapsto 21,y \mapsto 22$ | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   |  $x \mapsto 20, r \mapsto 0,y \mapsto 1$  |                |
+| $\ell_{2}$ |                   |                   $True$                  |                |
+| $\ell_{3}$ |    $\sigma_{2}$   |  $x \mapsto 20, r \mapsto 1, y \mapsto 2$ |                |
+| $\ell_{2}$ |                   |                   $True$                  |                |
+| $\ell_{3}$ |    $\sigma_{3}$   |  $x \mapsto 20, r \mapsto 2, y \mapsto 4$ |                |
+| $\ell_{2}$ |                   |                   $True$                  |                |
+| $\ell_{3}$ |    $\sigma_{4}$   |  $x \mapsto 20, r \mapsto 3, y \mapsto 8$ |                |
+| $\ell_{2}$ |                   |                   $True$                  |                |
+| $\ell_{3}$ |    $\sigma_{5}$   | $x \mapsto 20, r \mapsto 4, y \mapsto 16$ |                |
+| $\ell_{2}$ |                   |                   $True$                  |                |
+| $\ell_{3}$ |    $\sigma_{6}$   | $x \mapsto 20, r \mapsto 5, y \mapsto 32$ |                |
+| $\ell_{2}$ |                   |                  $False$                  |                |
+| $\ell_{5}$ |    $\sigma_{7}$   | $x \mapsto 20, r \mapsto 5, y \mapsto 12$ |  Estado final  |
+
+
+2)
+\begin{align*}
+& \langle \Sigma i: 0\le i < N/2 : A.(2*i) \rangle\\
+& \equiv \{ \text{A=[1,2,3,4,5,6]} \}\\
+& \langle \Sigma i: 0\le i < 3 : A.(2*i) \rangle\\
+& \equiv \{ \text{Evaluo rango} \}\\
+& \langle \Sigma i: i \in \{0,1,2\}\quad : A.(2*i) \rangle\\
+& \equiv \{ \text{Evaluo termino con el rango} \}\\
+& A.(2*0) +\quad A.(2*1) + A.(2*2)\\
+& \equiv \{ \text{Aritmetica} \}\\
+& A.(0) +\quad A.(2) + A.(4)\\
+\end{align*}
+
+3)
+\begin{align*}
+& (n~mod~2 \equiv 0 \vee n~mod~3\equiv 0)\\
+& \wedge (n~mod~2 \equiv 0 \Rightarrow wp.(r,n:=r+1,n+1).(r=\langle N~i: 0\le i < n: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle))\\
+& \wedge (n~mod~3\equiv 0 \Rightarrow wp.(r,n:=r+1,n+1).(r=\langle N~i: 0\le i < n: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle)\\
+& \equiv \{ \text{Suponemos antecedente y demostramos consecuente} \}\\
+& (n~mod~2 \equiv 0 \vee n~mod~3\equiv 0)\\
+& \wedge wp.(r,n:=r+1,n+1).(r=\langle N~i: 0\le i < n: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle)\\
+& \wedge wp.(r,n:=r+1,n+1).(r=\langle N~i: 0\le i < n: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle\\
+& \equiv \{ \text{wp asignacion} \}\\
+& (n~mod~2 \equiv 0 \vee n~mod~3\equiv 0)\\
+& \wedge (r+1=\langle N~i: 0\le i < n+1: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle)\\
+& \wedge (r+1=\langle N~i: 0\le i < n+1: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle\\
+& \equiv \{ \text{Logica} \}\\
+& r=\langle N~i: 0\le i < n: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle\\
+\end{align*}
+
+d)
+\begin{align*}
+& 2=\langle N~i: 0\le i < 3: i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle\\
+& \equiv \{ \text{Evaluo rango} \}\\
+& 2=\langle N~i: i \in \{0,1,2\} : i~mod~2\equiv 0 \vee i~mod~3\equiv 0 \rangle\\
+& \equiv \{ \text{Evaluo termino en el rango} \}\\
+& 2= (0~mod~2\equiv 0 \vee 0~mod~3\equiv 0) + (1~mod~2\equiv 0 \vee 1~mod~3\equiv 0) + (2~mod~2\equiv 0 \vee 2~mod~3\equiv 0)\\
+& \equiv \{ \text{Evaluo} \}\\
+& 2= 1 + 0 + (True \vee 2~mod~3\equiv 0)\\
+& \equiv \{ \text{Logica} \}\\
+& 2= 1 + 0 + 1\\
+& \equiv \{ \text{Aritmetica} \}\\
+& 2= 2\\
+& \equiv \{ \text{True} \}\\
+\end{align*}
+
+4)
+
+## Encontrar Invariante ##
+$$I:0\le n \le N-1 \wedge u = sum.A.0.n \wedge r = \langle \exists i : 0\le i < n : sum.A.0.i = 3 \wedge A.i = 3 \rangle$$
+
+## Inicializacion ##
+\begin{align*}
+& \{N>0\}\\
+& r,u,n:=False,0,0;\\
+& \{0\le n \le N-1 \wedge u = sum.A.0.n \wedge r = \langle \exists i : 0\le i < n : sum.A.0.i = 3 \wedge A.i = 3 \rangle\}\\
+\end{align*}
+
+## Finalizacion ##
+\begin{align*}
+& 0\le n \le N-1 \wedge u = sum.A.0.n \wedge r = \langle \exists i : 0\le i < n : sum.A.0.i = 3 \wedge A.i = 3 \rangle \wedge \neg B\\
+& \Rightarrow r=\langle \exists i: 0\le i <N : sum.A.0.i = 3 \wedge A.i = 3 \rangle\\
+\end{align*}
+
+
+
+
+
+ 
+
+
+
+

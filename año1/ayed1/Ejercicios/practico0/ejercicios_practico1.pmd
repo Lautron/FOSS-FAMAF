@@ -1,0 +1,81 @@
+1) a)\ 
+    A) $int \rightarrow int$
+    B) $[int] \rightarrow  int$
+    C) $int \rightarrow  [int] \rightarrow int$
+    D) $int \rightarrow [int] \rightarrow Bool$
+
+   b)\ 
+    A) Es recursiva. La recursion se lleva a cabo en primer argumento. 
+    B) Es recursiva. La recursion se lleva a cabo en primer argumento.
+    C) No es recursiva.
+    D) Es recursiva. La recursion se lleva a cabo en el segundo argumento.
+
+   c)\ 
+    A) $$\mathbf{f.4}$$
+    $$\equiv \{ \text{Def. rec} \}$$
+    $$\mathbf{f.3}+2*3+1$$
+    $$\equiv \{ \text{Def. rec} \}$$
+    $$\mathbf{f.2}+2*2+1+2*3+1$$
+    $$\equiv \{ \text{Def. rec} \}$$
+    $$\mathbf{f.1}+2*1+1+2*2+1+2*3+1$$
+    $$\equiv \{ \text{Def. rec} \}$$
+    $$\mathbf{f.0}+2*0+1+2*1+1+2*2+1+2*3+1$$
+    $$\equiv \{ \text{Caso base} \}$$
+    $$1+\mathbf{2*0}+1+\mathbf{2*1}+1+\mathbf{2*2}+1+\mathbf{2*3}+1$$
+    $$\equiv \{ \text{Multiplicacion} \}$$
+    $$\mathbf{1+0+1+2+1+4+1+6+1}$$
+    $$\equiv \{ \text{Suma} \}$$
+    $$17$$
+    
+   d)\ 
+   ```haskell
+      f.n
+	    | n == 0 = 1
+	    | otherwise = f.(n-1) + 2*(n-1) + 1
+      ```
+
+   e)\ No, ya que un patrón solo puede estar formado por variables, constantes y constructores y en este caso "$+\!\! +$" es una funcion.
+
+   f)\  
+   ```haskell
+      g [] = 0
+      g (x:xs) = x * (1 + g xs)
+      ```
+    Evaluacion manual:
+    $$g [0, 4, 2]$$
+    $$0 * (1 + g [4, 2])$$
+    $$0 * (1 + (4 * (1 + g [2])))$$
+    $$0 * (1 + (4 * (1 + (2 * (1 + g [])))$$
+    $$0 * (1 + (4 * (1 + (2 * (1 + 0)))$$
+    $$0 * (1 + (4 * (1 + (2 * (1)))$$
+    $$0 * (1 + (4 * (1 + (2))$$
+    $$0 * (1 + (4 * (3))$$
+    $$0 * (1 + (12))$$
+    $$0 * (13)$$ 
+    $$0$$ 
+
+   ```haskell
+      g' [] = 0
+      g' (0:xs) = 0
+      g' (x:xs) = x * (1 + g xs)
+      ```
+    Evaluacion manual:
+    $$g [0, 4, 2]$$
+    $$\equiv \{ \text{Segundo caso x:=0, xs:=[4,2]} \}$$
+    $$0$$
+
+ 2 ) No puedo afirmar que la prueba sea correcta, ya que no se llega a un teorema y no se instancian las variables al utilizar los axiomas.
+
+ 3 )\
+    a) Es sub-formula.\
+    b) No es subformula\
+    c) No es subformula\
+    d) Es sub-formula.\
+    e) Es sub-formula.\
+ 4 )\
+    a) No es correcto. \
+    b) Idempotencia de la conjuncion\
+    c) No es correcto.\
+    d) No es correcto.\
+    e) Equivalencia y negacion.\
+    f) No es correcto.\

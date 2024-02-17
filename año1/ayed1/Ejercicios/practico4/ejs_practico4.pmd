@@ -1,0 +1,153 @@
+# Ejercicios Práctico 4 #
+
+a )
+
+|    linea   | nombre del estado |       estado/guardas      |   aclaracion   |
+|:----------:|:-----------------:|:-------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   | $x\mapsto 1, y\mapsto 10$ | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   | $x\mapsto 7, y\mapsto 10$ |  Estado final  | 
+
+b )
+
+|    linea   | nombre del estado |       estado/guardas      |   aclaracion   |
+|:----------:|:-----------------:|:-------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $x\mapsto 2, y\mapsto 5$ | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   |  $x\mapsto 7, y\mapsto 5$ |                |
+| $\ell_{2}$ |    $\sigma_{2}$   | $x\mapsto 7, y\mapsto 10$ |  Estado final  |
+
+c )
+
+|    linea   | nombre del estado |       estado/guardas       |   aclaracion   |
+|:----------:|:-----------------:|:--------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $x\mapsto 2, y\mapsto 5$  | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   |  $x\mapsto 2, y\mapsto 10$ |                |
+| $\ell_{2}$ |    $\sigma_{2}$   | $x\mapsto 12, y\mapsto 10$ |  Estado final  |
+
+d )
+
+|    linea   | nombre del estado |       estado/guardas      |   aclaracion   |
+|:----------:|:-----------------:|:-------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $x\mapsto 2, y\mapsto 5$ | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   | $x\mapsto 7, y\mapsto 10$ |  Estado final  |
+
+e )
+
+|          linea         | nombre del estado |      estado/guardas      |   aclaracion   |
+|:----------------------:|:-----------------:|:------------------------:|:--------------:|
+|            -           |    $\sigma_{0}$   | $x\mapsto 3, y\mapsto 1$ | Estado inicial |
+| $\ell_{1}$, $\ell_{3}$ |                   |        True, False       | Evaluo Guardas |
+|       $\ell_{2}$       |    $\sigma_{1}$   | $x\mapsto 0, y\mapsto 1$ |  Estado final  |
+
+f )
+
+|          linea         | nombre del estado |      estado/guardas      |   aclaracion   |
+|:----------------------:|:-----------------:|:------------------------:|:--------------:|
+|            -           |    $\sigma_{0}$   | $x\mapsto 3, y\mapsto 1$ | Estado inicial |
+| $\ell_{1}$, $\ell_{3}$ |                   |        False, True       | Evaluo Guardas |
+|       $\ell_{4}$       |    $\sigma_{1}$   | $x\mapsto 2, y\mapsto 1$ |  Estado final  |
+
+g )
+
+|          linea         |     nombre del estado     |                  estado/guardas                  |   aclaracion   |
+|:----------------------:|:-------------------------:|:------------------------------------------------:|:--------------:|
+|            -           |        $\sigma_{0}$       |             $x\mapsto 1, y\mapsto 1$             | Estado inicial |
+| $\ell_{1}$, $\ell_{3}$ |                           |                    True, True                    | Evaluo Guardas |
+|  $\ell_{2}\|\ell_{4}$  | $\sigma_{1}\|\sigma'_{1}$ | $x\mapsto 0, y\mapsto 1\|x\mapsto 2, y\mapsto 1$ |  Estado final  |
+
+h )
+
+|    linea   | nombre del estado | estado/guardas |   aclaracion   |
+|:----------:|:-----------------:|:--------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $i\mapsto 4$  | Estado inicial |
+| $\ell_{1}$ |                   |      True      |                |
+| $\ell_{2}$ |    $\sigma_{1}$   |  $i\mapsto 3$  |                |
+| $\ell_{1}$ |                   |      True      |                |
+| $\ell_{2}$ |    $\sigma_{2}$   |  $i\mapsto 2$  |                |
+| $\ell_{1}$ |                   |      True      |                |
+| $\ell_{2}$ |    $\sigma_{3}$   |  $i\mapsto 1$  |                |
+| $\ell_{1}$ |                   |      True      |                |
+| $\ell_{2}$ |    $\sigma_{4}$   |  $i\mapsto 0$  |  Estado final  |
+| $\ell_{1}$ |                   |      False     |                |
+
+i )
+
+|    linea   | nombre del estado | estado/guardas |   aclaracion   |
+|:----------:|:-----------------:|:--------------:|:--------------:|
+|      -     |    $\sigma_{0}$   | $i\mapsto 400$ | Estado inicial |
+| $\ell_{1}$ |                   |      True      |                |
+| $\ell_{2}$ |    $\sigma_{1}$   |  $i\mapsto 0$  |  Estado final  |
+| $\ell_{1}$ |                   |      False     |                |
+                                                        
+j )
+
+|    linea   | nombre del estado | estado/guardas |   aclaracion   |
+|:----------:|:-----------------:|:--------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |  $i\mapsto 4$  | Estado inicial |
+| $\ell_{1}$ |                   |      False     |                |
+|      -     |    $\sigma_{0}$   |  $i\mapsto 4$  |  Estado final  |
+
+k )
+
+|    linea   | nombre del estado | estado/guardas |      aclaracion     |
+|:----------:|:-----------------:|:--------------:|:-------------------:|
+|      -     |    $\sigma_{0}$   |  $i\mapsto 0$  |    Estado inicial   |
+| $\ell_{1}$ |                   |      True      |                     |
+| $\ell_{2}$ |    $\sigma_{1}$   |  $i\mapsto -1$ |                     |
+| $\ell_{1}$ |                   |      True      |                     |
+| $\ell_{2}$ |    $\sigma_{2}$   |  $i\mapsto -2$ |                     |
+| $\ell_{1}$ |                   |      True      |                     |
+| $\ell_{2}$ |    $\sigma_{3}$   |  $i\mapsto -3$ | Sigue infinitamente |
+
+l )
+
+|         linea        | nombre del estado | estado/guardas |   aclaracion   |
+|:--------------------:|:-----------------:|:--------------:|:--------------:|
+|           -          |    $\sigma_{0}$   |  $r\mapsto 3$  | Estado inicial |
+|      $\ell_{1}$      |                   |      True      |                |
+| $\ell_{2}, \ell_{4}$ |                   |   False, True  | Evaluo guardas |
+|      $\ell_{5}$      |    $\sigma_{1}$   |  $r\mapsto 2$  |                |
+|      $\ell_{1}$      |                   |      True      |                |
+| $\ell_{2}, \ell_{4}$ |                   |   False, True  | Evaluo guardas |
+|      $\ell_{5}$      |    $\sigma_{2}$   |  $r\mapsto 1$  |                |
+|      $\ell_{1}$      |                   |      True      |                |
+| $\ell_{2}, \ell_{4}$ |                   |   False, True  | Evaluo guardas |
+|      $\ell_{5}$      |    $\sigma_{3}$   |  $r\mapsto 0$  |                |
+|      $\ell_{1}$      |                   |      False     |                |
+
+3 )
+a )
+No, no obtuve el mismo estado final en todos. 
+Si, hay estados intermedios diferentes.
+
+b )
+Los programas que diria que son equivalentes son 2b y 2d.
+
+c )
+No, no se puede ya que la asignacion se realiza sin un cambio intermedio de estado y la variable x depende del valor de la
+variable y.
+
+d ) 
+Se repite infinitas veces. 
+La guarda nunca dejará de ser cierta, ya que pide que se cumpla que $i\leq 0$, sin embargo el codigo que se ejecuta
+hace que el valor de i decresca y por ende el valor de i siempre será menor o igual a 0, causando que la guarda se ejecute de manera infinita.
+
+e )
+El valor final de r será 0. 
+No, no es equivalente al punto 2j.
+
+4 )
+
+$Var~x,y,r: Int;$\
+$\ell_{1}\quad if~x > y \rightarrow$\
+$\ell_{2}\quad\quad r:= x$\
+$\ell_{3}\quad [] x \leq y \rightarrow$\
+$\ell_{4}\quad\quad r:= y$\
+$\ell_{5}\quad fi$\
+
+|        linea        | nombre del estado |              estado/guardas              |   aclaracion   |
+|:-------------------:|:-----------------:|:----------------------------------------:|:--------------:|
+|          -          |    $\sigma_{0}$   |        $x\mapsto 100, y\mapsto 2$        | Estado inicial |
+| $\ell_{1},\ell_{3}$ |                   |                True, False               |                |
+|      $\ell_{2}$     |    $\sigma_{1}$   | $x\mapsto 100, y\mapsto 2, r\mapsto 100$ |  Estado final  |
+
+

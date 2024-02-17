@@ -1,0 +1,163 @@
+---
+header-includes: |
+            \usepackage{amsmath}
+---
+
+\newcommand{\concat}{%
+  \mathbin{{+}\mspace{-8mu}{+}}%
+}
+
+3 )
+$$prod.([2+3,3]\concat [1,0])$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$prod.([5,3]\concat [1,0])$$
+$$\equiv \{ \text{def $\concat$ } \}$$
+$$prod.(5:([3]\concat [1,0]))$$
+$$prod.(5:3:([]\concat [1,0]))$$
+$$prod.(5:3:[1,0])$$
+$$prod.([5,3,1,0])$$
+$$\equiv \{ \text{Def prod} \}$$
+$$5*3*1*0$$
+$$\equiv \{ \text{Elemento absorbente multiplicacion} \}$$
+$$0$$
+
+4 )
+a )
+$$\neg \langle \exists j: 0 \leq j < \#ns : \langle \exists i : 0 \leq i < \#ps : \neg ((ps~!!~i).(ns~!!~j))  \rangle  \rangle$$
+$$\equiv \{ \text{DeMorgan} \}$$
+$$\neg \neg \langle \forall j: 0 \leq j < \#ns : \neg \langle \exists i : 0 \leq i < \#ps : \neg ((ps~!!~i).(ns~!!~j))  \rangle  \rangle$$
+$$\equiv \{ \text{DeMorgan} \}$$
+$$\neg \neg \langle \forall j: 0 \leq j < \#ns : \neg \neg \langle \forall i : 0 \leq i < \#ps : \neg \neg ((ps~!!~i).(ns~!!~j))  \rangle  \rangle$$
+$$\equiv \{ \text{Doble negacion} \}$$
+$$\langle \forall j: 0 \leq j < \#ns : \langle \forall i : 0 \leq i < \#ps : ((ps~!!~i).(ns~!!~j))  \rangle  \rangle$$
+
+5 )
+$$f.x = \langle \exists y: 0 \leq y < x : x= y*(y+1)/2 \rangle$$
+
+Evaluacion manual:
+
+$$f.5$$ 
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists y: 0 \leq y < 5 : 5= y*(y+1)/2 \rangle$$
+$$\equiv \{ \text{Evaluo rango} \}$$
+$$\langle \exists y:y \in \{0,1,2,3,4\} : 5= y*(y+1)/2 \rangle$$
+$$\equiv \{ \text{Evaluo rango en termino} \}$$
+$$5= 0*(0+1)/2 \vee 5= 1*(1+1)/2 \vee 5= 2*(2+1)/2 \vee 5= 3*(3+1)/2 \vee 5= 4*(4+1)/2 $$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$5= 0 \vee 5= 2/2 \vee 5= 6/2 \vee 5= 12/2 \vee 5= 20/2 $$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$False \vee False \vee False \vee False \vee False $$
+$$False$$
+
+
+7 )
+
+$f.xs =\langle \forall a,as,bs : xs = (a:as) \concat (a:bs) : as = bs \rangle$
+
+xs = [1,2,1,7,7,1,3]
+
+$$f.[1,2,1,7,7,1,3]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \forall a,as,bs : [1,2,1,7,7,1,3] = (a:as) \concat (a:bs) : as = bs \rangle$$
+
+|as             |bs             | a | a'|
+|:-------------:|:-------------:|:-:|:-:|
+|[1,2,1,7,7,1]	|[3]            |1  |3  |
+|[1,2,1,7,7]  	|[1,3]          |1  |1  |
+|[1,2,1,7]    	|[7,1,3]        |1  |7  |
+|[1,2,1]      	|[7,7,1,3]      |1  |7  |
+|[1,2]        	|[1,7,7,1,3]    |1  |1  |
+|[1]          	|[2,1,7,7,1,3]  |1  |2  |
+
+10 )
+
+$HI = hGen.xs.n.m = \langle N~as,bs : xs = as \concat bs : n + sum.as = 2 * (\#as + m) \rangle$
+
+$$\langle N~as,bs : xs = as \concat bs : n + sum.(x:as) = 2*(\#(x:as) + m) \rangle$$
+$$\equiv \{ \text{Def de sum y \#} \}$$
+$$\langle N~as,bs : xs = as \concat bs : n + x + sum.(as) = 2*(\#as+1 + m) \rangle$$
+$$\equiv \{ \text{HI} \}$$
+$$hGen.xs.(n+x).(1+m)$$
+
+8 )
+
+$quant.n = \langle N~i : 0 \leq i \leq n : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$
+
+Caso base: $n=0$
+
+$$quant.n$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle N~i : 0 \leq i \leq n : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$$
+$$\equiv \{ \text{Evaluo rango, rango vacio} \}$$
+$$0$$
+
+Caso inductivo: $n:=(n+1)$
+
+$HI =quant.n = \langle N~i : 0 \leq i \leq n : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$
+$$quant.(n+1)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle N~i : 0 \leq i \leq (n+1) : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle N~i : 0 \leq i \leq n \vee i=(n+1) : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle N~i : i=(n+1) : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle +$$ 
+   $$\langle N~i : 0 \leq i \leq n : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$(\neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle \rightarrow 1$$
+$$\square \neg \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle \rightarrow 0$$
+$$)$$
+$$\langle N~i : 0 \leq i \leq n : \neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle$$
+$$\equiv \{ \text{HI y doble negacion} \}$$
+$$(\neg \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle \rightarrow 1$$
+$$\square \langle \exists x,y : 2 \leq x \leq i \wedge 2 \leq y \leq i : x*y = i \rangle  \rangle \rightarrow 0$$
+$$)$$
+$$quant.n$$
+$$\equiv \{ \text{Modularizamos} \}$$
+$$(\neg comp.k$$
+$$\square comp.k$$
+$$)$$
+$$quant.n$$
+
+9 )
+
+$tieneLargo.xs = \langle \exists i : 0 \leq i < \#xs : \#xs = xs~!!~i \rangle$
+
+Caso base: $xs:=[]$
+$$tieneLargo.[]$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists i : 0 \leq i < \#[] : \#[] = []~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#, evaluo rango, rango vacio} \}$$
+$$False$$
+
+Caso inductivo: $xs:=(x:xs)$
+$HI = tieneLargo.xs = \langle \exists i : 0 \leq i < \#xs : \#xs = xs~!!~i \rangle$ 
+
+$$tieneLargo.(x:xs)$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists i : 0 \leq i < \#(x:xs) : \#(x:xs) = (x:xs)~!!~i \rangle$$
+$$\equiv \{ \text{Def de \#, aritmetica} \}$$
+$$\langle \exists i : i=0 \vee 1 \leq i < \#xs+1 : \#xs+1 = (x:xs)~!!~i \rangle$$
+$$\equiv \{ \text{Particion de rango y rango unitario} \}$$
+$$ (\#xs+1 = (x:xs)~!!~0 )\vee \langle \exists i : 1 \leq i < \#xs+1 : \#xs+1 = (x:xs)~!!~i \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$ (\#xs+1 = x )\vee \langle \exists i : 1 \leq i < \#xs+1 : \#xs+1 = (x:xs)~!!~i \rangle$$
+$$\equiv \{ \text{Cambio de variable i->i+1, aritmetica} \}$$
+$$ (\#xs+1 = x )\vee \langle \exists i : 0 \leq i < \#xs : \#xs+1 = (x:xs)~!!~i+1 \rangle$$
+$$\equiv \{ \text{Def de !!} \}$$
+$$ (\#xs+1 = x )\vee \langle \exists i : 0 \leq i < \#xs : \#xs+1 = xs~!!~i \rangle$$
+
+No se puede aplicar HI por ende debemos generalizar:
+
+$gTieneLargo.xs.n = \langle \exists i : 0 \leq i < \#xs : \#xs + n = xs~!!~i \rangle$ 
+
+$tieneLargo.xs = gTieneLargo.xs.0$
+
+$$gTieneLargo.xs.0$$
+$$\equiv \{ \text{Especificacion} \}$$
+$$\langle \exists i : 0 \leq i < \#xs : \#xs + 0 = xs~!!~i \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle \exists i : 0 \leq i < \#xs : \#xs = xs~!!~i \rangle$$
+$$\equiv \{ \text{Especificacion de tieneLargo} \}$$
+$$tieneLargo.xs$$
+
+

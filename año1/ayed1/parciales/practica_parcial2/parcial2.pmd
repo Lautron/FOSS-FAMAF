@@ -1,0 +1,35 @@
+# Practica parcial 2 #
+
+1)a)
+
+|    linea   | nombre del estado |              estado/guardas             |   aclaracion   |
+|:----------:|:-----------------:|:---------------------------------------:|:--------------:|
+|      -     |    $\sigma_{0}$   |                  $N=3$                  | Estado inicial |
+| $\ell_{1}$ |    $\sigma_{1}$   | $r \mapsto 0, s \mapsto 0, i \mapsto 0$ |                |
+| $\ell_{2}$ |                   |                   True                  |                |
+| $\ell_{3}$ |    $\sigma_{2}$   | $r \mapsto 1, s \mapsto 0, i \mapsto 1$ |                |
+| $\ell_{2}$ |                   |                   True                  |                |
+| $\ell_{3}$ |    $\sigma_{3}$   | $r \mapsto 2, s \mapsto 2, i \mapsto 2$ |                |
+| $\ell_{2}$ |                   |                   True                  |                |
+| $\ell_{3}$ |    $\sigma_{4}$   | $r \mapsto 5, s \mapsto 4, i \mapsto 3$ |  Estado final  |
+| $\ell_{2}$ |                   |                  False                  |                |
+
+b)
+\begin{align*}
+& \{N \ge 0\}\\
+& r,s,i:=0,0,0;\\
+& do~i\ne N \rightarrow\\
+& \quad r,s,i := r+s+1,i+i,i+1\\
+& od\\
+& \{N^2=r+s\}\\
+\end{align*}
+
+d) 
+\begin{align*}
+& \{M\ge 0 \wedge N\ge 0 \wedge m = M \wedge n = N\}\\
+& r:= (m+n)*(m+n)\\
+& \{r = (M+N)^2\}\\
+\end{align*}
+
+
+

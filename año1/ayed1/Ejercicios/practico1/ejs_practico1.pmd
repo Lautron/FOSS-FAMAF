@@ -1,0 +1,259 @@
+## Practico 1 ##
+1) 
+a) False. 
+$\langle \forall i: 0 \leq i < \#CasosCba : CasosCba~!!~i > 140 \rangle$
+b) True. $\langle \exists i: 0 \leq i < \#xs : xs ~!!~i < 144  \rangle$
+c) False. 
+$\langle \forall i: 1 \leq i < \#xs : xs~!!~i > xs ~!!~(i-1)  \rangle$
+d) False. $\langle \exists i,j: 0 \leq i,j < \#xs \wedge i \neq j : (xs ~!!~i) < 135 \wedge (xs ~!!~j) < 135 \rangle$
+e) False. 
+
+2) 
+a) Todo elemento de la lista es mayor a 140. \
+  i está ligada y xs es libre.
+b) Existe un elemento en xs que es igual a x. \
+  i está ligada, y x y xs estan libres.
+c) Para todo elemento de xs existe un elemento de ys talque ambos son iguales
+d) Cada elemento de xs es menor o igual al elemento que le sigue.
+
+3) 
+$$\langle \exists i: 0 \leq i < \#xs : xs ~!!~ i = x  \rangle$$
+$$\equiv \{ \text{xs=[141,134,137,87]} \}$$
+$$\langle \exists i: i \in \{0,1,2,3\} : xs ~!!~ i = 134  \rangle$$
+$$\equiv \{ \text{Aplico el termino a cada elemento del rango} \}$$
+$$(xs ~!!~0 == 134) \vee (xs ~!!~1 == 134) \vee (xs ~!!~2 == 134) \vee (xs ~!!~3 == 134) $$
+$$\equiv \{ \text{Evaluo las indexaciones} \}$$
+$$(141 == 134) \vee (134 == 134) \vee (137 == 134) \vee (87 == 134)$$ 
+$$\equiv \{ \text{Evaluo las igualdades} \}$$
+$$False \vee True \vee  False \vee False$$ 
+$$\equiv \{ \text{Resuelvo las disyunciones} \}$$
+$$True$$
+
+4) 
+a) El producto de todos los numeros entre 1 y n.
+b) La suma de todos los elementos de xs dividido por el largo de xs. Puede pensarse como un promedio.
+c) El elemento mas grande de xs es menor al elemento mas chico de ys.
+d) Existen dos numeros mayores que dos y menores que n tal que al multiplicarlos obtenemos n
+
+5)
+a) 
+$$\langle \prod i : 1 \leq i < n : i  \rangle$$
+$$\equiv \{ \text{Calculo el rango sabiendo que n = 5} \}$$
+$$\langle \prod i : i \in \{1,2,3,4,5\} : i  \rangle$$
+$$\equiv \{ \text{Aplico el termino para cada elemento del rango} \}$$
+$$1*2*3*4*5*$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$120$$
+
+b)
+$$ \langle \Sigma i : 0 \leq i < \#xs : xs ~!!~i  \rangle / \# xs $$
+$$\equiv \{ \text{\#xs = 5} \}$$
+$$ \langle \Sigma i : 0 \leq i < \#xs : xs ~!!~i  \rangle / \# xs $$
+$$\equiv \{ \text{Evaluo teniendo en cuenta que \#xs = 5} \}$$
+$$ \langle \Sigma i : i \in \{0,1,2,3,4\}  : xs ~!!~i  \rangle / 5 $$
+$$\equiv \{ \text{Aplico el termino a cada elemento del rango} \}$$
+$$(xs ~!!~ 0 + xs ~!!~ 1 + xs ~!!~ 2 + xs ~!!~ 3 + xs ~!!~ 4)/5$$
+$$\equiv \{ \text{Evaluo las indexaciones con xs = $[6,9,3,9,8]$} \}$$
+$$(6+9+3+9+8)/5$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$35/5$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$7$$
+
+d )
+$$\langle \exists i,j : (2 \leq i < n) \wedge (2 \leq j < n) : i*j = n   \rangle$$
+$$\equiv \{ \text{Evaluoteniendo en cuenta que n=5} \}$$
+$$\langle \exists i,j : i \in \{2,3,4\} \wedge j \in \{2,3,4\}  : i*j = 5   \rangle$$
+$$\equiv \{ \text{Evaluo el termino segun el rango} \}$$
+$$(2*2=5) \vee (2*3=5) \vee (2*4=5) \vee (3*2=5) \vee (3*3=5) \vee (3*4=5) \vee (4*2=5) \vee (4*3=5) \vee (4*4=5)$$
+$$\equiv \{ \text{Arimetica} \}$$ 
+$$(4=5) \vee (6=5) \vee (8=5) \vee (6=5) \vee (9=5) \vee (12=5) \vee (8=5) \vee (12=5) \vee (16=5)$$
+$$\equiv \{ \text{Evaluamos las igualdades} \}$$
+$$False \vee False \vee False \vee False \vee False \vee False \vee False \vee False \vee False$$ 
+$$\equiv \{ \text{Resolvemos la disyuncion} \}$$
+$$False$$
+
+6)
+a) m: No ligada; i: ligada.
+$$m = \langle Max~ i : 0 \leq i < \#casos : xs ~!!~ i \rangle$$
+
+b) j,i ligadas.
+$$maxXs = \langle Max~ j : 0 \leq j < \#xs : xs ~!!~ j \rangle$$
+$$\langle \exists i : 0 \leq i < \#xs \wedge xs ~!!~i = maxXs : i \rangle$$
+
+Probemos evaluarlo: xs = [100, 200, 155]
+$$\langle \exists i : 0 \leq i < 3 \wedge xs ~!!~i = \underline{maxXs} : i \rangle$$
+$$\equiv \{ \text{ maxXs=200, \#xs=3 } \}$$
+$$\langle \exists i : i \in \{0,1,2\}  \wedge xs ~!!~i = 200 : i \rangle$$
+$$\langle \exists i : i=1 : i \rangle$$
+$$1$$
+
+c) No ligada: i; Ligada: j.
+$$\langle \Sigma j : 0 \leq j < \#xs \wedge i < j < i+7 : xs ~!!~i   \rangle$$
+Probemos evaluarlo: xs=[1,2,3,4]
+
+$$\langle \Sigma j : 0 \leq j < \#xs \wedge i < j < i+3 : xs ~!!~i   \rangle$$
+$$\equiv \{ \text{xs=[1,2,3,4], \#xs=4} \}$$
+$$\langle \Sigma j : 0 \leq j < 4 \wedge i < j < i+3 : xs ~!!~i   \rangle$$
+$$\equiv \{ \text{Supongamos que i=1} \}$$
+$$\langle \Sigma j : 0 \leq j < 4 \wedge 1 < j < 1+3 : xs ~!!~i  \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle \Sigma j : 0 \leq j < 4 \wedge 1 < j < 4 : xs ~!!~i    \rangle$$
+$$\equiv \{ \text{Reducimos el rango} \}$$
+$$\langle \Sigma j : i \in \{2,3\} : xs ~!!~i \rangle$$
+$$\equiv \{ \text{Evaluamos el termino en el rango} \}$$
+$$xs ~!!~ 2 + xs ~!!~ 3$$
+$$\equiv \{ \text{Evaluamos los indices} \}$$
+$$3 + 4$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$7$$
+
+d) 
+$$xs ~!!~d > \langle \Sigma~i : 0 \leq i < \#xs \wedge d-7 \leq i < d : xs ~!!~i  \rangle / \#xs$$
+
+e) 
+$$\langle \Sigma i: 0 \leq i < \#xs \wedge esPar.i : xs ~!!~i \rangle$$
+
+f) 
+$$\langle \exists j : 0 \leq j : n = 2^j \rangle$$
+
+7)
+a) 
+$$\langle \Pi i : 0 \leq i \leq n \wedge i~mod~3=1:i \rangle$$ 
+$$\equiv \{ \text{n=10} \}$$
+$$\langle \Pi i : 0 \leq i \leq 10 \wedge i~mod~3=1:i \rangle$$ 
+$$\equiv \{ \text{Calculo el rango} \}$$
+$$\langle \Pi i : i \in \{1, 4,7, 10\} :i \rangle$$  
+
+8)
+a)
+$$\langle \exists i : i = 3 \wedge  par.i: 2*i = 6 \rangle$$ 
+$$\equiv \{ \text{Rango vacio} \}$$
+$$\langle \exists i : False : 2*i = 6 \rangle$$ 
+$$\equiv \{ \text{Neutro de $\vee $} \}$$
+$$False$$ 
+
+b) 
+$$\langle \Sigma i : 5 \leq i \wedge i \leq 5: -2 * i  \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle \Sigma i : \underline{(5 < i) \vee (5=i) \wedge (i < 5) \vee (5=i)}: -2 * i  \rangle$$
+$$\equiv \{ \text{Distribuitividad de la disyuncion con la conjuncion} \}$$
+$$\langle \Sigma i : (\underline{(5 < i)\wedge (i < 5)}) \vee (5=i): -2 * i  \rangle$$
+$$\equiv \{ \text{Principio de no contradiccion} \}$$
+$$\langle \Sigma i : \underline{(False) \vee (5=i)}: -2 * i  \rangle$$
+$$\equiv \{ \text{Elemento neutro de la disyuncion} \}$$
+$$\underline{\langle \Sigma i : 5=i: -2 * i  \rangle}$$
+$$\equiv \{ \text{Rango unitario} \}$$
+$$-2*5$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$-10$$
+
+c)
+$$\langle  \Pi i : 0 < i < 1 : 34  \rangle$$ 
+$$\equiv \{ \text{Evaluamos Rango} \}$$
+$$\langle  \Pi i : False : 34  \rangle$$ 
+$$\equiv \{ \text{Rango vacio} \}$$
+$$1$$
+
+d) 
+$$\langle  Min~i : i \leq 0 : n * (i+2) - n*i \rangle$$ 
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle  Min~i : i \leq 0 : n * ((i+2)-i) \rangle$$
+$$\equiv \{ \text{Aritmetica} \}$$
+$$\langle  Min~i : i \leq 0 : n * 2 \rangle$$
+$$\equiv \{ \text{Termino constante} \}$$
+$$n*2$$
+
+e)
+ $$\langle  Max~as : (a \triangleright as) = [] : \#as \rangle$$
+$$\equiv \{ \text{Evaluamos rango} \}$$
+$$\langle  Max~as :False : \#as \rangle$$
+$$\equiv \{ \text{Rango vacio} \}$$
+$$0$$
+
+9)
+a)
+$$\langle \Sigma i : (i = 0) \vee  (4 > i \geq 1) : n *(i+1) \rangle$$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle \Sigma i :i=0: n *(i+1) \rangle \vee \langle \Sigma i :4>i\geq 1: n *(i+1) \rangle$$
+
+b) No se puede aplicar particion de rango ya que R.i y S.i no son disjuntos, debido a que ambos incluyen al número 3.
+
+c) No se puede aplicar particion de rango ya que R.i y S.i no son disjuntos, debido a que ambos incluyen al número 1.
+
+d) 
+$$\Pi i : 0 \leq i < n \wedge  ((i~mod~3=0) \vee ( i~mod~3 = 1)): 2*i $$
+$$\equiv \{ \text{Distributiva de la conjuncion con respecto a la disyuncion} \}$$
+$$\Pi i : [(0 \leq i < n) \wedge (i~mod~3=0)]\vee [(0 \leq i < n) \wedge ( i~mod~3 = 1)]: 2*i $$
+$$\langle \Pi i: (0 \leq i < n) \wedge (i~mod~3=0): 2*i \rangle * \langle \Pi i: (0 \leq i < n) \wedge ( i~mod~3 = 1): 2*i \rangle$$
+
+11) El error se encuentra en primer paso.
+Para explicarlo veamos si las siguientes expresiones son equivalentes cuando $\#xs = 0$:
+$$(0 \leq i < \#xs )\equiv( i=0 \vee 1 \leq i < \#xs)$$
+$$\equiv \{ \text{\#xs = 0} \}$$
+$$(0 \leq i < 0 )\equiv( i=0 \vee 1 \leq i < 0)$$
+$$\equiv \{ \text{Evaluamos los rangos} \}$$
+$$False \equiv (i=0 \vee False)$$
+$$\equiv \{ \text{Neutro de la disyuncion} \}$$
+$$False \equiv (i=0)$$
+$$\therefore \text{las expresiones no son equivalentes}$$
+
+12)
+a) No se puede aplicar distributividad ya que i aparece en C.
+b) Se puede aplicar distributividad ya que $\vee$ es distributiva con $\wedge$, ademas de que el neutro de $\wedge$ es absorvente para $\vee$
+$$\langle \forall i : i = 0 \vee  1 \leq i < 4 : \neg f.i \vee  \neg f.n \rangle$$
+$$\equiv \{ \text{Distritutividad} \}$$
+$$\langle \forall i : i = 0 \vee  1 \leq i < 4 : \neg f.i  \rangle\vee  \neg f.n$$ 
+
+13) Evaluemos manualmente el ejercicio c:
+$$\langle \forall i : i = 0 \vee  1 \leq i < 4 : \neg f.i \vee  \neg f.n \rangle$$ 
+$$\equiv \{ \text{Calculo el rango} \}$$
+$$\langle \forall i : i \in \{0,1,2,3\}  : \neg f.i \vee  \neg f.n \rangle$$ 
+$$\equiv \{ \text{Aplico el termino a cada elemento del rango}\}$$
+$$(\neg f.0 \vee \neg f.3) \wedge (\neg f.1 \vee \neg f.3) \wedge(\neg f.2 \vee \neg f.3) \wedge(\neg f.3 \vee \neg f.3)$$
+$$\equiv \{ \text{Def de f.x} \}$$
+$$(\neg True \vee \neg False)\wedge(\neg False \vee \neg False)\wedge(\neg False \vee \neg False) \wedge(\neg False \vee \neg False)$$
+$$\equiv \{ \text{Evaluamos las negaciones} \}$$
+$$(False \vee True)\wedge(True \vee True)\wedge(True \vee True) \wedge(True \vee True)$$
+$$\equiv \{ \text{Evaluamos las disyunciones} \}$$
+$$True \wedge True \wedge True \wedge True$$
+$$\equiv \{ \text{Evaluamos las conjunciones} \}$$
+$$True$$
+
+Ahora probemos la version a la que se aplicó la distributividad.
+$$\langle \forall i : i = 0 \vee  1 \leq i < 4 : \neg f.i \rangle \vee  \neg f.3$$ 
+$$\equiv \{ \text{Calculo el rango} \}$$
+$$\langle \forall i : i \in \{0,1,2,3\}  : \neg f.i\rangle \vee  \neg f.3 $$ 
+$$\equiv \{ \text{Aplicamos el termino en el rango} \}$$
+$$[(\neg f.0) \wedge (\neg f.1) \wedge(\neg f.2) \wedge(\neg f.3)] \vee \neg f.3$$
+$$\equiv \{ \text{Def de f.x} \}$$
+$$[(\neg True) \wedge (\neg False) \wedge(\neg False) \wedge (\neg False)]  \vee \neg False$$
+$$\equiv \{ \text{Aplicamos la negacion} \}$$
+$$[(False) \wedge (True) \wedge(True) \wedge (True)]  \vee True$$
+$$\equiv \{ \text{Evaluamos la conjuncion} \}$$
+$$False  \vee True$$
+$$\equiv \{ \text{Evaluamos la conjuncion} \}$$
+$$True$$
+
+14)
+a) Si se puede.
+
+15)
+a) 
+$$\langle N~a,as : a \triangleright as = xs \wedge xs = [] : \#as = 1 \rangle$$ 
+$$\equiv \{ \text{Evaluamos el rango} \}$$
+$$\langle N~a,as : False : \#as = 1 \rangle$$ 
+$$\equiv \{ \text{Rango vacio} \}$$
+$$0$$
+
+b) 
+$$\langle  N~i:i-n = 1 : par.i \rangle$$
+$$\equiv \{ \text{Despejamos i} \}$$
+$$\langle  N~i:i= 1+n : par.i \rangle$$
+$$\equiv \{ \text{rango unitario} \}$$
+
+c)
+$$\langle N~i:i=0 \vee  1 \leq i <  \#xs+1 : par.((x \triangleright xs) ~!!~i) \rangle $$
+$$\equiv \{ \text{Particion de rango} \}$$
+$$\langle N~i:i=0: par.((x \triangleright xs) ~!!~i) \rangle + \langle N~i:1 \leq i <  \#xs+1 : par.((x \triangleright xs) ~!!~i) \rangle $$
+
