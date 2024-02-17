@@ -1,0 +1,9 @@
+# Tips resolver ejercicios #
+
+## Divisivilidad ##
+
+* Hallar restos posibles:
+  * Tener en cuenta algoritmo division y que $0 \leq r < b$
+  * Ir viendo los posibles casos y usar Alg. Div cuando el resto sea mayor al divisor
+  * Factorizar resultado de ser posible
+

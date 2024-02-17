@@ -1,0 +1,120 @@
+# Conceptos Final MatDisc #
+## Numeros naturales ##
+- Ordenando los enteros
+- Definicion de cota inferior\
+Si un conjunto X es un subconjunto de $\mathbb{Z}$. Se dice que el entero b es una cota inferior de X si $b\leq x~\forall x \in X$
+- Definicion de mínimo\
+Si el conjunto X tiene una cota inferior, que a su vez, es un elemento de X, se dice que X tiene un mínimo
+- Axioma de la buena ordenacion\
+Si un subconjunto X de $\mathbb{Z}$ es no vacio y posee una cota inferior, entonces X posee un mínimo
+- Definiciones recursivas:
+  - Definicion recursiva de sumatoria\
+  Sea $1 \leq i \leq n$ con  $n \in \mathbb{N}$ una secuencia de números. $\sum_{i=1}^n$ puede defininirse recursivamente de la siguiente forma
+   $$\sum_{i=1}^1 a_i = a_1,~~~~\sum_{i=1}^n a_i = \sum_{i=1}^{n-1} a_i + a_n \text{ con } n\geq 2$$
+  - Definicion recursiva de productoria\
+  Sea $1 \leq i \leq n$ con  $n \in \mathbb{N}$ una secuencia de números. $\prod_{i=1}^n$ puede defininirse recursivamente de la siguiente forma
+   $$\prod_{i=1}^1 a_i = a_1,~~~~\prod_{i=1}^n a_i = \prod_{i=1}^{n-1} a_i \cdot a_n \text{ con } n\geq 2$$
+  - Definicion recursiva de $n!$\
+  Con $n \in \mathbb{N}$.  $n!$ puede definirse como $\prod_{i=1}^n i$ o puede definirse recursivamente de la siguiente forma:
+  $$0! = 1,~~ 1! = 1, ~~ n! = n \cdot (n-1)!$$
+  - Definicion recursiva de $x^n$
+  Sea x un número y $n \in \mathbb{N}$.  $x^n$ puede ser definida recursivamente de la siguiente manera:
+   $$x^0 = 1,~ x^1= x,~ x^n = x^{n-1} \cdot x$$
+  - Propiedades de $x^n$\
+  Sean $n,m \in \mathbb{N}$
+  $$x^n \cdot x^m = x^{n+m}$$
+   $$(x^n)^m = x^{n\cdot m}$$
+- Principio de induccion
+  - Enunciado del principio de induccion.
+  Sea S un subconjunto de $\mathbb{N}$ y se cumplen las siguientes condiciones:
+  -  $1 \in S$
+  - $\forall k \in \mathbb{N},~ k \in S \implies k+1 \in S$
+  - Por lo tanto se llega a que $S=\mathbb{N}$
+  - Enunciado del principio de induccion completa.
+
+## Conteo ##
+- Defincion de número combinatorio
+- Enunciado de la simetria del número combinatorio
+- Enunciado del Cálculo del número combinatorio por el triangulo de pascal
+- Enunciado del teorema del binomio
+- Demostracion $\sum^n_{i=0} \binom{n}{i} = 2^n$ 
+
+## Divisibilidad ##
+- Enunciado del algoritmo de la division
+- Relacion "Divide a"
+  - Defincion de "Divide a"
+  - Propiedades de "Divide a"
+    a) $1|a,~a|0,~a|\pm a$
+    b) $a|b \implies a|bc$
+    c) $a|b \wedge a|c \implies a|(b+c)$
+    d) $a|b \wedge a|c \implies a|(r.b+s.c)$
+- Definicion de Máximo Comun Divisor
+- Definicion de enteros coprimos
+- Definicion de Mínimo Común Multiplo
+- Relacion entre el MCD y el MCM
+- Definicion de Numero primo
+- Enunciado del criterio de la raiz
+- Enunciado y demostracion del teorema 3.4.6(a)
+- Enunciado del teorema fundamental de la aritmética
+- Demostraciones
+  - $(a,b) = 1 \Leftrightarrow sa+tb = 1,~~ s,t \in \mathbb{Z}$
+  - $mcd(a, b) = mcd(a, b-a),~ ~ a\ne 0 \wedge b \in \mathbb{Z}$
+  - Observacion 3.4.3
+    a) $p\!\!\not{|} a \implies (a, p) = 1$
+    b) $p, p'$ primos $\wedge~ p|p' \implies p = p'$
+
+## Aritmética Modular ##
+
+- Definicion de congruencia
+- Propiedades de la congruencia, enunciados y demostraciones
+  - Reflexividad
+  - Simetria
+  - Transitividad
+- Enunciado sobre la existencia de soluciones en la ecuacion lineal de congruencia
+- Teorema de fermat
+- Sean\quad $x_1\equiv x_2 (m),$ \quad $y_1\equiv y_2 (m)$:
+  a) $x_1 + y_1 \equiv x_2 + y_2 ~(m)$
+  a) $x_1 \cdot y_1 \equiv x_2 \cdot y_2~ (m)$
+
+
+## Grafos ##
+- Definicion de grafo
+- Definicion de valencia
+- Definicion de caminata y camino
+- Definicion de ciclo
+- Definicion de ciclo hamiltoniano, caminata o circuito euleriano
+  - Ciclo hamiltoniano
+  - Caminata o circuito euleriano
+- Enunciado del teorema de existencia de caminatas eulerianas
+- Definicion de Arbol
+- Demostraciones:
+  - La suma de las valencias de un grafo es dos veces el número de aristas
+  - Demostracion de que el número de vertices impares de un grafo es par
+
+## Complementario ##
+- Conteo
+  - Principio de adicion
+  - Principio de multiplicacion
+  - Selecciones
+- Divisibilidad
+  - Induccion en divisibilidad
+  - Euclides
+  - Combinacion lineal entera
+  - Como probar que un número no es racional
+  - Resolver ejercicios de la forma "Hallar el multiplo más pequeño de x! que es un cuadrado"
+- Aritmética modular
+  - Encontrar los ultimos dígitos
+  - Aplicacion de Fermat
+  - Ecuacion lineal de congruencia
+- Grafos
+  - Subgrafos
+  - Isomorfismo
+  - Como sabe si dos grafos no son isomorfos
+  - Valencias
+  - Recorrido 
+  - Circuito
+  - Conexidad
+  - Coloreo de vertices
+
+
+
