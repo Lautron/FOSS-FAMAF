@@ -1,0 +1,40 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x0000000040080000 0x0000000000400000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD main.o
+
+.text           0x0000000040080000       0x14
+ *(.text*)
+ .text          0x0000000040080000       0x14 main.o
+
+.data           0x0000000040080014       0x10
+ .data          0x0000000040080014       0x10 main.o
+
+.bss            0x0000000040080024        0x0
+ *(.bss*)
+ .bss           0x0000000040080024        0x0 main.o
+                0x0000000040480000                _stack_end = 0x40480000
+OUTPUT(main.elf elf64-littleaarch64)
+LOAD linker stubs
+
+.debug_line     0x0000000000000000       0x3c
+ .debug_line    0x0000000000000000       0x3c main.o
+
+.debug_info     0x0000000000000000       0x2e
+ .debug_info    0x0000000000000000       0x2e main.o
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 main.o
+
+.debug_aranges  0x0000000000000000       0x30
+ .debug_aranges
+                0x0000000000000000       0x30 main.o
+
+.debug_str      0x0000000000000000       0x20
+ .debug_str     0x0000000000000000       0x20 main.o

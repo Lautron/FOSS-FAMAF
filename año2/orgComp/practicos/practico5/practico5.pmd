@@ -1,0 +1,80 @@
+# Practico 5 OdC
+## 1)
+![](./practico5_imgs/fig1.png)
+
+## 2)
+![](./practico5_imgs/fig2.png)
+
+## 3)
+![](./practico5_imgs/fig3.png)
+
+## 4)
+![](./practico5_imgs/fig4.png)
+
+## 5)
+![](./practico5_imgs/fig5.png)
+
+## 6)
+![](./practico5_imgs/fig6.png)
+![](./practico5_imgs/fig11.png)
+
+Karnaugh:
+
+![](./practico5_imgs/fig12.png){ width=300px }
+
+Implementacion
+
+![](./practico5_imgs/fig13.png)
+
+## 7)
+![](./practico5_imgs/fig7.png)
+
+Diagrama de estados:
+
+![](./practico5_imgs/fig8.png)
+
+Karnaugh:
+
+![](./practico5_imgs/fig9.png)
+
+Implementacion:
+
+![](./practico5_imgs/fig10.png)
+
+## 8)
+
+### Combinacional de entrada:
+#### Tabla
+\
+
+![](./practico5_imgs/fig14.png)
+
+#### karnaugh:
+\
+
+![](./practico5_imgs/fig15.png)
+
+### Combinacional de salida:
+#### Tabla
+\
+
+![](./practico5_imgs/fig17.png)
+
+#### karnaugh:
+\
+![](./practico5_imgs/fig18.png)
+
+### Implementacion
+#### Combinacional de entrada:
+\
+
+![](./practico5_imgs/fig16.png)
+
+#### Combinacional de salida
+\
+\
+![](./practico5_imgs/fig19.png){ width=400px }
+
+## 11)
+
+![](./practico5_imgs/fig20.png){ width=250px }

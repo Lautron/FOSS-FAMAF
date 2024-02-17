@@ -1,0 +1,348 @@
+\tableofcontents
+\newpage
+
+# Conversion a binario
+## Binario a decimal
+Los numeros a la derecha de la coma tienen exponentes negativos
+
+$2^3 +  2^2 +  2^1 +  2^0 +  2^{-1} +  2^{-2}$
+
+## Decimal a binario
+1) Dividir numero por 2 hasta no poder mas.
+2) Armar numero con los restos de las divisiones siendo el ultimo resto el bit mas significativo
+
+## Convertir decimal menor a 1 a binario
+1) Multiplicar decimal por 2
+2) Si el resultado es menor a 1, el bit es 0
+3) Si el resultado es mayor a 1 el bit es 1 y se le resta 1 al decimal
+4) Repetir pasos anteriores hasta llegar a la precision deseada o llegar a 0
+
+## Convertir binario con coma a hexadecimal
+Ir agrupando de a cuatro hacia la derecha e izquierda partiendo de la coma y ver a que valor hex corresponden.
+
+Si no se llega a agrupar de a cuatro al final agregar ceros.
+
+## Obtener numero binario negativo
+1) Si hay un 1 en en la primer posicion quiere decir que el numero no entra en el registro
+2) Si es necesario completar 0s del lado izquierdo hasta llenar registro
+3) Hacer un bit flip
+4) Sumar 1
+
+# Punto flotante
+## Estructura
+\begin{tabular}{ c c c }
+$\overbrace{X}^1$ & $\overbrace{XXXXXXXX}^8$ & $\overbrace{XXXXXXXXXXXXXXXXXXXXXXX}^{23}$\\
+Bs & Exp & Frac
+\end{tabular}
+
+## Posiciones
+
+\begin{tabular}{ l l }
+Bit 31: & Bit de signo\\
+Bit 30 - 23: & Exponente\\
+Bit 22 - 0: & Fraccion\\
+\end{tabular}
+
+## Partes
+### Bit de signo
+Cuando es cero el numero es positivo
+
+### Exponente
+
+- Puede ser tanto positivo como negativo.
+- Posee un bias que permite tener valores positivos y negativos.
+- En el caso de los flotantes de 32 bits, el bias es 127
+
+### Fraccion
+El numero debe estar normalizado. 
+
+Es decir, hay que mover la coma tantos lugares como sea necesario para que el numero resultante quede expresado como un 1 seguido por la parte fraccionaria
+
+## Conversion
+
+### Decimal $\rightarrow$ Flotante (IEEE 754 32 bits)
+
+1) Encontrar bit de signo
+2) Pasar el numero a binario y normalizarlo
+3) Sumar el bias al exponente y convertirlo a binario
+4) Encontrar la parte fraccionaria
+5) Conformar el numero
+
+### Flotante (IEEE 754 32 bits) $\rightarrow$ decimal
+
+1) Dividir el conjunto de bits en sus 3 respectivas partes
+2) Encontrar el bit de signo
+3) Encontrar el exponente
+4) Desnormalizar el numero y pasar a decimal
+
+# Agebra Booleana
+## Definicion
+Es una estructura algebraica definida por un conjunto de elementos '0' y '1', junto con dos operadores binarios '+' y '*'
+
+No tiene inversos aditivos ni multiplicativos, por ende no hay operadores de resta ni division.
+
+Sin embargo existe el operador complemento.
+
+## Tablas de verdad
+#### Multiplicacion
+Es como la conjuncion
+\begin{tabular}{ |c c |c| }
+\hline
+x & y & x * y\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 0\\
+1 & 0 & 0\\
+1 & 1 & 1\\
+\hline
+\end{tabular}
+
+#### Adicion
+Es como la disyuncion
+\begin{tabular}{ |c c |c| }
+\hline
+x & y & x + y\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 1\\
+\hline
+\end{tabular}
+
+## Postulados y teoremas de la suma y la adicion
+### Elemento  neutro
+$x+0 = x$
+
+$x \cdot 1 = x$
+ 
+### Operar con el complemento
+$x + x' = 1$
+
+ $x\cdot x' = 0$
+
+### Operar con elementos iguales
+$x + x = x$
+
+ $x\cdot x = x$
+
+### Elemento absorvente
+$x+1 = 1$
+
+ $x\cdot 0 = 0$
+
+### Complemento del complemento
+$(x')' = x$
+
+### Conmutatividad
+$x+y = y+x$ 
+
+$xy = yx$ 
+
+### Asociatividad
+$x+(y+z) = (x+y) + z$
+
+$x(yz) = (xy)z$ 
+
+### Distributividad
+$x(y+z) = xy + xz$ 
+
+$x+yz = (x+y)(x+z)$
+
+### DeMorgan
+$(x+y)' = x'y'$
+
+ $(xy)' = x' + y'$
+
+### absorcion
+$x+xy = x$
+
+ $x(x+y) = x$
+
+## Compuertas logicas
+### Definicion
+Son circuitos electronicos que operan con una o mas señales de entrada para producir una señal de salida.
+
+### AND
+![](./orgComp_imgs/fig1.png){ width=400px }
+
+### OR
+![](./orgComp_imgs/fig2.png){ width=400px }
+
+### NOT
+![](./orgComp_imgs/fig3.png){ width=400px }
+
+### NAND
+![](./orgComp_imgs/fig4.png){ width=400px }
+
+### NOR
+![](./orgComp_imgs/fig5.png){ width=400px }
+
+## Logica combinacional
+### Miniterminos
+
+* Es un producto.
+* Si las variables son 0 aparecen negadas
+* Da como resultado 1
+
+Ejemplo:
+
+| x | y | z | termino | Designacion |
+|:-:|:-:|:-:|:-------:|:-----------:|
+| 0 | 0 | 0 |  x'y'z' |    $m_0$    |
+| 1 | 1 | 1 |   xyz   |    $m_7$    |
+
+### Maxiterminos
+
+* Es una suma.
+* Si las variables son 0 aparecen negadas
+* Da como resultado 0
+
+Ejemplo:
+
+| x | y | z |  termino | Designacion |
+|:-:|:-:|:-:|:--------:|:-----------:|
+| 0 | 0 | 0 |   x+y+z  |    $M_0$    |
+| 1 | 1 | 1 | x'+y'+z' |    $M_7$    |
+
+### Forma canonica
+Las funciones booleanas expresadas como suma de miniterminos o producto de maxiterminos estan en forma canonica
+
+### Mapas de Karnaugh
+#### Definicion
+
+* Representa una funcion logica
+* Es equivalente a una tabla de verdad
+* Permite simplificar al minimo una funcion logica en terminos de recursos
+
+#### Caracteristicas
+
+* Cada celda representa una asignacion de estados a las entradas
+* Los mapas para N entradas tienen $2^N$ celdas
+* 2 celdas adyacentes distan en 1 los valores de sus entradas asociadas
+
+### Suma de productos
+#### Pasos 
+
+1. Dibujar la tabla de la dimension correcta, asignar nombre y valor a las filas y columnas
+2. Llenar los \textbf{1}'s donde corresponda (segun la tabla de verdad)
+3. Agrupar los \textbf{1}'s  adyacentes en cuadros/rectangulos lo mas grande posibles
+
+La cantidad de unos agrupados deben de ser una potencia de dos
+
+Todos los 1s tienen que estar agrupados al menos 1 vez
+
+4. Cada grupo representa un termino (producto) de la funcion simplificada
+5. El resultado final es la minima suma de productos
+
+#### Terminos simplificados
+1. Si el conjunto es de tamaño 1, el termino asociado es el minitermino correspondiente a su celda
+2. Si el valor de una variable cambia dentro del conjunto, esa variable se elimina del producto
+3. Si el valor de una variable en cada celda del conjunto es 1, esta variable es parte del termino simplificado
+4. Si el valor de una variable en cada celda del conjunto es 0, esta variable negada es parte del termino simplificado
+
+#### Observaciones
+1. Debe de haber la minima cantidad de grupos contemplando todos los 1
+2. Cada grupo debe ser del maximo tamaño posible (aun si encierra 1's que ya forman parte de otro grupo)
+3. Los extremos se pueden asociar con su extremo opuesto (horizontal o vertical)
+
+### Producto de sumas
+#### Pasos
+
+1. Dibujar la tabla de la dimension correcta, asignar nombre y valor a las filas y columnas
+2. Llenar los \textbf{0}'s donde corresponda (segun la tabla de verdad)
+3. Agrupar los \textbf{0}'s  adyacentes en cuadros/rectangulos lo mas grande posibles
+
+La cantidad de ceros agrupados deben de ser una potencia de dos
+
+Todos los 0s tienen que estar agrupados al menos 1 vez
+
+4. Cada grupo representa un termino (suma) de la funcion simplificada
+5. El resultado final es la minima suma de productos
+
+#### Terminos simplificados
+
+1. Si el conjunto es de tamaño 1, el termino asociado es el maxitermino correspondiente a su celda
+2. Si el valor de una variable cambia dentro del conjunto, esa variable se elimina de la suma
+3. Si el valor de una variable en cada celda del conjunto es 0, esta variable es parte del termino simplificado
+4. Si el valor de una variable en cada celda del conjunto es 1, esta variable negada es parte del termino simplificado
+
+## MSI
+### Decodificadores
+#### Definicion
+
+Es un circuito combinacional que convierte informacion binaria de N entradas codificadas (\textbf{A}) a $2^N$ salidas unicas (\textbf{X})
+
+Esto quiere decir que solo una salida \textbf{X} está activa y representa el valor de las señales de entrada \textbf{A}
+
+### Multiplexores
+#### Definicion
+
+Es un circuito combinacional que selecciona informacion binaria de muchas entradas y la dirige a una unica salida \textbf{Y}, conforme al estado de las señales de seleccion.
+
+Si un MUX posee $2^N$ entradas de informacion \textbf{D} requiere \textbf{N} señales de seleccion \textbf{S}
+
+## Notas Sistemas de Memoria Clase Practica 2021
+### Bus
+Conjunto de cables
+Va en ambas direcciones
+Al conjunto de lineas que une el procesador con la memoria principal se lo denomina el bus del sistema
+
+### Comunicacion procesador memoria
+Se da a partir de 3 conjuntos de señales
+
+* Las direcciones
+* Los datos
+* Señales de control
+
+### Sistema de almacenamiento mas usado en la materia 
+El sistema mas usado es el semiconductor 
+La memoria se almacena en el semiconductor con llaves, dependiendo de si estén abiertas o cerradas
+
+### Memoria RAM
+El tiempo de acceso es constante para toda la memoria
+
+Se puede acceder a cualquier elemento de la memoria
+
+En teoria la rom es un tipo de ram
+
+### Tips ejercicios de direccinamiento
+Siempre comenzar solucionando el tamaño de la palabra (las conexiones en paralelo)
+
+Una vez tengan todos los bloques hacen las conexiones en serie de los bloques.
+
+Cada vez que agrego un bit duplico la capacidad de direccionamiento
+
+Se usa un decodificador para que solo se active un chip de memoria a la vez
+
+## Clase Practica 2022
+### Tip para encontrar el tamaño de memoria
+Ver los extremos
+Si por ejemplo tenes 12 entradas en el adress tenes lo siguiente:
+$$2^{12} = 4096 = 1024*4 = 4K$$
+
+Para ver los bits ves los bits de salida
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

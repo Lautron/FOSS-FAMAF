@@ -1,0 +1,48 @@
+# 1)
+## 1)
+
+$8K * 8 bits\\ = 2^{13} * 2^3 bits\\ = 2^{16} bits\\ = 64 \text{ kbits }$
+
+## 2)
+$2^8 * 2^4 \\= 2^{12} \\= 4kbits$
+
+## 6)
+$\underbrace{2^{20} * 2^5}_{32M} * \underbrace{2^3}_{1 byte} \\= 2^{28} \\= 256Mb$
+
+## 8)
+$2^{10} * 2^{10} * 2^3 \\= 2^{23} \\= 8Mb$
+
+# 2)
+## A)
+Dos y en paralelo
+
+## B)
+Dos y en serie
+
+## C)
+Cuatro, dos en serie y dos en paralelo
+
+Los dos en serie forman un bloque alpha, y los dos bloques alpha se usan en paralelo 
+
+# 3)
+## A)
+
+# Tips parcial
+Nombrar chips y señales
+
+A cada linea que dibuje hay que poner cuantos bits son y como se llaman
+
+# 8)
+## Observacion:
+
+Las posiciones espejo se dan cuando no se usan todos los numeros de adress para habilitar las posiciones de ram
+
+Suele pasar que hay una posicion del adress que directeamente ni se usa, entonces si ahí hay un 0 o un 1 da lo mismo y genera posiciones espejo
+## A)
+$(2^{30} * 2^5) + (2^{29}* 2^5) \\= 32Gbits + 16Gbits \\= 48Gbits$
+
+## B)
+
+## C)
+Si, corresponde al tercer bloque??
+

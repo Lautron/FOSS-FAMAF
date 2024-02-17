@@ -1,0 +1,107 @@
+---
+title: Práctica Final OdC
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Sistemas de numeracion
+## Notas
+Para ver el inmediato menor reemplazar ultimo 1 por 0 y reemplazar 0s restantes por 1s
+## Ejercicios
+![](./practica_final_imgs/fig1.png)
+
+## Resolucion
+### 1)
+![](./practica_final_imgs/fig2.png)
+
+### 2)
+![](./practica_final_imgs/fig3.png)
+
+### 3)
+![](./practica_final_imgs/fig4.png)
+
+### 4)
+![](./practica_final_imgs/fig5.png)
+
+# Circuitos Combinacionales
+## Notas
+Al hacer las tablas de verdad intentar buscar patrones conocidos (como por ejemplo el de xor)
+
+## Ejercicios
+![](./practica_final_imgs/fig6.png)
+
+## Resolucion
+### 1) (Intento 1)
+\begin{tabular}{ |c|c|c|c||c|c|c| }
+\hline
+ X0  &  X1  &  Y0  &  Y1  &  R0  &  R1  &  Cout \\
+\hline
+ 0   &  0   &  0   &  0   &  0   &  0   &  0    \\
+\hline
+ 0   &  0   &  0   &  1   &  0   &  1   &  0    \\
+\hline
+ 0   &  1   &  0   &  0   &  0   &  1   &  0    \\
+\hline
+ 0   &  1   &  0   &  1   &  0   &  0   &  1    \\
+\hline
+ 0   &  0   &  1   &  0   &  1   &  0   &  0    \\
+\hline
+ 0   &  0   &  1   &  1   &  1   &  1   &  0    \\
+\hline
+ 0   &  1   &  1   &  0   &  1   &  1   &  0    \\
+\hline
+ 0   &  1   &  1   &  1   &  1   &  0   &  1    \\
+\hline
+ 1   &  0   &  0   &  0   &  1   &  0   &  0    \\
+\hline
+ 1   &  0   &  0   &  1   &  1   &  1   &  0    \\
+\hline
+ 1   &  1   &  0   &  0   &  1   &  1   &  0    \\
+\hline
+ 1   &  1   &  0   &  1   &  1   &  0   &  1    \\
+\hline
+ 1   &  0   &  1   &  0   &  0   &  1   &  0    \\
+\hline
+ 1   &  0   &  1   &  1   &  0   &  0   &  1    \\
+\hline
+ 1   &  1   &  1   &  0   &  0   &  0   &  1    \\
+\hline
+ 1   &  1   &  1   &  1   &  0   &  1   &  1    \\
+\hline
+\end{tabular}
+
+![](./practica_final_imgs/fig7.png)
+
+\newpage
+
+### 1) (Intento 2)
+Esta vez probemos hacer la tabla y mapa de un sumador completo, y despues lo usamos varias veces
+
+\begin{tabular}{ |c|c|c||c|c| }
+\hline
+ A  &  B  &  Cin  &  X  &  Cout \\
+\hline
+ 0  &  0  &  0    &  0  &  0    \\
+\hline
+ 0  &  0  &  1    &  1  &  0    \\
+\hline
+ 0  &  1  &  0    &  1  &  0    \\
+\hline
+ 0  &  1  &  1    &  0  &  1    \\
+\hline
+ 1  &  0  &  0    &  1  &  0    \\
+\hline
+ 1  &  0  &  1    &  0  &  1    \\
+\hline
+ 1  &  1  &  0    &  0  &  1    \\
+\hline
+ 1  &  1  &  1    &  1  &  1    \\
+\hline
+\end{tabular}
+
+![](./practica_final_imgs/fig8.png)
+
+![](./practica_final_imgs/fig9.png)

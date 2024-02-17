@@ -1,0 +1,125 @@
+\tableofcontents
+\newpage
+
+# 1)
+![](./practico4_imgs/fig1.png)
+
+## A)
+
+1) 32Mbyte
+2) 1024Kbyte
+3) 16K * 32bits
+4) 8Kbyte
+5) 16Knibble
+6) 4k * 4bits
+7) 256 * 16bits
+8) 2Kbits
+
+## B)
+
+1) 256 * 16bits
+2) 2Kbits
+3) 4K * 4bits
+4) 8Kbyte
+5) 16Knibble
+6) 16K * 32 bits
+7) 1024K * byte
+8) 32Mbyte
+
+# 2)
+![](./practico4_imgs/fig2.png)
+
+## A)
+2 en paralelo
+
+## B)
+2 en serie
+
+## C)
+4, dos en paralelo y dos en serie
+
+# 3
+![](./practico4_imgs/fig3.png)
+
+## 4)
+### A)
+![](./practico4_imgs/fig4.png){ width=600px }
+
+### B)
+![](./practico4_imgs/fig5.png){ width=600px }
+
+## 5)
+![](./practico4_imgs/fig6.png){ width=600px }
+
+## 6)
+### A)
+\begin{tabular}{ l l l }
+& $2^{24}$ * 16 bits\\
+& = 1M * $2^4$ * 16 bits\\
+& = 1M * 16 * 16 bits\\
+& = 16Mx16bits\\
+\end{tabular}
+
+### B)
+![](./practico4_imgs/fig7.png){ width=600px }
+
+### C)
+![](./practico4_imgs/fig11.png){ width=600px }
+
+### D)
+![](./practico4_imgs/fig13.png){ width=250px }
+
+### E)
+No, no genera posiciones imagen ya que nunca quedan bits del adress sin utilizar.
+
+
+## 7)
+### A)
+![](./practico4_imgs/fig8.png){ width=500px }
+
+### B)
+![](./practico4_imgs/fig9.png){ width=250px }
+
+### C)
+#### 1
+F
+
+#### 2
+V
+
+#### 3
+F
+
+El procesador puede direccionar 64K palabras de 8bits
+
+#### 4
+F
+
+
+
+## 8)
+### A)
+\begin{align*}
+& 1Gx32bits + 512Mx32bits\\
+& = 2^{30} * 32bits + 2^{20} * 2^{9} * 32bits\\
+& = (2^{30} + 2^{20} * 2^{9}) * 32bits\\
+& = (2^{30} + 2^{29}) * 32bits\\
+& = (1610612736)* 32 bits\\
+& = 51539607552 bits\\
+\end{align*}
+
+### B)
+![](./practico4_imgs/fig10.png){ width=500px } 
+
+### C)
+Si, genera posiciones imagen en el bloque #2 que se encuentran en el rango 0x80000000 a 0xBFFFFFFF
+
+### D)
+![](./practico4_imgs/fig12.png){ width=600px }
+
+
+
+
+
+
+

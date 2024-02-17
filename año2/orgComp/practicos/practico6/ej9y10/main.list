@@ -1,0 +1,92 @@
+
+main.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000040080000 <end-0x10>:
+    40080000:	580000a9 	ldr	x9, 40080014 <f>
+    40080004:	d35bfd2a 	lsr	x10, x9, #27
+    40080008:	580000a9 	ldr	x9, 4008001c <g>
+    4008000c:	d37ffd2a 	lsr	x10, x9, #63
+
+0000000040080010 <end>:
+    40080010:	14000000 	b	40080010 <end>
+
+Disassembly of section .data:
+
+0000000040080014 <f>:
+    40080014:	12345678 	and	w24, w19, #0xfffff003
+    40080018:	00000000 	udf	#0
+
+000000004008001c <g>:
+    4008001c:	00000001 	udf	#1
+    40080020:	80000000 	.inst	0x80000000 ; undefined
+
+Disassembly of section .debug_line:
+
+0000000000000000 <.debug_line>:
+   0:	00000038 	udf	#56
+   4:	001d0003 	.inst	0x001d0003 ; undefined
+   8:	01040000 	.inst	0x01040000 ; undefined
+   c:	000d0efb 	.inst	0x000d0efb ; undefined
+  10:	01010101 	.inst	0x01010101 ; undefined
+  14:	01000000 	.inst	0x01000000 ; undefined
+  18:	00010000 	.inst	0x00010000 ; undefined
+  1c:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+  20:	0000732e 	udf	#29486
+  24:	00000000 	udf	#0
+  28:	00000209 	udf	#521
+  2c:	00004008 	udf	#16392
+  30:	21160000 	.inst	0x21160000 ; undefined
+  34:	02222121 	.inst	0x02222121 ; undefined
+  38:	01010001 	.inst	0x01010001 ; undefined
+
+Disassembly of section .debug_info:
+
+0000000000000000 <.debug_info>:
+   0:	0000002a 	udf	#42
+   4:	00000002 	udf	#2
+   8:	01080000 	.inst	0x01080000 ; undefined
+   c:	00000000 	udf	#0
+  10:	40080000 	.inst	0x40080000 ; undefined
+  14:	00000000 	udf	#0
+  18:	40080014 	.inst	0x40080014 ; undefined
+	...
+  24:	00000007 	udf	#7
+  28:	00000014 	udf	#20
+  2c:	Address 0x000000000000002c is out of bounds.
+
+
+Disassembly of section .debug_abbrev:
+
+0000000000000000 <.debug_abbrev>:
+   0:	10001101 	adr	x1, 220 <end-0x4007fdf0>
+   4:	12011106 	and	w6, w8, #0x8000000f
+   8:	1b0e0301 	madd	w1, w24, w14, w0
+   c:	130e250e 	sbfiz	w14, w8, #18, #10
+  10:	00000005 	udf	#5
+
+Disassembly of section .debug_aranges:
+
+0000000000000000 <.debug_aranges>:
+   0:	0000002c 	udf	#44
+   4:	00000002 	udf	#2
+   8:	00080000 	.inst	0x00080000 ; undefined
+   c:	00000000 	udf	#0
+  10:	40080000 	.inst	0x40080000 ; undefined
+  14:	00000000 	udf	#0
+  18:	00000014 	udf	#20
+	...
+
+Disassembly of section .debug_str:
+
+0000000000000000 <.debug_str>:
+   0:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+   4:	2f00732e 	.inst	0x2f00732e ; undefined
+   8:	6f682f7e 	.inst	0x6f682f7e ; undefined
+   c:	712f656d 	subs	w13, w11, #0xbd9
+  10:	00756d65 	.inst	0x00756d65 ; undefined
+  14:	20554e47 	.inst	0x20554e47 ; undefined
+  18:	32205341 	orr	w1, w26, #0x1fffff
+  1c:	0038332e 	.inst	0x0038332e ; NYI

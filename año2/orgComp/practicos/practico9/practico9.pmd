@@ -1,0 +1,434 @@
+---
+title: Práctico 9 - OdC
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Notas
+## Partes del grafico
+La parte negra del dibujo se llama data path, y la parte celeste control.
+
+## Sign extend
+El sign extend lo que hace es extender el bit de signo de los campos pertinentes para permitir operar con numeros de 64 bits
+
+## Etapas de ejecucion de una instruccion
+### Fetch
+Voy a la memoria y traigo la instruccion a ejecutar
+
+Apuntar a una instruccion y sacarla de la memoria
+
+### Decode
+Configurar señales de control y extraer datos con los que vamos a operar
+
+Los datos con los que podemos operar son valores que sacamos de registros o valores inmediatos que pasamos como argumento
+
+### Execute
+La ALU hace algun tipo de calculo.
+
+Ya sea entre los dos registros de salida o un registro y un inmediato
+
+### Memory
+Si hago un acceso a memoria
+
+### Write back
+Escribir el resultado en los registros correspondientes
+
+## ALU control
+En ALUop está codificado el formato de instruccion
+
+## Single cycle processor
+Es un procesador al que le toma un solo ciclo de clock ejecutar cada instruccion
+
+## Latencia
+### Register read
+Tiempo necesario para que el nuevo valor del registro aparezca en la salida
+
+Tiempo posterior al flanco ascendente del clock
+
+Aplica solo al PC
+
+### Register Setup
+Tiempo que la entrada de datos de un registro debe permanecer estable antes del flanco ascendente del clock
+
+Aplica al PC y al register file
+
+
+# 1)
+## Como resolver
+Tener en cuenta que las direcciones de memoria tienen 64 bits y las instrucciones 32.
+
+Aclarar cuantos bits pasan por cada cable del data path.
+
+Recordar que el AluOp tiene 2 bits y que la salida del ALU control tiene 4 bits
+
+## Resolucion
+![](./practico9_imgs/fig1.png)
+
+## Resolucion corregida
+![](./practico9_imgs/fig3.png)
+
+# 2)
+## Como resolver
+La data memory se usa al guardar o sacar algo de la memoria
+
+La instruction memory se usa siempre, ya que ahí se guardan las instrucciones a ejecutar
+
+El sign extend se usa cuando la instruccion posee algun inmediato o campo que haya que extender
+
+## 1)
+El 35% (LDUR, STUR) de todas las instrucciones utilizan data memory .
+
+## 2)
+El 100% (todas) de las instrucciones utiliza instruction memory .
+
+## 3)
+El 76% (I, LDUR, STUR, CBZ, B) de las instrucciones utiliza sign extend .
+
+
+# 3)
+## Como resolver
+Ver los flujos de datos y prestar atencion a si un multiplexor debe estar activado o no
+
+Tambien prestar atencion a si la memoria tiene que estar activa o no.
+
+Ver para que sirve para señal de control
+
+Para las señales ALUop hay que sacarlas de la tabla nomas
+
+## Resolucion
+
+\begin{tabular}{ |c|c|c|c|c|c|c| }
+\hline
+ \textbf{instr}  &  Reg2Loc  &  ALUSrc  &  MemtoReg  &  RegWrite  &  MemRead  &  MemWrite \\
+\hline
+ R-type          &  0        &  0       &  0         &  1         &  0        &  0        \\
+\hline
+ LDUR            &  1        &  1       &  1         &  1         &  1        &  0        \\
+\hline
+ STUR            &  1        &  1       &  0         &  0         &  0        &  1        \\
+\hline
+ CBZ             &  1        &  1       &  X         &  0         &  X        &  X        \\
+\hline
+\hline
+ \textbf{instr}  &  Branch   &  AluOp1  &  AluOp0    &            &           &           \\
+\hline
+ R-type          &  X        &  1       &  0         &            &           &           \\
+\hline
+ LDUR            &  X        &  0       &  0         &            &           &           \\
+\hline
+ STUR            &  X        &  0       &  0         &            &           &           \\
+\hline
+ CBZ             &  1        &  0       &  1         &            &           &           \\
+\hline
+\end{tabular}
+
+## Resolucion Corregida
+
+\begin{tabular}{ |c|c|c|c|c|c|c| }
+\hline
+ \textbf{instr}  &  Reg2Loc  &  ALUSrc  &  MemtoReg  &  RegWrite  &  MemRead  &  MemWrite \\
+\hline
+ R-type &  0        &  0       &  0         &  1         &  0        &  0        \\
+\hline
+ LDUR   &  \textbf{X}        &  1       &  1         &  1         &  1        &  0        \\
+\hline
+ STUR   &  1        &  1       &  \textbf{X}         &  0         &  0        &  1        \\
+\hline
+ CBZ    &  1        &  \textbf{0}       &  X         &  0         &  \textbf{0}        &  \textbf{0}        \\
+\hline
+\hline
+ \textbf{instr}  &  Branch   &  AluOp1  &  AluOp0    &            &           &           \\
+\hline 
+ R-type &  \textbf{0}        &  1       &  0         &            &           &           \\
+\hline
+ LDUR   &  \textbf{0}        &  0       &  0         &            &           &           \\
+\hline
+ STUR   &  \textbf{0}        &  0       &  0         &            &           &           \\
+\hline
+ CBZ    &  1        &  0       &  1         &            &           &           \\
+\hline
+\end{tabular}
+
+
+# 4)
+## Como resolver
+Ver los flujos de datos y prestar atencion a si un multiplexor debe estar activado o no
+
+Prestar atencion a la tablita del ejercicio anterior y ver que cambiaria si la columna de la señal de control pertinente estuviera toda en 0
+
+## 1)
+Las siguientes instrucciones funcionarian de manera incorrecta si el cable memToReg estuviera atascado en '0':
+
+- LDUR
+
+## 2)
+Las siguientes instrucciones funcionarian de manera incorrecta si el cable ALUSrc estuviera atascado en '0':
+
+- LDUR
+- STUR
+
+## 3)
+Las siguientes instrucciones funcionarian de manera incorrecta si el cable reg2Loc estuviera atascado en '0':
+
+- LDUR
+- CBZ
+
+
+# 5)
+## Como resolver
+Pensar en que CBNZ = $\neg$ CBZ
+
+## Resolucion
+![](./practico9_imgs/fig2.png)
+
+
+# 6)
+## Como resolver
+Desensamblar instruccion e ir viendo como se ejecutaria todo teniendo en cuenta la instruccion.
+
+## Desensamblaje de la instruccion 
+
+### Pasamos a binario
+0xf8014062 
+= 1111 1000 0000 0001 0100 0000 0110 0010
+
+### Pasamos opcode a hex
+111 1100 0000 = 0x7C0
+
+### Vemos instruccion en greencard
+0x7C0 = STUR
+
+### Vemos campos de la instruccion
+11111000000 000010100 00 00011 00010
+
+### Pasemos la instruccion a LEGv8
+STUR X2, [X3, #20]
+
+## Camino de ejecucion
+![](./practico9_imgs/fig4.png)
+
+## 6.1)
+
+### Salida sign-extend
+La salida del sign extend es el inmediato de la instruccion con el bit de signo extendido.
+
+salida = 0x00000014
+
+### Salida shift left 2
+La salida de shift left 2 es la salida del sign extend pero con un shift left por 2
+
+salida = 0x00000050
+
+## 6.2)
+Los valores de entrada son \textbf{00}
+
+## 6.3)
+0x00000100 + 0x00000004 = 0x00000104
+
+## 6.4) (CORREGIR)
+![](./practico9_imgs/fig5.png)
+
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+ Mux  &  S  &  $l_0$            &  $l_1$  &  salida          \\
+\hline
+ 1    &  1  &  0x14             &  0x2    &  0x2             \\
+ 2    &  1  &  Reg [X2]         &  0x14   &  0x14            \\
+ 3    &  0  &  x104             &  0x150  &  0x104           \\
+ 4    &  0  &  Rex [X3] + 0x14  &  X      &  Rex [X3] + 0x14 \\
+\hline
+\end{tabular}
+
+## 6.5)
+### ALU
+La ALU recibe el contenido del registro X3, el número 0x00000014 y el numero 0x2 desde ALU control
+
+### ADD 1
+Recibe 0x100 del PC y el numero 0x4 constante
+
+### ADD 2
+Recibe 0x100 del PC y el numero 0x00000050 del lado del shift left 2
+
+## 6.6) 
+
+![](./practico9_imgs/fig7.png)
+\begin{tabular}{ |c|c| }
+\hline
+ RegWrite         &  0   \\
+\hline
+ Read register 1  &  0x3 \\
+\hline
+ Read register 2  &  0x2 \\
+\hline
+ Write register   &  0x2 \\
+\hline
+ Write data       &   X  \\
+\hline
+\end{tabular}
+
+# 7)
+## Como resolver
+Tener en cuenta que B tendria que ir por el mismo camino que CBZ y que dicho camino tendria que poder activarse ya sea con UncondBranch o con (Branch $\wedge$ Zero)
+
+## Resolucion
+![](./practico9_imgs/fig6.png)
+
+# 8)
+## Como resolver
+### 1)
+Ver latencia de sacar direccion del PC y meterla la instruction memory (Imem)
+
+### (2), (3), (4) y (5)
+Ver que partes del circuito se usan y cuales no
+
+Ver los distintos caminos que se ejecutan y determinar el camino critico (el mas largo)
+
+La latencia que buscamos es la del camino con mayor latencia (el camino critico)
+
+### 6)
+Para que todas las intrucciones puedan ejecutarse el periodo de clock debe ser mayor o igual a la latencia de la instruccion mas lenta
+
+La frecuencia se calcula sacando el inverso multiplicativo del periodo
+
+La frecuencia suele escribirse en GHz
+
+### 7)
+Prestar atencion al opcode de las operaciones que utilizan Reg2Loc y buscar un patron tal que se pueda sacar la señal reg2loc directamente de un bit del opcode
+
+## 8.1) Fetch
+![](./practico9_imgs/fig8.png)
+
+Leer el contenido del PC (Register read) toma \textbf{30ps}
+
+Usar la instruction memory (I-mem) toma \textbf{250ps}
+
+Total = 30ps + 250ps = \textbf{280ps}
+
+## 8.2) R
+![](./practico9_imgs/fig9.png)
+
+camino\_crit = RegRead + iMem + control + Mux + regFile + Mux + ALU + mux + regSetup
+
+camino\_crit = 30ps + 250ps + 50ps + 25ps + 150ps + 25ps + 200ps + 25ps + 20
+
+camino\_crit = 775ps
+
+## 8.3) LDUR
+![](./practico9_imgs/fig10.png)
+
+caminoCrit = regRead + iMem + regFile + ALU + dMem + mux + regSetup
+
+caminoCrit = 30ps + 250ps + 150ps + 200ps + 250ps + 25ps + 20ps
+
+caminoCrit = 925ps
+
+## 8.4) STUR
+![](./practico9_imgs/fig11.png)
+
+caminoCrit = regRead + iMem + control + mux + regFile + ALU + dMem 
+
+caminoCrit = 30ps + 250ps + 50ps + 25ps + 150ps + 200ps + 250
+
+caminoCrit = 955
+
+
+## 8.5) CBZ
+![](./practico9_imgs/fig12.png)
+
+caminoCrit = regRead + iMem + control + mux + regFile + mux + ALU + gate + mux + regSetup
+
+caminoCrit = 30ps + 250ps + 50ps + 25ps + 150ps + 25ps + 200ps + 5ps + 25ps + 20ps
+
+caminoCrit = 780ps
+
+## 8.6)
+
+Como la latencia mas lenta es de \textbf{955ps}, el minimo periodo de reloj para esta implementacion es de \textbf{955ps}
+
+La frecuencia de reloj correspondiente es igual al inverso multiplicativo del periodo del reloj, por lo cual:
+$$f = \frac{1}{955ps} \approx 1.047 Ghz$$
+
+## 8.7)
+
+Veamos los opcodes de la instrucciones y si usan reg2loc
+
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+\hline
+ Inst  &  31  & 30 &  29   &  28   &  27   &  26   &  25   &  24   &  etc    &  reg2loc \\
+\hline
+ R     &  1       &  0 &  X  &  \textbf{0}  &  1  &  0  &  1  &  1  &  000  &  0       \\
+\hline                                   
+ SUB   &  1       &  1 &  0  &  \textbf{0}   &  1  &  0  &  1  &  1  &  000  &  0       \\
+\hline                                  
+ LDUR  &  1       &  1 &  1  &  \textbf{1}   &  1  &  0  &  0  &  0  &  010  &  X       \\
+\hline                                   
+ STUR  &  1       &  1 &  1  &  \textbf{1}   &  1  &  0  &  0  &  0  &  000  &  1       \\
+\hline                                   
+ CBZ   &  1       &  0 &  1  &  \textbf{1}   &  0  &  1  &  0  &  0  &       &  1       \\
+\hline
+\end{tabular}
+
+![](./practico9_imgs/fig13.png)
+
+
+# 9)
+## Como resolver
+Calcular camino critico sin la parte del sign extend y la ALU
+
+Calcular porcentaje
+
+## LDUR
+![](./practico9_imgs/fig14.png)
+
+caminoCrit = regRead + iMem + regFile + dMem + mux + regSetup
+
+caminoCrit = 30ps + 250ps + 150ps + 250ps + 25ps + 20ps
+
+caminoCrit = 725ps
+
+## STUR
+![](./practico9_imgs/fig15.png)
+caminoCrit = regRead + iMem + control + mux + regFile + dMem 
+
+caminoCrit = 30ps + 250ps + 50ps + 25ps + 150ps + 250ps
+
+caminoCrit = 755ps
+
+## Porcentaje de aumento
+Como 780ps (CBZ) es la operacion mas lenta calculemos el porcentaje de aumento de la velocidad en base a eso
+
+aumento = (955/780) * 100%
+
+aumento $\approx$ 122.4%
+
+# 10)
+## Como resolver
+Por cada tipo de instruccion multiplicar el tiempo que tarda cada instruccion por su porcentaje (en forma 0.XX) y sumarlas entre si
+
+Para calcular la aceleracion de la nueva CPU hacer: 
+
+\textbf{periodo\_original / nuevo\_periodo}
+
+## Resolucion
+nuevoPeriodo = 775ps * 0.52 + 925ps * 0.25 + 955ps * 0.10 + 780 * 0.13
+
+nuevoPeriodo = 831.15ps
+
+aceleracion = (955ps / 831.15) * 100%
+
+aceleracion $\approx$ 1.149 * 100%
+
+aceleracion $\approx$ 114.9%
+
+
+# 11)
+## Como resolver
+- Ver que muxes se activarian
+- Ver que operacion realiza la alu
+- Tener en cuenta que el sign extend interpreta a la instruccion como de formato CB
+- Analizar como se ejecutaria en la ISA
+
+

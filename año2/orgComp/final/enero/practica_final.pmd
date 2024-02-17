@@ -1,0 +1,361 @@
+---
+title: Práctica Final OdC
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Finales usados
+- Final 2022-02-24
+- Final 2021-12-21
+- Final 2021-07-29 (Tema 3)
+\newpage
+
+# Sistemas de Numeracion
+## Ejercicios
+![](./practica_final_figs/fig1.png)
+
+## Notas
+### Diferencia relativa
+Hay que dividir?
+
+### Diferencia absoluta
+Hay que restar y calcular valor absoluto
+
+## Resolucion
+### 1) DONE
+#### a)
+El numero decimal positivo mas grande expresable en formato IEEE 754 es 0 11111110 11111111111111111111111
+
+#### b)
+El número inmediatamente menor es 0 11111110 11111111111111111111110
+
+### 2) DONE
+![](./practica_final_figs/fig6.png)
+
+### 3) DONE
+#### a)
+El numero decimal positivo mas grande expresable en formato IEEE 754 es 1 11111110 11111111111111111111111
+
+#### b)
+El número inmediatamente menor es 1 11111110 11111111111111111111110
+\newpage
+
+# Circuitos combinacionales
+## Ejercicios
+![](./practica_final_figs/fig2.png)
+
+## Notas
+## Resolucion
+### 1) DONE
+#### Tabla de verdad
+
+\begin{tabular}{ |c c|c c|c c c c| }
+\hline
+ $A_0$  &  $A_1$  &  $B_0$  &  $B_1$  &  $X_0$  &  $X_1$  &  $X_2$  &  $X_3$ \\
+\hline
+ 0      &  0      &  0      &  0      &  0      &  0      &  0      &  0     \\
+\hline
+ 0      &  0      &  0      &  1      &  0      &  0      &  0      &  0     \\
+\hline
+ 0      &  0      &  1      &  0      &  0      &  0      &  0      &  0     \\
+\hline
+ 0      &  0      &  1      &  1      &  0      &  0      &  0      &  0     \\
+\hline
+ 0      &  1      &  0      &  0      &  0      &  0      &  0      &  0     \\
+\hline
+ 0      &  1      &  0      &  1      &  0      &  0      &  0      &  1     \\
+\hline
+ 0      &  1      &  1      &  0      &  0      &  0      &  1      &  0     \\
+\hline
+ 0      &  1      &  1      &  1      &  0      &  0      &  1      &  1     \\
+\hline
+ 1      &  0      &  0      &  0      &  0      &  0      &  0      &  0     \\
+\hline
+ 1      &  0      &  0      &  1      &  0      &  0      &  1      &  0     \\
+\hline
+ 1      &  0      &  1      &  0      &  0      &  1      &  0      &  0     \\
+\hline
+ 1      &  0      &  1      &  1      &  0      &  1      &  1      &  0     \\
+\hline
+ 1      &  1      &  0      &  0      &  0      &  0      &  0      &  0     \\
+\hline
+ 1      &  1      &  0      &  1      &  0      &  0      &  1      &  1     \\
+\hline
+ 1      &  1      &  1      &  0      &  0      &  1      &  1      &  0     \\
+\hline
+ 1      &  1      &  1      &  1      &  1      &  0      &  0      &  1     \\
+\hline
+\end{tabular}
+
+#### Mapas de Karnaugh\
+
+![](./practica_final_figs/fig7.png)
+
+![](./practica_final_figs/fig8.png)
+
+### 2) TODO
+### 3) DONE
+#### Tabla de verdad\
+
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+ $A_0~A_1$  &  $B_0~B_1$  &  $C_0~C_1$  &  $R_0~R_1$  &  $div_0$ \\
+\hline
+ 0  0       &  0 0        &  X X        &  X X        &  1     \\
+\hline
+ 0  0       &  0 1        &  0 0        &  0 0        &  0     \\
+\hline
+ 0  0       &  1 0        &  0 0        &  0 0        &  0     \\
+\hline
+ 0  0       &  1 1        &  0 0        &  0 0        &  0     \\
+\hline
+ 0  1       &  0 0        &  X X        &  X X        &  1     \\
+\hline
+ 0  1       &  0 1        &  0 1        &  0 0        &  0     \\
+\hline
+ 0  1       &  1 0        &  0 0        &  0 1        &  0     \\
+\hline
+ 0  1       &  1 1        &  0 0        &  1 1        &  0     \\
+\hline
+ 1  0       &  0 0        &  X X        &  X X        &  1     \\
+\hline
+ 1  0       &  0 1        &  1 0        &  0 0        &  0     \\
+\hline
+ 1  0       &  1 0        &  0 1        &  0 0        &  0     \\
+\hline
+ 1  0       &  1 1        &  0 0        &  1 0        &  0     \\
+\hline
+ 1  1       &  0 0        &  X X        &  X X        &  1     \\
+\hline
+ 1  1       &  0 1        &  1 1        &  0 0        &  0     \\
+\hline
+ 1  1       &  1 0        &  0 1        &  0 1        &  0     \\
+\hline
+ 1  1       &  1 1        &  0 1        &  0 0        &  0     \\
+\hline
+\end{tabular}
+
+#### Mapas de Karnaugh
+![](./practica_final_figs/fig9.png)
+
+\newpage
+
+# Sistemas de memoria
+## Ejercicios
+![](./practica_final_figs/fig3.png)
+
+## Notas
+## Resolucion
+### 1) TODO
+![](./practica_final_figs/fig10.png)
+
+### 2) TODO
+![](./practica_final_figs/fig11.png)
+
+### 3) TODO
+![](./practica_final_figs/fig12.png)
+
+\newpage
+
+# Circuitos Secuenciales
+## Ejercicios
+![](./practica_final_figs/fig4.png)
+
+## Notas
+Para ver cantidad de bits restar extremos del campo y sumar 1
+
+## Resolucion
+### 1) TODO
+![](./practica_final_figs/fig13.png)
+
+#### Combinacional de estados\
+
+\begin{tabular}{ |c||c|c|c||c|c|c|c||c|c|c| }
+\hline
+ Codif  &  Q2  &  Q1  &  Q0  &  E3  &  E2  &  E1  &  E0  &  D2  &  D1  &  D0 \\
+\hline
+ E0     &  0   &  0   &  0   &  1   &  0   &  0   &  1   &  0   &  0   &  1  \\
+\hline
+ E0     &  0   &  0   &  0   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  1   &  0   &  0   &  1   &  0   &  1   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E2     &  0   &  1   &  0   &  0   &  0   &  1   &  0   &  0   &  1   &  1  \\
+\hline
+ E2     &  0   &  1   &  0   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E3     &  0   &  1   &  1   &  0   &  0   &  1   &  1   &  1   &  0   &  0  \\
+\hline
+ E3     &  0   &  1   &  1   &  X   &  X   &  X   &  X   &  0   &  1   &  1  \\
+\hline
+ E4     &  1   &  0   &  0   &  0   &  0   &  1   &  1   &  0   &  0   &  0  \\
+\hline
+ E4     &  1   &  0   &  0   &  X   &  X   &  X   &  X   &  0   &  1   &  1  \\
+\hline
+\end{tabular}
+
+#### Ecuaciones\
+\begin{tabular}{ l l l }
+& D2 = Q2' Q1 Q0 E3' E2' E1 E0\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+D1 = & Q2' Q1' Q0 E3 E2' E1' E0\\
+& + Q2' Q1 Q0' E3' E2' E1 E0'\\
+& + Q2' Q1 Q0\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+D0 = & Q2' Q1' Q0' E3 E2' E1' E0\\
+& + Q2' Q1 Q0' E3' E2' E1 E0'\\
+& + Q2' Q1 Q0\\
+\end{tabular}
+
+#### Combinacional de salida\
+
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+ Codif  &  Q2  &  Q1  &  Q0  &  Out \\
+\hline
+ E0     &  0   &  0   &  0   &  0   \\
+\hline
+ E1     &  0   &  0   &  1   &  0   \\
+\hline
+ E2     &  0   &  1   &  0   &  0   \\
+\hline
+ E3     &  0   &  1   &  1   &  1   \\
+\hline
+ E4     &  1   &  0   &  0   &  1   \\
+\hline
+\end{tabular}
+
+#### Ecuacion\
+
+\begin{tabular}{ l l l }
+Out =& Q2' Q1 Q0\\
+& + Q2 Q1' Q0'\\
+\end{tabular}
+
+### Diagrama de bloques
+
+#### Combinacional de estados\
+![](./practica_final_figs/fig16.png)
+
+#### Combinacional de salida\
+![](./practica_final_figs/fig17.png)
+
+### 2) TODO
+![](./practica_final_figs/fig14.png)
+
+
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+\hline
+ Codif  &  Q2  &  Q1  &  Q0  &  E3  &  E2  &  E1  &  E0  &  D2  &  D1  &  D0 \\
+\hline
+ E0     &  0   &  0   &  0   &  X   &  X   &  X   &  0   &  0   &  0   &  1  \\
+\hline
+ E0     &  0   &  0   &  0   &  X   &  X   &  X   &  1   &  0   &  0   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  X   &  X   &  X   &  0   &  0   &  1   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  X   &  X   &  X   &  1   &  0   &  0   &  0  \\
+\hline
+ E2     &  0   &  1   &  0   &  X   &  X   &  X   &  0   &  0   &  0   &  0  \\
+\hline
+ E2     &  0   &  1   &  0   &  X   &  X   &  X   &  0   &  0   &  1   &  1  \\
+\hline
+ E3     &  0   &  1   &  1   &  X   &  X   &  X   &  X   &  0   &  1   &  1  \\
+\hline
+ E3     &  0   &  1   &  1   &  0   &  0   &  0   &  1   &  1   &  0   &  0  \\
+\hline
+ E4     &  1   &  0   &  0   &  X   &  X   &  X   &  X   &  0   &  1   &  1  \\
+\hline
+ E4     &  1   &  0   &  0   &  0   &  0   &  0   &  1   &  0   &  0   &  0  \\
+\hline
+\end{tabular}
+### 3) TODO
+![](./practica_final_figs/fig15.png)
+
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+\hline
+ Codif  &  Q2  &  Q1  &  Q0  &  E3  &  E2  &  E1  &  E0  &  D2  &  D1  &  D0 \\
+\hline
+ E0     &  0   &  0   &  0   &  0   &  1   &  1   &  1   &  0   &  0   &  1  \\
+\hline
+ E0     &  0   &  0   &  0   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  0   &  1   &  1   &  1   &  0   &  1   &  0  \\
+\hline
+ E1     &  0   &  0   &  1   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E2     &  0   &  1   &  0   &  0   &  0   &  1   &  0   &  0   &  1   &  1  \\
+\hline
+ E2     &  0   &  1   &  0   &  X   &  X   &  X   &  X   &  0   &  0   &  0  \\
+\hline
+ E3     &  0   &  1   &  1   &  0   &  0   &  1   &  1   &  1   &  0   &  0  \\
+\hline
+ E3     &  0   &  1   &  1   &  X   &  X   &  X   &  X   &  0   &  1   &  1  \\
+\hline
+\end{tabular}
+
+\newpage
+
+# Ensamblado
+## Ejercicios
+![](./practica_final_figs/fig5.png)
+
+## Notas
+## Resolucion
+### 1) TODO
+![](./practica_final_figs/fig18.png)
+
+#### Correcciones \
+2) Cambiemos -3 por 3
+
+\begin{tabular}{ l l l }
+& 11010011010 00000 000011 00000 00000\\
+&  = 1101 0011 0100 0000 0000 1100 0000 0000\\
+&  = 0xD3400C00\\
+\end{tabular}
+
+5) Cambiemos X32 por X30
+
+\begin{tabular}{ l l l }
+& 10001010000 11110 000000 10110 01100\\
+& = 1000 1010 0001 1110 0000 0010 1100 1100\\
+& = 0x891E02CC\\
+\end{tabular}
+
+7) Cambiar -8 por 8
+
+\begin{tabular}{ l l l }
+& 1101 0010 00,00 0000 0010 00,00 010,0 0001\\
+& = 0xD2002041\\
+\end{tabular}
+
+9) Reemplazar 0x7F por 0x3F
+\begin{tabular}{ l l l }
+& 1101 0011 011,0 0000, 1111 11,00 001,0 0000\\
+& = 0xD3600020\\
+\end{tabular}
+
+10) Cambiar X31 por X30 y 31 por 32
+
+\begin{tabular}{ l l l }
+& 1101 0010 1,10,0 0000 0000 0000 000,1 1110\\
+& = 0xD2C0001E\\
+\end{tabular}
+
+
+
+### 2) TODO
+![](./practica_final_figs/fig19.png)
+
+### 3) TODO
+\newpage
+

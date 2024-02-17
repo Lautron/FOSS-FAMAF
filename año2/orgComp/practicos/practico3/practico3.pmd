@@ -1,0 +1,381 @@
+\tableofcontents
+
+# Practico 3
+
+# 1) 
+
+## a)
+
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+A & B & C & D & S\\
+\hline
+0 & 0 & 0 & 0 & 0\\
+\hline
+0 & 0 & 0 & 1 & \textbf{1}\\
+\hline
+0 & 0 & 1 & 0 & \textbf{1}\\
+\hline
+0 & 0 & 1 & 1 & 0\\
+\hline
+0 & 1 & 0 & 0 & \textbf{1}\\
+\hline
+0 & 1 & 0 & 1 & 0\\
+\hline
+0 & 1 & 1 & 0 & 0\\
+\hline
+0 & 1 & 1 & 1 & \textbf{1}\\
+\hline
+1 & 0 & 0 & 0 & \textbf{1}\\
+\hline
+1 & 0 & 0 & 1 & 0\\
+\hline
+1 & 0 & 1 & 0 & 0\\
+\hline
+1 & 0 & 1 & 1 & \textbf{1}\\
+\hline
+1 & 1 & 0 & 0 & 0\\
+\hline
+1 & 1 & 0 & 1 & \textbf{1}\\
+\hline
+1 & 1 & 1 & 0 & \textbf{1}\\
+\hline
+1 & 1 & 1 & 1 & 0\\
+\hline
+\end{tabular}
+
+## b)
+
+Miniterminos:
+
+S = A'B'C'D + A'B'CD' + A'BC'D' + A'BCD + AB'C'D' + AB'CD
++ ABC'D + ABCD'
+
+Maxiterminos:
+
+S = (A+B+C+D) * (A+B+C'+D') * (A+B'+C+D') * (A+B'+C'+D) * (A'+B+C+D') * (A'+B+C'+D) * (A'+B'+C+D) * (A'+B'+C'+D') 
+
+## c)
+
+Partamos de la suma de miniterminos.
+
+S'' = (A'B'C'D + A'B'CD' + A'BC'D' + A'BCD + AB'C'D' + AB'CD + ABC'D + ABCD')''
+
+=((A'B'C'D)' * (A'B'CD')' * (A'BC'D')' * (A'BCD)' * (AB'C'D')' * (AB'CD)' * (ABC'D)' * (ABCD')')'
+
+## d)
+
+<!-- ![PLA](./practico3_imgs/fig1.png){ width=200px } -->
+
+\newpage
+
+# 2)
+
+## a)
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+A & B & C & D & E & Err\\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1 & 0 & 0 \\ 
+0 & 0 & 0 & 1 & 1 & 0 \\ 
+\hline
+0 & 0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & 1 & 0 & 1 & 0 \\ 
+0 & 0 & 1 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 1 & 1 & 1 \\ 
+\hline
+0 & 1 & 0 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 & 1 & 0 \\ 
+0 & 1 & 0 & 1 & 0 & 0 \\ 
+0 & 1 & 0 & 1 & 1 & 1 \\ 
+\hline
+0 & 1 & 1 & 0 & 0 & 0 \\ 
+0 & 1 & 1 & 0 & 1 & 1 \\ 
+0 & 1 & 1 & 1 & 0 & 1 \\ 
+0 & 1 & 1 & 1 & 1 & 0 \\ 
+\hline
+1 & 0 & 0 & 0 & 0 & 0 \\ 
+1 & 0 & 0 & 0 & 1 & 0 \\ 
+1 & 0 & 0 & 1 & 0 & 0 \\ 
+1 & 0 & 0 & 1 & 1 & 1 \\ 
+\hline
+1 & 0 & 1 & 0 & 0 & 0 \\ 
+1 & 0 & 1 & 0 & 1 & 1 \\ 
+1 & 0 & 1 & 1 & 0 & 1 \\ 
+1 & 0 & 1 & 1 & 1 & 0 \\ 
+\hline
+1 & 1 & 0 & 0 & 0 & 0 \\ 
+1 & 1 & 0 & 0 & 1 & 1 \\ 
+1 & 1 & 0 & 1 & 0 & 1 \\ 
+1 & 1 & 0 & 1 & 1 & 0 \\ 
+\hline
+1 & 1 & 1 & 0 & 0 & 1 \\ 
+1 & 1 & 1 & 0 & 1 & 0 \\ 
+1 & 1 & 1 & 1 & 0 & 0 \\ 
+1 & 1 & 1 & 1 & 1 & 0 \\ 
+\hline
+\end{tabular}
+
+## b)
+Miniterminos:
+
+S = A'B'CDE + A'BC'DE + A'BCD'E + A'BCDE' + AB'C'DE + AB'CD'E +  AB'CDE' + ABC'D'E + ABC'DE' + ABCD'E'
+
+Maxiterminos:
+S = 
+(A+B+C+D+E) * 
+(A+B+C+D+E') * 
+(A+B+C+D'+E) * 
+(A+B+C+D'+E') * 
+(A+B+C'+D+E) * 
+(A+B+C'+D+E') * 
+(A+B+C'+D'+E) * 
+(A+B'+C+D+E) * 
+(A+B'+C+D+E') * 
+(A+B'+C+D'+E) * 
+(A+B'+C'+D+E) * 
+(A+B'+C'+D'+E') * 
+(A'+B+C+D+E) * 
+(A'+B+C+D+E') * 
+(A'+B+C+D'+E) * 
+(A'+B+C'+D+E) * 
+(A'+B+C'+D'+E') * 
+(A'+B'+C+D+E) * 
+(A'+B'+C+D'+E') * 
+(A'+B'+C'+D+E') * 
+(A'+B'+C'+D'+E) * 
+(A'+B'+C'+D'+E') * 
+
+## c)
+
+![](./practico3_imgs/fig2.png){ width=250px }
+
+# 3)
+
+## a) $x.y + x.y'$
+
+| x | y | F |
+|---|---|---|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+![](./practico3_imgs/fig3.png){ width=250px }
+\newpage
+
+## f) y.(w.z' + w.z) + x.y
+
+| x | y | w | z | y.(w.z'+w.z) | x.y | f |
+|---|---|---|---|:------------:|-----|---|
+| 0 | 0 | 0 | 0 |       0      | 0   | 0 |
+| 0 | 0 | 0 | 1 |       0      | 0   | 0 |
+| 0 | 0 | 1 | 0 |       0      | 0   | 0 |
+| 0 | 0 | 1 | 1 |       0      | 0   | 0 |
+| 0 | 1 | 0 | 0 |       0      | 0   | 0 |
+| 0 | 1 | 0 | 1 |       0      | 0   | 0 |
+| 0 | 1 | 1 | 0 |       1      | 0   | 1 |
+| 0 | 1 | 1 | 1 |       1      | 0   | 1 |
+| 1 | 0 | 0 | 0 |       0      | 0   | 0 |
+| 1 | 0 | 0 | 1 |       0      | 0   | 0 |
+| 1 | 0 | 1 | 0 |       0      | 0   | 0 |
+| 1 | 0 | 1 | 1 |       0      | 0   | 0 |
+| 1 | 1 | 0 | 0 |       0      | 1   | 1 |
+| 1 | 1 | 0 | 1 |       0      | 1   | 1 |
+| 1 | 1 | 1 | 0 |       1      | 1   | 1 |
+| 1 | 1 | 1 | 1 |       1      | 1   | 1 |
+
+S = x'ywz' + x'ywz + xyw'z' + xyw'z + xywz' + xywz
+
+![](./practico3_imgs/fig4.png){ width=450px }
+
+# 4)
+## a)
+
+![](./practico3_imgs/fig5.png){ width=250px }
+
+S = a'b'c'd' + a'b'c'd + a'b'cd' + a'bcd' + ab'c'd' + ab'c'd + ab'cd'
+
+![](./practico3_imgs/fig6.png){ width=350px }
+
+## c)
+
+![](./practico3_imgs/fig7.png){ width=250px }
+
+S = a'bc + ab'c' + abc' + abc
+
+![](./practico3_imgs/fig8.png){ width=350px }
+
+
+# 5)
+
+\begin{tabular}{ |c c c c|c c c| }
+\hline
+A1 & A2 & B1 & B2 & M & I & m\\
+\hline
+0 & 0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 1\\
+0 & 0 & 1 & 0 & 0 & 0 & 1\\
+0 & 0 & 1 & 1 & 0 & 0 & 1\\
+0 & 1 & 0 & 0 & 1 & 0 & 0\\
+0 & 1 & 0 & 1 & 0 & 1 & 0\\
+0 & 1 & 1 & 0 & 0 & 0 & 1\\
+0 & 1 & 1 & 1 & 0 & 0 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0\\
+1 & 0 & 0 & 1 & 1 & 0 & 0\\
+1 & 0 & 1 & 0 & 0 & 1 & 0\\
+1 & 0 & 1 & 1 & 0 & 0 & 1\\
+1 & 1 & 0 & 0 & 1 & 0 & 0\\
+1 & 1 & 0 & 1 & 1 & 0 & 0\\
+1 & 1 & 1 & 0 & 1 & 0 & 0\\
+1 & 1 & 1 & 1 & 0 & 1 & 0\\
+\hline
+\end{tabular}
+
+![](./practico3_imgs/fig9.png)
+
+## d)
+
+![](./practico3_imgs/fig10.png)
+
+# 6)
+
+\begin{tabular}{ |c|c|c|c|c|c|c|}
+\hline
+ x  &  y  &  z  &  xyz  &  x'y  &  xyz'  &  F \\
+\hline
+ 0  &  0  &  0  &  0    &  0    &  0     &  0 \\
+ 0  &  0  &  1  &  0    &  0    &  0     &  0 \\
+ 0  &  1  &  0  &  0    &  1    &  0     &  1 \\
+ 0  &  1  &  1  &  0    &  1    &  0     &  1 \\
+ 1  &  0  &  0  &  0    &  0    &  0     &  0 \\
+ 1  &  0  &  1  &  0    &  0    &  0     &  0 \\
+ 1  &  1  &  0  &  0    &  0    &  1     &  1 \\
+ 1  &  1  &  1  &  1    &  0    &  0     &  1 \\
+\hline
+\end{tabular}
+
+![](./practico3_imgs/fig11.png){ width=250px }
+
+# 7) 
+
+## A)
+### a)
+$\underbrace{ \underbrace{(ab'+a'b)}_{XOR} + \underbrace{( (b.c).(c.a)' + (b.c)'.(c.a) )}_{XOR}}_{OR}$
+
+### b)
+\begin{tabular}{ |c|c|c||c|c|c|c|c| }
+\hline
+a  &  b  &  c  &  b.c  &  c.a  &  (ab' + a'b)  &  (b.c).(c.a)' + (b.c)'.(c.a)  &  F\\
+\hline
+0  &  0  &  0  &  0    &  0    &  0            &  0                            &  0\\
+0  &  0  &  1  &  0    &  0    &  0            &  0                            &  0\\
+\hline
+0  &  1  &  0  &  0    &  0    &  1            &  0                            &  1\\
+\hline
+0  &  1  &  1  &  1    &  0    &  1            &  1                            &  1\\
+\hline
+1  &  0  &  0  &  0    &  0    &  1            &  0                            &  1\\
+\hline
+1  &  0  &  1  &  0    &  1    &  1            &  1                            &  1\\
+\hline
+1  &  1  &  0  &  0    &  0    &  0            &  0                            &  0\\
+1  &  1  &  1  &  1    &  1    &  0            &  0                            &  0\\
+\hline
+\end{tabular}
+
+### c)
+![](./practico3_imgs/fig12.png){ width=250px }
+
+### d)
+![](./practico3_imgs/fig13.png){ width=150px }
+
+## B)
+![](./practico3_imgs/fig14.png)
+
+$F =((a.b) + c) + c.(b+d) \oplus c.(b+d) \oplus ((b+d) + a)'$
+
+
+\newpage
+# 8) 
+## a) 
+
+\begin{tabular}{ |c|c||c|c|c|c| }
+\hline
+$A_1$  &  $A_0$  &  $X_3$  &  $X_2$  &  $X_1$  &  $X_0$\\
+\hline
+0      &  0      &  1      &  1      &  1      &  0\\
+0      &  1      &  1      &  1      &  0      &  1\\
+1      &  0      &  1      &  0      &  1      &  1\\
+1      &  1      &  0      &  1      &  1      &  1\\
+\hline
+\end{tabular}
+
+## b)
+
+Producto de maxiterminos:
+
+$X_0 = A_1 + A_0$
+
+$X_1 = A_1 + A_0'$
+
+$X_2 = A_1' + A_0$
+
+$X_3 = A_1' + A_0'$
+
+## d)
+![](./practico3_imgs/fig15.png){ width=250px }
+
+## e)
+![](./practico3_imgs/fig16.png){ width=250px }
+
+# 9)
+## a)
+
+![](./practico3_imgs/fig17.png){ width=400px }
+
+## b)
+![](./practico3_imgs/fig18.png){ width=400px }
+
+# 10)
+## a)
+
+![](./practico3_imgs/fig19.png){ width=400px }
+
+## b)
+![](./practico3_imgs/fig20.png){ width=400px }
+
+# 11)
+## a)
+
+\begin{tabular}{ |c c c|c| }
+\hline
+S  &  $l_0$  &  $l_1$  &  Y\\
+\hline
+0  &  0      &  0      &  0\\
+0  &  0      &  1      &  0\\
+0  &  1      &  0      &  1\\
+0  &  1      &  1      &  1\\
+1  &  0      &  0      &  0\\
+1  &  0      &  1      &  1\\
+1  &  1      &  0      &  0\\
+1  &  1      &  1      &  1\\
+\hline
+\end{tabular}
+
+![](./practico3_imgs/fig21.png){ width=400px }
+
+## b)
+![](./practico3_imgs/fig22.png){ width=200px }
+
+## c)
+![](./practico3_imgs/fig23.png){ width=250px }
+
+## d)
+1) Agregar N/2 MUX en la primer columna y que su entrada de seleccion esté conectada a la entrada menos significativa
+2) Agregar la mitad de MUX que la vez anterior a la siguiente columna y conectarlos a la siguiente entrada de seleccion menos significativa
+3) Repetir el paso anterior hasta tener una sola salida
+
