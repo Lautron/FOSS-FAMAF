@@ -1,0 +1,116 @@
+# Ejercicios Práctico 4 #
+
+1 )
+    azul ~:~ Figura $\rightarrow$ Bool
+
+    azul.(f, c, t ) = c == Azul
+
+    rombo ~:~ Figura $\rightarrow$ Bool
+    
+    rombo.(f, c, t ) = f == Rombo
+
+2 ) 
+    tam ~:~ Figura $\rightarrow$  a
+
+    tam.(f, c, t ) = t
+
+3 ) 
+
+a ) $\langle \forall x ~:~ x \in_l xs ~:~ rojo.x \rangle$
+
+b ) $\langle \forall x ~:~ x \in_l xs ~:~ tam.x < 5 \rangle$
+
+c ) $\langle \forall x ~:~ x \in_l xs \wedge triangulo.x ~:~ rojo.x \rangle$
+
+d ) $\langle \exists x ~:~ x \in_l xs \wedge cuadrado.x~:~ verde.x \rangle$ 
+
+e ) $\langle \forall x ~:~ x \in_l xs \wedge circulo.x ~:~ azul.x \wedge tam.x < 10 \rangle$
+
+f ) $\langle \forall x : x \in_l xs \wedge triangulo.x : \neg azul.x \rangle$
+
+g ) $\langle \forall x : x \in_l xs \wedge circulo.x : \neg amarillo.x \wedge \neg verde.x \rangle$
+
+h ) $\langle \exists x : cuadrado.x \wedge x \in_l xs : tam.x < 5 \rangle$
+
+i ) $\langle \forall x : x \in_l xs \wedge circulo.x \wedge rojo.x : 
+\langle \exists y : y \in_l xs \wedge cuadrado.y : rojo.y \rangle 
+\rangle$
+
+5 ) 
+
+a )
+
+propB.[] = True
+
+propB.(x:xs ) = tam.x < 5 $\wedge$ propB.xs
+
+```
+propC.[] = True
+propC.(x:xs ) 
+    | triangulo.x = rojo.x && propC.xs
+    | otherwise = propC.xs
+```
+
+
+```
+propD.[] = False
+propD.(x:xs ) = cuadrado.x && verde.x  || propC.xs
+```
+
+```
+propE.[] = True
+propE.(x:xs ) 
+    | circulo.x = azul.x && tam.x < 10 && propE.xs
+    | otherwise = propE.xs
+```
+
+i )
+```
+propI.[] = True
+propI.(x:xs ) = 
+```
+
+7 ) Traducción a lenguaje natural:
+
+a ) Todo x en xs que no sea rojo o sea un triangulo tiene un tamaño mayor a 10
+
+b ) Existe una figura roja en xs y existe alguna figura que no es roja
+
+c ) Toda figura roja en xs es un cuadrado y tiene un tamaño mayor a 10
+
+xs = [(Cuadrado,Rojo,11 ), (Triangulo,Azul,12 )]
+
+8 ) 
+
+a ) $\langle \forall x : entero.x : par.x \vee impar.x \rangle$
+
+b ) $\langle \forall x : x \in_l xs : esCero.x \vee esUno.x \rangle$
+
+c ) $\langle \forall x : esUno.x \wedge x \in_l xs : \langle \exists y : y \in_l xs : esCero.y\rangle \rangle$
+
+d ) $\langle \exists x : x \in_l xs : esTrue.x \rangle$ 
+
+e ) $\#xs  \geq 1 \implies xs ~!!~ 0 == 0$
+
+f ) $\langle \forall i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#xs \wedge i == j : xs ~!!~i == xs ~!!~j \rangle$
+
+g ) $\langle \forall i,j : 0 \leq i < \#xs \wedge 0 \leq j < \#xs \wedge i \neq j : xs ~!!~i \neq xs ~!!~j \rangle$
+
+h ) $\langle \forall i : 0 \leq i < (\#xs - 1) : xs ~!!~ i > xs ~!!~ (i + 1)  \rangle$
+
+i ) $\langle \forall i: 0 \leq i < \#xs \wedge i < \#ys : xs ~!!~ i == ys~!!~i \rangle$
+
+j ) $\langle \forall x: x \in_l xs: \#x \geq 1 \rangle$ 
+
+9 )
+
+a ) $\langle \exists x : hombre.x \wedge Papa.x : \langle \forall y: hombre.y : x \neq y \rangle \rangle$
+
+b ) $\langle \exists i : 0 \leq i < \#xs \wedge xs~!!~i == 0 : \langle \forall j : 0 \leq j < \#xs \wedge j \neq i : xs~!!~j \neq 0 \rangle  \rangle$ 
+
+c ) $$\langle \exists i : 0 \leq i < \#xs \wedge xs~!!~i == x : \langle \forall j : 0 \leq j < \#xs \wedge j \neq i : xs~!!~j \neq x \rangle  \rangle$$
+
+d ) 
+
+$\langle \exists i : 0 \leq i < \#xs \wedge xs~!!~i = cuadrado.x \wedge xs~!!~i = azul.x :$ 
+$\langle \\ ~~~~~  \forall j: 0 \leq j < \#xs \wedge j \neq i : \neg (xs~!!~i = cuadrado.x \wedge xs~!!~i = azul.x )\rangle \\ \rangle$

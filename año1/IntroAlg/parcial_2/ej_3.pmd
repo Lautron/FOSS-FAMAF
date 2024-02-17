@@ -1,0 +1,24 @@
+Lautaro Bachmann 44390167
+
+## Ejercicio 3 ##
+
+$$\langle\forall x :: \neg (\underline{P.x \implies Q.x})\rangle \vee \langle \exists x :: False \wedge P.x \rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Caract. Implicación P:=P.x; Q:=Q.x} \}$$
+$$\langle\forall x :: \neg (\neg P.x \vee Q.x)\rangle \vee \langle \exists x :: \underline{False \wedge P.x} \rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Conmut. Conjuncion P:=False; Q:=P.x} \}$$
+$$\langle\forall x :: \neg (\neg P.x \vee Q.x)\rangle \vee \langle \exists x :: \underline{P.x \wedge False} \rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Elem. Absorbente Conjuncion P:=P.x} \}$$
+$$\langle\forall x :: \neg (\neg P.x \vee Q.x)\rangle \vee \underline{\langle \exists x :: False} \rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Termino Constante $\exists$, C:=False} \}$$
+$$\underline{\langle\forall x :: \neg (\neg P.x \vee Q.x)\rangle \vee False} \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Elem. Neutro Disyuncion P:=$\langle\forall x :: \neg (\neg P.x \vee Q.x)\rangle$} \}$$
+$$\langle\forall x :: \underline{\neg (\neg P.x \vee Q.x)}\rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{De Morgan P:=$\neg P.x$ Q:=Q.x} \}$$
+$$\langle\forall x :: {\underline{\neg\neg P.x} \wedge \neg Q.x)}\rangle \equiv (\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle$$
+$$\equiv \{ \text{Doble negacion, P:=P.x} \}$$
+$$\langle\forall x :: P.x \wedge \neg Q.x)\rangle \equiv \underline{(\langle \forall x:: P.x \rangle \wedge \langle \forall x :: \neg Q.x \rangle}$$
+$$\equiv \{ \text{Regla de termino de $\forall$ t:=P; s:=$\neg Q$} \}$$
+$$\underline{\langle\forall x :: P.x \wedge \neg Q.x)\rangle \equiv (\langle \forall x:: P.x \wedge \neg Q.x \rangle }$$
+$$\equiv \{ \text{Reflexividad equivalencia} \}$$
+$$True$$
+

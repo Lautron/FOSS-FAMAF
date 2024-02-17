@@ -1,0 +1,22 @@
+Lautaro Bachmann 44390167
+
+Ejercicio 1:
+
+pegarEn3 :: [([Char], [Char])] -> [([Char],[Char],[Char])]
+pegarEn3 [] = []
+pegarEn3 ((a,b):xs) = (a,b,a++b): pegarEn3 xs
+
+Evaluación manual:
+pegarEn3 [("ab","cd"),("fg","hi")] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+≡{Caso recursivo pegarEn3 a:="ab"; b:="cd"; xs:= [("fg","hi")]}
+("ab","cd","ab"++"cd"): pegarEn3 [("fg","hi")] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+≡{Caso recursivo pegarEn3 a:="fg"; b:="hi"; xs:= []}
+("ab","cd","ab"++"cd"): ("fg","hi","fg"++"hi"): pegarEn3 [] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+≡{Caso base de pegarEn3}
+("ab","cd","ab"++"cd"): ("fg","hi","fg"++"hi"): [] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+≡{Definicion de ++}
+("ab","cd","abcd"): ("fg","hi","fghi"): [] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+≡{Definicion de pegar}
+[("ab","cd","abcd"), ("fg","hi","fghi")] = [("ab","cd","abcd"), ("fg","hi","fghi")]
+
+

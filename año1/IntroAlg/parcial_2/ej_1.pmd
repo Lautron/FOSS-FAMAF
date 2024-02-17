@@ -1,0 +1,29 @@
+Bachmann Lautaro
+44390167
+
+1)
+b)
+
+$$p \vee q \equiv p \equiv \neg (p \wedge \neg q \equiv q) \equiv \underline{p \vee False}$$
+$$\equiv \{ \text{Elem. Neutro Disyuncion} \}$$
+$$p \vee  q \equiv p \equiv \neg (\underline{p \wedge  \neg  q \equiv q}) \equiv p$$
+$$\equiv \{ \text{Conmut. Equivalencia P:=(p$\wedge \neg$ q); Q:=q} \}$$
+$$p \vee  q \equiv p \equiv \underline{\neg ( q \equiv p \wedge  \neg q)} \equiv p$$
+$$\equiv \{ \text{Def. Negacion P:=q ; Q:=(p$\wedge \neg$q)} \}$$
+$$p \vee  q \equiv p \equiv \neg q \equiv \underline{p \wedge \neg q \equiv p}$$
+$$\equiv \{ \text{Regla dorada P:=p; Q:=$\neg$q} \}$$
+$$p \vee  q \equiv p \equiv \neg q \equiv \neg q \equiv \underline{p \vee \neg q}$$
+$$\equiv \{ \text{Teorema Estrella P:=p; Q:=$\neg q$} \}$$
+$$p \vee  q \equiv p \equiv \neg q \equiv \neg q \equiv p \vee \underline{\neg \neg q} \equiv p$$
+$$\equiv \{ \text{Doble negación P:=q} \}$$
+$$p \vee  q \equiv p \equiv \underline{\neg q \equiv \neg q} \equiv p \vee q \equiv p$$
+ $$\equiv \{ \text{Reflexividad Equivalencia} \}$$
+$$p \vee  q \equiv p \equiv \underline{True \equiv p \vee q \equiv p}$$
+$$\equiv \{ \text{Conmut. Equivalencia} \}$$
+$$\underline{p \vee  q \equiv p \equiv p \vee q \equiv p} \equiv  True $$
+$$\equiv \{ \text{Reflexividad Equivalencia} \}$$
+$$\underline{True \equiv True}$$
+$$\equiv \{ \text{Reflexividad Equivalencia} \}$$
+$$True$$
+
+

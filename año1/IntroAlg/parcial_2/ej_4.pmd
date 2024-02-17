@@ -1,0 +1,39 @@
+Lautaro Bachmann 44390167
+
+## Ejercicio 4 ##
+
+todoCyG.[] = True \textbf{(1)}
+
+todoCyG.(x:xs) = circulo.x $\wedge$ tam.x $\geq$ 10 $\wedge$ todoCyG.xs \textbf{(2)}
+
+
+e $\in_l$ [ ] = False \textbf{(3)}
+
+e $\in_l$ (x:xs) = (e == x) $\vee$ e $\in_l$ xs \textbf{(4)}
+
+$\\  todoCyG.xs \equiv \langle \forall y : y \in_l xs : circulo.y \wedge tam.y \geq 10 \rangle \quad \mathbf{(HI)}$
+
+### Caso base: ###
+$$\underline{todoCyG.[~]} \equiv \langle \forall y : y \in_l [~] : circulo.y \wedge tam.y \geq 10 \rangle$$ 
+$$\equiv \{ \text{Por (1)} \}$$
+$$True \equiv \langle \forall y : \underline{y \in_l [~]} : circulo.y \wedge tam.y \geq 10 \rangle$$ 
+$$\equiv \{ \text{Por (3) e:=y} \}$$
+$$True \equiv \underline{\langle \forall y : False : circulo.y \wedge tam.y \geq 10 \rangle}$$ 
+$$\equiv \{ \text{Rango Vacio de $\forall$} \}$$
+$$True \equiv  True$$
+$$True$$
+
+### Caso inductivo ###
+$$\underline{todoCyG.(x:xs)} \equiv \langle \forall y : y \in_l (x:xs) : circulo.y \wedge tam.y \geq 10 \rangle$$ 
+$$\equiv \{ \text{Por (2)} \}$$
+$$circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs \equiv \langle \forall y : \underline{y \in_l (x:xs)} : circulo.y \wedge tam.y \geq 10 \rangle$$
+$$\equiv \{ \text{Por (4)} \}$$
+$$circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs \equiv \underline{\langle \forall y : (y == x) ~\vee~ y \in_l xs : circulo.y \wedge tam.y \geq 10 \rangle}$$
+$$\equiv \{ \text{Particion de rango de $\forall$} \}$$
+$circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs \equiv \\ ~~\underline{\langle \forall y : (y == x) : circulo.y \wedge tam.y \geq 10 \rangle} \wedge \langle \forall y : y \in_l xs : circulo.y \wedge tam.y \geq 10 \rangle$
+$$\equiv \{ \text{Rango unitario de $\forall$} \}$$
+$$circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs \equiv \\ circulo.x \wedge tam.x \geq 10 \wedge \underline{\langle \forall y : y \in_l xs : circulo.y \wedge tam.y \geq 10 \rangle}$$
+$$\equiv \{ \text{Por Hipótesis Inductiva} \}$$
+$$\underline{circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs \equiv \\ circulo.x \wedge tam.x \geq 10 \wedge todoCyG.xs}$$
+$$\equiv \{ \text{Reflexividad de la equivalencia} \}$$
+$$True$$

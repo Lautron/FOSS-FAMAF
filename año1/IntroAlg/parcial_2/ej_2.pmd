@@ -1,0 +1,6 @@
+Lautaro Bachmann 44390167
+
+## Ejercicio 2 ##
+
+<∀i: 0 ≤ i ≤ N ∧ 0 ≤ i < #xs: xs!!(i) ≤ xs!!(i+1) >
+$$\langle \forall i : 0 \leq i \leq N \wedge 0 \leq i < \#xs: xs~!!~i \leq xs~!!~(i+1) \rangle$$

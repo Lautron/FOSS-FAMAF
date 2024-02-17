@@ -1,0 +1,77 @@
+8)
+a)
+$$P\vee  (Q \vee  R) \equiv  (\underline{P  \vee Q} ) \vee  (P \vee  R) $$
+$$\equiv \{ \text{Conm. Disyuncion} \}$$
+$$P\vee  (Q \vee  R) \equiv  (Q  \vee \underline{P) \vee  (P \vee  R)}  $$
+$$\equiv \{ \text{Asoc. Disyuncion, P:=P; Q:=P; R:=R} \}$$
+$$P\vee  (Q \vee  R) \equiv Q \vee (\underline{P \vee  P} ) \vee R$$
+$$\equiv \{ \text{Idempotencia Disyuncion} \}$$
+$$P\vee  (Q \vee  R) \equiv \underline{Q \vee P}  \vee R$$
+$$\equiv \{ \text{Conmut. Disyuncion} \}$$
+$$P\vee  (Q \vee  R) \equiv P \vee (Q  \vee R)$$
+$$\equiv \{ \text{Reflexividad de la equivalencia} \}$$
+$$True$$
+
+b) 
+$$ p \vee  \underline{True}  \equiv True$$
+$$\equiv \{ \text{Reflexividad equivalencia} \}$$
+$$\underline{p \vee  (p \equiv  p)}  \equiv  True$$
+$$\equiv \{ \text{Dist. disyuncion con equivalencia} \}$$
+$$\underline{p \vee  p \equiv  p \vee  p}  \equiv True$$
+$$\equiv \{ \text{Idempotencia disyuncion} \}$$
+$$\underline{p \equiv  p}  \equiv True$$
+$$\equiv \{ \text{Reflexividad equivalencia} \}$$
+$$\underline{True \equiv  True} $$
+$$\equiv \{ \text{Reflexividad equivalencia} \}$$
+$$True$$
+
+d)
+$$\underline{p \vee  q \equiv p \vee \neg q}  \equiv p$$
+$$\equiv \{ \text{Dist. disyuncion con equivalencia P:=p; Q:=q; R:=$\neg q$} \}$$
+$$p \vee (\underline{q \equiv \neg q} ) \equiv  p$$
+$$\equiv \{ \text{Conmut. equivalencia P:=q; Q:=}\neg q \}$$
+$$p \vee \underline{(\neg q \equiv q)} \equiv  p$$
+$$\equiv \{ \text{Def. de negación} \}$$
+$$p \vee \neg (\underline{q \equiv q}) \equiv  p$$
+$$\equiv \{ \text{Reflexividad de la equivalencia} \}$$
+$$p \vee \underline{\neg True} \equiv p$$
+$$\equiv \{ \text{Def. False} \}$$
+$$\underline{p \vee False \equiv p}$$
+$$\equiv \{ \text{Elemento neutro de la disyunción} \}$$
+$$True$$
+9)
+a)
+$$p \vee (q \wedge r) \equiv (p \vee q) \wedge (\underline{p \vee r})$$
+$$\equiv \{ \text{Conmut. Disyuncion P:=p; Q:=r} \}$$
+$$p \vee (q \wedge r) \equiv p \vee q \wedge r \vee p$$
+$$p \vee (q \wedge r) \equiv p \vee \underline{(q \wedge r) \vee p}$$
+$$\equiv \{ \text{Conmut. Disyuncion P:=($q\wedge r$); Q:=p} \}$$
+$$p \vee (q \wedge  r) \equiv  \underline{p \vee  p} \vee (q \wedge r)$$
+$$\equiv \{ \text{Indempotencia disyunción} \}$$
+$$\underline{p \vee  (q \wedge  r) \equiv  p \vee  (q \wedge r)}$$
+ $$\equiv \{ \text{Reflexividad de la equivalencia} \}$$
+ $$True$$
+
+c)
+$$\underline{p \wedge  p} \equiv p$$
+$$\equiv \{ \text{Regla dorada P:=p; Q:=p} \}$$
+$$ p \equiv p \equiv \underline{p \vee p} \equiv p$$
+$$\equiv \{ \text{Idempotencia disyuncion} \}$$
+$$\underline{p \equiv  p}\equiv\underline{p \equiv  p}$$
+$$\equiv \{ \text{Reflex. equivalencia} \}$$
+$$\underline{True \equiv True}$$
+$$\equiv \{ \text{Reflex. equivalencia} \}$$
+$$True$$
+ 
+e)
+$$p \wedge False \equiv False$$ 
+$$\equiv \{ \text{Regla dorada P:=p; Q:=False} \}$$
+$$p \equiv False \equiv \underline{p \vee False} \equiv False$$
+$$\equiv \{ \text{Elem. Neutro Disyuncion} \}$$
+$$p \equiv  \underline{False \equiv  p} \equiv False$$
+$$\equiv \{ \text{Conmut. Equivalencia P:=False; Q:=p} \}$$
+$$\underline{p \equiv  p} \equiv \underline{False \equiv False}$$
+$$\equiv \{ \text{Reflex. equivalencia} \}$$
+$$\underline{True \equiv True}$$
+$$\equiv \{ \text{Reflex. equivalencia} \}$$
+$$True$$

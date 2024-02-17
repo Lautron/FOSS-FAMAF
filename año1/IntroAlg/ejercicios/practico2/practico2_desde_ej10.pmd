@@ -1,0 +1,61 @@
+10. Considerando las definiciones de los ejercicios anteriores demostrá por inducción sobre xs las siguientes propiedades:
+
+a) sum.(sumar1.xs) = sum.xs + #xs
+
+    Definiciones:
+
+    
+    sum [] = 0                                (1)
+    sum (x:xs) = x + (sum xs)                 (2)
+
+    sumar1 [] = []                            (3)
+    sumar1 (x:xs) = (1 + x) : sumar1 xs       (4)
+
+    # [] = 0                                  (5)
+    # (x:xs) = 1 + # xs                       (6)
+    
+    Caso base:
+
+    Reemplazo a xs por [ ].
+
+    
+    sum (sumar1 []) = sum [] + #[]
+    = { Por (1), (3) y (5) }
+    sum ([]) = 0 + 0
+    = { Por (1) }
+    0 = 0
+    = { Reflexividad del = }
+    True
+    
+    
+Caso Inductivo: 
+    
+    Demostramos la propiedad con una lista no vacia (x:xs).
+
+	    
+    sum (sumar1 (x:xs)) = sum (x:xs) + #(x:xs)
+
+    = { Por (2), (4) y (6) }
+
+    sum ((1 + x) : sumar1 xs) = x + (sum xs) + 1 + #xs
+
+    = { Por (2) }
+
+    (1 + x) + (sum (sumar1 xs)) = 1 + x + (sum xs) + #xs
+
+    = { Por HI }
+
+    1 + x + (sum xs) + #xs = 1 + x + (sum xs) + #xs
+
+    = { Reflexividad del = }
+
+    True
+
+
+
+
+
+
+b) sum.(duplica.xs) = 2  sum.xs
+
+c) #(duplica.xs) = #xs

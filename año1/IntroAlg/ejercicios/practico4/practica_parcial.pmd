@@ -1,0 +1,7 @@
+Todas las figuras de xs son triangulos rojos o cuadrados
+
+$\langle\forall x : x \in_l xs : (triangulo.x \wedge  rojo.x) \vee cuadrado.x \rangle$
+
+< Ei : 0=< i < #xs : xs!!i > 0 > Y < Aj : 0<= j < #xs Y j /= i : xs!!j <= 0 >
+
+$\langle \exists i : 0 \leq i < \#xs : xs~!!~i >0 \rangle \wedge \langle  Aj : 0 \leq j < \#xs \wedge j \neq i : xs~!!~j \leq 0\rangle$

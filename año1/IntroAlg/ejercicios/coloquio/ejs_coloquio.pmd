@@ -1,0 +1,54 @@
+# Ejercicios Coloquio #
+
+39)
+
+### HI ###
+
+$$hayTR.xs  \equiv \langle \exists y: y \in_l xs : triangulo.y \wedge rojo.y \rangle$$
+$$\equiv \{ \text{Cambio de variable $\exists$} \}$$
+
+### Caso base ###
+Reemplazamos xs con []
+
+
+$$hayTR.[] \equiv  \langle \exists y: y \in_l [] : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.[] \equiv  \langle \exists y: False : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.[] \equiv  False$$
+$$False \equiv  False$$
+$$True$$
+
+### Caso inductivo ###
+
+$$hayTR.(x:xs)  \equiv \langle \exists y: y \in_l (x:xs) : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.(x:xs)  \equiv \langle \exists y: (y=x) \vee  y \in_l xs : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.(x:xs)  \equiv \langle \exists y: (y=x) \vee  y \in_l xs : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.(x:xs)  \equiv \langle \exists y: (y=x) : triangulo.y \wedge rojo.y \rangle \vee  \langle \exists y: y \in_l xs : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.(x:xs)  \equiv triangulo.x \wedge rojo.x \vee  \langle \exists y: y \in_l xs : triangulo.y \wedge rojo.y \rangle$$
+$$hayTR.(x:xs)  \equiv triangulo.x \wedge rojo.x \vee hayTR.xs $$
+$$triangulo.x \wedge rojo.x \vee hayTR.xs \equiv triangulo.x \wedge rojo.x \vee hayTR.xs $$
+$$True$$
+
+40)
+
+### HI ###
+
+$$hayCoT.xs \equiv \langle \exists y: y \in_l xs: circulo.y \vee triangulo.y \rangle$$
+$$\equiv \{ \text{Cambio de variable $\exists$} \}$$
+
+### Caso base ###
+Reemplazamos xs con []
+$$hayCoT.[] \equiv \langle \exists y: y \in_l []: circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.[] \equiv \langle \exists y: False : circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.[] \equiv False$$
+$$False \equiv False$$
+$$True$$
+
+### Caso inductivo ###
+Reemplazamos xs con (x:xs)
+$$hayCoT.(x:xs) \equiv \langle \exists y: y \in_l (x:xs): circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.(x:xs) \equiv \langle \exists y: (y=x) \vee  y \in_l xs: circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.(x:xs) \equiv \langle \exists y: (y=x) : circulo.y \vee triangulo.y \rangle \vee \langle \exists y: y \in_l xs : circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.(x:xs) \equiv circulo.x \vee  triangulo.x \vee \langle \exists y: y \in_l xs : circulo.y \vee triangulo.y \rangle$$
+$$hayCoT.(x:xs) \equiv circulo.x \vee  triangulo.x \vee hayCoT.xs$$
+$$circulo.x \vee  triangulo.x \vee hayCoT.xs \equiv circulo.x \vee  triangulo.x \vee hayCoT.xs$$
+$$True$$

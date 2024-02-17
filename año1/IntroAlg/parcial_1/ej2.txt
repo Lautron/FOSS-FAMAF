@@ -1,0 +1,24 @@
+Lautaro Bachmann 44390167
+
+Ejercicio 2:
+
+cocientes :: Int -> [Int] -> [Int]
+cocientes n [] = []
+cocientes n (x:xs) = (div x n) : cocientes n xs
+
+Evaluación manual:
+cocientes 3 [5,6,4,1] = [1,2,1,0]
+≡{Caso recursivo cocientes n:=3; x:=5; xs:=[6,4,1]}
+(div 5 3) : cocientes 3 [6,4,1] = [1,2,1,0]
+≡{Caso recursivo cocientes n:=3; x:=6; xs:=[4,1]}
+(div 5 3) : (div 6 3) : cocientes 3 [4,1] = [1,2,1,0]
+≡{Caso recursivo cocientes n:=3; x:=4; xs:=[1]}
+(div 5 3) : (div 6 3) : (div 4 3) : cocientes 3 [1] = [1,2,1,0]
+≡{Caso recursivo cocientes n:=3; x:=1; xs:=[]}
+(div 5 3) : (div 6 3) : (div 4 3) : (div 1 3) : cocientes 3 [] = [1,2,1,0]
+≡{Caso base cocientes}
+(div 5 3) : (div 6 3) : (div 4 3) : (div 1 3) : [] = [1,2,1,0]
+≡{Definicion de div}
+1:(2:(1:(0:[]))) = [1,2,1,0]
+≡{Definicion de pegar}
+[1,2,1,0] = [1,2,1,0]
