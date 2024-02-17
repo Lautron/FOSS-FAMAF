@@ -1,0 +1,21 @@
+==7697== Memcheck, a memory error detector
+==7697== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7697== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==7697== Command: ./ejecutable_gqueue_test
+==7697== 
+==7697== 
+==7697== HEAP SUMMARY:
+==7697==     in use at exit: 18,804 bytes in 9 blocks
+==7697==   total heap usage: 10 allocs, 1 frees, 18,828 bytes allocated
+==7697== 
+==7697== LEAK SUMMARY:
+==7697==    definitely lost: 0 bytes in 0 blocks
+==7697==    indirectly lost: 0 bytes in 0 blocks
+==7697==      possibly lost: 0 bytes in 0 blocks
+==7697==    still reachable: 18,804 bytes in 9 blocks
+==7697==         suppressed: 0 bytes in 0 blocks
+==7697== Reachable blocks (those to which a pointer was found) are not shown.
+==7697== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==7697== 
+==7697== For lists of detected and suppressed errors, rerun with: -s
+==7697== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

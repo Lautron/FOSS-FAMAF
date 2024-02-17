@@ -1,0 +1,6 @@
+execute_test.c
+execute_test.o
+input.txt
+Makefile
+output.txt
+test

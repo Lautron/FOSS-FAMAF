@@ -1,0 +1,3 @@
+Esto no tendria que aparecer
+t
+and: cat output.txt

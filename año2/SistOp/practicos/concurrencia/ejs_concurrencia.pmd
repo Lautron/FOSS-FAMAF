@@ -1,0 +1,92 @@
+---
+title: Práctico Persistencia - SistOp
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+
+# 1) 
+## Howto 
+Se toma lo que pasa en una sola linea como atomico
+El valor final de un programa concurrente es cuando se ejecutan todas sus partes.
+
+## Resolucion
+### a) y b)
+![](./ejs_concurrencia_imgs/fig1.png)
+
+## c)
+Hay $\frac{8!}{3!~3!~2!} = 560$ escenarios de ejecucion
+
+El $8!$ viene de la cantidad total de lineas, y el denominador son los casos que se descuentan, ya que para la primer y segunda linea hay $3!$ y para la ultima hay $2!$ elecciones.
+
+# 2) 
+## Howto 
+## Resolucion
+### a)
+El multiprograma no termina, ya que ambos hilos son bucles infinitos.
+
+### b)
+Puede tomar los valores 0 o 1
+
+# 3) 
+## Howto 
+## Resolucion
+### a)
+![](./ejs_concurrencia_imgs/fig2.png)
+
+### b)
+No cambia el valor final de $y$, pero si cambia los posibles valores finales de $x$, ya que ahora ademas de tomar el valor de 2 o 4 cuando se ejecuta P0, $y$ puede tomar el valor 3.
+
+# 4) 
+## Howto 
+## Resolucion
+![](./ejs_concurrencia_imgs/fig3.png)
+
+### a)
+Pueden diferir como maximo en 100.
+
+### b)
+Max iteraciones: 100.
+Min iteraciones: 8.
+
+### c)
+Teniendo en cuenta que el valor minimo de n para que termine el bucle es 100, y que el valor maximo con el que puede terminar n es 198. Como sabemos que todo numero puede ser representado como $2*k$ o $2*k+1$, podemos afirmar que con las operaciones que nos brindan ambos hilos, somos capaces de obtener cualquier numero entre 100 y 198
+
+# 5) (ToDo) 
+## Howto 
+## Resolucion
+
+# 6) (ToDo) 
+## Howto 
+## Resolucion
+
+# 7) (ToDo) 
+## Howto 
+## Resolucion
+
+# 8) (ToDo) 
+## Howto 
+## Resolucion
+
+# 9) (ToDo) 
+## Howto 
+## Resolucion
+
+# 10) (ToDo) 
+## Howto 
+## Resolucion
+
+# 11) (ToDo) 
+## Howto 
+## Resolucion
+
+# 12) (ToDo) 
+## Howto 
+## Resolucion
+
+# 13) (ToDo) 
+## Howto 
+## Resolucion

@@ -1,0 +1,219 @@
+---
+title: Practico CPU - SistOp
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# 1)
+## Como resolver
+### a)
+Fijarse a partir de que cantidad de instancias comienza a aumentar considerablemente el walltime
+
+Por cada proceso que supere la cantidad de nucleos el walltime es 25% mayor
+
+### b)
+Puede que este proceso no sea el unico que se esté ejecutando
+
+## Resolucion
+### a)
+El sistema tiene 2 nucleos, ya que al iniciarse mas de dos instancias, cada instancia adicional que se agrega incrementa el walltime
+
+### b)
+
+Esto se da por el overhead que puede llegar a tener la computadora, ya sea por cosas como un context switch o que se estén ejecutando otros programas de fondo
+
+### c)
+#### 1)
+Una sola instancia que tiene algo de overhead que causa que el cputime sea menor al walltime.
+
+#### 2)
+Dos instancias, que debido a que el sistema tiene dos nucleos se ejecutan de manera similar al primer caso
+
+#### 3)
+Una sola instancia, pero con un overhead mas pronunciado
+
+#### 4)
+Cuatro instancias, pero con un overhead reducido.
+Acá se puede ver bastante claro que el sistema tiene 2 nucleos.
+
+#### 6)
+Dos instancias con considerable overhead
+
+
+# 2)
+## Como resolver
+Prestar atencion a la parte que dice que "implementa procesos e hilos"
+## Resolucion
+
+El walltime es menor al cputime ya que el programa se está ejecutando en varios hilos al mismo tiempo, por ende aumenta el tiempo de procesador, pero no el tiempo de reloj
+# 3)
+## Como resolver
+Pensar en los casos en los que hay overhead, en los que no hay overhead y en los que se usan varios hilos
+
+## Resolucion
+### user$<$real
+Esto sucede cuando hay overhead en el sistema, ya sea por context switches o que se esté ejecutando algun otro proceso al mismo tiempo
+
+### user$=$real
+Esto sucede cuando no hay ningun tipo de overhead en el sistema o en casos puntuales donde se usen hilos que terminen compensando el overhead del sistema operativo.
+
+### user$>$real
+Esto sucede cuando el proceso se está ejecutando usando varios hilos
+
+
+# 4)
+## Como resolver
+Al hacer un fork tambien se guardan los registros
+
+## Resolucion
+
+#### a)
+x vale 100 en el proceso hijo
+
+#### b)
+La variable cambia segun el valor que le haya asignado el respectivo proceso
+
+#### c)
+
+Sucede exactamente lo mismo, porque fork tambien copia los registros del proceso padre
+
+# 5)
+## Como resolver
+Pensarlo con n forks
+
+## Resolucion
+
+El program imprime $2\cdot 2^N - 1$, con $N=3$
+
+# 6)
+## Como resolver
+## Resolucion
+
+En el caso en el que execv se ejecute correctamente, 0
+
+En caso de que execv falle, 1
+
+
+# 7)
+## Como resolver
+## Resolucion
+
+![](./ejs_cpu_imgs/fig1.png)
+
+Ambos programas hacen casi lo mismo, solo que el de la derecha usa un fork.
+
+Si no se le pasaron argumentos al programa, este termian su ejecucion.
+Si se le pasaron argumentos, convierte el ultimo argumento del programa en NULL y ejecuta execvp con la info pasada al programa.
+
+En otras palabras, ejecuta un programa eliminando el ultimo argumento que se le pasó.
+
+# 9)
+## Como resolver
+Limitar la cantidad de forks que se pueden hacer.
+Se puede usar ulimit en bash
+
+## Resolucion
+El programa funciona haciendo un bucle infinito que está constantemente generando forks del programa.
+
+Una forma de limitar sus efectos es reducir la cantidad de forks que puede hacer un programa o poner un limite a la velocidad de crecimiento de los forks de un programa.
+
+una herramienta que se puede usar es ulimit, de bash
+
+
+# 12)
+## Como resolver
+## Resolucion
+
+### a)
+Verdadero. Es posible cuando se usan hilos.
+
+### b)
+Falso. La idea de las virtualizacion de memoria es que los procesos tengan su propio espacio de direcciones, independientemente de donde esten ubicados en memoria fisica.
+
+### c)
+Verdadero. Los registros del procesador son una parte importante del estado de cada proceso y es necesario guardarlos.
+
+### d)
+Falso. Hay instrucciones que por cuestiones de seguridad del sistema operativo solo las puede realizar el kernel, como puede ser el acceso a memoria.
+
+### e)
+Verdadero. Puede suceder cuando solo hay un unico proceso a ejecutar.
+
+### f)
+Verdadero. El unico proceso que puede llegar a tener PID 0 son los procesos como systemd, por ende, se puede dar por sentado que no habrá otros procesos con PID 0
+### g)
+
+### h)
+Falso. Dicho proceso pasa a ser un proceso zombie.
+
+### i)
+Verdadero.
+
+### j)
+Falso. Se ejecuta cuando execv falla.
+
+### k)
+Verdadero.
+
+## 13)
+### Howto
+FCFS es FIFO
+
+### Resolucion
+![](./ejs_cpu_imgs/fig2.png)
+
+
+## 14)
+![](./ejs_cpu_imgs/fig3.png)
+
+## 15)
+
+\begin{tabular}{ |c||c|c|c| }
+\hline
+ Politica  &  Batch  &  Interactiva  &  Usa Tcpu \\
+\hline
+ FCFS      &  X      &               &           \\
+\hline
+ SJF       &  X      &               &  X        \\
+\hline
+ STCF      &         &  X            &  X        \\
+\hline
+ RR        &         &  X            &           \\
+\hline
+ MLFQ      &         &  X            &           \\
+\hline
+\end{tabular}
+
+## 16)
+
+![](./ejs_cpu_imgs/fig4.png)
+
+## 17)
+![](./ejs_cpu_imgs/fig5.png)
+
+## 18)
+### a)
+Falso. De no ser así el procesador quedaria ocioso y no se aprovecharian bien los recursos
+
+### b)
+Falso. Pueden darse la casualidad de que sean iguales y por ende tendrian el mismo turnaround
+
+### c)
+Verdadero. RR con quanto infinito ejecuta hasta finalizar los procesos a medida que van llegando
+
+### d)
+Verdadero. Sucede si hay varios procesos interactivos en el sistema que tienen una prioridad alta constantemente
+
+### e)
+Verdadero. Esto permite evitar que se intente burlar al scheduler
+
+
+
+
+
+
+
+
