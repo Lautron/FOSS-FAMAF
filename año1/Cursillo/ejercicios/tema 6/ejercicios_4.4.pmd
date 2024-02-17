@@ -1,0 +1,264 @@
+---
+header-includes: |
+    \usepackage{graphicx}
+    \usepackage{amsmath}
+    \usepackage{cancel}
+---
+
+# Ejercicios sección 4.4 #
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210222_091256.png)
+
+a) $\mathbb{R}$.
+
+b) $\mathbb{R}-\frac{5}{3}$.
+
+c) $\mathbb{R}$.
+
+d) $\mathbb{R}-2$.
+
+e) $\mathbb{R}-2$.
+
+f) $\{ x \in \mathbb{R}| x \leq 1 \}$.
+
+g) $\mathbb{R}$.
+
+h) $k(x) = \sqrt{(x-1)(x-2)}$
+
+    $k(x) = \sqrt{x^2-2x-1x+2}$ 
+
+    $k(x) = \sqrt{x^2-3x+2}$
+
+    $\mathbb{R}$
+
+i) $[0,1]$ 
+
+j) $\mathbb{R}$
+
+k) $\{ x \in \mathbb{R}| x < 1 \}$.
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210222_101107.png)
+
+a) $f(\frac{1}{4}) = \sqrt{\frac{1}{4}}$
+
+   $f(\frac{1}{4}) = \frac{1}{2}$ 
+
+b) $g(\frac{1}{4}) = \frac{1}{\frac{1}{4}+5}$
+
+    $g(\frac{1}{4}) = \frac{4}{21}$
+
+c) $h(-1) = 0$
+
+d)  $l(\frac{2}{3}) = 1 \cdot \frac{3}{2}$
+    
+    $l(\frac{2}{3}) = \frac{3}{2}$ 
+
+e) $m(0) = -2$
+
+f)  $t(-\frac{4}{3}) = (-\frac{4}{3})^2$ 
+
+    $t(-\frac{4}{3}) = \frac{16}{9}$
+
+\graphicspath{{imgs/ejs}}
+
+\includegraphics{ejs_4.4-1.png}
+
+\includegraphics{ejs_4.4-2.png}
+
+\includegraphics{ejs_4.4-3.png}
+
+\includegraphics{ejs_4.4-4.png}
+
+\includegraphics{ejs_4.4-5.png}
+
+\includegraphics{ejs_4.4-6.png}
+
+\newpage
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_101132.png)
+
+ $$\boxed{x_1=-5, y_1=0,\quad x_2=0, y_2=2}$$
+
+  $$y = \frac{y_2-y_1}{x_2-x_1} (x - x_1) + y_1$$ 
+
+  $$y = \frac{2-0}{0-5} (x+5) + 0$$
+
+   $$y=-\frac{2}{5}x - \frac{10}{5}$$
+
+   $$y=-\frac{2}{5}x - 2$$
+
+   $$\boxed{a=-\frac{2}{5},\quad b=-2}$$
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_102435.png)
+
+ $$\boxed{x_1=1, y_1=-3}\quad \boxed{x_2=3, y_2=1}$$
+
+ $$y = \frac{y_2-y_1}{x_2-x_1} (x - x_1) + y_1$$ 
+
+ $$y= \frac{1+3}{3-1} (x-1)-3$$
+ 
+ $$y= \frac{\cancel{4}}{\cancel{2}} (x-1)-3$$
+
+ $$y = 2x + 1 - 3$$
+
+ $$y = 2x -2$$
+
+ $$\boxed{a=2,\quad b=-2}$$
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_103616.png)
+
+a) $(0,f(x)) = (0,b) \therefore P=(0,16)$ es un punto de la recta.
+
+    $\boxed{x_2=0, y_2=16}\quad\boxed{x_1=-3, y_1=17}$ 
+
+    $y = \frac{y_2-y_1}{x_2-x_1} (x - x_1) + y_1$
+
+    $y = \frac{16-17}{0+3} (x+3)+17$
+
+    $y = -\frac{1}{3}x -\frac{3}{3} + 17$ 
+
+    $y= -\frac{1}{3}x + 16$ 
+
+    $\boxed{a=-\frac{1}{3},\quad b=16}$  
+
+b) $\boxed{x_1=-3, y_1=17}$
+
+    $y = a(x-x_1) + y_1$ 
+
+    $y = -7(x+3)+17$
+
+    $y = -7x - 21 + 17$
+
+    $y = -7x -4$
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_150748.png)
+
+a) $y = -\frac{1}{3} (x-4) -1$
+
+    $y = -\frac{1}{3}x + \frac{4}{3} - 1$ 
+
+    $y = -\frac{1}{3}x + \frac{4-1\cdot 3}{3}$ 
+
+    $y = -\frac{1}{3}x + \frac{1}{3}$
+
+b) El punto de intersección es obtenido realizando un sistema de ecuaciones y encontrando la solución.
+
+    $\begin{cases}
+    y = -\frac{1}{3}x + \frac{1}{3} \\
+    y = 3x + \frac{2}{3}
+    \end{cases}$
+
+    Obtenemos el valor de $x$:
+
+    $-\frac{1}{3}x + \frac{1}{3} = 3x+ \frac{2}{3}$
+
+    $3\cdot(-\frac{1}{3}x + \frac{1}{3}) = 3\cdot(3x+ \frac{2}{3})$
+
+    $-1x+1 = 9x+2$
+
+    $+1-2= 9x + 1x$ 
+
+    $-1 = 10x$
+
+    $\frac{-1}{10} = x$ 
+
+    Obtenemos el valor de $y$:
+
+    $y = 3\cdot \frac{-1}{10} + \frac{2}{3}$
+
+    $y = -\frac{3}{10} + \frac{2}{3}$ 
+
+    $y = \frac{-3\cdot 3+2 \cdot 10}{30}$
+
+    $y = \frac{11}{30}$
+
+    Intersección de las rectas: 
+
+    $\boxed{x_1=-\frac{1}{10},\quad y_1=\frac{11}{30}}$
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_173318.png)
+
+a) 
+$\begin{cases}
+   0 = a\cdot 1 + b\quad\Rightarrow\quad b=-a \\
+   2 = a\cdot -1 + b \\
+\end{cases}$
+
+    Despejamos $a$:
+
+    $2 = -a -a$
+
+    $2 = -2a$
+
+    $-1 = a$ 
+
+    Despejamos $b$:
+
+    $2 = -1 \cdot -1 + b$
+
+    $2 = 1 +b$ 
+
+    $2 -1 = b$
+
+    $1 = b$ 
+
+    Comprobamos:
+
+    $0 = -1 \cdot 1 + 1$
+
+    $0 = 0$ 
+
+    Si $y$ es igual a 2...
+
+    $2 = -1\cdot -1 + 1$
+
+    $2 = 1+1$
+
+    $2 = 2$ 
+
+    Por lo tanto, la ecuación de la funcion lineal $f$ es:
+
+    $\boxed{y = -1x + 1}$ 
+
+b) $4 = -1x+1$
+
+    $x = 1 - 4$ 
+
+    $x = -3$
+
+    Comprobación:
+
+    $f(4) = -1\cdot4 + 1$ 
+
+    $f(4) = -4 + 1$
+
+    $f(4) = -3$ 
+
+c) No, no son perpendiculares, ya que las pendientes de las rectas no son reciprocas negativas.
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210223_180705.png)
+
+$$y = \frac{3}{4}(1-x) \quad = \quad \boxed{y = -\frac{3}{4}x + \frac{3}{4}}$$
+
+a) $y = -\frac{3}{4}x + b$
+
+    $-1 = -\frac{3}{4}1 + b$
+
+    $-1 + \frac{3}{4} = b$ 
+
+    $-\frac{1}{4} = b$ 
+
+    $\boxed{y = -\frac{3}{4}x - \frac{1}{4}}$
+
+\newpage
+
+b) $y = \frac{4}{3}x + b$ 
+
+    $-1 = \frac{4}{3}1+b$ 
+
+    $-1 -\frac{4}{3} = b$ 
+
+    $-\frac{7}{3} = b$ 
+
+    $\boxed{y = \frac{4}{3}x - \frac{7}{3}}$
+

@@ -1,0 +1,96 @@
+$\left\{ -2, \frac{1}{3}\right\}$
+
+$\left\{ -2, \frac{1}{3}\right\}$
+
+$\text{b) } \left\{ \frac{1}{3}, \frac{1}{5}, \frac{1}{7}\ldots \right\}$
+
+$\text{b) } \left\{ \frac{1}{3}, \frac{1}{5}, \frac{1}{7}\ldots \right\}$
+
+$\text{c) } \{2^2, 2^3, 2^4\ldots \}$
+
+$\text{c) } \{2^2, 2^3, 2^4\ldots \}$
+
+$\text{d) }\phi$
+
+$A \subseteq B$
+
+$B \subseteq A$
+
+$A \subseteq B$
+
+$A \subseteq B$
+
+$\{ x \in \mathbb{R} | 1 \leq x \leq 5\}$
+
+$\{ x \in \mathbb{R} | -2 < x < 4\}$
+
+$\{ x \in \mathbb{R} | -1 \leq x\}$
+
+$\{ x \in \mathbb{R} | x \leq 5\}$
+
+$\{ x \in \mathbb{R} | 2 < x \leq 7\}$
+
+$\{ x \in \mathbb{R} | -4 \leq x < 0\}$
+
+$\text{b) } A - B = \{7, 10\}$
+
+$\text{c) } A^c = \{ 2, 3, 5, 6, 8, 9 \}$
+
+$\text{a) } A\cup B = \{ 1, 2, 3, 4, 5, 7, 10 \}$
+
+$\text{f) } B\cap C = \{ 2, 4 \}$
+
+$C-A = \{ 2, 6, 8 \}$
+
+$B^c = \{ 6, 7, 8, 9, 10 \}$
+
+$B^c \cap (C-A)$
+
+$\{6,7,8,9,10\} \cap \{2,6,8\}=\{ 6, 8 \}$
+
+$[0, 5) \cap (3, 6]  = (3, 5)$
+
+$\{ x \in \mathbb{R} | 3 < x \leq 5\}$
+
+$\cap$
+
+$\cap$
+
+$\{ x \in \mathbb{R} | 3 < x < 5\}$
+
+$\{ x \in \mathbb{R} | 0 \leq x < 5\}$
+
+\rule{5in}{0.4pt}
+
+$\text{a) } p \wedge q$
+
+$\text{b) }p \Rightarrow q$
+
+$\text{c) }\neg p \Rightarrow \neg q \wedge r$
+
+$\text{d) } q \Leftrightarrow \neg p$
+
+$\text{e) } \neg r \Rightarrow q$
+
+$p \Rightarrow q$
+
+$p\Rightarrow q \longrightarrow \neg  q\Rightarrow \neg p$
+
+$p\Rightarrow q \longrightarrow \neg  q\Rightarrow \neg p$
+
+$q \Leftrightarrow p$
+
+$\text{Si } (\neg q) \vee (q \Rightarrow p) \text{ es falsa, quiere decir que ambos parentesis son falsos}$
+
+$\text{por ende }(\neg q) \text{ es falsa, por lo tanto su valor debe de ser V}$
+
+$\text{Y para que } (q\Rightarrow p) \text{ evalue a falso, teniendo en cuenta que q es V su valor debe de ser } p = F$
+
+$q = V \quad , \quad p=F$
+
+
+$\text{a) } V\wedge F \equiv F$
+
+$\text{b) } V\vee F \equiv V$
+
+$\text{c) } F\Rightarrow V \equiv V$

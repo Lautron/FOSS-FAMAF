@@ -1,0 +1,133 @@
+---
+documentclass: scrartcl
+title: Respuestas ejercicios sección 3.2 
+fontsize: 14pt
+---
+# Página 89 #
+
+1) 
+    a) Correcto.
+    #) Correcto.
+    #) Correcto.
+    #) Correcto. 
+    #) Incorrecto. $m$ no es multiplo de $n$
+
+
+#) 
+    a) Correcto.
+    #) Incorrecto.
+    #) Incorrecto.
+    #) Correcto.
+    #) Correcto.
+    #) Correcto.
+
+#) 
+    a) V.
+    #) V.
+    #) V.
+    #) V.
+    #) F.
+    #) V.
+
+\newpage
+
+4) 
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c| } 
+ \hline
+ $p$ & $q$ & $r$ & $q\vee r$ & $p\vee q$ & $p \vee (q \vee r)$ & $(p\vee q) \vee r$\\ 
+ \hline
+ V & V & V & V & V & V & V \\
+ V & V & F & V & V & V & V \\
+ V & F & V & V & V & V & V \\
+ V & F & F & F & V & V & V \\
+ F & V & V & V & V & V & V \\
+ F & V & F & V & V & V & V \\
+ F & F & V & V & F & V & V \\
+ F & F & F & F & F & F & F \\
+ \hline
+\end{tabular}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+ \hline
+ $p$ & $q$ & $r$ & $q\vee r$ & $p\wedge q$ & $p \wedge r$ & $p \wedge (q \vee r)$ & $(p\wedge q) \vee (p\wedge r)$\\ 
+ \hline
+ V & V & V & V & V & V & V & V \\
+ V & V & F & V & V & F & V & V \\
+ V & F & V & V & F & V & V & V \\
+ V & F & F & F & F & F & F & F \\
+ F & V & V & V & F & F & F & F \\
+ F & V & F & V & F & F & F & F \\
+ F & F & V & V & F & F & F & F \\
+ F & F & F & F & F & F & F & F \\
+ \hline
+\end{tabular}
+\end{center}
+
+\end{center}
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ $p$ & $q$ & $\neg (p\wedge q)$ & $\neg p\vee \neg q$\\ 
+ \hline
+ V & V & F & F  \\
+ V & F & V & V  \\
+ F & V & V & V  \\
+ F & F & V & V  \\
+ \hline
+\end{tabular}
+\end{center}
+
+# Página 93 #
+1) 
+    a) $p\wedge q$
+    #) $p\Rightarrow q$
+    #) $\neg p \Rightarrow \neg q \wedge r$
+    #) $q \Leftrightarrow \neg p$
+    #) $\neg r \Rightarrow q$
+#)
+    a) Si está lloviendo y el sol está brillando entonces hay nubes en el cielo
+    #) No está lloviendo si y solo si el sol está brillando o hay nubes en el cielo
+    #) Si está lloviendo implica que hay nubes en el cielo, entonces el sol está brillando
+    #) No es cierto que está lloviendo si y solo si el sol está brillando o hay nubes en el cielo
+    #) No stá lloviendo o el sol no está brillando y hay nubes en el cielo
+    #) No está lloviendo, entonces el sol no está brillando
+
+#) 
+    a) Verdadero.
+    #) Falso.
+    #) Falso.
+    #) Verdadero.
+    #) Falso.
+
+#)
+    a) Si 1 no es mayor a 0 entonces 4 no es par.
+    #) Si 1 + 1 no es menor a 3 entonces 2+3 no es igual a 5.
+    #) Si 1 no es mayor a 0 entonces 4 no es impar.
+    #) Si 2 no es igual a 4 entonces 1+1 no es menor a 3.
+
+#) La proposición compuesta $(p\Rightarrow q) \wedge (\neg q \Rightarrow p)$ resulta verdadera si  $p=F$ y  $q=V$ .
+
+#) 
+    a) F.
+    #) V.
+    #) V.
+
+#) El valor de verdad de las proposiciones $p$ y $q$ es $p=F$ y $q=V$
+
+#) 
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ $p$ & $q$ & $p \Rightarrow q$ & $\neg p \vee q$ \\
+ \hline
+ V & V & V & V \\
+ V & F & F & F \\
+ F & V & V & V \\
+ F & F & V & V \\
+ \hline
+\end{tabular}
+\end{center}

@@ -1,0 +1,40 @@
+---
+header-includes: |
+    \usepackage{amsmath}
+---
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210224_090324.png)
+
+a) Intersección eje y: $\boxed{(0,f(0))}$
+    
+    $f(0) = c$
+
+    $f(0) =  +4$
+
+    Intersección eje x:
+
+    $x_1,x_2 = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+![](/home/lautarob/Documents/Facultad/tema_6/ejercicios/imgs/ejs/Screenshot_20210224_091845.png)

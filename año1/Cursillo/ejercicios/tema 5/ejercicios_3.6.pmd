@@ -1,0 +1,39 @@
+# Ejercicios sección 3.6 #
+
+
+![](/home/lautarob/Documents/Facultad/Tema 5/ejercicios/imgs/ejs_3.6/Screenshot_20210217_103611.png)
+
+a) (a, a), (a, b), (a, c), (b, a), (b, b), (b, c), (c, a), (c, b), (c, c)
+
+b) (a, a), (a, b), (a, d), (b, a), (b, b), (b, d), (c, a), (c, b), (c, d)
+
+c) (a, a), (b, b)
+
+![](/home/lautarob/Documents/Facultad/Tema 5/ejercicios/imgs/ejs_3.6/Screenshot_20210217_104912.png)
+
+2) $A \times B = ($ 1, 2), (1, 5), (1, 10), (3, 2), (3, 5), (3, 10), (5, 2), (5, 5), (5, 10), (7, 2), (7, 5), (7, 10), (9, 2), (9, 5), (9, 10)
+
+a)
+    $C = \{ (a,b) \in A \times B | a+b < 11 \}$
+
+    $C = (1, 2), (1, 5), (3, 2), (3, 5), (5, 2), (5, 5), (7, 2)$
+
+b) $D = \{ (a,b) \in A \times B | a+b \leq 11 \wedge a+b \text{ es par} \}$
+    
+    $D = (1, 5), (3, 5), (5, 5)$
+
+![](/home/lautarob/Documents/Facultad/Tema 5/ejercicios/imgs/ejs_3.6/Screenshot_20210217_113737.png)
+
+a) $\{ (x,y) \in \mathbb{R}^2 | -1 \leq x \leq 5, -1 \leq y \leq 4 \}$
+
+b) $\{ (x,y) \in \mathbb{R}^2 | -1 \leq x, 1 \leq y \leq 3 \}$
+
+![](/home/lautarob/Documents/Facultad/Tema 5/ejercicios/imgs/ej4.png){ width=650px }
+
+![](/home/lautarob/Documents/Facultad/Tema 5/ejercicios/imgs/ejs_3.6/Screenshot_20210217_151617.png)
+
+a) $\{ (x,y) \in \mathbb{R}^2|x=0 \}$ 
+
+b) $\{ (x,y) \in \mathbb{R}^2|y=0 \}$ 
+
+c) $\{ (x,y) \in \mathbb{R}^2|x \leq 0, 0 \leq y \}$ 

@@ -1,0 +1,260 @@
+---
+documentclass: scrartcl
+header-includes: |
+            \usepackage{amsmath}
+---
+# Ejercicios página 108 #
+
+
+\graphicspath{ {./imgs} }
+
+1) 
+
+\begin{flushright}
+    \includegraphics[width=400px]{Screenshot_20210211_064757.png}
+\end{flushright}
+
+
+
+
+a) $A\cup B = \{1,2,3,4,5,7,10\}$ 
+#)  $A-B = \{7, 10\}$ 
+#) $A^c = \{2,3,5,6,8,9\}$
+#) $B^c = \{ 6, 7, 8, 9, 10 \},\quad  C-A = \{ 2, 6, 8 \}$
+
+    $B^c \cap (C-A) \quad = \quad \{6,7,8,9,10\} \cap \{2,6,8\} \quad = \quad \{ 6, 8 \}$ 
+
+e) $(A\cap B)^c \cup C$
+
+    $(A\cap B)^c \quad = \quad (\{1,4\})^c \quad = \quad \{2,3,5,6,7,8,9,10\}$
+
+    $(A\cap B)^c \cup C \quad = \quad \{2,3,5,6,7,8,9,10\} \cup \{ 2,4,6,8 \}$
+
+    $(A\cap B)^c \cup C \quad = \quad  \{ 2,3,4,5,6,7,8,9,10 \}$
+
+\bigskip
+
+f) $B\cap C  = \{ 2,4 \}$ 
+
+g) $A \cap (B\cup C)$
+
+    $B \cup C = \{ 1,2,3,4,5,6,8 \}$
+
+    $A \cap (B\cup C) \quad = \quad \{ 1,4,7,10 \} \cap \{ 1,2,3,4,5,6,8 \}$
+
+    $A \cap (B\cup C) \quad = \quad  \{ 1,4 \}$
+
+\bigskip
+
+h) $(A \cap B) \cup C$
+    
+    $(A \cap B)  = \{ 1,4 \}$
+
+    $(A \cap B) \cup C \quad = \quad \{ 1,4 \} \cup \{ 2,4,6,8 \}$
+
+    $(A \cap B) \cup C \quad = \quad \{ 1,2,4,6,8 \}$
+
+\bigskip
+
+i) $(A\cap B) - C$
+
+    $(A\cap B) - C \quad = \quad \{ 1,4 \} - \{ 2,4,6,8 \}$
+
+    $(A\cap B) - C \quad = \quad \{ 1 \}$
+
+\bigskip
+
+j) $(A\cup B) - (C-B)$
+
+    $(A\cup B) = \{ 1,2,3,4,5,7,10 \}$
+
+    $(C-B) = \{ 6,8 \}$
+
+    $(A\cup B) - (C-B) \quad = \quad \{ 1,2,3,4,5,7,10 \} - \{ 6,8 \}$
+
+    $(A\cup B) - (C-B) \quad = \quad \{ 1,2,3,4,5,7,10 \}$
+
+\newpage
+
+2) En diagramas de Venn sombrear los conjuntos siguientes:
+
+![](/home/lautarob/Documents/Facultad/ejercicios/tema 4/imgs/Screenshot_20210211_090326.png)
+
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=100px]{a} &
+\includegraphics[width=100px]{b} &
+\includegraphics[width= 100px]{c} \\
+ a) $A\cup B$ & b) $A\cap B$ & c) $(A\cup C)\cap B$\\
+ \end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=100px]{d} &
+\includegraphics[width=100px]{e} &
+\includegraphics[width= 100px]{f} \\
+d) $A\cap B \cap C$ & e) $(A \cup C)^c$ & f) $(A-B)\cap C$\\
+ \end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=100px]{g} &
+\includegraphics[width=100px]{h} &
+\includegraphics[width= 100px]{i} \\
+g) $(A\cap C) \cup C^c$ &  h) $(A \cap B \cap C)^c$ & i) $(A-B)-C$ \\
+ \end{tabular}
+\end{center}
+
+\newpage
+
+3)
+
+\begin{flushright}
+    \includegraphics[width=400px]{Screenshot_20210211_100844}
+\end{flushright}
+
+\begin{center}
+   $A = Alemán,\quad B = Francés,\quad C = Inglés$ 
+\end{center}
+
+\begin{center}
+    \includegraphics[width=150px]{3}
+\end{center}
+
+a) Todos estudian al menos 1 idioma.
+b) En total hay 28 alumnos que estudian Alemán.
+c) Hay 8 alumnos que estudian alemán e inglés.
+d) Hay 37 alumnos que estudian francés.
+
+![](/home/lautarob/Documents/Facultad/ejercicios/tema 4/imgs/Screenshot_20210211_112529.png)
+
+a) $[-1, \infty) \cap (-3,2) \quad = \quad [-1,2)$
+
+    $[-1,2) \quad = \quad \{x \in U|-1 \leq x < 2 \}$
+
+b) $(-\infty, \infty) \quad = \quad \{x \in U| x \}$
+
+c) $(-3,1] \cap (2, \infty) \quad = \quad \emptyset$
+    
+    $\{x \in U|2 < x < 1\} \quad = \quad \emptyset$
+
+
+d) $(-2,3]\cup (-\infty, 1) \quad = \quad (-\infty, 3]$
+
+    $(-\infty, 3] \quad = \quad \{x \in U|x \leq 3 \}$
+e) $[-3,0) \cap (-2,3) \quad = \quad (-2, 0)$
+
+    $(-2, 0) \quad = \quad  \{x \in U|-2 < x < 0 \}$
+
+
+
+\begin{flushright}
+    \boxed{\includegraphics[width = 400px]{recta}}
+\end{flushright}
+
+5)
+
+\begin{flushright}
+    \includegraphics[width = 400px]{Screenshot_20210212_075253}
+\end{flushright}
+
+a) $(A^c \cap B)^c \quad = \quad A \cup B^c$
+
+    $(A^c)^c \cap B^c \quad = \quad A\cup B^c \quad \quad \boxed{(A^c)^c = A}$
+    
+    $A\cup B^c \quad = \quad A\cup B^c$
+
+b) $A \cap (B\cup A)^c \quad = \quad \emptyset$ 
+
+    $A \cap B^c \cap A^c \quad = \quad \emptyset \quad \quad \boxed{(B\cup A)^c = B^c \cap A^c}$
+
+    $A\cap A^c \cap B^c \quad = \quad \emptyset \quad \quad \boxed{A\cap A^c = \emptyset}$
+
+    $\emptyset \cap B^c \quad = \quad \emptyset \quad \quad \boxed{\emptyset \cap B^c = \emptyset}$
+
+    $\emptyset \quad = \quad \emptyset$
+
+c) $(A - B) - C \quad = \quad  (A-C)-(B-C)$ 
+    
+    $(A \cap B^c) - C \quad = \quad (A\cap C^c)-(B\cap C^c) \quad \quad \boxed{A-B = A \cap B^c}$
+
+	$(A \cap B^c) - C \quad = \quad (A-B) \cap C^c \quad \quad \boxed{A-B = A \cap B^c}$
+    
+	$(A \cap B^c) \cap C^c \quad = \quad (A\cap B^c) \cap C^c$
+
+d) $(A \cap B) \cup (A\cap B^c) \quad = \quad  A$
+
+    $A \cup (B\cap B^c) \quad = \quad A \quad \quad \boxed{(A \cap B) \cup (A\cap B^c) = A \cup (B\cap B^c)}$
+
+    $A \cup \emptyset \quad = \quad A \quad \quad \boxed{B \cap B^c = \emptyset}$
+
+    $A \quad = \quad A \quad \quad \boxed{A\cup \emptyset = A}$
+
+e) $(A\cup B) \cap (A\cup B^c) \quad = \quad A$
+
+    $A \cap (B\cup B^c) \quad = \quad A\quad \quad \boxed{(A \cup B) \cap (A\cup B^c) = A \cap (B\cup B^c)}$
+
+    $A \cap U \quad = \quad  A \quad \quad \boxed{A\cap U = A}$
+
+    $A \quad = \quad A$
+
+\graphicspath{ {./imgs/ej5} }
+
+## Diagramas de Venn ##
+
+
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width= 100px]{a} &
+\includegraphics[width= 100px]{c1} \\
+ a) $A\cup B^c$ & c) $(A\cap B^c) \cap C^c$\\
+ \end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width= 100px]{d} &
+\includegraphics[width= 100px]{e} \\
+ d) $A$ & e) $A$\\
+ \end{tabular}
+\end{center}
+
+![](/home/lautarob/Documents/Facultad/ejercicios/imgs/Screenshot_20210212_144031.png)
+
+a) $((A^c\cup C^c) \cap B)^c \cup (A\cup (C\cap B)^c \cup C)^c$
+ 
+    $((B \cap A^c) \cup (B \cap C^c))^c\cup (A^c\cap ((C\cap B)^c)^c \cap C^c)$ \quad \quad \boxed{\text{Distributiva}} \boxed{(A^c)^c = A}
+
+    $((B - A) \cup (B - C))^c \cup (A^c\cap (C\cap B) \cap C^c)$ \quad \quad \boxed{A \cap B^c = A-B} 
+
+    $(B-(A\cup C))^c \cup (A^c\cap B\cap C \cap C^c)$ \quad \quad \boxed{\text{Distributiva}} \quad \boxed{\text{Conmutativa}}
+
+    $(B-(A\cup C))^c\cup (A^c\cap B\cap \emptyset)$ \quad \quad \boxed{C\cap C^c = \emptyset} \quad \boxed{A \cap \emptyset = \emptyset}
+
+    $(B-(A\cup C))^c  \cup (\emptyset)$ \quad \quad \boxed{A \cup \emptyset = A}
+
+    $(B-(A\cup C))^c$
+
+\bigskip
+
+b) $(A\cup (B\cup C)^c)^c \cap (A^c \cup (B\cap C)^c)^c$
+
+    $(A\cup (B^c\cap C^c))^c \cap (A^c \cap (B^c\cup C^c))^c$ \quad \quad \boxed{De Morgan}
+
+    $(A^c\cap (B^c\cap C^c)^c) \cap (A \cap (B^c\cup C^c)^c)$
+
+    $(A^c\cap (B\cup C)) \cap (A \cap (B\cup C))$
+    \quad\quad\boxed{\text{Distributiva y asociativa de la intersección}}
+
+    $A^c\cap (B\cup C) \cap A \cap (B\cup C) \quad \quad \boxed{(B\cup C) \cap (B\cup C) = (B\cup C)}$
+
+    $A^c\cap A \cap (B\cup C) \quad \quad \boxed{A \cap A^c = \emptyset}$
+
+    $\emptyset \cap (B\cup C) \cap (B\cup C)$
+
+    $\emptyset$
+
+

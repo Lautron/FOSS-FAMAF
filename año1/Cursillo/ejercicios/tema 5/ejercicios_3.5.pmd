@@ -1,0 +1,56 @@
+---
+header-includes: |
+            \usepackage{amsmath}
+---
+# Ejercicios 3.5 #
+
+![](./imgs/ejs_3.5/1.png)
+
+a) $\exists x \in \mathbb{Z} | R(x, 2020)$
+
+b) $\exists x \in \mathbb{Z} | R(2020, x)$
+
+c)  $\forall x \in \mathbb{Z} | R(170, 17)$ \boxed{Incorrecto}
+
+    Corrección:
+
+    $\boxed{\forall x \in \mathbb{Z}, (R(x, 170) \Rightarrow R(x,17))}$
+
+e) $\exists x \in \mathbb{Z} | R(11, 27)$
+
+f) $\exists x \in \mathbb{Z} | R(x, \{3,5,11,17\})$
+
+![](./imgs/ejs_3.5/2.png)
+
+a) F. Ya que $0^2=0$ 
+
+b) V.
+
+c) \boxed{Incorrecto}
+    F. Ya que no hay un número menor al 1 en el mundo de los naturales.
+
+    Corrección:
+
+    V. Es verdadero ya que se puede interpretar que $x < y$ puede ser representado como $x < x + 1$ y en tal caso la regla se cumpliría con todos los naturales.
+
+d) V.
+
+![](./imgs/ejs_3.5/3.png)
+
+a) $\forall x \in \mathbb{R} | \neg (x > \sqrt{\pi})$
+
+b) $\exists x \in \mathbb{Q}, \neg (1/x \in \mathbb{Q})$
+
+c) $\exists x \in \mathbb{Q}, (\forall y \in \mathbb{Q} | \neg (xy = 1)$
+
+d) $\forall x \in \mathbb{Q} | (\exists y \in \mathbb{Q}, \neg (xy=x))$
+
+![](./imgs/ejs_3.5/4.png)
+
+a) $\exists z \in \mathbb{R} | z > \sqrt{\pi}$
+
+b) $\exists i \in \mathbb{Q} | (\forall j \in \mathbb{Q}, ij=i$
+
+c) $\exists z \in \mathbb{Q} | (\forall x \in \mathbb{Q}, zx=z$
+
+

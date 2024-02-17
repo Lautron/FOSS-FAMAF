@@ -1,0 +1,4 @@
+Como $Sen\left( \frac{\pi}{6}\right) = \frac{1}{2} \Rightarrow Sen\left(\frac{\pi}{6}+\pi\right)= -\frac{1}{2}$ ya que $Sen(t+\pi) = -Sen(t)$,
+
+$\therefore$ como $\frac{7\pi}{6} \equiv \frac{-5\pi}{6} \Rightarrow
+Sen(\frac{7\pi}{6}) = Sen(\frac{-5\pi}{6})$ , por ende, $Sen(\frac{-5\pi}{6}) = -\frac{1}{2}$
