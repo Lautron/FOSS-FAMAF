@@ -1,0 +1,57 @@
+
+# Resumen
+- Servicio orientado a la conexion
+- Servicio no orientado a la conexion
+- Enrutamiento jerarquico
+- inundación de registro de paquetes difundidos
+- Enrutamiento de estado de enlace
+- Enrutamiento de vector de distancia
+- Control de congestion
+- Protocolo IP
+- OSPF
+- Subcapa MAC 802.11
+- Medios fisicos
+- Señales analogicas y digitales
+- Modulacion
+- Multiplexado
+- Redes celulares
+- Subredes
+- Protocolo de estado de enlace
+- Enrutadores
+- Ethernet
+- Escaneo activo
+- Tamaño de tramas
+
+# P1
+- Servicio orientado a la conexion
+- Enrutamiento jerarquico
+- inundación de registro de paquetes difundidos
+- Enrutamiento de estado de enlace
+- Enrutamiento de vector de distancia
+- Control de congestion
+- Protocolo IP
+- OSPF
+- Subcapa MAC 802.11
+- Medios fisicos
+- Señales analogicas y digitales
+- Modulacion
+- Multiplexado
+- Redes celulares
+
+# P2
+- Subredes
+- Protocolo de estado de enlace
+- Enrutadores
+- Subcapa MAC 802.11
+- Ethernet
+- Escaneo activo
+- Redes celulares
+
+# P3
+- Subredes
+- Protocolo de estado de enlace
+- Protocolo IP
+- Tamaño de tramas
+- Subcapa MAC 802.11
+
+

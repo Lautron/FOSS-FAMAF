@@ -1,0 +1,3 @@
+[filesystem "4ea2e8ab3b32|Ubuntu|11.0.7|/dev/sdb2"]
+	timestampResolution = 46000 nanoseconds
+	minRacyThreshold = 3923 microseconds

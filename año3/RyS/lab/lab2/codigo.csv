@@ -1,0 +1,34 @@
+¿Qué hace la clase Server?;Crea y atiende el socket en la dirección IP y puerto especificados, aceptando nuevas conexiones de clientes. También verifica que el directorio compartido exista y lo crea en caso contrario.;RyS_Lab2::Server
+¿Qué hace el método serve de la clase Server?;Es el loop principal del servidor que escucha conexiones entrantes con un máximo de 5 conexiones en cola. Acepta una conexión a la vez y espera a que concluya antes de seguir.;RyS_Lab2::Server
+¿Qué hace el objeto oursocket en la clase Server?;Crea el socket y lo vincula a la dirección IP y puerto especificados.;RyS_Lab2::Server
+¿Qué hace el objeto cn en la clase Server?;Crea un objeto Connection para manejar la conexión entrante.;RyS_Lab2::Server
+¿Qué hace el hilo t en la clase Server?;Crea un nuevo hilo para manejar la conexión entrante.;RyS_Lab2::Server
+¿Qué hace el método main?;Parsea los argumentos (dirección IP, número de puerto y directorio compartido del servidor) y lanza el servidor.;RyS_Lab2::Server
+¿Cuál es la función de parser en el método main?;Parsea los argumentos proporcionados por el usuario para configurar la dirección IP, número de puerto y directorio compartido del servidor.;RyS_Lab2::Server
+¿Qué hace el bloque try-except en el método main?;Convierte el valor de puerto proporcionado en un número entero y maneja la excepción si el valor no es válido.;RyS_Lab2::Server
+¿Cuál es la función del condicional if __name__ == "__main__" al final del código?;Lanza la función main solo si el archivo es el archivo principal que se ejecuta, no si se importa como un módulo.;RyS_Lab2::Server
+Que hace la clase Connection?; Representa una conexión de red. Esta clase se encarga de recibir y enviar mensajes a través del socket, y de procesar los comandos enviados por el cliente.;RyS_Lab2::Connection
+Que hace el método close de la clase Connection?; Cierra la conexión, es decir, termina la comunicación entre el cliente y el servidor.;RyS_Lab2::Connection
+Que hace el método send de la clase Connection?; Envía un mensaje al cliente a través del socket.;RyS_Lab2::Connection
+Que hace el método header de la clase Connection?; Agrega un encabezado al mensaje de respuesta que se enviará al cliente.;RyS_Lab2::Connection
+Que hace el método valid_file de la clase Connection?; Verifica si el archivo especificado por el cliente es válido.;RyS_Lab2::Connection
+Que hace el método get_file_listing de la clase Connection?; Obtiene una lista de los archivos disponibles en el directorio especificado.;RyS_Lab2::Connection
+Que hace el método get_metadata de la clase Connection?; Obtiene los metadatos del archivo especificado por el cliente, como su tamaño.;RyS_Lab2::Connection
+Que hace el método get_slice de la clase Connection?; Obtiene una porción del archivo especificado por el cliente, comenzando desde el desplazamiento especificado y con un tamaño específico.;RyS_Lab2::Connection
+Que hace el método quit de la clase Connection?; Cierra la conexión y termina la sesión del cliente.;RyS_Lab2::Connection
+¿Qué hace el método command_selector de la clase Connection?; Selecciona el comando a ejecutar en base a la solicitud recibida por el cliente, verifica si los argumentos son válidos y ejecuta el comando correspondiente. Si la solicitud no es válida, envía el código de error correspondiente.;RyS_Lab2::Connection
+¿Qué hace el try-except en el método command_selector de la clase Connection?; Maneja excepciones como ConnectionResetError o BrokenPipeError para cerrar la conexión en caso de que ocurran.;RyS_Lab2::Connection
+¿Qué hace el método read_line de la clase Connection?; Lee el buffer de entrada de la conexión y retorna la primera línea de texto que encuentre, eliminando el fin de línea.;RyS_Lab2::Connection
+¿Qué hace el método handle de la clase Connection?; Lee el input del cliente y ejecuta el comando correspondiente hasta que se cierre la conexión.;RyS_Lab2::Connection
+Que hace la clase Client?; Representa un cliente que se conecta a un servidor en una dirección y puerto específicos. El cliente puede enviar mensajes al servidor y recibir respuestas del servidor.;RyS_Lab2::Client
+Que hace el método close de la clase Client?; Desconecta al cliente del servidor, enviando el mensaje "quit" al servidor antes de desconectar. Luego, lee la respuesta del servidor y cierra la conexión del cliente.;RyS_Lab2::Client
+Que hace el método send de la clase Client?; Envía un mensaje al servidor, seguido por el terminador de línea del protocolo. Si se da un timeout, puede abortar con una excepción socket.timeout. También puede fallar con otras excepciones de socket.;RyS_Lab2::Client
+Que hace el método _recv de la clase Client?; Recibe datos y acumula en el buffer interno. Para uso privado del cliente.;RyS_Lab2::Client
+Que hace el método read_line de la clase Client?; Espera datos hasta obtener una línea completa delimitada por el terminador del protocolo. Devuelve la línea, eliminando el terminador y los espacios en blanco al principio y al final.;RyS_Lab2::Client
+Que hace el método read_response_line de la clase Client?; Espera y parsea una línea de respuesta de un comando. Devuelve un par (int, str) con el código y el error, o (None, None) en caso de error.;RyS_Lab2::Client
+Que hace el método read_fragment de la clase Client?; Espera y lee un fragmento de un archivo. Devuelve el contenido del fragmento.;RyS_Lab2::Client
+Que hace el método file_lookup de la clase Client?; Obtiene el listado de archivos en el servidor. Devuelve una lista de strings.;RyS_Lab2::Client
+Que hace el método get_metadata de la clase Client?; Obtiene en el servidor el tamaño del archivo con el nombre dado. Devuelve None en caso de error.;RyS_Lab2::Client
+Que hace el método get_slice de la clase Client?; Obtiene un trozo de un archivo en el servidor. El archivo es guardado localmente, en el directorio actual, con el mismo nombre que tiene en el servidor.;RyS_Lab2::Client
+Que hace el método retrieve de la clase Client?; Obtiene un archivo completo desde el servidor.;RyS_Lab2::Client
+
