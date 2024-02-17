@@ -1,0 +1,14 @@
+IssueType, Summary, labels
+Task, formulario creacion de partida, Frontend
+Task, endpoint creacion de partida, Backend
+Task, formulario para unirse a partida, Frontend
+Task, endpoint para agregar un usuario a una partida, Backend
+Task, interfaz para iniciar partida, Frontend
+Task, endpoint para iniciar una partida, Backend
+Task, interfaz para robar carta del mazo, Frontend
+Task, endpoint para repartir a un jugador una carta del mazo, Backend
+Task, interfaz para seleccionar una carta de la mano del jugador, Frontend
+Task, endpoint para jugar una carta de la mano de un jugador, Backend
+Task, endpoint eliminar a un jugador de la partida, Backend
+Task, endpoint para chequear si la partida ha terminado, Backend
+Task, endpoint para eliminar partida, Backend

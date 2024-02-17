@@ -1,0 +1,30 @@
+%%{ init: { 'flowchart': { 'curve': 'bumpY' } } }%%
+graph TD
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  User[Usuario]
+  EffectDB[(BBDD\nEfectos)]
+  PlayCard((Jugar\nCarta))
+  Game[Partida]
+
+  ValidateCard((Manejar\nCarta))
+  ExchangeCard((Intercambiar\nCarta))
+  DiscardCard((Descartar\nCarta))
+
+  User -->|Carta\nAlejate| PlayCard
+  EffectDB -->|Efectos| PlayCard
+  PlayCard -->|Datos\nefecto| Game
+
+  Game -->|Jugadores\nAdyacentes| PlayCard
+
+  Game -->|Carta\nNueva| ValidateCard
+  ValidateCard -->|Carta\nAlejate| User
+  ValidateCard -->|Carta\nPanico| PlayCard
+  ValidateCard -->|Carta\nAlejate| DiscardCard
+
+  User -->|Carta\nIntercambio| ExchangeCard
+  Game -->|Siguiente\nJugador| ExchangeCard
+  ExchangeCard -->|Datos\nIntercambio| Game
+
+  User -->|Datos\nDescarte| DiscardCard
+  DiscardCard -->|Mano\nactualizada| User
+

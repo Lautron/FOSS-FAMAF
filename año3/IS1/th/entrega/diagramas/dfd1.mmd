@@ -1,0 +1,21 @@
+graph TD
+  classDef default fill:#fff,stroke:#333,stroke-width:2px;
+  User[Usuario]
+
+  CreateGame((Crear<br>Partida))
+  FindGame((Buscar<br>Partida))
+  JoinGame((Entrar<br>Partida))
+  ValidateGame((Validar<br>Partida))
+
+  GameDB[(BBDD<br>Partidas)]
+  %% Flujo de datos
+  User -->|Datos Partida| CreateGame
+  User -->|Busqueda| FindGame
+  User -->|Datos Usuario| JoinGame
+  FindGame -->|Partidas Filtradas| User
+  JoinGame -->|Partida| ValidateGame
+  ValidateGame -->|Partida| User
+  ValidateGame -->|Partida| GameDB
+  CreateGame -->|Datos Partida| GameDB
+  GameDB -->|Partidas| FindGame
+  GameDB -->|Partidas| JoinGame

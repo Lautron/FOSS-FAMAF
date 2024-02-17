@@ -1,0 +1,28 @@
+digraph DataFlowDiagram {
+  // Entidades
+  User [shape="box", label="Usuario"]
+
+  // Procesos
+  CreateGame [shape="ellipse", label="Crear Partida"]
+  CreateGame [shape="ellipse", label="Crear Partida"]
+  FindGame [shape="ellipse", label="Buscar Partida"]
+  JoinGame [shape="ellipse", label="Unirse a una Partida"]
+  ValidateGame [shape="ellipse", label="Validar Partida"]
+
+  // Bases de Datos
+  GameDB [shape="box", label=<<u>Lista de Partidas</u>>, style=underlined color=transparent]
+
+  // Flujo de datos
+  User -> CreateGame [label="Partida"]
+  User -> FindGame [label="Busqueda"]
+  User -> JoinGame [label="Solucitud para Unirse"]
+  FindGame -> User [label="Partidas"]
+  JoinGame -> ValidateGame [label="Partida"]
+  ValidateGame -> User [label="Partida"]
+  ValidateGame -> User [label="Error"]
+  ValidateGame -> GameDB [label="Partida"]
+  CreateGame -> User [label="Confirmación"]
+  CreateGame -> GameDB [label="Datos de la Partida"]
+  GameDB -> FindGame [label="Partidas"]
+  GameDB -> JoinGame [label="Partidas"]
+}

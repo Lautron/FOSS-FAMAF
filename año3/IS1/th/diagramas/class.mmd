@@ -1,0 +1,59 @@
+classDiagram
+    Game "1" --* "1..*" Player
+    Game "1" --o "*" Card
+    Game "1" --o "*" Message
+    Player "1" --o "4" Card
+    Player "1" -- "1" Message
+
+    class Game {
+      +String name
+      +Int max_players
+      +String region
+      +String password
+      +Bool has_started
+      +Int current_turn
+      +Bool is_direction_left
+      -build_deck()
+      -deal_cards()
+      -apply_card_effect()
+      -has_the_thing_won()
+      -have_the_humans_won()
+      -show_cards_to_players()
+      +create()
+      +start()
+      +kill()
+      +finish()
+    }
+
+    class Player {
+      +Bool is_host
+      +Bool is_the_thing
+      +Bool is_infected
+      +String name
+      +Bool is_quarantined
+      +Bool has_obstacle_on_left
+      +Bool has_obstacle_on_right
+      +choose_card_to_play()
+      +choose_card_to_exchange()
+      +choose_adjacent_player()
+      +choose_adjacent_player_card()
+      +choose_card_to_discard()
+      +choose_defense_card()
+      +give_card()
+      +has_defense()
+      +is_superinfected()
+      +send_message()
+    }
+    class Card {
+      +String type
+      +String name
+      +Bool is_discarded
+    }
+
+    class Message {
+      +String content
+      +String sender
+      +String time_sent
+    }
+
+

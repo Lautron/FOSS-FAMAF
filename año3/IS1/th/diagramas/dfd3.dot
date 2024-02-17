@@ -1,0 +1,5 @@
+digraph DataFlowDiagram {
+  User -> JugarSospecha [label="Datos Jugador"]
+  JugadorElegido -> JugarSospecha [label="Cartas"]
+  JugarSospecha -> User [label="Carta"]
+}

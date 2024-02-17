@@ -1,0 +1,36 @@
+digraph DataFlowDiagram {
+  // Entidades
+  User [shape="box", label="Usuario"]
+  Game [shape="box", label="Partida"]
+
+  // Procesos
+  PlayCard [shape="ellipse", label="Jugar\nCarta"]
+  ValidateCard [shape="ellipse", label="Recibir\nCarta"]
+  ExchangeCard [shape="ellipse", label="Intercambiar\nCarta"]
+  DiscardCard [shape="ellipse", label="Descartar\nCarta"]
+  SendMessage [shape="ellipse", label="Enviar\nMensaje"]
+
+  // Bases de Datos
+  EffectDB [shape="box", label=<<u>Efectos Cartas</u>>, style=underlined color=transparent]
+
+  User -> PlayCard [label="Carta\nAlejate"]
+  EffectDB -> PlayCard [label="Efectos"]
+  PlayCard -> Game [label="Datos\nefecto"]
+  Game -> PlayCard [label="Jugadores\nAdyacentes"]
+
+  Game -> ValidateCard [label="Carta\nNueva"]
+  ValidateCard -> User [label="Carta\nAlejate"]
+  ValidateCard -> PlayCard [label="Carta\nPanico"]
+  // Datos Intercambio = Jugador + Carta
+
+  User -> ExchangeCard [label="Carta\nIntercambio"]
+  Game -> ExchangeCard [label="Siguiente\nJugador"]
+  ExchangeCard -> Game [label="Datos\nIntercambio"]
+
+  User -> DiscardCard [label="Datos\nDescarte"]
+  DiscardCard -> User [label="Mano\nactualizada"]
+  DiscardCard -> Game [label="Aviso\nmano\nincompleta"]
+
+  User -> SendMessage [label="Datos\nMensaje"]
+  SendMessage -> Game [label="Datos\nMensaje"]
+}
