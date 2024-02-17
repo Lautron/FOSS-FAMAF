@@ -1,0 +1,79 @@
+# Introduccion
+
+[x] Definición convergencia lineal, super lineal y cuadrática
+
+[x] Calcular error absoluto y relativo
+
+[x] Evaluar un polinomio usando el método de Horner
+
+[ ] Proponer alternativas para minimizar el error en algunas cuentas
+
+[ ] Entender funcionamiento del sistema de punto flotante
+
+[ ] Hacer operaciones en punto flotante con redondeo
+
+[ ] Hacer operaciones en punto flotante con truncamiento
+
+[ ] Analizar cuando se cancela un término al hacer operaciones en número flotante
+
+[ ] Evaluar un polinomio en punto flotante
+
+[ ] Graficar una función (por partes)
+
+# Biseccion
+
+[x] Realizar iteraciones método de bisección
+
+[x] Analizar si el límite de la sucesión generada por el método de bisección converge, y 
+
+[ ] Analizar a donde converge el límite de la sucesión generada por el método de bisección (Si converge o no a una raíz, y a cual de todas las raíces de la función converge)  
+
+[ ] Encontrar cantidad de iteraciones tales que el error en el método de Bisección con esas iteraciones es menor a un valor
+
+# Newton
+
+[ ] Hallar fórmula iterativa de Newton
+
+[ ] Usar Newton para calcular un valor (1/17, por ejemplo)
+
+[ ] Realizar iteraciones método de Newton
+
+[ ] Demostraciones que incluyen utilizar la iteración del método de Newton
+
+[ ] Analizar comportamiento del método de Newton en diferentes casos
+
+[ ] Analizar si se puede aplicar el teorema de convergencia del método de Newton
+
+[ ] Determinar intervalo donde converge el método de Newton
+
+[ ] Analizar a donde converge el límite de la sucesión generada por el método de Newton
+
+[ ] Verificar si una función tiene raíz en un intervalo (Teorema del valor intermedio)
+
+# Punto fijo
+
+[ ] Verificar si una función tiene raíz única en un intervalo (Teorema del valor intermedio y punto fijo)
+
+[ ] Determinar función de iteración e intervalo tal que puede aplicarse el método de punto fijo y convergerá a una raíz
+
+[ ] Encontrar cantidad de iteraciones tales que el error en el método de punto fijo con esas iteraciones es menor a un valor
+
+[ ] Analizar a donde converge el límite de la sucesión generada por el método de punto fijo
+
+[ ] Dar un intervalo para el cual la iteración de punto fijo converge (si el punto inicial x_0 pertenece al intervalo)
+
+[ ] Dar condiciones que debe cumplir una iteración de punto fijo para que el método tenga orden de convergencia (al menos) k
+
+# Polinomio interpolante
+
+[ ] Determinar/encontrar polinomio interpolante con la forma de Newton
+
+[ ] Determinar/encontrar polinomio interpolante con la forma de Lagrange
+
+[ ] Trabajar y entender el polinomio interpolante
+
+# Tips
+* Para determinar funcion de iteracion newton igualar a 0
+* Para determinar funcion de iteracion  en punto fijo despejar x
+* Si en el punto de corte entro por abajo y salgo por arriba, punto fijo no sirve
+

@@ -1,0 +1,67 @@
+\tableofcontents
+\newpage
+
+# Respuestas Parcial 1
+## Ejercicio 1
+```py
+def serie_seno(x):
+    get_term = lambda n: (math.pow(-1, n)/math.factorial(2*n + 1) ) * math.pow(x, 2*n + 1) 
+    terms = [get_term(n) for n in range(5) ]
+    return terms
+```
+
+\newpage
+## Ejercicio 2
+
+![](./respuestas_imgs/fig1.png)
+
+\newpage
+## Ejercicio 3
+Las dos raices positivas de f(x) se denotan con un punto rojo en el siguiente grafico:
+
+![](./respuestas_imgs/fig2.png)
+
+
+\newpage
+## Ejercicio 4
+```py
+def rsteffensen(fun, x0, err, mit):
+    print(f"Iteraciones para x0={x0}:")
+    v = fun(x0)
+    hx, hf = [x0], [v]
+    if abs(v) < err: return hx, hf
+    for k in range(mit):
+        x1 = x0 - math.pow(fun(x0), 2)/(fun(x0 + fun(x0)) - fun(x0))
+        v = fun(x1)
+        hx.append(x1)
+        hf.append(v)
+        if abs(v) < err: break
+        if (abs(x1-x0) / abs(x1)) < err: break
+        x0 = x1
+    print(k+1, '\n')
+    return hx, hf
+```
+
+\newpage
+## Ejercicio 5
+![](./respuestas_imgs/fig3.png)
+
+Las iteraciones que require cada busqueda son las siguientes:
+
+* Iteraciones para $x_0=3$:
+1
+* Iteraciones para $x_0=6$:
+69
+
+Si se inicia la busqueda en 4.5 se obtiene el siguiente resultado:
+
+![](./respuestas_imgs/fig4.png)
+
+Iteraciones para x0=4.5:
+3
+
+En resumen, cuando se inicia la busqueda en 4.5, el metodo de Steffensen realiza 3 iteraciones y luego se detiene ya que se cumple que
+$\frac{|x_k - x_{k-1}|}{|x_k|} < \text{ err }$, sin embargo, no da como resultado ninguna raiz de la funcion
+
+
+
