@@ -1,0 +1,136 @@
+
+\section{Series}
+
+\subsection{Definicion}
+
+Dada una sucesion de numeros reales
+
+Llamaremos serie de terminos
+$a_n$
+a
+$\sum_{n=1}^{\infty} a_n$
+
+\subsection{Suma parcial}
+
+Para todo k en N definimos la k-esima suma parcial sk
+
+$s_k = a_1 + \cdots + a_k = \sum_{n=1}^{k} a_n$
+
+$\{s_k\}$
+es una sucesion de números reales
+Si su limite existe y es finito decimos que la serie es convergente
+Si su limite no existe o es infinito decimos que la serie es divergente
+
+\subsection{Serie geometrica}
+
+\subsubsection{Definicion}
+
+$\sum_{n=0}^{\infty} r^n = 1 + r + r^2+\cdots$ $r \in \mathbb{R}$
+
+\subsubsection{Teoremas}
+
+$|r| < 1$ $\Rightarrow$ $\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}$ Es convergente
+
+$|r| \geq 1$ $\Rightarrow$ $\sum_{n=0}^{\infty} r^n$ Es divergente
+
+\subsection{Propiedades de series convergentes}
+
+Sean
+$\sum_{n=1}^{\infty} a_n$
+$\sum_{n=1}^{\infty} b_n$
+$c \in \mathbb{R}$
+Series convergentes
+
+$\sum_{n=1}^{\infty} (a_n \pm b_n)$
+Converge
+
+$\sum_{n=1}^{\infty} ca_n$
+Converge
+
+$\sum_{n=1}^{\infty} (a_n \pm b_n) = \sum_{n=1}^{\infty} a_n \pm \sum_{n=1}^{\infty} b_n$
+
+$\sum_{n=1}^{\infty} ca_n = c \sum_{n=1}^{\infty} a_n$
+
+\subsection{Criterios}
+
+\subsubsection{Criterio de divergencia}
+
+Si la serie converge $\Rightarrow$ $\lim_{n \to \infty} a_n = 0$
+
+$\lim_{n \to \infty} a_n \ne 0$
+
+$\nexists\lim_{n \to \infty}$
+
+\subsubsection{Criterio de comparacion para series}
+
+Sea $0\leq a_n\leq b_n\quad \forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+$\sum_{n=n_0}^{\infty} b_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ conv.}$
+
+$\sum_{n=n_0}^{\infty} a_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ diver.}$
+
+\subsubsection{Criterio de comparacion en el limite}
+
+Sean $\sum_{n=n_0}^{\infty} a_n$ $\sum_{n=n_0}^{\infty} b_n$ Series de terminos positivos
+
+$\lim_{n \to \infty} \frac{a_n}{b_n} > 0$ $\Rightarrow$ $\sum_{n=n_0}^{\infty} a_n \text{ conv} \Leftrightarrow \sum_{n=n_0}^{\infty} b_n\text{ conv}$
+
+$\lim_{n \to \infty} \frac{a_n}{b_n} = 0$ $\Rightarrow$ $\sum_{n=n_0}^{\infty} b_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ conv.}$ $\sum_{n=n_0}^{\infty} a_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ diver.}$
+
+$\lim_{n \to \infty} \frac{a_n}{b_n} = \infty$ $\Rightarrow$ $\sum_{n=n_0}^{\infty} b_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ diver.}$ $\sum_{n=n_0}^{\infty} a_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ conv.}$
+
+\subsubsection{Criterio de la integral para series}
+
+Sea $f$ Continua Positiva y decreciente en $[1,\infty)$
+
+$a_n = f(n)$ $\Rightarrow$ converge $\sum_{n=1}^{\infty} a_n$ $\Leftrightarrow$ converge $\int_{1}^{\infty}f(x)~dx$
+
+Observaciones La serie y la integral en general no son iguales No es necesario iniciar la serie o la integral en n=1
+
+\subsubsection{Criterio del cociente}
+
+Sean $a_n\ne 0~ ~~\forall n\geq n_0$ $r = \lim_{n \to \infty} \left |\frac{a_{n+1}}{a_n}\right |$
+
+$r<1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv. abs.}$
+
+$r>1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ diver.}$
+
+$r=1$ $\Rightarrow$ No se puede asegurar nada
+
+\subsubsection{Criterio de la raiz}
+
+Sea $r = \lim_{n \to \infty} \sqrt[n]{|a_n|}$
+
+$r<1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv. abs.}$
+
+$r>1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ diver.}$
+
+$r=1$ $\Rightarrow$ No se puede asegurar nada
+
+\subsection{Series alternantes}
+
+\subsubsection{Definicion}
+
+Decimos que una serie es alternante si sus terminos son positivos y negativos alternantemente
+
+\subsubsection{Criterio para series alternantes}
+
+$a_n\geq a_{n+1}> 0~~\forall n$
+
+$\lim_{n \to \infty} a_n = 0$
+
+\subsection{Tipos de convergencia}
+
+\subsubsection{Absoluta}
+
+converge $\sum_{n=1}^{\infty} |a_n|$
+
+\subsubsection{Condicional}
+
+converge $\sum_{n=1}^{\infty} a_n$
+
+no converge $\sum_{n=1}^{\infty} |a_n|$
+
+\subsection{Convergencia y convergencia absoluta}
+
+$\sum_{n=1}^{\infty} a_n \text{ conv. abs.} \Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv.}$

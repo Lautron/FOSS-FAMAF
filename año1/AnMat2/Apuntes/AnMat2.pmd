@@ -1,0 +1,1569 @@
+\title{}
+\title{%
+  Resumen AM2 (computacion) - FAMAF \\
+  \vspace{10pt}
+  \small Profesor: Juan Pablo Agnelli}
+\author{Autor: Lautaro Bachmann}
+\date{\today}
+\everymath{\displaystyle}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Integrales
+
+## Integracion por fraciones simples
+
+### Concepciones generales
+
+$\frac{p(x)}{q(x)}$ cumple lo siguiente:
+
+$gr(p)<gr(q)$ 
+El coeficiente de la potencia de mayor
+grado de q(x) es 1
+
+### Caso 1: Factores lineales diferentes
+
+Sea $q(x) = (x-r_1)\ldots(x-r_k)$
+
+Hay que buscar constantes $A_1,\cdots,A_k$ tales que
+
+$\frac{p(x)}{q(x)} = \frac{A_1}{x-r_1}+\cdots+\frac{A_k}{x-r_k}$
+
+### Caso 2: Factores lineales repetidos
+
+Sea $q(x) = (x-r)^k$
+
+Hay que buscar constantes $A_1,\cdots,A_k$ tales que:
+
+$\frac{p(x)}{q(x)} = \frac{A_1}{x-r}+\frac{A_2}{(x-r)^2}+\cdots+\frac{A_k}{(x-r)^k}$
+
+
+### Caso 3: Factores lineales diferentes y con repeticiones
+
+Sea $q(x) = (x-r_1)\cdots(x-r_{i-1})(x-r_i)^{K_i}\cdots(x-r_n)^{k_n}$
+
+Se aplican los procedimientos de los casos 1 y 2
+
+Ejemplo:
+
+$\frac{x^3-(x+1)}{x(x-2)(x-1)^2} = \frac{A_1}{x} +\frac{A_2}{x-2} +\frac{A_3}{x-1} +\frac{A_4}{(x-2)^2}$
+
+### Operar con factores cuadraticos ###
+
+Los factores cuadraticos se pueden factorizar de la siguiente forma: 
+
+$\frac{Bx+C}{x^2+\alpha x+\beta}$ 
+
+### Integrar factores cuadraticos ###
+
+Para integrarlos debemos hallar constantes $K_1,K_2$
+
+$\frac{Bx+C}{x^2+\alpha x+\beta} = K_1 \frac{2x+\alpha}{x^2+\alpha x+\beta}+K_2 \frac{1}{x^2+\alpha x+\beta}$
+
+### Integrar factores cuadraticos: Tips ###
+
+$K_1 \frac{2x+\alpha}{x^2+\alpha x+\beta} \to\quad$ Se puede
+integrar usando sustitucion 
+
+$K_2 \frac{1}{x^2+\alpha x+\beta} \to\quad$ Completar cuadrados y usar sustitucion para llegar a algo de la forma
+$\frac{1}{y^2+a^2}$
+
+### Integral de $\frac{1}{y^2+a^2}$ ###
+
+Tener en cuenta que
+$\int \frac{1}{y^2+a^2}~dx = \frac{1}{a} ~arctg(\frac{y}{a}) + c$
+
+### Caso 4: Factores lineales y cuadraticos que no se repiten
+
+Sea $q(x) = (x-r_1)^{K_1}\cdots(x-r_n)^{K_n}\cdot(x^2+\alpha_1x+\beta_1)\cdots(x^2+\alpha_mx+\beta_m)$
+
+Por cada factor lineal aparecen tantos terminos como indiquen los casos
+1 y 2
+
+Por cada factor cuadratico aparecen terminos de la forma
+$\frac{Bx+C}{x^2+\alpha x+\beta}$ 
+
+### Caso 5: Factores lineales y cuadraticos con repeticiones
+
+No vamos a ver este caso en la materia (Por suerte)
+
+## Integrales impropias
+
+### Definicion
+
+Extendemos la definicion de integral para los casos en los que
+
+$a \vee b \not\in \mathbb{R}$
+
+f no sea acotada en \[a, b\]
+
+## Integrales impropias Tipo 1
+
+### Definicion
+Funciones continuas y al menos uno de los limites de integracion no es finito
+
+Si el limite existe y es finito decimos que converge, en caso contrario decimos que diverge.
+
+### f continua en $[a, \infty)$
+
+$\int_{a}^{\infty}f(x)~dx = \lim_{t \to \infty} \int_{a}^{t}f(x)~dx$
+
+### f continua en $(-\infty, a]$
+
+$\int_{-\infty}^{a}f(x)~dx = \lim_{t \to -\infty} \int_{t}^{a}f(x)~dx$
+
+### f continua en $\mathbb{R}$
+
+$\int_{-\infty}^{\infty}f(x)~dx = \int_{-\infty}^{a}f(x)~dx +\int_{a}^{\infty}f(x)~dx$
+
+Ambas integrales deben converger para que sea convergente.
+
+## Integrales impropias Tipo 2
+
+### Definicion
+Limites de integracion finitos pero funciones que tienen una asintota vertical en un punto $c \in [a,b]$
+
+Cuando las integrales existen y son menores a infinito, decimos que convergen, si no decimos que divergen.
+
+
+### $\lim_{x \to b^-} f(x) = \pm \infty$
+f continua en $[a, b)$
+
+$\int_{a}^{b}f(x)~dx = \lim_{t \to b^-} \int_{a}^{t}f(x)~dx$
+
+### Sea $\lim_{x \to a^+} f(x) = \pm \infty$
+Sea f continua en $(a,b]$
+
+$\int_{a}^{b}f(x)~dx = \lim_{t \to a^+} \int_{t}^{b}f(x)~dx$
+
+### f continua en $[a,c) \cup (c,b]$
+
+$\int_{a}^{b}f(x)~dx = \int_{a}^{c}f(x)~dx + \int_{c}^{b}f(x)~dx$
+
+## Criterios de Comparacion Tipo 1
+
+### $|f(x)| \le g(x) \forall x \in [a, \infty)$
+
+Sean f y g funciones continuas y $a \in \mathbb{R}$
+
+$\int_{a}^{\infty}g(x)~dx$ converge $\Rightarrow$ $\int_{a}^{\infty}f(x)~dx$ converge
+
+$\int_{a}^{\infty}f(x)~dx$ diverge $\Rightarrow$ $\int_{a}^{\infty}g(x)~dx$ diverge
+
+### $|f(x)| \le g(x) \forall x \in [-\infty, a)$
+
+Sean f y g funciones continuas y $a \in \mathbb{R}$
+
+$\int_{-\infty}^{a}g(x)~dx$ converge $\Rightarrow$ $\int_{-\infty}^{a}f(x)~dx$ converge 
+
+$\int_{-\infty}^{a}f(x)~dx$ diverge $\Rightarrow$ $\int_{-\infty}^{a}g(x)~dx$ diverge 
+
+## Criterios de Comparacion Tipo 2
+$|f(x)| \le g(x) \forall x \in [a,b) \vee (a,b]$ 
+
+Sean f, g funciones continuas en [a,b) y 
+
+$\lim_{x \to a^+} f(x) = \pm \infty\quad \vee\quad\lim_{x \to b^-} f(x) = \pm \infty$
+
+Entonces:
+
+$\int_{a}^{b}g(x)~dx$ converge $\Rightarrow$ $\int_{a}^{b}f(x)~dx$ converge
+
+$\int_{a}^{b}f(x)~dx$ diverge $\Rightarrow$ $\int_{a}^{b}g(x)~dx$ diverge
+
+# Sucesiones
+
+## Definicion
+
+Una sucesion infinita de numeros reales es una funcion cuyo dominio son
+los naturales y cuya imagen está incluida en R
+
+## Limite
+
+### Propiedades
+
+Aplican las propiedades normales de los limites.
+
+### Notacion
+
+Se escribe $\lim_{n \to \infty} a_n = \ell$
+
+Si los terminos an se acercan a l tanto como queramos al hacer n
+suficientemente grande se escribe $\underset{n\to\infty}{a_n \to \ell}$
+
+### Definicion formal
+
+$\lim_{n \to \infty} a_n = \ell \iff \forall \epsilon >0 ,~ \exists n_0 \in \mathbb{N}$
+
+$\text{ tal que } ~~|a_n-\ell| < \epsilon$ $\forall n \geq n_0$
+
+Es decir la distancia entre $a_n$ y el limite es menor a epsilon
+
+En otras palabras a partir de cierto $n_0$ la sucesion va a estar muy cerca
+del $\ell$
+
+$|a_n-\ell| < \epsilon$ $\Leftrightarrow$
+$-\epsilon <a_n - \ell < \epsilon$ $\Leftrightarrow$
+$\ell - \epsilon < a_n < \ell + \epsilon$
+
+## Convergencia y divergencia
+
+$\exists \lim_{n \to \infty} = \ell$
+
+$\ell \in \mathbb{R}$
+
+$\Rightarrow\ell \text{ converge a } \overset{n\to \infty}{\ell}$
+
+En los demas casos decimos que diverge
+
+## Teoremas
+
+### Relacion entre limite de funciones y sucesiones
+
+Sea $a_n = f(n)$
+$\forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+$\lim_{n \to \infty} a_n = \lim_{n \to \infty} f(n)$
+
+### Sandwich para sucesiones
+
+Sea $a_n \leq b_n \leq c_n$
+$\forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+Sea $\lim_{n \to \infty} a_n ~=~ \lim_{n \to \infty} c_n ~=~ \ell$
+
+$\Rightarrow\lim_{n \to \infty} b_n = \ell$
+
+### Convergencia a 0 y modulo
+
+$\lim_{n \to \infty} a_n = 0 \iff \lim_{n \to \infty} |a_n| = 0$
+
+### Composicion de limite y funcion
+
+$\lim_{n \to \infty} a_n = a$
+
+$f \text{ continua en } x=a$
+
+$\Rightarrow$
+$\lim_{n \to \infty} f(a_n) = f(a) = f\left(\lim_{n \to \infty} a_n\right)$
+
+## Crecimiento y Decrecimiento
+
+### Crecientes
+
+$a_n \leq a_{n+1}$ $\Rightarrow$ Es creciente
+
+$a_n < a_{n+1}$ $\Rightarrow$ Es estrictamente creciente
+
+### Decrecientes
+
+$a_n \geq a_{n+1}$ $\Rightarrow$ Es decreciente
+
+$a_n > a_{n+1}$ $\Rightarrow$ Es estrictamente decreciente
+
+### Sucesion monotona
+
+Si la sucesion es creciente o decreciente decimos que es monotona
+
+## Acotaciones
+
+### Inferior
+
+$\exists~ m_i \in \mathbb{R}~/~ m_i \leq a_n ~~\forall n\in\mathbb{N}$
+$\Rightarrow$
+
+$m_i$ Es la cota inferior
+
+$\{a_n\}$ Es acotada inferiormente
+
+### Superior
+
+$\exists~ m_s \in \mathbb{R}~/~ m_s \geq a_n~~\forall n\in\mathbb{N}$
+$\Rightarrow$
+
+$m_s$ Es la cota superior
+
+$\{a_n\}$ Es acotada superiormente
+
+### General
+
+$\exists~ M \in \mathbb{R}~/~ |a_n| < M~~\forall n\in\mathbb{N}$
+$\Rightarrow$ $\{a_n\}$ Es acotada
+
+### Observacion: Pluralidad
+
+Las cotas inferiores y superiores no son unicas
+
+### Axioma de completitud de los reales
+
+Sea $\mathbb{I}_s$ Un conjunto no vacio de numeros reales acotado
+superiormente
+
+$\Rightarrow$ $\mathbb{I}_s$ Tiene una menor cota superior en
+$\mathbb{R}$
+
+Sea $\mathbb{I}_i$ Un conjunto no vacio de numeros reales acotado
+inferiormente
+
+$\Rightarrow$ $\mathbb{I}_i$ Tiene una mayor cota inferior en
+$\mathbb{R}$
+
+### Supremo
+
+Sea $A \subset \mathbb{R},~~A\ne \emptyset$
+
+A es acotada superiormente $\Rightarrow$ La menor cota superior se le
+llama supremo de A
+
+Se denota $sup(A)$
+
+$sup(A)\in A$ $\Rightarrow$ Decimos que es el maximo de A
+
+### Infimo
+
+Sea $A \in \mathbb{R},~~A\ne 0$
+
+A es acotada inferiormente $\Rightarrow$ La mayor cota inferior se le
+llama infimo de A
+
+Se denota $inf(A)$
+
+$inf(A)\in A$ $\Rightarrow$ Decimos que es el minimo de A
+
+
+### Teorema Sucesion convergente
+
+$\{a_n\}$ es convergente $\Rightarrow$ Es acotada
+
+### Sucesion creciente y sup. acotada
+
+$\{a_n\}$ es creciente y acotada superiormente 
+
+$\Rightarrow$ converge $\{a_n\}$
+
+$\Rightarrow$ $\lim_{n \to \infty} a_n ~=~ \ell_1 ~=~ sup(\{a_n\})$
+
+### Sucesion decreciente y inf. acotada
+
+$\{a_n\}$ es decreciente y acotada inferiormente  
+
+$\Rightarrow$ converge $\{a_n\}$
+
+$\Rightarrow$ $\lim_{n \to \infty} a_n ~=~ \ell_2 ~=~ inf(\{a_n\})$
+
+### Observacion: Convergencia y crecimiento
+
+$\{a_n\}$ es creciente $\Rightarrow$ converge o el limite tiende a
+$+\infty$
+
+$\{a_n\}$ es decreciente $\Rightarrow$ converge o el limite tiende a
+$-\infty$
+
+## Subsucesiones
+
+### Una subsucesion de una sucesion 
+
+Es una sucesion de la forma
+$\{a_{n1},a_{n2},a_{n3},a_{n4}, ...\} = \{a_{nj}\}_{j=1}^\infty$
+
+Con $nj \in \mathbb{N}$ y $n_1 < n_2 < n_3 < \ldots$
+
+### Subsucesion de una sucesion convergente
+
+Toda subsucesion de una sucesion convergente es convergente y sus
+limites son iguales
+
+### Subsucesion de una sucesion convergente: Utilidad
+
+Es util para demostrar que una sucesion no tiene limite.
+
+Basta con encontrar dos subsucesiones distintas que converjan a
+distintos limites
+
+### Bolzano-Weierstrass
+
+Toda sucesion acotada tiene al menos una subsucesion convergente
+
+Puede haber mas de una subsucesion convergente
+
+# Series
+
+## Definicion
+
+Dada una sucesion de numeros reales
+
+Llamaremos serie de terminos $a_n$ a: $\quad\sum_{n=1}^{\infty} a_n$
+
+## Suma parcial
+
+### Definicion
+
+Para cada $k \in \mathbb{N}$ definimos la k-esima suma parcial $s_k$
+
+$s_k = a_1 + \cdots + a_k = \sum_{n=1}^{k} a_n$
+
+$\{s_k\}$ es una sucesion de números reales 
+
+### Convergencia
+Si su limite existe y es finito decimos que la serie es convergente 
+
+Si su limite no existe o es infinito decimos que la serie es divergente
+
+## Serie geometrica
+
+### Definicion
+
+$\sum_{n=0}^{\infty} r^n = 1 + r + r^2+\cdots$ 
+
+$r \in \mathbb{R}$
+
+### Teoremas
+
+$|r| < 1$ $\Rightarrow$ $\sum_{n=0}^{\infty} r^n = \frac{1}{1-r} \Rightarrow$ Es convergente
+
+O equivalentemente, $\sum_{n=1}^{\infty} r^n = \frac{r}{1-r}$
+
+
+$|r| \geq 1$ $\Rightarrow$ $\sum_{n=0}^{\infty} r^n \Rightarrow$ Es divergente
+
+## Propiedades de series convergentes
+
+Sean $\sum_{n=1}^{\infty} a_n$, $\sum_{n=1}^{\infty} b_n$ series convergentes
+y $c \in \mathbb{R}$ 
+
+$\sum_{n=1}^{\infty} (a_n \pm b_n)$ Converge
+
+$\sum_{n=1}^{\infty} ca_n$ Converge
+
+$\sum_{n=1}^{\infty} (a_n \pm b_n) = \sum_{n=1}^{\infty} a_n \pm \sum_{n=1}^{\infty} b_n$
+
+$\sum_{n=1}^{\infty} ca_n = c \sum_{n=1}^{\infty} a_n$
+
+## Serie armonica
+$\sum_{n=1}^{\infty} \frac{1}{n}$
+
+La serie diverge
+
+
+## Criterios
+
+### Criterio de divergencia
+
+Si la serie converge $\Rightarrow$ $\lim_{n \to \infty} a_n = 0$
+
+$\lim_{n \to \infty} a_n \ne 0 \vee \nexists\lim_{n \to \infty} \Rightarrow$ la serie diverge
+
+### Criterio de comparacion para series
+
+Sea
+$0\leq a_n\leq b_n\quad \forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+$\sum_{n=n_0}^{\infty} b_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ conv.}$
+
+$\sum_{n=n_0}^{\infty} a_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ diver.}$
+
+### Criterio de comparacion en el limite: $\lim_{n \to \infty} \frac{a_n}{b_n} > 0$
+
+Sean $\sum_{n=n_0}^{\infty} a_n$, $\sum_{n=n_0}^{\infty} b_n$ Series de terminos positivos
+
+ $\Rightarrow$
+$\sum_{n=n_0}^{\infty} a_n \text{ conv} \Leftrightarrow \sum_{n=n_0}^{\infty} b_n\text{ conv}$
+
+### Criterio de comparacion en el limite: $\lim_{n \to \infty} \frac{a_n}{b_n} = 0$ 
+
+Sean $\sum_{n=n_0}^{\infty} a_n$, $\sum_{n=n_0}^{\infty} b_n$ Series de terminos positivos
+
+$\sum_{n=n_0}^{\infty} b_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ conv.}$
+
+$\sum_{n=n_0}^{\infty} a_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ diver.}$
+
+### Criterio de comparacion en el limite: $\lim_{n \to \infty} \frac{a_n}{b_n} = \infty$ 
+
+Sean $\sum_{n=n_0}^{\infty} a_n$, $\sum_{n=n_0}^{\infty} b_n$ Series de terminos positivos
+
+$\sum_{n=n_0}^{\infty} b_n \text{ diver.} \Rightarrow \sum_{n=n_0}^{\infty} a_n\text{ diver.}$
+
+$\sum_{n=n_0}^{\infty} a_n \text{ conv.} \Rightarrow \sum_{n=n_0}^{\infty} b_n\text{ conv.}$
+
+### Criterio de la integral para series
+
+Sea $f$ Continua Positiva y decreciente en $[1,\infty)$
+
+Si $a_n = f(n)$ entonces:
+
+$\sum_{n=1}^{\infty} a_n$ converge $\Leftrightarrow$ $\int_{1}^{\infty}f(x)~dx$ converge 
+
+No es necesario iniciar la serie o la integral en n=1
+
+### Criterio del cociente
+
+Sean $a_n\ne 0~\forall n\geq n_0$
+y
+$r = \lim_{n \to \infty} \left |\frac{a_{n+1}}{a_n}\right |$
+
+$r<1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv. abs.}$
+
+$r>1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ diver.}$
+
+$r=1$ $\Rightarrow$ No se puede asegurar nada
+
+### Criterio de la raiz
+
+Sea $r = \lim_{n \to \infty} \sqrt[n]{|a_n|}$
+
+$r<1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv. abs.}$
+
+$r>1\Rightarrow \sum_{n=1}^{\infty} a_n\text{ diver.}$
+
+$r=1$ $\Rightarrow$ No se puede asegurar nada
+
+### Criterio Serie P
+$\sum_{n=1}^{\infty} \frac{1}{n^p}$
+
+La serie converge si $p>1$ y diverge si $0<p<1$
+
+## Series alternantes
+
+### Definicion
+
+Decimos que una serie es alternante si sus terminos son positivos y
+negativos alternantemente
+
+### Criterio para series alternantes
+
+Si $a_n\geq a_{n+1}> 0~~\forall n$ y $\lim_{n \to \infty} a_n = 0$
+
+Entonces, $\sum_{n=1}^{\infty} (-1)^n a_n$ converge
+
+y $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ tambien
+
+## Tipos de convergencia
+
+### Absoluta
+
+$\sum_{n=1}^{\infty} |a_n|$ converge 
+
+### Condicional
+
+$\sum_{n=1}^{\infty} a_n$ converge 
+
+$\sum_{n=1}^{\infty} |a_n|$ no converge 
+
+## Convergencia y convergencia absoluta
+
+$\sum_{n=1}^{\infty} a_n \text{ conv. abs.} \Rightarrow \sum_{n=1}^{\infty} a_n\text{ conv.}$
+
+# Series de potencias
+
+## Definicion
+
+Sean $\{c_n\}_{n=0}^\infty$ Una sucesion de numeros reales y
+$a \in~\mathbb{R}$
+
+Llamamos serie de potencias centradas en a, a la serie
+
+$\sum_{n=0}^{\infty} C_n (x-a)^n = C_0 + C_1 (x-a) + C_2 (x-a)^2 + \cdots$
+
+Adoptamos la convencion de que $(x-a)^0 = 1$
+
+## Teoremas
+
+### Caracteristicas de las series de potencias
+
+Sea $\sum_{n=0}^{\infty} C_n (x-a)^n$ Una serie de potencias
+
+Se cumple exactamente una de las siguientes
+
+La serie converge solo cuando x=a
+
+La serie es absolutamente convergente $\forall x \in \mathbb{R}$
+
+$\exists ~R > 0$ tal que la serie conv. absolutamente
+$\forall x \text{ tq } |x-a|<R$
+
+y es divergente $\forall x \text{ tq } |x-a|>R$
+
+### Observacion sobre R
+
+Si la la serie converge en $x_0 \quad \Rightarrow \quad R \ge |a-x_0|$
+
+Si la serie diverge en $x_1 \quad \Rightarrow \quad R \le |a-x_1|$
+
+### Criterio del cociente para series de potencias
+
+Dada una serie de potencias con $c_n\ne 0~~\forall n\geq n_0$ y R como su
+radio de convergencia
+
+Sea $L = \lim_{n \to \infty} \frac{|c_{n+1}|}{|c_n|}$
+
+Entonces:
+
+$0 < L < \infty \Rightarrow R = \frac{1}{L}$
+
+$L=0~\Rightarrow~ R=\infty$
+
+$L=\infty~\Rightarrow~ R=0$
+
+### Derivacion e integracion de una serie de potencias
+
+Sea R el radio de convergencia de una serie de potencias
+
+$R > 0 \Rightarrow f(x) = \sum_{n=1}^{\infty} c_n (x-a)^n$ Es derivable
+y continue en el intervalo $(a-R,a+R)$
+
+Ademas
+
+$f'(x) = \sum_{n=1}^{\infty} n~c_n (x-a)^{n-1}$
+
+$\int f(x)dx = C + \sum_{n=0}^{\infty} \frac{c_n}{n+1} (x-a)^{n+1}$
+
+## Radio de convergencia
+La serie converge en $x=a ~\Rightarrow~ R=0$
+
+La serie converge $\forall x \in \mathbb{R} ~\Rightarrow~ R=\infty$
+
+En los demas casos $R > 0$
+
+## Intervalo de convergencia
+
+### Definicion
+
+Llamamos intervalo de convergencia al conjunto
+
+$\mathbb{I} = \{x\in \mathbb{R}~/~ \Sigma_{n=0}^{\infty}~ C_n (x-a)^n \text{ converge}\}$
+
+### Observaciones
+
+$R=0~\Rightarrow \mathbb{I} = \{a\}$
+
+$R=\infty~\Rightarrow \mathbb{I} = (-\infty, \infty) = \mathbb{R}$
+
+$0 < R<\infty~\Rightarrow \mathbb{I} (a-R,a+R) \qquad$ (con extremos abiertos o cerrados)
+
+## Representacion de funciones como series de potencias
+$\forall x \in \mathbb{I}$, la serie define una funcion:
+$f(x) = \displaystyle\sum_{n=0}^{\infty} c_n (x-a)^n$
+Cuyo dominio es $\mathbb{I}$
+
+## Serie de Taylor
+
+### Hallar $c_n$
+
+Si f puede representarse como una serie de potencias, es decir:
+
+$f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n~\forall x \text{ tq } |x-a| < R$
+
+
+$\Rightarrow c_n = \frac{f^{(n)}(a)}{n!}$
+
+### Definicion
+
+Sea f una funcion que tiene derivadas de todos los ordenes en a
+
+Se llama serie de Taylor de f centrada en a a la serie de potencias:
+
+$\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots$
+
+### Serie de McLaurin ###
+$a=0 \Rightarrow  \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n$ Se
+suele llamar serie de Maclaurin
+
+## Polinomio de Taylor
+
+### Definicion
+
+Sea f una funcion que tiene derivadas de todos los ordenes en a
+
+Definimos el polinomio de Taylor de f de orden n centrado en a como
+
+$T_{n,a}(x) = \sum_{n=0}^{n} \frac{f^{(j)}(a)}{j!}(x-a)^j = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!} (x-a)^n$
+
+### Observaciones
+
+La n-esima suma parcial de la serie de Taylor es justamente el polinomio
+de Taylor de orden n
+
+$T_{1,a}$ es la recta tangente al grafico de f en el punto (a,f(a))
+
+f y su polinomio de Taylor de orden n, Satisfacen
+$f^{(j)}(a) = T^{(j)}(a)$ $T_{n,a}$
+
+## Resto de Taylor
+
+### Definicion
+
+Se define alto de Taylor de orden n centrando en a como:
+
+$R_{n,a}(x) = f(x) - T_{n,a}(x)$ 
+
+Por lo tanto:
+
+$f(x) = T_{n,a}(x) + R_{n,a}(x)$
+
+### Teorema
+
+Sea f una funcion tal que existe $f^{(n)}(a) \forall n\geq 0$
+
+$f(x) = \displaystyle\sum_{n=0}^{\infty} \displaystyle\frac{f^{(n)}(a)}{n!} (x-a)^n$ $\Leftrightarrow$ $\displaystyle\lim_{n \to \infty} R_{n,a} (x) = 0\qquad (~\forall x \in (a-R,a+R)~)$
+
+### Formula de Lagrange para el resto
+
+Sea f una funcion tal que existen $f', f'',\ldots,f^{(n+1)}$ En un intervalo abierto $I$ y $a\in I$
+
+$\Rightarrow \forall x \in I,~ \exists t \text{ entre x y a }$
+
+tal que $R_{n,a} = \frac{f^{(n+1)}(t)}{(n+1)!} (x-a)^{n+1}$
+
+### Formula de Taylor
+
+Llamamos formula de Taylor a:
+
+$f(x) = \sum_{n=0}^{n} \frac{f^{(j)}(a)}{j!} (x-a)^j + \frac{f^{(n+1)}(t)}{(n+1)!} (x-a)^{n+1}$
+
+$\qquad= T_{n,a}(x) + R_{n,a}(x)$
+
+# Calculo vectorial
+
+## Propiedades producto escalar
+
+### Conmutatividad
+
+$\langle A,B \rangle = \langle B,A \rangle$
+
+### Distributividad
+
+$\langle A, B+C \rangle = \langle A,B \rangle + \langle A,C \rangle$ y
+viceversa
+
+### Multiplicacion por escalar
+
+$r \langle A,B \rangle = \langle r A, B \rangle = \langle A, r B \rangle$
+
+### Producto escalar nulo
+
+$\langle A,A \rangle = 0 \Leftrightarrow A = 0$
+
+## Norma
+
+### Definicion
+
+$A \in~\mathbb{R}^n,$
+
+$||A|| = \sqrt{\langle A,A \rangle}$
+
+Es la longitud del vector
+
+### Distancia
+
+$A,B \in \mathbb{R}^n,$
+
+$d(A,B) = ||A-B||$ (Distancia entre dos puntos)
+
+$d(A,0) = ||A||$ (distancia al origen)
+
+## Propiedades Norma
+
+### Norma nula
+
+$||A||=0 \Leftrightarrow A = 0$
+
+### Multiplicacion por escalar
+
+$||r A|| = |r| ||A||$
+
+### Desigualdad triangular
+
+$||A+B|| \leq ||A|| +||B||$
+
+### Producto escalar y norma
+
+$\langle A,B \rangle = ||A||~||B|| ~cos \theta$ donde
+$0 \leq \theta \leq \pi$ es el angulo (radianes) entre A y B
+
+### Desigualdad Cauchy-Schwarz
+
+$|\langle A,B \rangle| \leq ||A||~||B||$
+
+## Ortogonalidad
+
+$A,B \in \mathbb{R}^n \text{ no nulos },$
+
+$\langle A,B \rangle = 0$ $\Rightarrow$ Son ortogonales (o
+perpendiculares)
+
+## Paralelismo
+
+$A,B \in \mathbb{R}^n \text{ no nulos }, r\in \mathbb{R}$
+
+$A = rB$ $\Rightarrow$ Son paralelos
+
+## Rectas en R2 y R3
+
+la recta $\ell$ que pasa por el punto $P_0$ y tiene direccion V es:
+
+$\ell = \{X\in~\mathbb{R}^n~: X = P_0+tV, \text{ con } t\in \mathbb{R}\}$
+con n=2 o n=3
+
+## Rectas paralelas
+
+Dos rectas son paralelas si sus vectores direccion son paralelos
+
+## Rectas ortogonales
+
+Dos rectas son ortogonales (perpendiculares) si sus vectores direccion
+son ortogonales
+
+## Ecuacion vectorial de la recta en R2
+
+$P_0,P_1\in \mathbb{R}^2 (o~\mathbb{R}^3),$ la ecuacion vectorial de la
+recta que pasa por $P0 \text{ y } P1$ es:
+
+$X = P_0 + t(P_1-P_0), \text{ con } t\in \mathbb{R}$
+
+## Ecuacion de la recta en R3
+
+### Ecuacion vectorial:
+
+$P_0=(x,y,z), V=(v_1,v_2,v_3)$
+
+$X = P_0 + tV \text{ con } t\in \mathbb{R}$
+
+### Ecuacion parametrica:
+
+$P_0=(x,y,z), V=(v_1,v_2,v_3)$
+
+$x = x_0 + t v_1$
+
+$y = y_0 + t v_2$
+
+$z = z_0 + t v_3$
+
+## Planos en R3
+
+$V,W \in \mathbb{R}^3, \text{no nulos ni paralelos, y } P\in \mathbb{R}^3$
+
+La ecuacion vectorial del plano generado por V y W que pasa por P es:
+
+$X = P+tV+rW, \text{ con } t,r \in \mathbb{R}$
+
+## Plano normal
+
+El plano normal a N y que pasa por P0 es el conjunto de puntos
+$\bar{X}\in \mathbb{R}^3 \text{ tq } \bar{X}-P_0$ es perpendicular a N,
+es decir
+
+$\langle \bar{X}-P_0, N \rangle = 0$ $\quad \rightarrow$ Ecuacion normal
+de plano
+
+## Ecuaciones del plano
+
+### Ecuacion normal
+
+$\langle X-P_0,N \rangle = 0$ $\quad \rightarrow$ Ecuacion normal de
+plano
+
+### Ecuacion cartesiana
+
+Sean $X=(x,y,z), P_0 = (x_0, y_0, z_0), N = (a,b,c)$
+
+$\langle N, X \rangle= \langle N, P_0 \rangle$
+
+Es decir:
+
+$ax+by+cz = ax_0+by_0+cz_0$
+
+## Producto vectorial
+
+### Computar producto vectorial
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+
+$\begin{pmatrix} v_1 & v_2 & v_3\\ w_1 & w_2 & w_3 \end{pmatrix}$
+
+Ir tachando columnas y calcular el determinante de las columna restantes
+
+El determinante del medio es negativo
+
+### Definicion
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+Definimos el producto vectorial $V\times W$ como:
+
+$V\times W = (v_2w_3-w_2v_3, w_1v_3-v_1w_3, v_1w_2-w_1v_2)$
+
+
+### Propiedad producto vectorial
+
+El vector $V\times W$ es perpendicular a V y W y al plano generado por V
+y W
+
+(Siempre y cuando V y W sean no nulos y no paralelos)
+
+### Vectores nulos o paralelos
+
+$V=0 \vee W=0 \text{ o V y W paralelos } \Rightarrow V\times W = (0,0,0)$
+
+## Angulo entre dos planos
+
+$\alpha$ es el angulo entre dos planos si $\alpha$ es el angulo
+correspondiente a sus vectores normales (o perpendiculares)
+
+## Funciones vectoriales
+
+### Definicion
+
+$f_i: \mathbb{R}\rightarrow \mathbb{R}, \text{ con } i=1,\ldots,n$
+
+Llamamos funcion vectorial a la funcion
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n$ dada por
+$f(t) = (f_1(t),\ldots, f_n(t))$
+
+Los fi se llaman funciones coordenadas de f
+
+### Dominio
+
+$Dom(f) = \bigcap_{i=1}^n Dom(f_i)$
+
+### Imagen
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n,$
+
+la imagen de f es el conjunto de $\mathbb{R}^n$
+
+definido por
+$Im(f) = \{(y_1,\ldots,y_n) \in \mathbb{R}^n : \exists t \in Dom(f) \text{ con } f(t) = (y_1,\ldots,y_n)\}$
+
+Cuando n=2 la imagen es una curva en el plano
+
+Cuando n=3 la imagen es una curva en el espacio
+
+### Limite
+
+Sea f una funcion vectorial, definimos el limite de f cuando $t\to a$
+como
+
+$\lim_{t \to a} f(t) = (\lim_{t \to a} f_1(t), \ldots, \lim_{t \to a} f_n(t))$
+
+Siempre y cuando existan los limites para $f_i, \forall i=1,\ldots,n$
+
+### Continuidad
+
+$a\in Dom(f)$
+
+f es continua en a $\Leftrightarrow$ $f_i$ es continua en a
+$\forall i = 1,\ldots, n$
+
+### Derivada
+
+$f'(a) = (f_1'(a),\ldots, f_n'(a))$
+
+(derivo coordenada a coordenada)
+
+## Reglas de derivacion para funciones vectoriales
+
+### Suma y resta
+
+f y g funciones vectoriales,
+
+$(f(t)\pm g(t))' = f'(t)\pm g'(t)$
+
+### Multiplicacion por una constante
+
+f y g funciones vectoriales, $,k\in \mathbb{R}$
+
+$(kf(t))' = kf'(t)$
+
+### Multiplicacion por una funcion real
+
+Sea f una funcion vectorial, $\varphi : \mathbb{R}\to \mathbb{R}$
+
+$(\varphi(t)\cdot f(t))' = \varphi'(t)f(t)+\varphi(t)f'(t)$
+
+### Derivada del producto escalar
+
+f y g funciones vectoriales,
+
+$\langle f(t),g(t) \rangle' = \langle f'(t),g(t) \rangle + \langle f(t),g'(t) \rangle$
+
+### Regla de la cadena
+
+Sea f una funcion vectorial, $\varphi : \mathbb{R}\to \mathbb{R}$
+
+$f(\varphi(t))' = f'(\varphi(t))\cdot \varphi'(t)$
+
+# Funciones de varias variables
+
+## Definicion
+
+una funcion f de n variables es una regla que asigna a cada n-tupla
+$\bar{x} = (x_1,...,x_n)$ un unico numero real:
+
+$f(\bar{x}) = f(x_1,...,x_n)$
+
+## Dominio
+
+$Dom(f) = \{\bar{x} \in \mathbb{R}^n : f(\bar{x}) \text{ Está bien definida } \}$
+
+## Imagen
+
+$Im(f) = \{y\in \mathbb{R}: \exists \bar{x}\in Dom(f) \text{ con } y=f(\bar{x})\}$
+
+## Grafico
+
+$G(f) = \{(\bar{x}, f(\bar{x}))\in \mathbb{R}^{n+1}: \bar{x}\in Dom(f)\}$
+
+## Bola
+
+Sea $r>0 \text{ y } \bar{a}\in \mathbb{R}^n$
+
+llamamos bola (abierta) de centro $\bar{a}$ y radio r al conjunto
+
+$B(\bar{a},r) = \{\bar{x}\in \mathbb{R}^n: \|\bar{x}-\bar{a}\| < r\}$
+
+## Limite
+
+$\bar{a}\in \mathbb{R}^n, y$
+$f:Dom(f)\subset \mathbb{R}^n \to \mathbb{R}$ definida en un dominio
+Dom(f) que incluye puntos arbitrariamente cercanos a $\bar{a}$ decimos
+que
+
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = L$
+
+Si
+$\forall \epsilon > 0, \exists \delta > 0 \text{ tq } \bar{x}\in Dom(f) \cap B(\bar{a}, \delta) \Rightarrow  |f(\bar{x})-L| < \epsilon$
+
+$\bar{x}\in Dom(f) \Rightarrow~~ \|\bar{x}-\bar{a}\| < \delta \Rightarrow  |f(\bar{x})-L| < \epsilon$
+
+Si existen limites distintos para aproximarse a $\bar{a}$ . Entonces el
+limite no existe
+
+## Continuidad
+
+$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R} \text{ y } \bar{a}\in \mathbb{R}^n$
+
+decimos que f es continua en $\bar{a} \text{ si } \bar{a}\in Dom(f)$ y
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = f(\bar{a})$
+
+Decimos que f es continua si f es continua $\forall \bar{x}\in Dom(f)$
+
+Valen propiedades similares para las funciones continuas de
+$\mathbb{R}\to \mathbb{R}$
+
+## Derivadas parciales
+
+$f:\mathbb{R}^2 \to \mathbb{R},~ (a,b)\in \mathbb{R}^2$
+
+Definimos la derivada parcial de f con respecto a x en el punto (x,y) como
+
+$\displaystyle\frac{\delta f}{\delta x}(x,y) = f_x(x,y) = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}$
+
+Fijamos una de las variables y la pensamos como una constante
+
+## Derivadas parciales: Generalizacion
+
+### Definicion
+
+Sean $f:\mathbb{R}^n \to \mathbb{R},$ $\bar{a}\in \mathbb{R}^n,$
+$\text{ sup. } B(\bar{a},r)\subset Dom(f)$ para algun $r>0$
+
+Definimos la derivada parcial de f respecto a $x_j$ en el punto $\bar{a}$
+como
+
+$\frac{\partial f}{\partial x_j} (a_1,\ldots,a_n) = f_{x_j} (a_1,\ldots,a_n)$
+
+$= \lim_{h \to 0} \frac{f(a_1,\ldots,a_{j-1},a_j+h,a_{j+1},\ldots,a_n)-f(a_1,\ldots,a_n)}{h}$
+
+### Observaciones
+
+Para calcular la derivada parcial de f tomar un argumento como variable
+y todo el resto como constantes
+
+$f:\mathbb{R}^n \to \mathbb{R} \text{ con } n \ge 2 \Rightarrow$ no se
+puede afirmar que f es continua en cierto punto si f es derivable en
+dicho punto
+
+### Continuidad y derivada parcial
+
+$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f) \text{ y } B(\bar{a}, r) \subset Dom(f)$
+para algun $r>a$
+
+$f_{x_1},\ldots,f_{x_n}$ existen y son continuas para todo
+$\bar{x} \in B(\bar{a}, r) \Rightarrow f$ es continua
+$\forall \bar{x} \in B(\bar{a}, r)$
+
+(En particular para $\bar{x} = \bar{a})$
+
+## Plano tangente
+
+### Definicion
+
+Sea
+$f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y } (a,b) \in Dom(f)$
+
+El plano que pasa por $(a,b,f(a,b))$
+
+y es generado por los vectores
+$(1, 0, f_x(a,b)) \text{ y } (0,1,f_y(a,b))$
+
+se llama plano tangente al grafico de f en el punto $(a,b,f(a,b))$
+
+### Ecuacion vectorial
+
+La ecuacion vectorial del plano tangente del grafico de f en
+$(a,b,f(a,b))$ es
+
+$(x,y,z) = (a,b,f(a,b)) + t(1,0,f_x(a,b)) + r(0,1,f_y(a,b)), \text{ con } t,r\in \mathbb{R}$
+
+### Ecuacion normal
+
+La ecuacion normal del plano tangente al grafico de f en $(a,b,f(a,b))$
+es
+
+$z = (x-a)f_x(a,b) + (y-b)f_y(a,b) + f(a,b)$
+
+## Regla de la cadena
+
+### Caso 1
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f)$
+tal que
+
+$\frac{\partial f}{\partial x_1},\ldots,\frac{\partial f}{\partial x_n}$
+existen y son continuas en $B(\bar{a},r)$ para algun $r>0$
+
+Sean $x_i:I\to \mathbb{R}$ funciones derivables $\forall t \in I,$
+$\text{ con } 1 \leq i \le n \text{ y } I \subseteq \mathbb{R}$ y tal
+que $(x_1(t),\ldots,x_n(t))\in B(\bar{a},r) \forall t \in I$
+
+Entonces la funcion
+
+$g(t) = f(x_1(t),\ldots,x_n(t)) \text{ es derivable } \forall t \in I$
+
+y ademas
+
+$\frac{dg}{dt} = g'(t) = \frac{\partial f}{\partial x_1}(x_1(t),\ldots,x_n(t))\cdot x_1'(t) + \cdots + \frac{\partial f}{\partial x_n}(x_1(t),\ldots,x_n(t))\cdot x_n'(t)$
+
+### Caso 2
+
+Sea
+$f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R}, \bar{a}_1\in Dom(f)$
+tal que
+
+$\frac{\partial f}{\partial x_1}\text{ y }\frac{\partial f}{\partial x_2}$
+existen y son continuas en $B(\bar{a}_1,r_1)$ para algun $r_1>0$
+
+Sean
+
+$x:Dom(x) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y }$
+
+$y:Dom(y) \subset \mathbb{R}^2 \to \mathbb{R}$
+
+dos funciones con sus derivadas parciales continuas en
+$B(\bar{a}_0,r_0)$ para algun $r_0>0$
+
+y tal que
+
+$(x(s,t),y(s,t))\in B(\bar{a}_1,r_1) \forall (s,t)\in B(\bar{a}_0,r_0)$
+
+Entonces la funcion definida por
+
+$g(s,t) = f(x(s,t),y(s,t))\forall (s,t) \in B(\bar{a}_0,r_0)$
+
+Tiene derivadas parciales dadas por
+
+$\frac{\partial g}{\partial s}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial s} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial s} (s,t)$
+
+$\frac{\partial g}{\partial t}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial t} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial t} (s,t)$
+
+## Vector unitario
+
+Decimos que $\bar{u} = (u_1,\ldots,u_n) \in \mathbb{R}^n$ es un vector
+unitario si $\|u\|=1$
+
+## Derivada direccional
+
+### Definicion
+
+Sean $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R},$
+$\bar{a} = (a_1,\ldots,a_n) \in \mathbb{R}^n \text{ tq } B(\bar{a},r) \subseteq Dom(f)$
+para algun $r>0$ y $\bar{u}$ un vector unitario
+
+Definimos la derivada direccional de f en la direccion de $\bar{u}$ en
+el punto $\bar{a}$ como:
+
+$D_{\bar{u}} f(\bar{a}) = \lim_{h \to 0} \frac{f(a_1+h u_1,\ldots, a_n + h u_n)-f(a_1,\ldots,a_n)}{h}$
+
+(si este limite existe)
+
+### Consideracion para vectores no unitarios
+
+Si el vector $\bar{u}$ no es unitario, entonces consideramos
+
+$\bar{v} = \frac{\bar{u}}{\|u\|}$ (unitario y misma direccion que u)
+
+### Derivada direccional y derivada parcial
+
+$\bar{u} = e_i = (0,\ldots,1,\ldots,0)$
+
+$\Rightarrow D_{e_i}f(\bar{a}) = \frac{\partial f}{\partial x_1} (\bar{a})$
+
+osea, las derivadas parciales son un caso particular de la derivada
+direccional
+
+## Gradiente
+
+### Definicion
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}$ y
+$\bar{a} \in  Dom(f)  \text{ tq existen} \frac{\partial f}{\partial x_i} (\bar{a}) \forall i=1,\ldots,n$
+
+Llamamos gradiente de f en $\bar{a}$ al vector:
+
+$\nabla f(\bar{a}) = \left( \frac{\partial f}{\partial x_1} (\bar{a}),\ldots, \frac{\partial f}{\partial x_n} (\bar{a}) \right)$
+
+### Gradiente y Derivada direccional
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ tal que
+$\frac{\partial f}{\partial x_i}(\bar{x})$ existen y son continuas
+$\forall x \in B(\bar{a}, r) \subseteq Dom(f) \text{ y } \forall i=1,\ldots,n$
+
+y $\bar{u}= (u_1,\ldots,(u_n)$ un vector unitario
+
+Entonces vale que:
+
+$D_{\bar{u}}f(\bar{a}) = \langle \nabla f(\bar{a}), \bar{u} \rangle = \frac{\partial f}{\partial x_1} u_1 +\cdots+ \frac{\partial f}{\partial x_n} (\bar{a})u_n$
+
+### Direccion de crecimiento
+
+Sean $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ y
+
+$\bar{a} \in  Dom(f) \text{ tq } \frac{\partial f}{\partial x_i} (\bar{x})$
+existen y son continuas $\forall x \in B(\bar{a}, r)$ y para
+$1 \le i \le n$
+
+Si $\nabla f(\bar{a}) \neq (0,\ldots,0) \Rightarrow$
+
+$(i)\quad$ El vector
+$\bar{u} = \frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|}$ da la
+direccion de maximo crecimiento de f en $\bar{a}$
+
+$(ii)\quad$ El vector
+$\bar{v} = -\frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|}$ da la
+direccion de minimo crecimiento de f en $\bar{a}$
+
+## Curva de nivel
+
+### Definicion
+
+Sea
+$K \in  \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$
+
+LLamamos curva de nivel K de f al subconjunto de Dom(f) definido por
+
+$C_k = \{(x,y) \in Dom(f) : f(x,y) = k\}$
+
+$(C_k$ puede ser $\emptyset,$ puntos aislados, o una curva)
+
+### Recta tangente 
+
+La recta tangente a la curva de nivel de f qu epasa por $(x_0,y_0)$ esta
+definida como:
+
+$(x,y) = (x_0,y_0)+t \left ( -\frac{\partial f}{\partial y} (x_0,y_0), \frac{\partial f}{\partial x} (x_0,y_0)\right) \text{ con } t \in \mathbb{R}$
+
+## Superficie de nivel
+
+### Definicion
+
+Sea
+$K \in \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^3\to \mathbb{R}$
+
+Llamamos superficie de nivel K de f al subconjunto de Dom(f) definido
+por
+
+$S_k = \{(x,y,z) \in Dom(f) : f(x,y,z) = k\}$
+
+### Plano tangente
+
+La ecuacion del plano tangente a la superficie de nivel que pasa por es:
+$(x_0,y_0,z_0)$
+
+$\langle (x,y,z) - (x_0,y_0,z_0), \nabla f(x_0,y_0,z_0) \rangle = 0$
+
+es el vector normal del plano $(x_0,y_0,z_0)$
+
+## Derivadas de orden 2
+
+### Ejemplo
+
+Si n=2 hay 4 derivadas parciales de orden 2:
+
+$(f_x)_x = f_{xx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial x^2}$
+
+$(f_x)_y = f_{xy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial y \partial x}$
+
+$(f_y)_x = f_{yx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial x \partial y}$
+
+$(f_y)_y = f_{yy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial y^2}$
+
+### Criterio para conocer la cantidad de derivadas
+
+Por lo general, si f tiene n variables, entonces hay $n^2$ derivadas
+parciales de orden 2
+
+### n=3
+
+Si n=3, hay 9 derivadas parciales de orden 2:
+
+$f_{xx}, f_{xy}, f_{xz}, f_{yx}, f_{yy}$ , etc
+
+### Teorema
+
+Sea
+
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } \bar{a} \in Dom(f)$
+
+Si las funciones $f_{xy} \text{ y } f_{yx}$ son ambas continuas en
+$B(\bar{a}, r) \subseteq Dom(f)$ para algun $r>0$
+
+$\Rightarrow \quad f_{xy}(\bar{x}) = f_{yx}(\bar{x}), ~~\forall \bar{x} \in  B(\bar{a}, r)$
+
+## Maximos y minimos
+
+### Maximo local
+
+Sea
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$
+decimos que:
+
+f tiene un maximo local en $(x_0,y_0)$ si existe una bola (disco) B
+centrada en $(x_0,y_0), \text{ con } B \subset Dom(f)$
+
+y tal que $f(x_0,y_0) \ge f(x,y)~~\forall (x,y) \in B$
+
+El numero $f(x_0,y_0)$ se llama valor maximo local de f
+
+### Minimo local
+
+Sea
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$
+decimos que:
+
+f tiene un minimo local en $(x_0,y_0)$ si existe una bola (disco) B
+centrada en $(x_0,y_0), \text{ con } B \subset Dom(f)$
+
+y tal que $f(x_0,y_0) \le f(x,y)~~\forall (x,y) \in B$
+
+El numero $f(x_0,y_0)$ se llama valor minimo local de f
+
+### Maximo o minimo absoluto
+
+Si las desigualdades se cumplen $\forall (x,y) \in Dom(f)$ entonces
+decimos que f tiene un maximo (o minimo, segun corresponda) absoluto en
+$(x_0,y_0)$
+
+### Extremo local
+
+Decimos que f tiene un extremo local en $(x_0,y_0)$ si f tiene un maximo
+local o un minimo local en $(x_0,y_0)$
+
+### Extremo local y derivadas parciales
+
+Si $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$ tiene un extremo
+local en $(x_0,y_0)$ y existen las derivadas parciales de f en
+$(x_0,y_0)$ entonces:
+
+$f_x(x_0,y_0) = f_y(x_0,y_0) = 0$
+
+### Puntos criticos y singulares
+
+Si $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$ tiene un extremo
+local en $(x_0,y_0)$ entonces:
+
+\* o bien $(x_0,y_0)$ es punto critico de f (y por lo tanto
+$\nabla f(x_0,y_0)=0)$
+
+\* o bien $(x_0,y_0)$ es punto singular de f (y por lo tanto
+$\nexists \nabla f(x_0,y_0))$
+
+## Test de la derivada segunda
+
+Sean
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$
+
+Supongamos que las derivadas parciales de 1er y 2do orden de f son
+continuas en una bola $B \subset Dom(f)$ de centro $(x_0,y_0)$
+
+y supongamos ademas que $\nabla f(x_0,y_0) = (0,0)$
+
+Sea
+$D = D(x_0,y_0) = f_{xx}(x_0,y_0) f_{yy}(x_0,y_0)-[f_{xy}(x_0,y_0)]^2$
+
+entonces:
+
+$(1)\quad D>0 \text{ y } f_{xx}(x_0,y_0) > 0 (o f_{yy}(x_0,y_0) > 0) \Rightarrow$
+f tiene minimo local en $(x_0,y_0)$
+
+$(2)\quad D>0 \text{ y } f_{xx}(x_0,y_0) < 0 (o f_{yy}(x_0,y_0) < 0) \Rightarrow$
+f tiene maximo local en $(x_0,y_0)$
+
+$(3)\quad D<0 \Rightarrow$ f no tiene ni maximo ni minimo local en
+$(x_0,y_0)$ En este caso decimos que f tiene un punto silla en
+$(x_0,y_0)$
+
+$(4)\quad D=0 \Rightarrow$ no se puede asegurar nada
+
+# Integrales funciones de varias variables
+
+## Integral doble de un rectangulo
+
+### Norma de la particion de un rectangulo
+
+Dada una particion $P = \{Q_{ij}: 1 \le  i \le m , 1 \le j \le n\}$ de
+un rectangulo $Q \in \mathbb{R}^2$
+
+Definimos la norma de la particion P como la mayor longitud de las
+diagonales de los subrectangulos $Q_{ij}$ y la denotamos $\|P\|$
+
+### Definicion
+
+Sea Q un rectangulo en $\mathbb{R}^2 \text{ y } f:Q\to \mathbb{R},$
+
+la integral doble de f sobre el rectangulo Q es:
+
+$\int\int_Q f(x,y) ~dA = \lim_{\|P\| \to 0} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}, y_{ij})\Delta x_i \Delta y_j$
+
+si este limite existe. En tal caso f se dice integrable sobre Q
+
+### Continuidad e integracion
+
+f continua en Q $\Rightarrow$ f es integrable sobre Q
+
+### Volumen bajo el grafico y sobre el rectangulo
+
+Si $f \ge 0$ y es integrable sobre Q
+
+$\Rightarrow$ $\int \int_Q f(x,y)~dA =$ volumen bajo la grafica de f y
+arriba del rectangulo Q
+
+### Notacion
+
+A veces denotamos $\int\int_Q f(x,y)~dx~dy$ en lugar de
+$\int\int_Q f(x,y)~dA$
+
+## Integrales iteradas
+
+### Definicion
+
+Sean $Q = [a,b] \times [c,d] \text{ y } f:Q\to \mathbb{R}$
+
+Para cada $y \in [c,d]$ hacemos $\int_{a}^{b}f(x,y)~dx,$ esto define una
+funcion de y que podemos volver a integrar obteniendo:
+
+$\int_{c}^{d}\left( \int_{a}^{b}f(x,y)~dx \right) ~dy$
+
+esta integral se llama integral iterada de f
+
+### Orden inverso
+
+Es posible realizar el proceso en orden inverso obteniendo así:
+
+$\int_{a}^{b}\left( \int_{d}^{c}f(x,y)~dy \right) ~dx$
+
+lo que nos daria la "otra" integral iterada de f
+
+## Teorema de fubini
+
+Si f es continua en el rectangulo $Q = [a,b] \times [c,d],$ entonces:
+
+$\int\int_Q f(x,y)~dA = \int_{a}^{b}\int_{c}^{d}f(x,y)~dy ~dx = \int_{c}^{d}\int_{a}^{b}f(x,y)~dx ~dy$
+
+El teorema también vale si f es acotada en Q, discontinua solo en un
+nro. finito de curvas suaves y las integrales iteradas existen
+
+## Integrales dobles en regiones generales
+
+### Definicion
+
+Sea D una region acotada en $\mathbb{R}^2$
+
+o sea, D está contenida en algun rectangulo Q con lados paralelos a los
+ejes cartesianos
+
+Dada f definida en D, extendemos f al rectangulo Q de la siguiente
+manera
+
+$F(x,y) = \begin{cases} f(x,y)\quad \text{ si } (x,y) \in D \cap Q \\\\ \quad0\qquad~ \text{ si } (x,y) \in D^c \cap Q \end{cases}$
+
+Decimos que f es integrable sobre D si F es integrable sobre Q y en ese
+caso definimos
+
+$\int\int_D f(x,y)~dA = \int\int_Q F(x,y)~dA$
+
+### Interpretacion de la integral con 
+
+Si $f \ge 0$ en D, entonces la integral se puede interpretar como el
+volumen del solido debajo del grafico de f y arriba de la region D
+
+## Tipos de regiones D
+
+### Region de tipo 1 ( x-simple)
+
+Sean $g_1 \text{ y } g_2$ funciones continuas en \[a,b\]
+
+Una region es de tipo 1 si es de la forma:
+
+$D = \{(x,y) \in  \mathbb{R}^2 : a \le x \le b, g_1(x) \le  y \le g_2(x)\}$
+
+### Region de tipo 2 ( y-simple)
+
+Sean $h_1 \text{ y } h_2$ funciones continuas en \[c,d\]
+
+Una region es de tipo 2 si es de la forma:
+
+$D = \{(x,y) \in \mathbb{R}^2 : c \le  y \le  d , h_1(y) \le  x \le h_2(y)\}$
+
+### Region 1 y 2 simultaneamente
+
+Existen funciones de tipo 1 y 2 simultaneamente, por ejemplo un circulo,
+un rectangulo, etc
+
+## Propiedades de la integral doble
+
+### integral de 1
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int_D 1~dA = A(D)\quad$ (area de la region D)
+
+### Suma
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int_D [f(x,y)+g(x,y)]~dA = \int\int_D f(x,y)~dA + \int\int_D g(x,y)~dA$
+
+### Multiplicacion por constante
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int c\cdot f(x,y)~dA = c\cdot\int\int f(x,y)~dA,\quad \forall c \in \mathbb{R}$
+
+### Desigualdad de funciones
+
+Sea D una region y f y g funciones integrables sobre D
+
+$f(x,y) \le g(x,y) \Rightarrow \int\int_D f(x,y)~dA \le \int\int_D g(x,y)~dA$
+
+### Multiples regiones
+
+Sea D una region y f y g funciones integrables sobre D
+
+Sea $D = D_1 \cup D_2,$ donde $D_1 \text{ y } D_2$ no se superponen
+excepto quizas en sus fronteras, entonces:
+
+$\int\int_D f(x,y)~dA = \int\int_{D_1} f(x,y)~dA + \int\int_{D_2} f(x,y)~dA$

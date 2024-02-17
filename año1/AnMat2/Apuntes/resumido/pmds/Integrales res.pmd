@@ -1,0 +1,162 @@
+
+\section{Integrales res}
+
+\subsection{Antiderivada o primitiva}
+
+\subsubsection{Sea}
+
+$\mathbb{I} \in \mathbb{R}\text{ un intervalo}$
+
+$f: \mathbb{I}\rightarrow \mathbb{R}$
+
+\subsubsection{$F'(x) = f(x) ~~\forall x \in \mathbb{I}$}
+
+$\Rightarrow$ F(x) es una antiderivada de f(x)
+
+\subsubsection{Observaciones}
+
+No son unicas
+
+Tienen la forma $F(x) + c$ para alguna constante  $c \in \mathbb{R}$
+
+\subsection{Indefinidas}
+
+\subsubsection{Definicion}
+
+Sean $\mathbb{I} \in \mathbb{R}\text{ un intervalo}$ $f: \mathbb{I}\rightarrow \mathbb{R}$
+
+Se llama integral definida de f al conjunto de todas las primitivas de f
+
+Se denota $\int f(x) dx$ $\int$ Se llama integral $dx$ Se llama diferencial de x
+
+\subsubsection{Propiedades}
+
+$\int 0~ dx = c$
+
+$\int a\cdot x~dx = a\cdot\int x~dx$ $\forall a \in \mathbb{R}$
+
+$\int (f\pm g)(x)~dx = \int f(x)~dx \pm \int g(x)~dx$
+
+\subsubsection{Metodos}
+
+Integracion por Sustitucion $\int f(g(x)) g'(x) ~dx = \int f(u) du~dx$ $u = g(x),$ $du = g'(x)~dx$
+
+Integracion por partes $\int f(x) g'(x)~dx = u ~v- \int v~du$ $dv = g'(x)$ $v = \int g'(x)~dx$ $u = f(x)$ $du = f'(x)$ Para recordar Orden de como elegir u ILATE Inversa Logaritmica Algebraica Trigonometrica Exponencial La formula Una vaca sin cola vestida de uniforme Ver iniciales de cada palabra "Sin" hace referencia al menos "Cola" hace referencia a la integral
+
+\subsection{Definidas}
+
+\subsubsection{Definicion}
+
+Sea $f: [a,b] \rightarrow \mathbb{R}$ continua $f(x) \geq 0 ~~\forall x \in [a,b]$ O bien es acotada con un número finito de discontinuidades en el intervalo
+
+La integral definida de f en [a,b] se denota $\int_a^b f(x)~dx$ Está dada por el area debajo de la curva y = f(x) entre las rectas x=a e x=b Los extremos del intervalo se llaman limite inferior y superior de integracion
+
+\subsubsection{Propiedades}
+
+$\int_a^b f(x)~dx = A = \lim_{\Delta \rightarrow 0} \sum_{k=1}^n m_k \Delta_k$
+
+$\int_a^a f(x)~dx = 0$
+
+$\int_a^b f(x)dt = - \int_b^a f(x)dt$
+
+$f(x) \geq 0~\forall x \in [a,b]$ $\Rightarrow$ $\int_a^b f(x)dt \geq 0$
+
+$\int_a^b k\cdot f(x)dt = k\cdot \int_a^b f(x)dx$ $k \in \mathbb{R}$
+
+$\int_a^b (f\pm g)(x)~dt = \int_a^b f(x)~dx\pm \int_a^b g(x)~dx$
+
+$\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx$
+
+$f(x)\leq g(x)~\forall x\in [a,b]$ $\Rightarrow$ $\int_a^b f(x)~dx \leq \int_a^b g(x)~dx$
+
+\subsubsection{Teorema fundamental del calculo}
+
+Sea una funcion continua $f:[a,b]\rightarrow \mathbb{R}$ $F(x) = \int_a^x f(t)~dt ~~\forall x \in [a,b]$
+
+Primer teorema $F(x)$ Es derivable $F'(x) = f(x)~\forall x\in (a,b)$ F es una primitiva de f
+
+Segundo teorema Sea G una primitiva de f en [a,b] $\Rightarrow$ $\int_a^b f(x)~dx = G(a)-G(b) = G(x)\bigg\rvert_a^b$ Regla de barrow
+
+\subsubsection{Metodos}
+
+Integracion por Sustitucion Sean f y g' continuas en sus dominios $\Rightarrow$ $\int_a^b f(g(x)).g'(x)~dx = \int_{g(a)}^{g(b)} f(u)du$ $u=g(x)$ $du = g'(x)$ Si F es primitiva de f $\int_a^b f(g(x)).g'(x)~dx = F(g(b)) - F(g(a))$
+
+Integracion por partes Sean f y g derivables en [a, b] f' y g' tienen a lo sumo un número finito de discontinuidades en [a, b] y son acotadas $\int_{a}^{b} f(x)~g'(x)~dx = f(x)~g(x)\bigg\rvert_a^b - \int_{a}^{b} g(x)~f'(x)~dx$
+
+\subsection{Integracion por fraciones simples}
+
+\subsubsection{Sea}
+
+$\frac{p(x)}{q(x)}$ $gr(p)<gr(q)$ El coeficiente de la potencia de mayor grado de q(x) es 1
+
+\subsubsection{Caso 1: Factores lineales diferentes}
+
+$q(x) = (x-r_1)\ldots(x-r_k)$
+
+Hay que buscar constantes  $A_1,\cdots,A_k$ Tales que $\frac{p(x)}{q(x)} = \frac{A_1}{x-r_1}+\cdots+\frac{A_k}{x-r_k}$
+
+\subsubsection{Caso 2: Factores lineales repetidos}
+
+$q(x) = (x-r)^k$
+
+Hay que buscar constantes  Tales que $\frac{p(x)}{q(x)} = \frac{A_1}{x-r}+\frac{A_2}{(x-r)^2}+\cdots+\frac{A_k}{(x-r)^k}$ $A_1,\cdots,A_k$
+
+\subsubsection{Caso 3: Factores lineales diferentes y con repeticiones}
+
+$q(x) = (x-r_1)\cdots(x-r_{i-1})(x-r_i)^{K_i}\cdots(x-r_n)^{k_n}$
+
+Se aplican los procedimientos de los casos anterioes
+
+Ejemplo $\frac{x^3-(x+1)}{x(x-2)(x-1)^2} = \frac{A_1}{x} +\frac{A_2}{x-2} +\frac{A_3}{x-1} +\frac{A_4}{(x-2)^2}$
+
+\subsubsection{Caso 4: Factores lineales y cuadraticos que no se repiten}
+
+$q(x) = (x-r_1)^{K_1}\cdots(x-r_n)^{K_n}\cdot(x^2+\alpha_1x+\beta_1)\cdots(x^2+\alpha_mx+\beta_m)$
+
+Por cada factor lineal aparecen tantos terminos como indiquen los casos 1 y 2
+
+Por cada factor cuadratico aparecen terminos de la forma $\frac{Bx+C}{x^2+\alpha x+\beta}$ Para integrarlos debemos hallar constantes  $K_1,K_2$
+
+$\frac{Bx+C}{x^2+\alpha x+\beta} = K_1 \frac{2x+\alpha}{x^2+\alpha x+\beta}+K_2 \frac{1}{x^2+\alpha x+\beta}$
+
+Tips de integracion $K_1 \frac{2x+\alpha}{x^2+\alpha x+\beta}$ Se puede integrar usando sustitucion $K_2 \frac{1}{x^2+\alpha x+\beta}$ Completar cuadrados y usar sustitucion para llegar a algo de la forma $\frac{1}{y^2+a^2}$ Tener en cuenta que $\int \frac{1}{y^2+a^2}~dx = \frac{1}{a} ~arctg(\frac{y}{a}) + c$
+
+\subsubsection{Caso 5: Factores lineales y cuadraticos con repeticiones}
+
+No vamos  a ver este caso en la materia (Por suerte)
+
+\subsection{Area entre dos curvas}
+
+\subsubsection{Sean}
+
+$f(x)\text{ y }g(x)$ Funciones acotadas Tienen un número finito de discontinuidades $f(x) \geq g(x)$ $\forall x\in~[a,b]$
+
+\subsubsection{$A = \int_{a}^{b}f(x)-g(x)~dx$}
+
+Es el area entre f y g y las rectas x=a y x=b
+
+$f(x)-g(x) \geq 0$ $\forall x\in~[a,b]$
+
+\subsection{Integrales impropias}
+
+\subsubsection{Extendemos la definicion de integral para los casos en los que}
+
+$a \vee b \not\in \mathbb{R}$
+
+f no sea acotada en [a, b]
+
+\subsubsection{Tipo 1}
+
+Características
+
+Definicion
+
+\subsubsection{Tipo 2}
+
+Definicion
+
+\subsubsection{Criterios de Comparacion}
+
+Tipo 1
+
+Tipo 2

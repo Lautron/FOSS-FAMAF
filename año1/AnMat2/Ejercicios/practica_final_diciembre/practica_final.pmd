@@ -1,0 +1,381 @@
+---
+title: Practica Final - AM2
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Integrales
+## 1)
+### Como resolver
+- Dibujo
+  - graficar g(x)	
+  - graficar h(x)	
+  - Pintar interseccion
+
+- Calcular area
+  - Plantear teoria
+  - Ver puntos de interseccion de las funciones
+  - Determinar funcion mayor
+  - Restar la funcion mayor por la menor
+  - Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion 
+![](./practica_final_imgs/fig1.png)
+
+![](./practica_final_imgs/fig2.png)
+
+## 2)
+### Como resolver
+- Plantear teoria
+- Despejar y en ambas ecuaciones
+- Ver puntos de interseccion de las funciones
+- Determinar funcion mayor
+- Restar la funcion mayor por la menor
+- Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion 
+![](./practica_final_imgs/fig3.png)
+
+![](./practica_final_imgs/fig4.png)
+
+
+\newpage
+
+## 3)
+### Como resolver
+- Factorizar numerador y denominador al maximo
+- Plantear igualdad de factorizacion por fracciones simples
+- Unir denominadores en la parte derecha
+- Eliminar denominadores
+- Despejar incognitas eligiendo valores convenientes para x
+
+### Resolucion 
+
+![](./practica_final_figs/fig1.png)
+
+![](./practica_final_figs/fig2.png)
+
+# Integrales Impropias
+## 1)
+### Como resolver
+- Tener en cuenta como se resuelve una integral impropia con ambos limites de integracion que tienden a infinito
+- Ver caso para $c<0$
+  - El exponente será siempre positivo
+
+- Ver caso para $c=0$
+  - El exponente será siempre 0
+
+- Ver caso para $c>0$
+  - El exponente será siempre negativo
+
+### Resolucion 
+![](./practica_final_figs/fig3.png)
+
+# Sucesiones y series
+## 1)
+### Como resolver
+Hay que demostrar que la serie de $a_n$ converge pero $|a_n|$ no 
+
+- Para cada caso
+  - Aplicar criterio para ver si la serie en cuestion converge o diverge
+
+### Resolucion 
+
+![](./practica_final_figs/fig4.png)
+
+## 2)
+### Como resolver
+- Ver caso para $t_0<0$
+  - El exponente será siempre negativo
+
+- Ver caso para $t_0=0$
+  - El exponente será siempre 0
+
+- Ver caso para $t_0>0$
+  - El exponente será siempre positivo
+
+- Para cada caso desarrollar y aplicar criterios
+
+### Resolucion  
+![](./practica_final_figs/fig5.png)
+
+# Series de potencias
+## 1)
+### Como resolver
+- Intentar llegar a algo de la forma $\frac{1}{1-r}$ 
+- Usar teorema de la serie geometrica
+- Usar criterio del cociente para obtener radio de convergencia
+- Ver si la serie converge en los extremos del intervalo
+
+### Resolucion
+![](./practica_final_figs/fig6.png)
+
+## 2)
+### Como resolver
+- Calcular intervalo de convergencia
+  - usar criterio del cociente para series de potencias
+  - Ver si la serie converge en los extremos del intervalo
+
+- Derivar serie de potencias
+  - Pasar derivada adentro de la sumatoria
+  - Tener en cuenta formula para derivacion de series de potencias
+
+### Resolucion 
+![](./practica_final_figs/fig7.png)
+
+![](./practica_final_figs/fig8.png)
+
+## 3)
+### Como resolver
+- Separar $C_n$ del resto de la expresion
+- Aplicar criterio del cociente
+- Ver si la serie converge en los extremos del intervalo
+
+### Resolucion
+
+
+## 4)
+### Como resolver
+
+### Resolucion 
+![](./practica_final_figs/fig9.png)
+
+# Taylor
+## 1)
+### Como resolver
+- Calcular primeras derivadas
+- Encontrar formula para las derivadas
+- Expresar la formula de Taylor y despejar el valor absoluto del resto de taylor
+- Usar la formula de lagrange para desarrollar el resto de taylor
+- Acotar el resto de taylor
+  - Si se tiene que $t \in (a,b)$ se lo puede acotar por $a$ o por $b$ segun convenga
+  - Se puede tomar expresiones que incluyan a $t$ y mediante desigualdades acotar la expresion completa
+- El error que se comete es menor o igual al resultado obtenido
+
+### Resolucion 
+![](./practica_final_figs/fig10.png)
+
+
+# Encontrar ecuacion del plano
+## 1)
+### Como resolver
+- Llamemos $P_0, Q_0, R_0$ a los puntos, da igual el orden
+- Calcular V restandole $P_0$ a $Q_0$
+- Calcular W restandole $P_0$ a $R_0$
+- Armar la ecuacion vectorial del plano que pasa por $P_0$ y es generado por V y W
+
+### Resolucion
+![](./practica_final_figs/fig11.png)
+
+# Encontrar ecuacion de la recta tangente
+## 1)
+### Como resolver
+- Calcular derivada de la funcion
+- Evaluar funcion en el punto para obtener vector $P_0$
+- Evaluar derivada en el punto para obtener vector V
+- Armar ecuacion de la recta que pasa por el punto $P_0$ y tiene direccion V
+
+### Resolucion
+![](./practica_final_figs/fig12.png)
+
+# Calcular ecuacion del plano tangente
+## 1)
+### HowTo 
+
+- Calcular ecuacion
+  - Calcular $f_x(a,b)$
+  - Calcular $f_y(a,b)$
+  - Definir $P_0 = (a,b, f(a,b))$
+  - Definir V = $(1,0, f_x(a,b))$
+  - Definir W = $(0,1, f_y(a,b))$
+  - Armar la ecuacion para el plano que pasa por el punto $P_0$ y es generado por los vectores V y W
+
+- Calcular vector normal
+  - Definir vector normal $N = V \times W$
+
+
+### Resolucion 
+![](./practica_final_figs/fig17.png)
+
+![](./practica_final_figs/fig18.png)
+
+## Notas
+No hace falta calcular el producto vectorial
+
+Hay que ver si es correcto haber calculado el vector normal al plano tangente
+
+# Derivada direccional
+## 1)
+### HowTo 
+- Tener en cuenta que $D_u f((a,b)) = \langle \nabla f((a,b)), u \rangle$
+- Reemplazar derivada direccional por el valor que se desea alcanzar
+- Reemplazar valores de a y b por los valores del punto en donde se está evaluando
+- Despejar u
+
+### Resolucion
+![](./practica_final_figs/fig19.png)
+
+## 2)
+### HowTo 
+- Calcular $\nabla f((a,b))$
+- Tener en cuenta la igualdad $D_u f((a,b)) = \langle \nabla f((a,b)), u \rangle$
+- Reemplazar a,b 
+- Reemplazar u
+- Reemplazar $\nabla f((a,b))$
+
+### Resolucion
+![](./practica_final_figs/fig20.png)
+
+# Encontrar ecuacion normal del plano tangente
+## 1)
+### HowTo 
+- Calcular W = $\nabla f(x_0, y_0, z_0)$
+- Calcular ecuacion del plano normal a W que pasa por $(x_0, y_0, z_0)$
+
+### Resolucion
+![](./practica_final_figs/fig21.png)
+
+
+# Encontrar angulo entre planos
+## 1)
+### HowTo 
+- Calcular vector normal del plano $\Pi_0$, llamemoslo $N_0$ 
+  - El vector normal es el $\nabla f(x_0,y_0,z_0)$ con $(x_0,y_0,z_0) en S_k$
+- Calcular vector normal del plano $\Pi_1$, llamemoslo $N_1$
+  - Todos los vectores normales al plano tienen la forma $\bar{n} = A\hat{i} + B\hat{j} + C\hat{k}$
+  - Crear vector usando coeficientes del plano
+- Calcular angulo entre $N_0 \text{ y } N_1$
+
+### Resolucion
+![](./practica_final_figs/fig22.png)
+
+# Encontrar puntos extremos
+## 1)
+### HowTo
+- Encontrar puntos criticos de la funcion
+  - Ver coordenadas para las cuales $\nabla f(x,y) = 0$	
+- Evaluar funcion en los puntos criticos y comparar resultados para determinar maximos y minimos
+
+### Resolucion
+![](./practica_final_figs/fig23.png)
+
+# Regla de la cadena
+## 1)
+### HowTo 
+- Reemplazar x en w
+- Reemplazar y en w
+- Calcular $\frac{\partial w}{\partial s}$ usando regla de la cadena
+- Calcular $\frac{\partial w}{\partial t}$ usando regla de la cadena
+
+### Resolucion
+![](./practica_final_figs/fig25.png)
+
+## 2)
+### HowTo 
+- La derivada direccional maxima de un punto se da en la direccion del gradiente de la funcion en dicho punto
+
+- Calcular gradiente de la funcion en h(0)
+- Usar regla de la cadena para calcular las respectivas derivadas parciales
+- El resultado del gradiente es la direccion u para la cual la derivada es maxima
+
+### Resolucion
+![](./practica_final_figs/fig26.png)
+
+# Direcciones tasa de crecimiento
+## 1)
+### HowTo
+- La direccion de mas alta tasa de crecimiento es el gradiente evaluado en el punto
+- La direccion de menor tasa de crecimiento es el gradiente negativo evaluado en el punto
+- Calcular derivadas direcionales usando v y w
+
+### Resolucion
+![](./practica_final_figs/fig24.png)
+
+# Calcular integral doble
+## 1)
+### HowTo
+- Plantear region con y-simple
+- Aplicar teorema de fubini para obtener una integral iterada
+- Resolver integral iterada
+
+### Explicacion ChatGPT
+Sea D la region comprendida entre las funciones $g(x) = x^2 - 1$ y $h(x) = 1-x^2$
+
+Como se calcula la integral doble $\int \int_D x^2 y dx dy$?
+
+Para calcular una integral doble, necesitamos primero determinar las funciones de límite superior e inferior para $x$ y $y$. La integral doble se puede escribir como:
+
+$$\int_{y=a}^{y=b} \int_{x=f(y)}^{x=g(y)} f(x, y) dx dy$$
+
+En este caso, podemos ver que las funciones $g(x) = x^2 - 1$ y $h(x) = 1-x^2$ se intersectan cuando $x^2 - 1 = 1 - x^2$, o $x^2 = 0$. Esto significa que el intervalo para $x$ será $[-1, 1]$.
+
+Para determinar el intervalo para $y$, primero debemos encontrar el límite superior e inferior de $y$ en la región $D$. Podemos hacerlo graficando las dos funciones en un eje $x$ y un eje $y$. Esto nos da una región en forma de media luna, como se muestra a continuación:
+
+[imagen]
+
+Como podemos ver, el límite superior e inferior para $y$ será $[-1, 1]$.
+
+Ahora que tenemos los límites para $x$ y $y$, podemos calcular la integral doble. La integral se puede escribir como:
+
+$$\int_{y=-1}^{y=1} \int_{x=-1}^{x=1} x^2 y dx dy$$
+
+Para resolver esta integral, primero debemos resolver la integral interna respecto a $x$. Esto nos da:
+
+$$\int_{y=-1}^{y=1} y \int_{x=-1}^{x=1} x^2 dx dy$$
+
+La integral interna respecto a $x$ se puede resolver fácilmente, lo que nos da $\frac{2}{3}$. La integral doble se puede escribir entonces como:
+
+$$\int_{y=-1}^{y=1} y \cdot \frac{2}{3} dy$$
+
+Esta integral se puede resolver fácilmente, lo que nos da un resultado de $\frac{4}{9}$. Por lo tanto, la solución a la integral doble es $\frac{4}{9}$.
+
+Espero que esto ayude. Si tiene alguna pregunta, no dude en hacerla.
+
+### Resolucion
+![](./practica_final_figs/fig13.png)
+
+![](./practica_final_figs/fig14.png)
+
+# Calcular volumen
+## 1)
+### HowTo
+- Calcular volumen de la tapa hasta el axis
+- Calcular volumen desde la base hasta el axis
+- Restar volumen de la base por volumen de la tapa
+
+### Explicacion ChatGPT
+Calcule el volumen del solido cuya base es el rectangulo $R = \{(x,y): 0 \leq  x \le 1, 0 \le y \le 2\}$ y cuya tapa está contenida en el plano $P = \{X \in \mathbb{R}^3 / X = (0,0,10) + s(1,0,-2) + t(0,2,-1), \text{ con } s,t \in \mathbb{R}\}$ utilizando integrales dobles
+
+Para calcular el volumen del solido en cuestión, podemos usar una integral doble sobre la base del rectángulo $R$. La tapa del solido está contenida en el plano $P$, así que cada punto de la tapa se encuentra a una distancia fija del punto $(0,0,10)$ en el plano $P$. Esto significa que el volumen del solido se puede calcular como la integral doble de la altura sobre la base del rectángulo.
+
+La altura en cualquier punto $(x,y)$ de la base del rectángulo puede calcularse como la distancia entre el punto $(x,y,0)$ y el plano $P$. La distancia entre un punto $(x,y,z)$ y un plano $P$ se puede calcular como el cociente entre el producto punto entre el vector normal al plano y el vector que une el punto dado con el punto $(0,0,10)$ en el plano y el módulo del vector normal.
+
+El vector normal al plano $P$ es $(1,0,-2)$, así que la altura en cualquier punto $(x,y)$ de la base del rectángulo puede calcularse como
+
+$$h(x,y) = \frac{(1,0,-2) \cdot (x,y,0) - (1,0,-2) \cdot (0,0,10)}{\sqrt{5}} = \frac{-2y}{\sqrt{5}}$$
+
+El volumen del solido se puede calcular como la integral doble de la altura sobre la base del rectángulo, es decir,
+
+$$V = \iint_R h(x,y) , dx , dy = \iint_R \frac{-2y}{\sqrt{5}} , dx , dy$$
+
+El límite de integración en $x$ es de $0$ a $1$, mientras que el límite de integración en $y$ es de $0$ a $2$. Por lo tanto, el volumen del solido se puede calcular como
+
+$$V = \int_0^1 \int_0^2 \frac{-2y}{\sqrt{5}} , dx , dy = \frac{-2}{\sqrt{5}} \int_0^1 \int_0^2 y , dx , dy$$
+
+La integral doble se puede calcular como el producto de las integrales parciales, es decir,
+
+$$V = \frac{-2}{\sqrt{5}} \left( \int_0^1 x , dx \right) \left( \int_0^2 y , dy \right) = \frac{-2}{\sqrt{5}} \cdot \frac{1}{2} \cdot \frac{2}{2} = \boxed{\frac{-2}{5\sqrt{5}}}$$
+
+### Resolucion
+
+![](./practica_final_figs/fig15.png)
+
+![](./practica_final_figs/fig16.png)
+

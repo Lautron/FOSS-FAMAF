@@ -1,0 +1,260 @@
+
+\section{Calculo vectorial res}
+
+\subsection{Propiedades producto escalar}
+
+\subsubsection{Conmutatividad}
+
+$\langle A,B \rangle = \langle B,A \rangle$
+
+\subsubsection{Distributividad}
+
+$\langle A, B+C \rangle = \langle A,B \rangle + \langle A,C \rangle$ y viceversa
+
+\subsubsection{Multiplicacion por escalar}
+
+$r \langle A,B \rangle = \langle r A, B \rangle = \langle A, r B \rangle$
+
+\subsubsection{Producto escalar nulo}
+
+$\langle A,A \rangle = 0 \Leftrightarrow A = 0$
+
+\subsection{Norma}
+
+\subsubsection{Definicion}
+
+$A \in~\mathbb{R}^n,$
+
+$||A|| = \sqrt{\langle A,A \rangle}$
+
+Es la longitud del vector
+
+\subsubsection{Distancia}
+
+$A,B \in \mathbb{R}^n,$
+
+$d(A,B) = ||A-B||$ (Distancia entre dos puntos)
+
+$d(A,0) = ||A||$ (distancia al origen)
+
+\subsection{Propiedades Norma}
+
+\subsubsection{Norma nula}
+
+$||A||=0 \Leftrightarrow A = 0$
+
+\subsubsection{Multiplicacion por escalar}
+
+$||r A|| = |r| ||A||$
+
+\subsubsection{Desigualdad triangular}
+
+$||A+B|| \leq ||A|| +||B||$
+
+\subsubsection{Producto escalar y norma}
+
+$\langle A,B \rangle = ||A||~||B|| ~cos \theta$ donde $0 \leq \theta \leq \pi$ es el angulo (radianes) entre A y B
+
+\subsubsection{Desigualdad Cauchy-Schwarz}
+
+$|\langle A,B \rangle| \leq ||A||~||B||$
+
+\subsection{Ortogonalidad}
+
+$A,B \in \mathbb{R}^n \text{ no nulos },$
+
+$\langle A,B \rangle = 0$
+$\Rightarrow$
+Son ortogonales (o perpendiculares)
+
+\subsection{Paralelismo}
+
+$A,B \in \mathbb{R}^n \text{ no nulos }, r\in \mathbb{R}$
+
+$A = rB$
+$\Rightarrow$
+Son paralelos
+
+\subsection{Rectas en R2 y R3}
+
+la recta $\ell$ que pasa por el punto  $P_0$ y tiene direccion V es:
+
+$\ell = \{X\in~\mathbb{R}^n~: X = P_0+tV, \text{ con } t\in \mathbb{R}\}$ con n=2 o n=3
+
+\subsection{Rectas paralelas}
+
+Dos rectas son paralelas si sus vectores direccion son paralelos
+
+\subsection{Rectas ortogonales}
+
+Dos rectas son ortogonales 
+(perpendiculares) si sus vectores direccion son ortogonales
+
+\subsection{Ecuacion vectorial de la recta en R2}
+
+$P_0,P_1\in \mathbb{R}^2 (o~\mathbb{R}^3),$
+la ecuacion vectorial de la recta que pasa por P0 y P1 es
+
+$X = P_0 + t(P_1-P_0), \text{ con } t\in \mathbb{R}$
+
+\subsection{Ecuacion de la recta en R3}
+
+\subsubsection{Ecuacion vectorial:}
+
+$P_0=(x,y,z), V=(v_1,v_2,v_3)$
+
+$X = P_0 + tV \text{ con } t\in \mathbb{R}$
+
+\subsubsection{Ecuacion parametrica:}
+
+$P_0=(x,y,z), V=(v_1,v_2,v_3)$
+
+$x = x_0 + t v_1$
+
+$y = y_0 + t v_2$
+
+$z = z_0 + t v_3$
+
+\subsection{Planos en R3}
+
+$V,W \in \mathbb{R}^3, \text{no nulos ni paralelos, y } P\in \mathbb{R}^3$
+
+La ecuacion vectorial del plano generado por V y W que pasa por P es:
+
+$X = P+tV+rW, \text{ con } t,r \in \mathbb{R}$
+
+\subsection{Plano normal}
+
+El plano normal a N y que pasa por P0 es el conjunto de puntos $\bar{X}\in \mathbb{R}^3 \text{ tq } \bar{X}-P_0$ es perpendicular a N, es decir
+
+$\langle \bar{X}-P_0, N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano
+
+\subsection{Ecuaciones del plano}
+
+\subsubsection{Ecuacion normal}
+
+$\langle X-P_0,N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano
+
+\subsubsection{Ecuacion cartesiana}
+
+$X=(x,y,z), P_0 = (x_0, y_0, z_0), N = (a,b,c),$
+
+$d = ax_0+by_0+cz_0$
+
+$\Rightarrow  ax+by+cz = d$ $\quad \rightarrow$ ecuacion cartesiana del plano
+
+\subsection{Producto vectorial}
+
+\subsubsection{Definicion}
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+Definimos el producto vectorial $V\times W$ como:
+
+$V\times W = (v_2w_3-w_2v_3, w_1v_3-v_1w_3, v_1w_2-w_1v_2)$
+
+\subsubsection{Computar producto vectorial}
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+Otra forma de computarlo
+
+$\begin{pmatrix} v_1 & v_2 & v_3\\ w_1 & w_2 & w_3 \end{pmatrix}$
+
+Ir tachando columnas y calcular el determinante de las columnas restantes
+
+El determinante del medio es negativo
+
+\subsubsection{Propiedad producto vectorial}
+
+El vector $V\times W$ es perpendicular a V y W y al plano generado por V y W
+
+(Siempre y cuando V y W sean no nulos y no paralelos)
+
+\subsubsection{Vectores nulos o paralelos}
+
+$V=0 \vee W=0 \text{ o V y W paralelos } \Rightarrow V\times W = (0,0,0)$
+
+\subsection{Angulo entre dos planos}
+
+$\alpha$ es el angulo entre dos planos si  $\alpha$ es el angulo correspondiente a sus vectores normales (o perpendiculares)
+
+\subsection{Funciones vectoriales}
+
+\subsubsection{Definicion}
+
+$f_i: \mathbb{R}\rightarrow \mathbb{R}, \text{ con } i=1,\ldots,n$
+
+Llamamos funcion vectorial a la funcion
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n$ dada por  $f(t) = (f_1(t),\ldots, f_n(t))$
+
+Los fi se llaman funciones coordenadas de f
+
+\subsubsection{Dominio}
+
+$Dom(f) = \bigcap_{i=1}^n Dom(f_i)$
+
+\subsubsection{Imagen}
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n,$
+
+la imagen de f es el conjunto de  $\mathbb{R}^n$
+
+definido por $Im(f) = \{(y_1,\ldots,y_n) \in \mathbb{R}^n : \exists t \in Dom(f) \text{ con } f(t) = (y_1,\ldots,y_n)\}$
+
+Cuando n=2 la imagen es una curva en el plano
+
+Cuando n=3 la imagen es una curva en el espacio
+
+\subsubsection{Limite}
+
+Sea f una funcion vectorial, definimos el limite de f cuando $t\to a$ como
+
+$\lim_{t \to a} f(t) = (\lim_{t \to a} f_1(t), \ldots, \lim_{t \to a} f_n(t))$
+
+Siempre y cuando existan los limites para  $f_i, \forall i=1,\ldots,n$
+
+\subsubsection{Continuidad}
+
+$a\in Dom(f)$
+
+f es continua en a $\Leftrightarrow$ $f_i$ es continua en a $\forall i = 1,\ldots, n$
+
+\subsubsection{Derivada}
+
+$f'(a) = (f_1'(a),\ldots, f_n'(a))$
+
+(derivo coordenada a coordenada)
+
+\subsection{Reglas de derivacion para funciones vectoriales}
+
+\subsubsection{Suma y resta}
+
+f y g funciones vectoriales,
+
+$(f(t)\pm g(t))' = f'(t)\pm g'(t)$
+
+\subsubsection{Multiplicacion por una constante}
+
+f y g funciones vectoriales, $,k\in \mathbb{R}$
+
+$(kf(t))' = kf'(t)$
+
+\subsubsection{Multiplicacion por una funcion real}
+
+Sea f una funcion vectorial, $\varphi : \mathbb{R}\to \mathbb{R}$
+
+$(\varphi(t)\cdot f(t))' = \varphi'(t)f(t)+\varphi(t)f'(t)$
+
+\subsubsection{Derivada del producto escalar}
+
+f y g funciones vectoriales,
+
+$\langle f(t),g(t) \rangle' = \langle f'(t),g(t) \rangle + \langle f(t),g'(t) \rangle$
+
+\subsubsection{Regla de la cadena}
+
+Sea f una funcion vectorial, $\varphi : \mathbb{R}\to \mathbb{R}$
+
+$f(\varphi(t))' = f'(\varphi(t))\cdot \varphi'(t)$

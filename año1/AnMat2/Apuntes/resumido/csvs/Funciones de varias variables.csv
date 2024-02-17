@@ -1,0 +1,160 @@
+Definicion,"[latex]una funcion f de n variables es una regla que asigna a cada n-tupla
+$\bar{x} = (x_1,...,x_n)$
+un unico numero real:<br>
+$f(\bar{x}) = f(x_1,...,x_n)$[/latex]",Funciones de varias variables
+Dominio,[latex]$Dom(f) = \{\bar{x} \in \mathbb{R}^n : f(\bar{x}) \text{ Está bien definida } \}$[/latex],Funciones de varias variables
+Imagen,[latex]$Im(f) = \{y\in \mathbb{R}: \exists \bar{x}\in Dom(f) \text{ con } y=f(\bar{x})\} $[/latex],Funciones de varias variables
+Grafico,"[latex]$G(f) = \{(\bar{x}, f(\bar{x}))\in \mathbb{R}^{n+1}: \bar{x}\in Dom(f)\} $[/latex]",Funciones de varias variables
+Bola,"[latex]Sea
+$r>0 \text{ y } \bar{a}\in \mathbb{R}^n$<br>
+llamamos bola (abierta) de centro
+$\bar{a}$
+y radio r al conjunto <br>
+$B(\bar{a},r) = \{\bar{x}\in \mathbb{R}^n: \|\bar{x}-\bar{a}\| < r\} $[/latex]",Funciones de varias variables
+Limite,"[latex]$\bar{a}\in \mathbb{R}^n, y$
+$f:Dom(f)\subset \mathbb{R}^n \to \mathbb{R}$
+definida en un dominio Dom(f) que incluye puntos arbitrariamente cercanos a 
+$\bar{a}$
+decimos que<br>
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = L $<br>
+Si
+$\forall \epsilon > 0, \exists \delta > 0 \text{ tq } \bar{x}\in Dom(f) \cap B(\bar{a}, \delta) \Rightarrow  |f(\bar{x})-L| < \epsilon$<br>
+$\bar{x}\in Dom(f) \Rightarrow~~ \|\bar{x}-\bar{a}\| < \delta \Rightarrow  |f(\bar{x})-L| < \epsilon$<br>
+Si existen limites distintos para aproximarse a
+$\bar{a}$
+. Entonces el limite no existe[/latex]",Funciones de varias variables
+Continuidad,"[latex]$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R} \text{ y } \bar{a}\in \mathbb{R}^n $<br>
+decimos que f es continua en 
+$\bar{a} \text{ si } \bar{a}\in Dom(f)$
+y 
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = f(\bar{a}) $<br>
+Decimos que f es continua si f es continua 
+$\forall \bar{x}\in Dom(f)$<br>
+Valen propiedades similares para las funciones continuas de
+$\mathbb{R}\to \mathbb{R}$[/latex]",Funciones de varias variables
+Derivadas parciales,"[latex]$f:\mathbb{R}^2 \to \mathbb{R},~ (a,b)\in \mathbb{R}^2$<br>
+Definimos la derivada parcial de f con respecto a x en el punto (x,y) como<br>
+$\frac{\delta f}{\delta x}(x,y) = f_x(x,y) = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}$<br>
+Fijamos una de las variables y la pensamos como una constante[/latex]",Funciones de varias variables
+Derivadas parciales: Generalizacion: Definicion,"[latex]Sean $f:\mathbb{R}^n \to \mathbb{R},$ $\bar{a}\in \mathbb{R}^n,$ $\text{ sup. } B(\bar{a},r)\subset Dom(f)$ para algun $r>0$<br>
+Definimos la derivada parcial de f respecto a  $x_j$ en el punto  $\bar{a}$  como<br>
+$\frac{\partial f}{\partial x_j} (a_1,\ldots,a_n) = f_{x_j} (a_1,\ldots,a_n) $<br>
+$= \lim_{h \to 0} \frac{f(a_1,\ldots,a_{j-1},a_j+h,a_{j+1},\ldots,a_n)-f(a_1,\ldots,a_n)}{h}$[/latex]",Funciones de varias variables
+Derivadas parciales: Generalizacion: Observaciones,"[latex]Para calcular la derivada parcial de f tomar un argumento como variable y todo el resto como constantes<br>
+$f:\mathbb{R}^n \to \mathbb{R} \text{ con } n \ge 2 \Rightarrow $ no se puede afirmar que f es continua en cierto punto si f es derivable en dicho punto[/latex]",Funciones de varias variables
+Derivadas parciales: Generalizacion: Continuidad y derivada parcial,"[latex]$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f) \text{ y } B(\bar{a}, r) \subset Dom(f)$ para algun $r>a $<br>
+$f_{x_1},\ldots,f_{x_n}$ existen y son continuas para todo  $\bar{x} \in B(\bar{a}, r) \Rightarrow f $ es continua $\forall \bar{x} \in B(\bar{a}, r)$<br>
+(En particular para  $\bar{x} = \bar{a})$[/latex]",Funciones de varias variables
+Plano tangente: Definicion,"[latex]Sea $f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y } (a,b) \in Dom(f) $<br>
+El plano que pasa por $(a,b,f(a,b))$<br>
+y es generado por los vectores  $(1, 0, f_x(a,b)) \text{ y } (0,1,f_y(a,b)) $<br>
+se llama plano tangente al grafico de f en el punto $(a,b,f(a,b))$[/latex]",Funciones de varias variables
+Plano tangente: Ecuacion vectorial,"[latex]La ecuacion vectorial del plano tangente del grafico de f en  $(a,b,f(a,b))$ es <br>
+$(x,y,z) = (a,b,f(a,b)) + t(1,0,f_x(a,b)) + r(0,1,f_y(a,b)), \text{ con } t,r\in \mathbb{R}$[/latex]",Funciones de varias variables
+Plano tangente: Ecuacion normal,"[latex]La ecuacion normal del plano tangente al grafico de f en  $(a,b,f(a,b)) $ es<br>
+$z = (x-a)f_x(a,b) + (y-b)f_y(a,b) + f(a,b)$[/latex]",Funciones de varias variables
+Regla de la cadena: Caso 1,"[latex]Sea $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f)$ tal que <br>
+$\frac{\partial f}{\partial x_1},\ldots,\frac{\partial f}{\partial x_n} $ existen y son continuas en  $B(\bar{a},r)$ para algun  $r>0$<br>
+Sean  $x_i:I\to \mathbb{R}$ funciones derivables $\forall t \in I, $ $\text{ con } 1 \leq i \le n \text{ y } I \subseteq \mathbb{R}$ y tal que $(x_1(t),\ldots,x_n(t))\in B(\bar{a},r) \forall t \in I $<br>
+Entonces la funcion <br>
+$g(t) = f(x_1(t),\ldots,x_n(t)) \text{ es derivable } \forall t \in I $<br>
+y ademas <br>
+$\frac{dg}{dt} = g'(t) = \frac{\partial f}{\partial x_1}(x_1(t),\ldots,x_n(t))\cdot x_1'(t) + \cdots + \frac{\partial f}{\partial x_n}(x_1(t),\ldots,x_n(t))\cdot x_n'(t) $[/latex]",Funciones de varias variables
+Regla de la cadena: Caso 2,"[latex]Sea $f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R}, \bar{a}_1\in Dom(f)$ tal que <br>
+$\frac{\partial f}{\partial x_1}\text{ y }\frac{\partial f}{\partial x_2}$ existen y son continuas en  $B(\bar{a}_1,r_1)$ para algun  $r_1>0$<br>
+Sean <br>
+$x:Dom(x) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y } $<br>
+$y:Dom(y) \subset \mathbb{R}^2 \to \mathbb{R}$<br>
+dos funciones con sus derivadas parciales continuas en  $B(\bar{a}_0,r_0)$ para algun $r_0>0$<br>
+y tal que <br>
+$(x(s,t),y(s,t))\in B(\bar{a}_1,r_1) \forall (s,t)\in B(\bar{a}_0,r_0)$<br>
+Entonces la funcion definida por <br>
+$g(s,t) = f(x(s,t),y(s,t))\forall (s,t) \in B(\bar{a}_0,r_0)$<br>
+Tiene derivadas parciales dadas por <br>
+$\frac{\partial g}{\partial s}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial s} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial s} (s,t)$<br>
+$\frac{\partial g}{\partial t}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial t} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial t} (s,t)$[/latex]",Funciones de varias variables
+Vector unitario:  ,"[latex]Decimos que  $\bar{u} = (u_1,\ldots,u_n) \in \mathbb{R}^n $ es un vector unitario si $\|u\|=1$[/latex]",Funciones de varias variables
+Derivada direccional: Definicion,"[latex]Sean  $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}, $ $\bar{a} = (a_1,\ldots,a_n) \in \mathbb{R}^n \text{ tq } B(\bar{a},r) \subseteq Dom(f)$ para algun $r>0$ y  $\bar{u} $ un vector unitario <br>
+Definimos la derivada direccional de f en la direccion de  $\bar{u} $ en el punto  $\bar{a} $ como:<br>
+$D_{\bar{u}} f(\bar{a}) = \lim_{h \to 0} \frac{f(a_1+h u_1,\ldots, a_n + h u_n)-f(a_1,\ldots,a_n)}{h}$<br>
+(si este limite existe)[/latex]",Funciones de varias variables
+Derivada direccional: Consideracion para vectores no unitarios,"[latex]Si el vector  $\bar{u}$ no es unitario, entonces consideramos <br>
+$\bar{v} = \frac{\bar{u}}{\|u\|}$ (unitario y misma direccion que u)[/latex]",Funciones de varias variables
+Derivada direccional: Derivada direccional y derivada parcial,"[latex]$\bar{u} = e_i = (0,\ldots,1,\ldots,0) $<br>
+$\Rightarrow D_{e_i}f(\bar{a}) = \frac{\partial f}{\partial x_1} (\bar{a}) $<br>
+osea, las derivadas parciales son un caso particular de la derivada direccional[/latex]",Funciones de varias variables
+Gradiente: Definicion,"[latex]Sea  $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}$ y  $\bar{a} \in  Dom(f)  \text{ tq existen} \frac{\partial f}{\partial x_i} (\bar{a}) \forall i=1,\ldots,n $<br>
+Llamamos gradiente de f en  $\bar{a} $ al vector:<br>
+$\nabla f(\bar{a}) = \left( \frac{\partial f}{\partial x_1} (\bar{a}),\ldots, \frac{\partial f}{\partial x_n} (\bar{a}) \right)$[/latex]",Funciones de varias variables
+Gradiente: Gradiente y Derivada direccional,"[latex]Sea  $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ tal que  $\frac{\partial f}{\partial x_i}(\bar{x})$ existen y son continuas  $\forall x \in B(\bar{a}, r) \subseteq Dom(f) \text{ y } \forall i=1,\ldots,n $<br>
+y  $\bar{u}= (u_1,\ldots,(u_n) $ un vector unitario <br>
+Entonces vale que: <br>
+$D_{\bar{u}}f(\bar{a}) = \langle \nabla f(\bar{a}), \bar{u} \rangle = \frac{\partial f}{\partial x_1} u_1 +\cdots+ \frac{\partial f}{\partial x_n} (\bar{a})u_n$[/latex]",Funciones de varias variables
+Gradiente: Direccion de crecimiento,"[latex]Sean $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ y<br>
+$\bar{a} \in  Dom(f) \text{ tq } \frac{\partial f}{\partial x_i} (\bar{x})$ existen y son continuas $\forall x \in B(\bar{a}, r)$ y para $1 \le i \le n$<br>
+Si  $\nabla f(\bar{a}) \neq (0,\ldots,0) \Rightarrow $<br>
+$(i)\quad $ El vector  $\bar{u} = \frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|} $ da la direccion de maximo crecimiento de f en  $\bar{a}$<br>
+$(ii)\quad $ El vector  $\bar{v} = -\frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|} $ da la direccion de minimo crecimiento de f en  $\bar{a}$[/latex]",Funciones de varias variables
+Curva de nivel: Definicion,"[latex]Sea  $K \in  \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$<br>
+LLamamos curva de nivel K de f al subconjunto de Dom(f) definido por <br>
+$C_k = \{(x,y) \in Dom(f) : f(x,y) = k\} $<br>
+$(C_k$ puede ser  $\emptyset,$ puntos aislados, o una curva)[/latex]",Funciones de varias variables
+Curva de nivel: Recta tangente ,"[latex]La recta tangente a la curva de nivel de f qu epasa por  $(x_0,y_0) $ esta definida como:<br>
+$(x,y) = (x_0,y_0)+t \left ( -\frac{\partial f}{\partial y} (x_0,y_0), \frac{\partial f}{\partial x} (x_0,y_0)\right) \text{ con } t \in \mathbb{R}$[/latex]",Funciones de varias variables
+Superficie de nivel: Definicion,"[latex]Sea $K \in \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^3\to \mathbb{R}$<br>
+Llamamos superficie de nivel K de f al subconjunto de Dom(f) definido por<br>
+$S_k = \{(x,y,z) \in Dom(f) : f(x,y,z) = k\}$[/latex]",Funciones de varias variables
+Superficie de nivel: Plano tangente,"[latex]La ecuacion del plano tangente a la superficie de nivel que pasa por  es: $(x_0,y_0,z_0)$<br>
+$\langle (x,y,z) - (x_0,y_0,z_0), \nabla f(x_0,y_0,z_0) \rangle = 0$<br>
+es el vector normal del plano $(x_0,y_0,z_0)$[/latex]",Funciones de varias variables
+Derivadas de orden 2: Ejemplo,"[latex]Si n=2 hay 4 derivadas parciales de orden 2:<br>
+$(f_x)_x = f_{xx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial x^2} $<br>
+$(f_x)_y = f_{xy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial y \partial x} $<br>
+$(f_y)_x = f_{yx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial x \partial y} $<br>
+$(f_y)_y = f_{yy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial y^2} $[/latex]",Funciones de varias variables
+Derivadas de orden 2: Criterio para conocer la cantidad de derivadas,"[latex]Por lo general, si f tiene n variables, entonces hay  $n^2$ derivadas parciales de orden 2[/latex]",Funciones de varias variables
+Derivadas de orden 2: n=3,"[latex]Si n=3, hay 9 derivadas parciales de orden 2:<br>
+$f_{xx}, f_{xy}, f_{xz}, f_{yx}, f_{yy}$ , etc[/latex]",Funciones de varias variables
+Derivadas de orden 2: Teorema,"[latex]Sea<br>
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } \bar{a} \in Dom(f) $<br>
+Si las funciones  $f_{xy} \text{ y } f_{yx}$ son ambas continuas en $B(\bar{a}, r) \subseteq Dom(f) $ para algun  $r>0 $<br>
+$\Rightarrow \quad f_{xy}(\bar{x}) = f_{yx}(\bar{x}), ~~\forall \bar{x} \in  B(\bar{a}, r)$[/latex]",Funciones de varias variables
+Maximos y minimos: Maximo local,"[latex]Sea  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$ decimos que:<br>
+f tiene un maximo local en  $(x_0,y_0) $ si existe una bola (disco) B  centrada en  $(x_0,y_0), \text{ con } B \subset Dom(f) $<br>
+y tal que  $f(x_0,y_0) \ge f(x,y)~~\forall (x,y) \in B$<br>
+El numero  $f(x_0,y_0) $ se llama valor maximo local de f[/latex]",Funciones de varias variables
+Maximos y minimos: Minimo local,"[latex]Sea  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$ decimos que:<br>
+f tiene un minimo local en  $(x_0,y_0) $ si existe una bola (disco) B  centrada en  $(x_0,y_0), \text{ con } B \subset Dom(f) $<br>
+y tal que  $f(x_0,y_0) \le f(x,y)~~\forall (x,y) \in B$<br>
+El numero  $f(x_0,y_0) $ se llama valor minimo local de f[/latex]",Funciones de varias variables
+Maximos y minimos: Maximo o minimo absoluto,"[latex]Si las desigualdades se cumplen $\forall (x,y) \in Dom(f)$ entonces decimos que f tiene un maximo (o minimo, segun corresponda) absoluto en $ (x_0,y_0)$[/latex]",Funciones de varias variables
+Maximos y minimos: Extremo local,"[latex]Decimos que f tiene un extremo local en  $(x_0,y_0)$ si f tiene un maximo local o un minimo local en  $(x_0,y_0)$[/latex]",Funciones de varias variables
+Maximos y minimos: Extremo local y derivadas parciales,"[latex]Si  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} $ tiene un extremo local en  $(x_0,y_0)$ y existen las derivadas parciales de f en  $(x_0,y_0)$ entonces:<br>
+$f_x(x_0,y_0) = f_y(x_0,y_0) = 0$[/latex]",Funciones de varias variables
+Maximos y minimos: Puntos criticos y singulares,"[latex]Si $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$ tiene un extremo local en  $(x_0,y_0)$ entonces: <br>
+* o bien  $(x_0,y_0)$ es punto critico de f (y por lo tanto  $\nabla f(x_0,y_0)=0)$<br>
+* o bien  $(x_0,y_0)$ es punto singular de f (y por lo tanto  $\nexists \nabla f(x_0,y_0))$[/latex]",Funciones de varias variables
+Test de la derivada segunda,"[latex]Sean 
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f) $<br>
+Supongamos que las derivadas parciales de 1er y 2do orden de f son continuas en una bola 
+$B \subset Dom(f) $
+de centro 
+$(x_0,y_0) $<br>
+y supongamos ademas que 
+$\nabla f(x_0,y_0) = (0,0)$<br>
+Sea 
+$D = D(x_0,y_0) = f_{xx}(x_0,y_0) f_{yy}(x_0,y_0)-[f_{xy}(x_0,y_0)]^2$<br>
+entonces: <br>
+$(1)\quad D>0 \text{ y } f_{xx}(x_0,y_0) > 0 (o f_{yy}(x_0,y_0) > 0) \Rightarrow $
+f tiene minimo local en 
+$(x_0,y_0)$<br>
+$(2)\quad D>0 \text{ y } f_{xx}(x_0,y_0) < 0 (o f_{yy}(x_0,y_0) < 0) \Rightarrow $
+f tiene maximo local en 
+$(x_0,y_0)$<br>
+$(3)\quad D<0 \Rightarrow $
+f no tiene ni maximo ni minimo local en 
+$(x_0,y_0)$
+En este caso decimos que f tiene un punto silla en 
+$(x_0,y_0)$<br>
+$(4)\quad D=0 \Rightarrow $
+no se puede asegurar nada[/latex]",Funciones de varias variables

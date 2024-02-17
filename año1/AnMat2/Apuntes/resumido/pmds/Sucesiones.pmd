@@ -1,0 +1,192 @@
+
+\section{Sucesiones}
+
+\subsection{Definicion}
+
+Una sucesion infinita de numeros reales es una funcion cuyo dominio son los naturales y cuya imagen está incluida en R
+
+\subsection{Limite}
+
+\subsubsection{Propiedades}
+
+Sean $\{a_n\},~~\{b_n\}$ Dos sucesiones convergentes  y $c \in \mathbb{R}$
+
+$\lim_{n \to \infty} (a_n\pm b_n) = \lim_{n \to \infty} a_n \pm \lim_{n \to \infty} b_n$
+
+$\lim_{n \to \infty} (c\cdot a_n) = c\cdot\lim_{n \to \infty} a_n$
+
+$\lim_{n \to \infty} (a_n\cdot b_n) = \lim_{n \to \infty} a_n \cdot \lim_{n \to \infty} b_n$
+
+$\lim_{n \to \infty} (b_n) \ne 0$ $\Rightarrow$ $\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{\lim_{n \to \infty} a_n}{\lim_{n \to \infty} b_n}$
+
+\subsubsection{Notacion}
+
+Se escribe $\lim_{n \to \infty} a_n = \ell$
+
+Si los terminos an se acercan a l tanto como queramos al hacer n suficientemente grande se escribe $\underset{n\to\infty}{a_n \to \ell}$
+
+\subsubsection{Definicion formal}
+
+$\lim_{n \to \infty} a_n = \ell \iff \forall \epsilon >0 ,~ \exists n_0 \in \mathbb{N}$
+
+$\text{ tal que } ~~|a_n-\ell| < \epsilon$ $\forall n \geq n_0$
+
+Es decir la distancia entre an y el limite es menor a epsilon
+
+En otras palabras  a partir de cierto n0 la sucesion va a estar muy cerca del l
+
+$|a_n-\ell| < \epsilon$ $\Leftrightarrow$ $-\epsilon <a_n - \ell < \epsilon$ $\Leftrightarrow$ $\ell - \epsilon < a_n < \ell + \epsilon$
+
+\subsection{Convergencia y divergencia}
+
+$\exists \lim_{n \to \infty} = \ell$
+
+$\ell \in \mathbb{R}$
+
+$\Rightarrow\ell \text{ converge a } \overset{n\to \infty}{\ell}$
+
+En los demas casos decimos que diverge
+
+\subsection{Crecimiento y Decrecimiento}
+
+\subsubsection{Crecientes}
+
+$a_n \leq a_{n+1}$ $\Rightarrow$ Es creciente
+
+$a_n < a_{n+1}$ $\Rightarrow$ Es estrictamente creciente
+
+\subsubsection{Decrecientes}
+
+$a_n \geq a_{n+1}$ $\Rightarrow$ Es decreciente
+
+$a_n > a_{n+1}$ $\Rightarrow$ Es estrictamente decreciente
+
+\subsubsection{Sucesion monotona}
+
+Si la sucesion es creciente o decreciente decimos que es monotona
+
+\subsection{Acotaciones}
+
+\subsubsection{Inferior}
+
+$\exists~ m_i \in \mathbb{R}~/~ m_i \leq a_n ~~\forall n\in\mathbb{N}$ $\Rightarrow$
+
+$m_i$ Es la cota inferior
+
+$\{a_n\}$ Es acotada inferiormente
+
+\subsubsection{Superior}
+
+$\exists~ m_s \in \mathbb{R}~/~ m_s \geq a_n~~\forall n\in\mathbb{N}$ $\Rightarrow$
+
+$m_s$ Es la cota superior
+
+$\{a_n\}$ Es acotada superiormente
+
+\subsubsection{General}
+
+$\exists~ M \in \mathbb{R}~/~ |a_n| < M~~\forall n\in\mathbb{N}$ $\Rightarrow$ $\{a_n\}$ Es acotada
+
+\subsubsection{Observacion: Pluralidad}
+
+Las cotas inferiores y superiores no son unicas
+
+\subsubsection{Axioma de completitud de los reales}
+
+Sea $\mathbb{I}_s$ Un conjunto no vacio de numeros reales acotado superiormente
+
+$\Rightarrow$ $\mathbb{I}_s$ Tiene una menor cota superior en  $\mathbb{R}$
+
+Sea $\mathbb{I}_i$ Un conjunto no vacio de numeros reales acotado inferiormente
+
+$\Rightarrow$ $\mathbb{I}_i$ Tiene una mayor cota inferior en  $\mathbb{R}$
+
+\subsubsection{Supremo e infimo}
+
+Sea $A \in \mathbb{R},~~A\ne 0$
+
+A es acotada superiormente $\Rightarrow$ La menor cota superior se le llama supremo de A
+
+Se denota $sup(A)$
+
+$sup(A)\in A$ $\Rightarrow$ Decimos que es el maximo de A
+
+A es acotada inferiormente $\Rightarrow$ La mayor cota inferior se le llama infimo de A
+
+Se denota $inf(A)$
+
+$inf(A)\in A$ $\Rightarrow$ Decimos que es el minimo de A
+
+\subsection{Subsucesiones}
+
+\subsubsection{Una subsucesion de una sucesion }
+
+Es una sucesion de la forma $\{a_{n1},a_{n2},a_{n3},a_{n4}, ...\} = \{a_{nj}\}_{j=1}^\infty$
+
+Con $nj \in \mathbb{N}$ y $n_1 < n_2 < n_3 < \ldots$
+
+\subsection{Teoremas}
+
+\subsubsection{Relacion entre limite de funciones y sucesiones}
+
+Sea $a_n = f(n)$ $\forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+$\lim_{n \to \infty} a_n = \lim_{n \to \infty} f(x)$
+
+\subsubsection{Sandwich para sucesiones}
+
+Sea $a_n \leq b_n \leq c_n$ $\forall n\geq n_0\text{ para algun } n_0 \in \mathbb{N}$
+
+Sea $\lim_{n \to \infty} a_n ~=~ \lim_{n \to \infty} c_n ~=~ \ell$
+
+$\lim_{n \to \infty} b_n = \ell$
+
+\subsubsection{Convergencia a 0 y modulo}
+
+$\lim_{n \to \infty} a_n = 0 \iff \lim_{n \to \infty} |a_n| = 0$
+
+\subsubsection{Composicion de limite y funcion}
+
+$\lim_{n \to \infty} a_n = a$
+
+$f \text{ continua en } x=a$
+
+$\Rightarrow$ $\lim_{n \to \infty} f(a_n) = f(a) = f\left(\lim_{n \to \infty} a_n\right)$
+
+\subsubsection{Sucesion convergente}
+
+es convergente $\{a_n\}$ $\Rightarrow$ Es acotada
+
+\subsubsection{Sucesion creciente y sup. acotada}
+
+es creciente y acotada superiormente $\{a_n\}$
+
+$\Rightarrow$ converge $\{a_n\}$
+
+$\Rightarrow$ $\lim_{n \to \infty} a_n ~=~ \ell_1 ~=~ sup(\{a_n\})$
+
+\subsubsection{Sucesion decreciente y inf. acotada}
+
+es decreciente y acotada inferiormente $\{a_n\}$
+
+$\Rightarrow$ converge $\{a_n\}$
+
+$\Rightarrow$ $\lim_{n \to \infty} a_n ~=~ \ell_2 ~=~ inf(\{a_n\})$
+
+\subsubsection{Observacion: Convergencia y crecimiento}
+
+es creciente $\{a_n\}$ $\Rightarrow$ converge o el limite tiende a  $+\infty$
+
+es decreciente $\{a_n\}$ $\Rightarrow$ converge o el limite tiende a  $-\infty$
+
+\subsubsection{Subsucesion de una sucesion convergente}
+
+Toda subsucesion de una sucesion convergente es convergente y sus limites son iguales
+
+Observacion Es util para demostrar que una sucesion no tiene limite. Basta con encontrar dos subsucesiones distintas que converjan a distintos limites
+
+\subsubsection{Bolzano-Weierstrass}
+
+Toda sucesion acotada tiene al menos una subsucesion convergente
+
+Puede haber mas de una subsucesion convergente

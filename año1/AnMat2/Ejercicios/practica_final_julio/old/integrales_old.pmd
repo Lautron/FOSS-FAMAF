@@ -1,0 +1,38 @@
+
+# 1)
+![](./integrales_imgs/fig1.png)
+
+## Como resolver
+### a)
+![](./integrales_imgs/fig2.png){ width=250px }
+
+- Aplicar integracion por partes
+  - Reemplazar funciones de la integral por u y du
+  - Elegir que funcion derivar
+  - Plantear igualdad del metodo de integracion por partes
+  - Resolver
+
+### b)
+- Eliminar constantes que esten multiplicando
+- Factorizar al maximo el denominador
+- Plantear igualdad del metodo de integracion por fracciones simples
+- Unir denominadores
+- Despejar incognitas eligiendo valores convenientes para x
+- Reemplazar las incognitas en la primer igualdad
+- Resolver las integrales resultantes
+
+## a)
+![](./integrales_imgs/fig3.png)
+
+## b)
+![](./integrales_imgs/fig4.png)
+
+Ahora resolvamos la integral
+
+![](./integrales_imgs/fig5.png)
+
+
+
+
+
+

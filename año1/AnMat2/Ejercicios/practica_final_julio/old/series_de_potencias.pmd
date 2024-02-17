@@ -1,0 +1,38 @@
+---
+title: Práctica Final - Series De potencias
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# 1)
+## Como resolver
+- Intentar llegar a algo de la forma $\frac{1}{1-r}$ 
+- Usar teorema de la serie geometrica
+- Usar criterio del cociente para obtener radio de convergencia
+- Ver si la serie converge en los extremos del intervalo
+
+## Resolucion (COMPLETAR)
+![](./series_de_potencias_imgs/fig1.png)
+
+# 2)
+## Como resolver
+- Calcular intervalo de convergencia
+  - usar criterio del cociente para series de potencias
+  - Ver si la serie converge en los extremos del intervalo
+
+- Derivar serie de potencias
+  - Pasar derivada adentro de la sumatoria
+  - Tener en cuenta formula para derivacion de series de potencias
+## Resolucion
+![](./series_de_potencias_imgs/fig2.png)
+
+# 3)
+## Como resolver
+- Separar $C_n$ del resto de la expresion
+- Aplicar criterio del cociente
+- Ver si la serie converge en los extremos del intervalo
+
+## Resolucion

@@ -1,0 +1,140 @@
+
+\section{Integrales funciones de varias variables}
+
+\subsection{Integral doble de un rectangulo}
+
+\subsubsection{Norma de la particion de un rectangulo}
+
+Dada una particion $P = \{Q_{ij}: 1 \le  i \le m , 1 \le j \le n\}$ de un rectangulo  $Q \in \mathbb{R}^2$
+
+Definimos la norma de la particion P como la mayor longitud de las diagonales de los subrectangulos $Q_{ij}$ y la denotamos  $\|P\|$
+
+\subsubsection{Definicion}
+
+Sea Q un rectangulo en  $\mathbb{R}^2 \text{ y } f:Q\to \mathbb{R},$
+
+la integral doble de f sobre el rectangulo Q es:
+
+$\int\int_Q f(x,y) ~dA = \lim_{\|P\| \to 0} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}, y_{ij})\Delta x_i \Delta y_j$
+
+si este limite existe. En tal caso f se dice integrable sobre Q
+
+\subsubsection{Continuidad e integracion}
+
+f continua en Q $\Rightarrow$ f es integrable sobre Q
+
+\subsubsection{Volumen bajo el grafico y sobre el rectangulo}
+
+Si  $f \ge 0$ y es integrable sobre Q
+
+$\Rightarrow$ $\int \int_Q f(x,y)~dA =$ volumen bajo la grafica de f y arriba del rectangulo Q
+
+\subsubsection{Notacion}
+
+A veces denotamos  $\int\int_Q f(x,y)~dx~dy$ en lugar de $\int\int_Q f(x,y)~dA$
+
+\subsection{Integrales iteradas}
+
+\subsubsection{Definicion}
+
+Sean $Q = [a,b] \times [c,d] \text{ y } f:Q\to \mathbb{R}$
+
+Para cada  $y \in [c,d]$ hacemos  $\int_{a}^{b}f(x,y)~dx,$ esto define una funcion de y que podemos volver a integrar obteniendo:
+
+$\int_{c}^{d}\left( \int_{a}^{b}f(x,y)~dx \right) ~dy$
+
+esta integral se llama integral iterada de f
+
+\subsubsection{Orden inverso}
+
+Es posible realizar el proceso en orden inverso obteniendo así:
+
+$\int_{a}^{b}\left( \int_{d}^{c}f(x,y)~dy \right) ~dx$
+
+lo que nos daria la "otra" integral iterada de f
+
+\subsection{Teorema de fubini}
+
+Si f es continua en el rectangulo 
+$Q = [a,b] \times [c,d],$
+entonces:
+
+$\int\int_Q f(x,y)~dA = \int_{a}^{b}\int_{c}^{d}f(x,y)~dy ~dx = \int_{c}^{d}\int_{a}^{b}f(x,y)~dx ~dy$
+
+El teorema también vale si f es acotada en Q, discontinua solo en un nro. finito de curvas suaves y las integrales iteradas existen
+
+\subsection{Integrales dobles en regiones generales}
+
+\subsubsection{Definicion}
+
+Sea D una region acotada en  $\mathbb{R}^2$
+
+o sea, D está contenida en algun rectangulo Q con lados paralelos a los ejes cartesianos
+
+Dada f definida en D, extendemos f al rectangulo Q de la siguiente manera
+
+$F(x,y) = \begin{cases} f(x,y)\quad \text{ si } (x,y) \in D \cap Q \\\\ \quad0\qquad~ \text{ si } (x,y) \in D^c \cap Q \end{cases}$
+
+Decimos que f es integrable sobre D si F es integrable sobre Q y en ese caso definimos
+
+$\int\int_D f(x,y)~dA = \int\int_Q F(x,y)~dA$
+
+\subsubsection{Interpretacion de la integral con }
+
+Si  $f \ge 0$ en D, entonces la integral se puede interpretar como el volumen del solido debajo del grafico de f y arriba de la region D
+
+\subsection{Tipos de regiones D}
+
+\subsubsection{Region de tipo 1 ( x-simple)}
+
+Sean  $g_1 \text{ y } g_2$ funciones continuas en [a,b]
+
+Una region es de tipo 1 si es de la forma:
+
+$D = \{(x,y) \in  \mathbb{R}^2 : a \le x \le b, g_1(x) \le  y \le g_2(x)\}$
+
+\subsubsection{Region de tipo 2 ( y-simple)}
+
+Sean $h_1 \text{ y } h_2$ funciones continuas en [c,d]
+
+Una region es de tipo 2 si es de la forma:
+
+$D = \{(x,y) \in \mathbb{R}^2 : c \le  y \le  d , h_1(y) \le  x \le h_2(y)\}$
+
+\subsubsection{Region 1 y 2 simultaneamente}
+
+Existen funciones de tipo 1 y 2 simultaneamente, por ejemplo un circulo, un rectangulo, etc
+
+\subsection{Propiedades de la integral doble}
+
+\subsubsection{integral de 1}
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int_D 1~dA = A(D)\quad$ (area de la region D)
+
+\subsubsection{Suma}
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int_D [f(x,y)+g(x,y)]~dA = \int\int_D f(x,y)~dA + \int\int_D g(x,y)~dA$
+
+\subsubsection{Multiplicacion por constante}
+
+Sea D una region y f y g funciones integrables sobre D
+
+$\int\int c\cdot f(x,y)~dA = c\cdot\int\int f(x,y)~dA,\quad \forall c \in \mathbb{R}$
+
+\subsubsection{Desigualdad de funciones}
+
+Sea D una region y f y g funciones integrables sobre D
+
+$f(x,y) \le g(x,y) \Rightarrow \int\int_D f(x,y)~dA \le \int\int_D g(x,y)~dA$
+
+\subsubsection{Multiples regiones}
+
+Sea D una region y f y g funciones integrables sobre D
+
+Sea $D = D_1 \cup D_2,$ donde  $D_1 \text{ y } D_2$ no se superponen excepto quizas en sus fronteras, entonces:
+
+$\int\int_D f(x,y)~dA = \int\int_{D_1} f(x,y)~dA + \int\int_{D_2} f(x,y)~dA$

@@ -1,0 +1,87 @@
+Propiedades producto escalar: Conmutatividad,"[latex]$\langle A,B \rangle = \langle B,A \rangle$[/latex]",Calculo vectorial
+Propiedades producto escalar: Distributividad,"[latex]$\langle A, B+C \rangle = \langle A,B \rangle + \langle A,C \rangle$ y viceversa[/latex]",Calculo vectorial
+Propiedades producto escalar: Multiplicacion por escalar,"[latex]$r \langle A,B \rangle = \langle r A, B \rangle = \langle A, r B \rangle$[/latex]",Calculo vectorial
+Propiedades producto escalar: Producto escalar nulo,"[latex]$\langle A,A \rangle = 0 \Leftrightarrow A = 0$[/latex]",Calculo vectorial
+Norma: Definicion,"[latex]$A \in~\mathbb{R}^n,$<br>
+$||A|| = \sqrt{\langle A,A \rangle}$<br>
+Es la longitud del vector[/latex]",Calculo vectorial
+Norma: Distancia,"[latex]$A,B \in \mathbb{R}^n,$<br>
+$d(A,B) = ||A-B||$ (Distancia entre dos puntos)<br>
+$d(A,0) = ||A||$ (distancia al origen)[/latex]",Calculo vectorial
+Propiedades Norma: Norma nula,[latex]$||A||=0 \Leftrightarrow A = 0$[/latex],Calculo vectorial
+Propiedades Norma: Multiplicacion por escalar,[latex]$||r A|| = |r| ||A||$[/latex],Calculo vectorial
+Propiedades Norma: Desigualdad triangular,[latex]$||A+B|| \leq ||A|| +||B||$[/latex],Calculo vectorial
+Propiedades Norma: Producto escalar y norma,"[latex]$\langle A,B \rangle = ||A||~||B|| ~cos \theta$ donde $0 \leq \theta \leq \pi $ es el angulo (radianes) entre A y B[/latex]",Calculo vectorial
+Propiedades Norma: Desigualdad Cauchy-Schwarz,"[latex]$|\langle A,B \rangle| \leq ||A||~||B||$[/latex]",Calculo vectorial
+Ortogonalidad,"[latex]$A,B \in \mathbb{R}^n \text{ no nulos },$<br>
+$\langle A,B \rangle = 0$
+$\Rightarrow  $
+Son ortogonales (o perpendiculares)[/latex]",Calculo vectorial
+Paralelismo,"[latex]$A,B \in \mathbb{R}^n \text{ no nulos }, r\in \mathbb{R}$<br>
+$A = rB$
+$\Rightarrow  $
+Son paralelos[/latex]",Calculo vectorial
+Rectas en R2 y R3:  ,"[latex]la recta $\ell$ que pasa por el punto  $P_0 $ y tiene direccion V es:<br>
+$\ell = \{X\in~\mathbb{R}^n~: X = P_0+tV, \text{ con } t\in \mathbb{R}\}$ con n=2 o n=3[/latex]",Calculo vectorial
+Rectas paralelas,[latex]Dos rectas son paralelas si sus vectores direccion son paralelos[/latex],Calculo vectorial
+Rectas ortogonales,"[latex]Dos rectas son ortogonales 
+(perpendiculares) si sus vectores direccion son ortogonales[/latex]",Calculo vectorial
+Ecuacion vectorial de la recta en R2,"[latex]$P_0,P_1\in \mathbb{R}^2 (o~\mathbb{R}^3),$
+la ecuacion vectorial de la recta que pasa por P0 y P1 es<br>
+$X = P_0 + t(P_1-P_0), \text{ con } t\in \mathbb{R}$[/latex]",Calculo vectorial
+Ecuacion de la recta en R3,"[latex]$P_0=(x,y,z), V=(v_1,v_2,v_3)$<br>
+Ecuacion vectorial:
+$X = P_0 + tV \text{ con } t\in \mathbb{R}$<br>
+Ecuacion parametrica:<br>
+$x = x_0 + t v_1$<br>
+$y = y_0 + t v_2$<br>
+$z = z_0 + t v_3$<br>
+No hay ecuacion explicita e implicita[/latex]",Calculo vectorial
+Planos en R3,"[latex]$V,W \in \mathbb{R}^3, \text{no nulos ni paralelos, y } P\in \mathbb{R}^3$<br>
+La ecuacion vectorial del plano generado por V y W que pasa por P es:<br>
+$X = P+tV+rW, \text{ con } t,r \in \mathbb{R}$[/latex]",Calculo vectorial
+Plano normal:  ,"[latex]El plano normal a N y que pasa por P0 es el conjunto de puntos $\bar{X}\in \mathbb{R}^3 \text{ tq } \bar{X}-P_0$ es perpendicular a N, es decir<br>
+$\langle \bar{X}-P_0, N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano[/latex]",Calculo vectorial
+Ecuaciones del plano: Ecuacion normal,"[latex]$\langle X-P_0,N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano[/latex]",Calculo vectorial
+Ecuaciones del plano: Ecuacion cartesiana,"[latex]$X=(x,y,z), P_0 = (x_0, y_0, z_0), N = (a,b,c),$<br>
+$d = ax_0+by_0+cz_0 $<br>
+$\Rightarrow  ax+by+cz = d$ $\quad \rightarrow$ ecuacion cartesiana del plano[/latex]",Calculo vectorial
+Producto vectorial: Definicion,"[latex]$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$<br>
+Definimos el producto vectorial $V\times W$ como:<br>
+$V\times W = (v_2w_3-w_2v_3, w_1v_3-v_1w_3, v_1w_2-w_1v_2)$[/latex]",Calculo vectorial
+Producto vectorial: Computar producto vectorial,"[latex]$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$<br>
+Otra forma de computarlo<br>
+$\begin{pmatrix} v_1 & v_2 & v_3\\ w_1 & w_2 & w_3 \end{pmatrix} $<br>
+Ir tachando columnas y calcular el determinante de las columnas restantes<br>
+El determinante del medio es negativo[/latex]",Calculo vectorial
+Producto vectorial: Propiedad producto vectorial,"[latex]El vector $V\times W$ es perpendicular a V y W y al plano generado por V y W<br>
+(Siempre y cuando V y W sean no nulos y no paralelos)[/latex]",Calculo vectorial
+Producto vectorial: Vectores nulos o paralelos,"[latex]$V=0 \vee W=0 \text{ o V y W paralelos } \Rightarrow V\times W = (0,0,0) $[/latex]",Calculo vectorial
+Angulo entre dos planos:  ,[latex]$\alpha$ es el angulo entre dos planos si  $\alpha$ es el angulo correspondiente a sus vectores normales (o perpendiculares)[/latex],Calculo vectorial
+Funciones vectoriales: Definicion,"[latex]$f_i: \mathbb{R}\rightarrow \mathbb{R}, \text{ con } i=1,\ldots,n$<br>
+Llamamos funcion vectorial a la funcion<br>
+$f:\mathbb{R}\rightarrow \mathbb{R}^n$ dada por  $f(t) = (f_1(t),\ldots, f_n(t))$<br>
+Los fi se llaman funciones coordenadas de f[/latex]",Calculo vectorial
+Funciones vectoriales: Dominio,[latex]$Dom(f) = \bigcap_{i=1}^n Dom(f_i)$[/latex],Calculo vectorial
+Funciones vectoriales: Imagen,"[latex]$f:\mathbb{R}\rightarrow \mathbb{R}^n,$<br>
+la imagen de f es el conjunto de  $\mathbb{R}^n$<br>
+definido por $Im(f) = \{(y_1,\ldots,y_n) \in \mathbb{R}^n : \exists t \in Dom(f) \text{ con } f(t) = (y_1,\ldots,y_n)\} $<br>
+Cuando n=2 la imagen es una curva en el plano<br>
+Cuando n=3 la imagen es una curva en el espacio[/latex]",Calculo vectorial
+Funciones vectoriales: Limite,"[latex]Sea f una funcion vectorial, definimos el limite de f cuando $t\to a$ como<br>
+$\lim_{t \to a} f(t) = (\lim_{t \to a} f_1(t), \ldots, \lim_{t \to a} f_n(t))$<br>
+Siempre y cuando existan los limites para  $f_i, \forall i=1,\ldots,n$[/latex]",Calculo vectorial
+Funciones vectoriales: Continuidad,"[latex]$a\in Dom(f)$<br>
+f es continua en a $\Leftrightarrow$ $f_i $ es continua en a $\forall i = 1,\ldots, n$[/latex]",Calculo vectorial
+Funciones vectoriales: Derivada,"[latex]$f'(a) = (f_1'(a),\ldots, f_n'(a))$<br>
+(derivo coordenada a coordenada)[/latex]",Calculo vectorial
+Reglas de derivacion para funciones vectoriales: Suma y resta,"[latex]f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$<br>
+$(f(t)\pm g(t))' = f'(t)\pm g'(t)$[/latex]",Calculo vectorial
+Reglas de derivacion para funciones vectoriales: Multiplicacion por una constante,"[latex]f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$<br>
+$(kf(t))' = kf'(t)$[/latex]",Calculo vectorial
+Reglas de derivacion para funciones vectoriales: Multiplicacion por una funcion real,"[latex]f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$<br>
+$(\varphi(t)\cdot f(t))' = \varphi'(t)f(t)+\varphi(t)f'(t)$[/latex]",Calculo vectorial
+Reglas de derivacion para funciones vectoriales: Derivada del producto escalar,"[latex]f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$<br>
+$\langle f(t),g(t) \rangle' = \langle f'(t),g(t) \rangle + \langle f(t),g'(t) \rangle$[/latex]",Calculo vectorial
+Reglas de derivacion para funciones vectoriales: Regla de la cadena,"[latex]f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$<br>
+$f(\varphi(t))' = f'(\varphi(t))\cdot \varphi'(t)$[/latex]",Calculo vectorial

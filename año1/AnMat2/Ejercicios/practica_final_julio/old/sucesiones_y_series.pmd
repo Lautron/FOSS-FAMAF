@@ -1,0 +1,42 @@
+---
+title: Práctica Final - Sucesiones y Series
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Notes 
+- Probablemente deberia ser mas riguroso con los limites
+
+# 1)
+## Como resolver
+Hay que demostrar que la serie de $a_n$ converge pero $|a_n|$ no 
+
+- Para cada caso
+  - Aplicar criterio para ver si la serie en cuestion converge o diverge
+
+## Resolucion (COMPLETADO)
+![](./sucesiones_y_series_imgs/fig1.png)
+
+# 2)
+## Como resolver
+- Ver caso para $t_0<0$
+  - El exponente será siempre negativo
+
+- Ver caso para $t_0=0$
+  - El exponente será siempre 0
+
+- Ver caso para $t_0>0$
+  - El exponente será siempre positivo
+
+- Para cada caso desarrollar y aplicar criterios
+
+## Resolucion (CORREGIR) 
+![](./sucesiones_y_series_imgs/fig3.png)
+
+![](./sucesiones_y_series_imgs/fig4.png)
+
+![](./sucesiones_y_series_imgs/fig5.png)
+

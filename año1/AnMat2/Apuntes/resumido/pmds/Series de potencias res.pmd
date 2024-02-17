@@ -1,0 +1,185 @@
+
+\section{Series de potencias res}
+
+\subsection{Definicion}
+
+Sean
+$\{c_n\}_{n=0}^\infty$
+Una sucesion de numeros reales
+y
+$a \in~\mathbb{R}$
+
+Llamamos serie de potencias centradas en a, a la serie
+
+$\sum_{n=0}^{\infty} C_n (x-a)^n = C_0 + C_1 (x-a) + C_2 (x-a)^2 + \cdots$
+
+Adoptamos la convencion de que 
+$(x-a)^0 = 1$
+
+\subsection{Teoremas}
+
+\subsubsection{Caracteristicas de las series de potencias}
+
+Sea $\sum_{n=0}^{\infty} C_n (x-a)^n$ Una serie de potencias
+
+Se cumple exactamente una de las siguientes
+
+La serie converge solo cuando x=a
+
+La serie es absolutamente convergente  $\forall x \in \mathbb{R}$
+
+$\exists ~R > 0$ tal que la serie conv. absolutamente $\forall x \text{ tq } |x-a|<R$
+
+y es divergente $\forall x \text{ tq } |x-a|>R$
+
+\subsubsection{Observacion sobre R}
+
+Si la serie de pot. converge para algun  $x_0\ne a$ $\Rightarrow$ $R \geq |x_0 - a|$
+
+ademas la serie converge $\forall x \text{ tq } |x-a|<|x_0-a|$
+
+Es decir Sabiendo que la serie converge en x0, el radio de convergencia es mayor o igual a la distancia entre a y x0
+
+Si la serie de pot. diverge en $x_1$ $\Rightarrow$ $R \leq |x_1 - a|$
+
+ademas la serie diverge $\forall x \text{ tq } |x-a|>|x_1-a|$
+
+Es decir Sabiendo que la serie diverge en x1, el radio de convergencia es menor o igual a la distancia entre a y x1
+
+\subsubsection{Criterio del cociente para series de potencias}
+
+Dada una serie de potencias con $c_n\ne 0\forall n\geq n_0$ y R como su radio de convergencia
+
+$L = \lim_{n \to \infty} \frac{|c_{n+1}|}{|c_n|}$
+
+$0 < L < \infty \Rightarrow R = \frac{1}{L}$
+
+$L=0~\Rightarrow~ R=\infty$
+
+$L=\infty~\Rightarrow~ R=0$
+
+\subsubsection{Derivacion e integracion de una serie de potencias}
+
+Sea R el radio de convergencia de una serie de potencias
+
+$R > 0 \Rightarrow f(x) = \sum_{n=1}^{\infty} c_n (x-a)^n$ Es derivable y continue en el intervalo (a-R,a+R)
+
+Ademas
+
+$f'(x) = \sum_{n=1}^{\infty} n~c_n (x-a)^{n-1}$
+
+$\int f(x)dx = C + \sum_{n=0}^{\infty} \frac{c_n}{n+1} (x-a)^{n+1}$
+
+Observaciones
+
+Sus radios de convergencia son R
+
+Puede suceder que sus intervalos de convergencia no sean iguales a la serie original
+
+Otra forma de escribirlas
+
+$\frac{d}{dx}\left [\sum_{n=0}^{\infty} c_n(x-a)^n\right] = \sum_{n=0}^{\infty}\frac{d}{dx} [c_n(x-a)^n]$ (Se deriva termino a termino)
+
+$\int\left [\sum_{n=0}^{\infty} c_n(x-a)^n\right]dx = \sum_{n=0}^{\infty}\int c_n(x-a)^n dx$ (Se integra termino a termino)
+
+\subsection{Radio de convergencia}
+
+Decimos que la serie tiene radio de convergencia R=0 si solo converge en x=a
+
+Decimos que la serie tiene radio de convergencia
+Si converge 
+$\forall x \in \mathbb{R}$
+$R=\infty$
+
+Si no cumple con los anteriores casos decimos que su radio de convergencia es un R > 0 como en el teorema de las caracteristicas de las series de potencias
+
+\subsection{Intervalo de convergencia}
+
+\subsubsection{Definicion}
+
+Llamamos intervalo de convergencia al conjunto
+
+$\mathbb{I} = \{x\in \mathbb{R}~/~ \Sigma_{n=0}^{\infty}~ C_n (x-a)^n \text{ converge}\}$
+
+\subsubsection{Observaciones}
+
+$R=0~\Rightarrow \mathbb{I} = \{a\}$
+
+$R=\infty~\Rightarrow \mathbb{I} = (-\infty, \infty) = \mathbb{R}$
+
+$0 < R<\infty~\Rightarrow \mathbb{I} \text{ Puede ser}$
+
+$(a-R,a+R),$
+
+$[a-R,a+R),$
+
+$(a-R,a+R],$
+
+$[a-R,a+R]$
+
+\subsection{Representacion de funciones como series de potencias}
+
+Para cada x en el intervalo de convergencia de una serie de potencias, la serie define una funcion
+$f(x) = \sum_{n=1}^{\infty} c_n (x-a)^n$
+
+Cuyo dominio es el intervalo de convergencia
+
+\subsection{Serie de Taylor}
+
+\subsubsection{Teorema}
+
+Sea $f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n~\forall x \text{ tq } |x-a| < R$
+
+$\Rightarrow c_n = \frac{f^{(n)}(a)}{n!}$
+
+\subsubsection{Definicion}
+
+Sea f una funcion que tiene derivadas de todos los ordenes en a
+
+Se llama serie de Taylor de f centrada en a a la serie de potencias $\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots$
+
+Observaciones $a=0 \Rightarrow  \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n$ Se suele llamar serie de Maclaurin Si f se puede representar como una serie de potencias centrada en a, entonces esa serie es la serie de Taylor de f centrada en a Por lo tanto, f es igual a su serie de Taylor
+
+\subsection{Polinomio de Taylor}
+
+\subsubsection{Sea}
+
+f una funcion que tiene derivadas de todos los ordenes en a
+
+\subsubsection{Definimos el polinomio de Taylor de f de orden n centrado en a como}
+
+$T_{n,a}(x) = \sum_{n=0}^{n} \frac{f^{(j)}(a)}{j!} = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!} + \cdots + \frac{f^{(n)}(a)}{n!} (x-a)^n$
+
+\subsubsection{Observaciones}
+
+La n-esima suma parcial de la serie de Taylor es justamente el polinomio de Taylor de orden n
+
+$T_{1,a}$ es la recta tangente al grafico de f en el punto (a,f(a))
+
+f y su polinomio de Taylor de orden n,   Satisfacen $f^{(j)}(a) = T^{(j)}(a)$ $T_{n,a}$
+
+\subsection{Resto de Taylor}
+
+\subsubsection{Definicion}
+
+Se define al resto de Taylor de orden n centrando en a como $R_{n,a}(x) = f(x) - T_{n,a}(x)$ Por lo tanto $f(x) = T_{n,a}(x) + R_{n,a}(x)$
+
+\subsubsection{Teorema}
+
+Sea f una funcion tal que existe $f^{(n)}(a) \forall n\geq 0$
+
+$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n~~\forall x \in (a-c,a+c)$ $\Leftrightarrow$ $\lim_{n \to \infty} R_{n,a} (x) = 0~~\forall x \in (a-c,a+c)$
+
+\subsubsection{Formula de Lagrange para el resto}
+
+Sea f una funcion tal que existen $f', f'',\ldots,f^{(n+1)}$ En un intervalo abierto $I$ y  $a\in I$
+
+$\Rightarrow  \forall x \in I,~ \exists t \text{ entre x y a }$ $(x<a \Rightarrow  t\in(x,a)~\vee~ x>a \Rightarrow  t\in (a,x))$
+
+tal que $R_{n,a} = \frac{f^{(n+1)}(t)}{(n+1)!} (x-a)^{n+1}$
+
+\subsection{Formula de Taylor}
+
+\subsubsection{Llamamos formula de Taylor a}
+
+$f(x) = \sum_{n=0}^{n} \frac{f^{(j)}(a)}{j!} (x-a)^j + \frac{f^{(n+1)}(t)}{(n+1)!} (x-a)^{n+1}$ $= T_{n,a}(x) + R_{n,a}(x)$

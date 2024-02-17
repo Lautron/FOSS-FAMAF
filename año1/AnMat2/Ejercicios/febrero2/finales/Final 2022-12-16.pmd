@@ -1,0 +1,31 @@
+---
+title: Final 16 de diciembre 2022
+documentclass: scrartcl
+---
+1)
+  a) Calcular las siguientes integrales
+      a) $\int_{0}^{1}x^2e^x~dx$
+      b) $\int_{0}^{\frac{\pi}{2}}cos(x)sen(x)~dx$
+
+  b) Determinar si las siguientes integrales convergen o divergen
+      a) $\int_{0}^{1} \frac{1}{2x^4+5x^3}~dx$
+      b) $\int_{0}^{\frac{\pi}{2}} \frac{cos^2(x)}{x^{\frac{1}{2}}}~dx$
+
+2)
+  a) Hallar la serie de taylor de $g(x)= cos^2(x)$, alrededor de $a=0$
+  (Ayuda: $2cos^2(x) = 1+cos(2x)$)
+
+  b) Utilizar la regla de la cadena para calcular las derivadas parciales  $\frac{\partial g}{\partial s}$ y $\frac{\partial g}{\partial t}$
+  para $g(s,t) = f(x(s,t), y(s,t))$, donde  $f(x,y) = xy$ y  $x(s,t) = tcos(s)$,  $y(s,t) = s^3$ 
+
+3) Sea $f(x,y) = \frac{e^x}{x^2-y^2}$
+    a) Dibujar dominio de f
+    b) Calcular las derivadas $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$
+    c) Dar la ecuacion del plano tangente al grafico de f en el punto (0,1)
+
+4) Calcular y clasificar los puntos critios de $f(x,y)=3y^2-2y^3-3x^2+6xy$
+
+5)
+    a) Enunciar el criterio de convergencia de series alternantes $\sum_{n=0}^{\infty} (-1)^na_n$, donde $a_n > 0$,  $n \in \mathbb{N}$ 
+    b) Sea $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ una funcion con derivadas parciales continuas ¿Cual es la direccion de máximo crecimiento de f en un punto $(a,b)$ dado
+

@@ -1,0 +1,647 @@
+\tableofcontents
+
+\newpage
+
+\section{Calculo vectorial}
+
+\subsection{Propiedades producto escalar}
+
+\subsubsection{Conmutatividad}
+
+$\langle A,B \rangle = \langle B,A \rangle$
+
+\subsubsection{Distributividad}
+
+$\langle A, B+C \rangle = \langle A,B \rangle + \langle A,C \rangle$ y viceversa
+
+\subsubsection{Multiplicacion por escalar}
+
+$r \langle A,B \rangle = \langle r A, B \rangle = \langle A, r B \rangle$
+
+\subsubsection{Producto escalar nulo}
+
+$\langle A,A \rangle = 0 \Leftrightarrow A = 0$
+
+\subsection{Norma}
+
+\subsubsection{Definicion}
+
+$A \in~\mathbb{R}^n,$
+
+$||A|| = \sqrt{\langle A,A \rangle}$
+
+Es la longitud del vector
+
+\subsubsection{Distancia}
+
+$A,B \in \mathbb{R}^n,$
+
+$d(A,B) = ||A-B||$ (Distancia entre dos puntos)
+
+$d(A,0) = ||A||$ (distancia al origen)
+
+\subsection{Propiedades Norma}
+
+\subsubsection{Norma nula}
+
+$||A||=0 \Leftrightarrow A = 0$
+
+\subsubsection{Multiplicacion por escalar}
+
+$||r A|| = |r| ||A||$
+
+\subsubsection{Desigualdad triangular}
+
+$||A+B|| \leq ||A|| +||B||$
+
+\subsubsection{Producto escalar y norma}
+
+$\langle A,B \rangle = ||A||~||B|| ~cos \theta$ donde $0 \leq \theta \leq \pi$ es el angulo (radianes) entre A y B
+
+\subsubsection{Desigualdad Cauchy-Schwarz}
+
+$|\langle A,B \rangle| \leq ||A||~||B||$
+
+\subsection{Ortogonalidad}
+
+$A,B \in \mathbb{R}^n \text{ no nulos },$
+
+$\langle A,B \rangle = 0$
+$\Rightarrow$
+Son ortogonales (o perpendiculares)
+
+\subsection{Paralelismo}
+
+$A,B \in \mathbb{R}^n \text{ no nulos }, r\in \mathbb{R}$
+
+$A = rB$
+$\Rightarrow$
+Son paralelos
+
+\subsection{Rectas en R2 y R3}
+
+la recta $\ell$ que pasa por el punto  $P_0$ y tiene direccion V es:
+
+$\ell = \{X\in~\mathbb{R}^n~: X = P_0+tV, \text{ con } t\in \mathbb{R}\}$ con n=2 o n=3
+
+\subsection{Rectas paralelas}
+
+Dos rectas son paralelas si sus vectores direccion son paralelos
+
+\subsection{Rectas ortogonales}
+
+Dos rectas son ortogonales 
+(perpendiculares) si sus vectores direccion son ortogonales
+
+\subsection{Ecuacion vectorial de la recta en R2}
+
+$P_0,P_1\in \mathbb{R}^2 (o~\mathbb{R}^3),$
+la ecuacion vectorial de la recta que pasa por P0 y P1 es
+
+$X = P_0 + t(P_1-P_0), \text{ con } t\in \mathbb{R}$
+
+\subsection{Ecuacion de la recta en R3}
+
+$P_0=(x,y,z), V=(v_1,v_2,v_3)$
+
+Ecuacion vectorial:
+$X = P_0 + tV \text{ con } t\in \mathbb{R}$
+
+Ecuacion parametrica:
+
+$x = x_0 + t v_1$
+
+$y = y_0 + t v_2$
+
+$z = z_0 + t v_3$
+
+No hay ecuacion explicita e implicita
+
+\subsection{Planos en R3}
+
+$V,W \in \mathbb{R}^3, \text{no nulos ni paralelos, y } P\in \mathbb{R}^3$
+
+La ecuacion vectorial del plano generado por V y W que pasa por P es:
+
+$X = P+tV+rW, \text{ con } t,r \in \mathbb{R}$
+
+\subsection{Plano normal}
+
+El plano normal a N y que pasa por P0 es el conjunto de puntos $\bar{X}\in \mathbb{R}^3 \text{ tq } \bar{X}-P_0$ es perpendicular a N, es decir
+
+$\langle \bar{X}-P_0, N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano
+
+\subsection{Ecuaciones del plano}
+
+\subsubsection{Ecuacion normal}
+
+$\langle X-P_0,N \rangle = 0$ $\quad \rightarrow$  Ecuacion normal de plano
+
+\subsubsection{Ecuacion cartesiana}
+
+$X=(x,y,z), P_0 = (x_0, y_0, z_0), N = (a,b,c),$
+
+$d = ax_0+by_0+cz_0$
+
+$\Rightarrow  ax+by+cz = d$ $\quad \rightarrow$ ecuacion cartesiana del plano
+
+\subsection{Producto vectorial}
+
+\subsubsection{Definicion}
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+Definimos el producto vectorial $V\times W$ como:
+
+$V\times W = (v_2w_3-w_2v_3, w_1v_3-v_1w_3, v_1w_2-w_1v_2)$
+
+\subsubsection{Computar producto vectorial}
+
+$V=(v_1, v_2, v_3), W=(w_1, w_2, w_3)$
+
+Otra forma de computarlo
+
+$\begin{pmatrix} v_1 & v_2 & v_3\\ w_1 & w_2 & w_3 \end{pmatrix}$
+
+Ir tachando columnas y calcular el determinante de las columnas restantes
+
+El determinante del medio es negativo
+
+\subsubsection{Propiedad producto vectorial}
+
+El vector $V\times W$ es perpendicular a V y W y al plano generado por V y W
+
+(Siempre y cuando V y W sean no nulos y no paralelos)
+
+\subsubsection{Vectores nulos o paralelos}
+
+$V=0 \vee W=0 \text{ o V y W paralelos } \Rightarrow V\times W = (0,0,0)$
+
+\subsection{Angulo entre dos planos}
+
+$\alpha$ es el angulo entre dos planos si  $\alpha$ es el angulo correspondiente a sus vectores normales (o perpendiculares)
+
+\subsection{Funciones vectoriales}
+
+\subsubsection{Definicion}
+
+$f_i: \mathbb{R}\rightarrow \mathbb{R}, \text{ con } i=1,\ldots,n$
+
+Llamamos funcion vectorial a la funcion
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n$ dada por  $f(t) = (f_1(t),\ldots, f_n(t))$
+
+Los fi se llaman funciones coordenadas de f
+
+\subsubsection{Dominio}
+
+$Dom(f) = \bigcap_{i=1}^n Dom(f_i)$
+
+\subsubsection{Imagen}
+
+$f:\mathbb{R}\rightarrow \mathbb{R}^n,$
+
+la imagen de f es el conjunto de  $\mathbb{R}^n$
+
+definido por $Im(f) = \{(y_1,\ldots,y_n) \in \mathbb{R}^n : \exists t \in Dom(f) \text{ con } f(t) = (y_1,\ldots,y_n)\}$
+
+Cuando n=2 la imagen es una curva en el plano
+
+Cuando n=3 la imagen es una curva en el espacio
+
+\subsubsection{Limite}
+
+Sea f una funcion vectorial, definimos el limite de f cuando $t\to a$ como
+
+$\lim_{t \to a} f(t) = (\lim_{t \to a} f_1(t), \ldots, \lim_{t \to a} f_n(t))$
+
+Siempre y cuando existan los limites para  $f_i, \forall i=1,\ldots,n$
+
+\subsubsection{Continuidad}
+
+$a\in Dom(f)$
+
+f es continua en a $\Leftrightarrow$ $f_i$ es continua en a $\forall i = 1,\ldots, n$
+
+\subsubsection{Derivada}
+
+$f'(a) = (f_1'(a),\ldots, f_n'(a))$
+
+(derivo coordenada a coordenada)
+
+\subsection{Reglas de derivacion para funciones vectoriales}
+
+\subsubsection{Suma y resta}
+
+f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$
+
+$(f(t)\pm g(t))' = f'(t)\pm g'(t)$
+
+\subsubsection{Multiplicacion por una constante}
+
+f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$
+
+$(kf(t))' = kf'(t)$
+
+\subsubsection{Multiplicacion por una funcion real}
+
+f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$
+
+$(\varphi(t)\cdot f(t))' = \varphi'(t)f(t)+\varphi(t)f'(t)$
+
+\subsubsection{Derivada del producto escalar}
+
+f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$
+
+$\langle f(t),g(t) \rangle' = \langle f'(t),g(t) \rangle + \langle f(t),g'(t) \rangle$
+
+\subsubsection{Regla de la cadena}
+
+f y g funciones vectoriales, $\varphi : \mathbb{R}\to \mathbb{R},k\in \mathbb{R}$
+
+$f(\varphi(t))' = f'(\varphi(t))\cdot \varphi'(t)$
+
+\section{Funciones de varias variables}
+
+\subsection{Definicion}
+
+una funcion f de n variables es una regla que asigna a cada n-tupla
+$\bar{x} = (x_1,...,x_n)$
+un unico numero real:
+
+$f(\bar{x}) = f(x_1,...,x_n)$
+
+\subsection{Dominio}
+
+$Dom(f) = \{\bar{x} \in \mathbb{R}^n : f(\bar{x}) \text{ Está bien definida } \}$
+
+\subsection{Imagen}
+
+$Im(f) = \{y\in \mathbb{R}: \exists \bar{x}\in Dom(f) \text{ con } y=f(\bar{x})\}$
+
+\subsection{Grafico}
+
+$G(f) = \{(\bar{x}, f(\bar{x}))\in \mathbb{R}^{n+1}: \bar{x}\in Dom(f)\}$
+
+\subsection{Bola}
+
+Sea
+$r>0 \text{ y } \bar{a}\in \mathbb{R}^n$
+
+llamamos bola (abierta) de centro
+$\bar{a}$
+y radio r al conjunto 
+
+$B(\bar{a},r) = \{\bar{x}\in \mathbb{R}^n: \|\bar{x}-\bar{a}\| < r\}$
+
+\subsection{Limite}
+
+$\bar{a}\in \mathbb{R}^n, y$
+$f:Dom(f)\subset \mathbb{R}^n \to \mathbb{R}$
+definida en un dominio Dom(f) que incluye puntos arbitrariamente cercanos a 
+$\bar{a}$
+decimos que
+
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = L$
+
+Si
+$\forall \epsilon > 0, \exists \delta > 0 \text{ tq } \bar{x}\in Dom(f) \cap B(\bar{a}, \delta) \Rightarrow  |f(\bar{x})-L| < \epsilon$
+
+$\bar{x}\in Dom(f) \Rightarrow~~ \|\bar{x}-\bar{a}\| < \delta \Rightarrow  |f(\bar{x})-L| < \epsilon$
+
+Si existen limites distintos para aproximarse a
+$\bar{a}$
+. Entonces el limite no existe
+
+\subsection{Continuidad}
+
+$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R} \text{ y } \bar{a}\in \mathbb{R}^n$
+
+decimos que f es continua en 
+$\bar{a} \text{ si } \bar{a}\in Dom(f)$
+y 
+$\lim_{\bar{x} \to \bar{a}} f(\bar{x}) = f(\bar{a})$
+
+Decimos que f es continua si f es continua 
+$\forall \bar{x}\in Dom(f)$
+
+Valen propiedades similares para las funciones continuas de
+$\mathbb{R}\to \mathbb{R}$
+
+\subsection{Derivadas parciales}
+
+$f:\mathbb{R}^2 \to \mathbb{R},~ (a,b)\in \mathbb{R}^2$
+
+Definimos la derivada parcial de f con respecto a x en el punto (x,y) como
+
+$\frac{\delta f}{\delta x}(x,y) = f_x(x,y) = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}$
+
+Fijamos una de las variables y la pensamos como una constante
+
+\subsection{Derivadas parciales: Generalizacion}
+
+\subsubsection{Definicion}
+
+Sean $f:\mathbb{R}^n \to \mathbb{R},$ $\bar{a}\in \mathbb{R}^n,$ $\text{ sup. } B(\bar{a},r)\subset Dom(f)$ para algun $r>0$
+
+Definimos la derivada parcial de f respecto a  $x_j$ en el punto  $\bar{a}$  como
+
+$\frac{\partial f}{\partial x_j} (a_1,\ldots,a_n) = f_{x_j} (a_1,\ldots,a_n)$
+
+$= \lim_{h \to 0} \frac{f(a_1,\ldots,a_{j-1},a_j+h,a_{j+1},\ldots,a_n)-f(a_1,\ldots,a_n)}{h}$
+
+\subsubsection{Observaciones}
+
+Para calcular la derivada parcial de f tomar un argumento como variable y todo el resto como constantes
+
+$f:\mathbb{R}^n \to \mathbb{R} \text{ con } n \ge 2 \Rightarrow$ no se puede afirmar que f es continua en cierto punto si f es derivable en dicho punto
+
+\subsubsection{Continuidad y derivada parcial}
+
+$f:Dom(f)\subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f) \text{ y } B(\bar{a}, r) \subset Dom(f)$ para algun $r>a$
+
+$f_{x_1},\ldots,f_{x_n}$ existen y son continuas para todo  $\bar{x} \in B(\bar{a}, r) \Rightarrow f$ es continua $\forall \bar{x} \in B(\bar{a}, r)$
+
+(En particular para  $\bar{x} = \bar{a})$
+
+\subsection{Plano tangente}
+
+\subsubsection{Definicion}
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y } (a,b) \in Dom(f)$
+
+El plano que pasa por $(a,b,f(a,b))$
+
+y es generado por los vectores  $(1, 0, f_x(a,b)) \text{ y } (0,1,f_y(a,b))$
+
+se llama plano tangente al grafico de f en el punto $(a,b,f(a,b))$
+
+\subsubsection{Ecuacion vectorial}
+
+La ecuacion vectorial del plano tangente del grafico de f en  $(a,b,f(a,b))$ es 
+
+$(x,y,z) = (a,b,f(a,b)) + t(1,0,f_x(a,b)) + r(0,1,f_y(a,b)), \text{ con } t,r\in \mathbb{R}$
+
+\subsubsection{Ecuacion normal}
+
+La ecuacion normal del plano tangente al grafico de f en  $(a,b,f(a,b))$ es
+
+$z = (x-a)f_x(a,b) + (y-b)f_y(a,b) + f(a,b)$
+
+\subsection{Regla de la cadena}
+
+\subsubsection{Caso 1}
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}, \bar{a}\in Dom(f)$ tal que 
+
+$\frac{\partial f}{\partial x_1},\ldots,\frac{\partial f}{\partial x_n}$ existen y son continuas en  $B(\bar{a},r)$ para algun  $r>0$
+
+Sean  $x_i:I\to \mathbb{R}$ funciones derivables $\forall t \in I,$ $\text{ con } 1 \leq i \le n \text{ y } I \subseteq \mathbb{R}$ y tal que $(x_1(t),\ldots,x_n(t))\in B(\bar{a},r) \forall t \in I$
+
+Entonces la funcion 
+
+$g(t) = f(x_1(t),\ldots,x_n(t)) \text{ es derivable } \forall t \in I$
+
+y ademas 
+
+$\frac{dg}{dt} = g'(t) = \frac{\partial f}{\partial x_1}(x_1(t),\ldots,x_n(t))\cdot x_1'(t) + \cdots + \frac{\partial f}{\partial x_n}(x_1(t),\ldots,x_n(t))\cdot x_n'(t)$
+
+\subsubsection{Caso 2}
+
+Sea $f:Dom(f) \subseteq \mathbb{R}^2 \to \mathbb{R}, \bar{a}_1\in Dom(f)$ tal que 
+
+$\frac{\partial f}{\partial x_1}\text{ y }\frac{\partial f}{\partial x_2}$ existen y son continuas en  $B(\bar{a}_1,r_1)$ para algun  $r_1>0$
+
+Sean 
+
+$x:Dom(x) \subseteq \mathbb{R}^2 \to \mathbb{R} \text{ y }$
+
+$y:Dom(y) \subset \mathbb{R}^2 \to \mathbb{R}$
+
+dos funciones con sus derivadas parciales continuas en  $B(\bar{a}_0,r_0)$ para algun $r_0>0$
+
+y tal que 
+
+$(x(s,t),y(s,t))\in B(\bar{a}_1,r_1) \forall (s,t)\in B(\bar{a}_0,r_0)$
+
+Entonces la funcion definida por 
+
+$g(s,t) = f(x(s,t),y(s,t))\forall (s,t) \in B(\bar{a}_0,r_0)$
+
+Tiene derivadas parciales dadas por 
+
+$\frac{\partial g}{\partial s}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial s} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial s} (s,t)$
+
+$\frac{\partial g}{\partial t}(s,t) = \frac{\partial f}{\partial x} (x(s,t),y(s,t))\cdot \frac{\partial x}{\partial t} (s,t) + \frac{\partial f}{\partial y} (x(s,t),y(s,t)) \cdot \frac{\partial g}{\partial t} (s,t)$
+
+\subsection{Vector unitario}
+
+Decimos que  $\bar{u} = (u_1,\ldots,u_n) \in \mathbb{R}^n$ es un vector unitario si $\|u\|=1$
+
+\subsection{Derivada direccional}
+
+\subsubsection{Definicion}
+
+Sean  $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R},$ $\bar{a} = (a_1,\ldots,a_n) \in \mathbb{R}^n \text{ tq } B(\bar{a},r) \subseteq Dom(f)$ para algun $r>0$ y  $\bar{u}$ un vector unitario 
+
+Definimos la derivada direccional de f en la direccion de  $\bar{u}$ en el punto  $\bar{a}$ como:
+
+$D_{\bar{u}} f(\bar{a}) = \lim_{h \to 0} \frac{f(a_1+h u_1,\ldots, a_n + h u_n)-f(a_1,\ldots,a_n)}{h}$
+
+(si este limite existe)
+
+\subsubsection{Consideracion para vectores no unitarios}
+
+Si el vector  $\bar{u}$ no es unitario, entonces consideramos 
+
+$\bar{v} = \frac{\bar{u}}{\|u\|}$ (unitario y misma direccion que u)
+
+\subsubsection{Derivada direccional y derivada parcial}
+
+$\bar{u} = e_i = (0,\ldots,1,\ldots,0)$
+
+$\Rightarrow D_{e_i}f(\bar{a}) = \frac{\partial f}{\partial x_1} (\bar{a})$
+
+osea, las derivadas parciales son un caso particular de la derivada direccional
+
+\subsection{Gradiente}
+
+\subsubsection{Definicion}
+
+Sea  $f:Dom(f) \subseteq \mathbb{R}^n \to \mathbb{R}$ y  $\bar{a} \in  Dom(f)  \text{ tq existen} \frac{\partial f}{\partial x_i} (\bar{a}) \forall i=1,\ldots,n$
+
+Llamamos gradiente de f en  $\bar{a}$ al vector:
+
+$\nabla f(\bar{a}) = \left( \frac{\partial f}{\partial x_1} (\bar{a}),\ldots, \frac{\partial f}{\partial x_n} (\bar{a}) \right)$
+
+\subsubsection{Gradiente y Derivada direccional}
+
+Sea  $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ tal que  $\frac{\partial f}{\partial x_i}(\bar{x})$ existen y son continuas  $\forall x \in B(\bar{a}, r) \subseteq Dom(f) \text{ y } \forall i=1,\ldots,n$
+
+y  $\bar{u}= (u_1,\ldots,(u_n)$ un vector unitario 
+
+Entonces vale que: 
+
+$D_{\bar{u}}f(\bar{a}) = \langle \nabla f(\bar{a}), \bar{u} \rangle = \frac{\partial f}{\partial x_1} u_1 +\cdots+ \frac{\partial f}{\partial x_n} (\bar{a})u_n$
+
+\subsubsection{Direccion de crecimiento}
+
+Sean $f:Dom(f) \subseteq \mathbb{R}^n\to \mathbb{R}$ y
+
+$\bar{a} \in  Dom(f) \text{ tq } \frac{\partial f}{\partial x_i} (\bar{x})$ existen y son continuas $\forall x \in B(\bar{a}, r)$ y para $1 \le i \le n$
+
+Si  $\nabla f(\bar{a}) \neq (0,\ldots,0) \Rightarrow$
+
+$(i)\quad$ El vector  $\bar{u} = \frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|}$ da la direccion de maximo crecimiento de f en  $\bar{a}$
+
+$(ii)\quad$ El vector  $\bar{v} = -\frac{\nabla f(\bar{a})}{\|\nabla f(\bar{a})\|}$ da la direccion de minimo crecimiento de f en  $\bar{a}$
+
+\subsection{Curva de nivel}
+
+\subsubsection{Definicion}
+
+Sea  $K \in  \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$
+
+LLamamos curva de nivel K de f al subconjunto de Dom(f) definido por 
+
+$C_k = \{(x,y) \in Dom(f) : f(x,y) = k\}$
+
+$(C_k$ puede ser  $\emptyset,$ puntos aislados, o una curva)
+
+\subsubsection{Recta tangente }
+
+La recta tangente a la curva de nivel de f qu epasa por  $(x_0,y_0)$ esta definida como:
+
+$(x,y) = (x_0,y_0)+t \left ( -\frac{\partial f}{\partial y} (x_0,y_0), \frac{\partial f}{\partial x} (x_0,y_0)\right) \text{ con } t \in \mathbb{R}$
+
+\subsection{Superficie de nivel}
+
+\subsubsection{Definicion}
+
+Sea $K \in \mathbb{R} \text{ y } f:Dom(f) \subseteq \mathbb{R}^3\to \mathbb{R}$
+
+Llamamos superficie de nivel K de f al subconjunto de Dom(f) definido por
+
+$S_k = \{(x,y,z) \in Dom(f) : f(x,y,z) = k\}$
+
+\subsubsection{Plano tangente}
+
+La ecuacion del plano tangente a la superficie de nivel que pasa por  es: $(x_0,y_0,z_0)$
+
+$\langle (x,y,z) - (x_0,y_0,z_0), \nabla f(x_0,y_0,z_0) \rangle = 0$
+
+es el vector normal del plano $(x_0,y_0,z_0)$
+
+\subsection{Derivadas de orden 2}
+
+\subsubsection{Ejemplo}
+
+Si n=2 hay 4 derivadas parciales de orden 2:
+
+$(f_x)_x = f_{xx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial x^2}$
+
+$(f_x)_y = f_{xy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial y \partial x}$
+
+$(f_y)_x = f_{yx} = \frac{\partial f}{\partial x} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial x \partial y}$
+
+$(f_y)_y = f_{yy} = \frac{\partial f}{\partial y} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial y^2}$
+
+\subsubsection{Criterio para conocer la cantidad de derivadas}
+
+Por lo general, si f tiene n variables, entonces hay  $n^2$ derivadas parciales de orden 2
+
+\subsubsection{n=3}
+
+Si n=3, hay 9 derivadas parciales de orden 2:
+
+$f_{xx}, f_{xy}, f_{xz}, f_{yx}, f_{yy}$ , etc
+
+\subsubsection{Teorema}
+
+Sea
+
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } \bar{a} \in Dom(f)$
+
+Si las funciones  $f_{xy} \text{ y } f_{yx}$ son ambas continuas en $B(\bar{a}, r) \subseteq Dom(f)$ para algun  $r>0$
+
+$\Rightarrow \quad f_{xy}(\bar{x}) = f_{yx}(\bar{x}), ~~\forall \bar{x} \in  B(\bar{a}, r)$
+
+\subsection{Maximos y minimos}
+
+\subsubsection{Maximo local}
+
+Sea  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$ decimos que:
+
+f tiene un maximo local en  $(x_0,y_0)$ si existe una bola (disco) B  centrada en  $(x_0,y_0), \text{ con } B \subset Dom(f)$
+
+y tal que  $f(x_0,y_0) \ge f(x,y)~~\forall (x,y) \in B$
+
+El numero  $f(x_0,y_0)$ se llama valor maximo local de f
+
+\subsubsection{Minimo local}
+
+Sea  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$ decimos que:
+
+f tiene un minimo local en  $(x_0,y_0)$ si existe una bola (disco) B  centrada en  $(x_0,y_0), \text{ con } B \subset Dom(f)$
+
+y tal que  $f(x_0,y_0) \le f(x,y)~~\forall (x,y) \in B$
+
+El numero  $f(x_0,y_0)$ se llama valor minimo local de f
+
+\subsubsection{Maximo o minimo absoluto}
+
+Si las desigualdades se cumplen $\forall (x,y) \in Dom(f)$ entonces decimos que f tiene un maximo (o minimo, segun corresponda) absoluto en $(x_0,y_0)$
+
+\subsubsection{Extremo local}
+
+Decimos que f tiene un extremo local en  $(x_0,y_0)$ si f tiene un maximo local o un minimo local en  $(x_0,y_0)$
+
+\subsubsection{Extremo local y derivadas parciales}
+
+Si  $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$ tiene un extremo local en  $(x_0,y_0)$ y existen las derivadas parciales de f en  $(x_0,y_0)$ entonces:
+
+$f_x(x_0,y_0) = f_y(x_0,y_0) = 0$
+
+\subsubsection{Puntos criticos y singulares}
+
+Si $f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R}$ tiene un extremo local en  $(x_0,y_0)$ entonces: 
+
+* o bien  $(x_0,y_0)$ es punto critico de f (y por lo tanto  $\nabla f(x_0,y_0)=0)$
+
+* o bien  $(x_0,y_0)$ es punto singular de f (y por lo tanto  $\nexists \nabla f(x_0,y_0))$
+
+\subsection{Test de la derivada segunda}
+
+Sean 
+$f:Dom(f) \subseteq \mathbb{R}^2\to \mathbb{R} \text{ y } (x_0,y_0) \in Dom(f)$
+
+Supongamos que las derivadas parciales de 1er y 2do orden de f son continuas en una bola 
+$B \subset Dom(f)$
+de centro 
+$(x_0,y_0)$
+
+y supongamos ademas que 
+$\nabla f(x_0,y_0) = (0,0)$
+
+Sea 
+$D = D(x_0,y_0) = f_{xx}(x_0,y_0) f_{yy}(x_0,y_0)-[f_{xy}(x_0,y_0)]^2$
+
+entonces: 
+
+$(1)\quad D>0 \text{ y } f_{xx}(x_0,y_0) > 0 (o f_{yy}(x_0,y_0) > 0) \Rightarrow$
+f tiene minimo local en 
+$(x_0,y_0)$
+
+$(2)\quad D>0 \text{ y } f_{xx}(x_0,y_0) < 0 (o f_{yy}(x_0,y_0) < 0) \Rightarrow$
+f tiene maximo local en 
+$(x_0,y_0)$
+
+$(3)\quad D<0 \Rightarrow$
+f no tiene ni maximo ni minimo local en 
+$(x_0,y_0)$
+En este caso decimos que f tiene un punto silla en 
+$(x_0,y_0)$
+
+$(4)\quad D=0 \Rightarrow$
+no se puede asegurar nada
+

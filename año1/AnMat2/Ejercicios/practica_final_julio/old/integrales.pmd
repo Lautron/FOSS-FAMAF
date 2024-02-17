@@ -1,0 +1,89 @@
+---
+title: Integrales
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Integrales
+## 1)
+### Como resolver
+- Dibujo
+  - graficar g(x)	
+  - graficar h(x)	
+  - Pintar interseccion
+
+- Calcular area
+  - Plantear teoria
+  - Ver puntos de interseccion de las funciones
+  - Determinar funcion mayor
+  - Restar la funcion mayor por la menor
+  - Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion (COMPLETADO)
+
+Hagamos el grafico
+
+![](./integrales_imgs/fig1.png)
+
+Ahora calculemos el area
+
+![](./integrales_imgs/fig2.png)
+
+\newpage
+
+## 2)
+### Como resolver
+- Plantear teoria
+- Despejar y en ambas ecuaciones
+- Ver puntos de interseccion de las funciones
+- Determinar funcion mayor
+- Restar la funcion mayor por la menor
+- Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion (COMPLETADO)
+![](./integrales_imgs/fig3.png)
+
+## Lessons
+- Never take shortcuts while solving something
+  - It's very prone to mistakes
+
+\newpage
+
+## 3)
+### Como resolver
+- Factorizar numerador y denominador al maximo
+- Plantear igualdad de factorizacion por fracciones simples
+- Unir denominadores en la parte derecha
+- Eliminar denominadores
+- Despejar incognitas eligiendo valores convenientes para x
+
+### Resolucion (COMPLETADO)
+![](./integrales_imgs/fig4.png)
+
+![](./integrales_imgs/fig7.png)
+
+\newpage
+
+# Integrales Impropias
+# 1)
+### Como resolver
+- Tener en cuenta como se resuelve una integral impropia con ambos limites de integracion que tienden a infinito
+- Ver caso para $c<0$
+  - El exponente será siempre positivo
+
+- Ver caso para $c=0$
+  - El exponente será siempre 0
+
+- Ver caso para $c>0$
+  - El exponente será siempre negativo
+
+### Resolucion
+![](./integrales_imgs/fig5.png)
+![](./integrales_imgs/fig6.png)

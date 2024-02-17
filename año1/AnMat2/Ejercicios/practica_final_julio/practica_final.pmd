@@ -1,0 +1,351 @@
+---
+title: Practica Final - AM2
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Integrales
+## 1)
+### Como resolver
+- Dibujo
+  - graficar g(x)	
+  - graficar h(x)	
+  - Pintar interseccion
+
+- Calcular area
+  - Plantear teoria
+  - Ver puntos de interseccion de las funciones
+  - Determinar funcion mayor
+  - Restar la funcion mayor por la menor
+  - Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion (COMPLETADO)
+
+Hagamos el grafico
+
+![](./integrales_imgs/fig1.png)
+
+Ahora calculemos el area
+
+![](./integrales_imgs/fig2.png)
+
+\newpage
+
+## 2)
+### Como resolver
+- Plantear teoria
+- Despejar y en ambas ecuaciones
+- Ver puntos de interseccion de las funciones
+- Determinar funcion mayor
+- Restar la funcion mayor por la menor
+- Integrar la funcion resultante
+
+Habria que hacer una integral definida con los puntos en donde se intersecan las funciones?
+
+### Resolucion (COMPLETADO)
+![](./integrales_imgs/fig3.png)
+
+## Lessons
+- Never take shortcuts while solving something
+  - It's very prone to mistakes
+
+\newpage
+
+## 3)
+### Como resolver
+- Factorizar numerador y denominador al maximo
+- Plantear igualdad de factorizacion por fracciones simples
+- Unir denominadores en la parte derecha
+- Eliminar denominadores
+- Despejar incognitas eligiendo valores convenientes para x
+
+### Resolucion (COMPLETADO)
+![](./integrales_imgs/fig4.png)
+
+![](./integrales_imgs/fig7.png)
+
+\newpage
+
+# Integrales Impropias
+## 1)
+### Como resolver
+- Tener en cuenta como se resuelve una integral impropia con ambos limites de integracion que tienden a infinito
+- Ver caso para $c<0$
+  - El exponente será siempre positivo
+
+- Ver caso para $c=0$
+  - El exponente será siempre 0
+
+- Ver caso para $c>0$
+  - El exponente será siempre negativo
+
+### Resolucion 
+![](./integrales_imgs/fig5.png)
+
+![](./integrales_imgs/fig6.png)
+
+![](./integrales_imgs/fig8.png)
+
+### Resolucion 2 (COMPLETADO)
+![](./practica_final_imgs/fig4.png)
+
+
+
+
+
+## Notes 
+- Probablemente deberia ser mas riguroso con los limites
+
+# Sucesiones y series
+## 1)
+### Como resolver
+Hay que demostrar que la serie de $a_n$ converge pero $|a_n|$ no 
+
+- Para cada caso
+  - Aplicar criterio para ver si la serie en cuestion converge o diverge
+
+### Resolucion (COMPLETADO)
+![](./sucesiones_y_series_imgs/fig1.png)
+
+## 2)
+### Como resolver
+- Ver caso para $t_0<0$
+  - El exponente será siempre negativo
+
+- Ver caso para $t_0=0$
+  - El exponente será siempre 0
+
+- Ver caso para $t_0>0$
+  - El exponente será siempre positivo
+
+- Para cada caso desarrollar y aplicar criterios
+
+### Resolucion (COMPLETADO) 
+![](./sucesiones_y_series_imgs/fig3.png)
+
+![](./sucesiones_y_series_imgs/fig4.png)
+
+![](./sucesiones_y_series_imgs/fig5.png)
+
+# Series de potencias
+## 1)
+### Como resolver
+- Intentar llegar a algo de la forma $\frac{1}{1-r}$ 
+- Usar teorema de la serie geometrica
+- Usar criterio del cociente para obtener radio de convergencia
+- Ver si la serie converge en los extremos del intervalo
+
+### Resolucion 1
+![](./series_de_potencias_imgs/fig1.png)
+
+![](./practica_final_imgs/fig2.png)
+
+### Resolucion 2 (COMPLETADO)
+![](./series_de_potencias_imgs/fig1.png)
+
+![](./practica_final_imgs/fig5.png)
+
+
+## 2)
+### Como resolver
+- Calcular intervalo de convergencia
+  - usar criterio del cociente para series de potencias
+  - Ver si la serie converge en los extremos del intervalo
+
+- Derivar serie de potencias
+  - Pasar derivada adentro de la sumatoria
+  - Tener en cuenta formula para derivacion de series de potencias
+
+### Resolucion (COMPLETADO)
+![](./series_de_potencias_imgs/fig2.png)
+
+![](./series_de_potencias_imgs/fig3.png)
+
+
+#### Calcular derivada\
+
+![](./practica_final_imgs/fig3.png) 
+
+## 3)
+### Como resolver
+- Separar $C_n$ del resto de la expresion
+- Aplicar criterio del cociente
+- Ver si la serie converge en los extremos del intervalo
+
+### Resolucion
+
+
+## 4)
+### Como resolver
+
+### Resolucion 
+
+# Taylor
+## 1)
+### Como resolver
+- Calcular primeras derivadas
+- Encontrar formula para las derivadas
+- Expresar la formula de Taylor y despejar el valor absoluto del resto de taylor
+- Usar la formula de lagrange para desarrollar el resto de taylor
+- Acotar el resto de taylor
+  - Si se tiene que $t \in (a,b)$ se lo puede acotar por $a$ o por $b$ segun convenga
+  - Se puede tomar expresiones que incluyan a $t$ y mediante desigualdades acotar la expresion completa
+- El error que se comete es menor o igual al resultado obtenido
+
+### Resolucion 
+![](./practica_final_imgs/fig6.png)
+
+
+# Encontrar ecuacion del plano
+## 1)
+### Como resolver
+- Llamemos $P_0, Q_0, R_0$ a los puntos, da igual el orden
+- Calcular V restandole $P_0$ a $Q_0$
+- Calcular W restandole $P_0$ a $R_0$
+- Armar la ecuacion vectorial del plano que pasa por $P_0$ y es generado por V y W
+
+### Resolucion
+
+![](./practica_final_imgs/fig7.png)
+
+# Encontrar ecuacion de la recta tangente
+## 1)
+### Como resolver
+- Calcular derivada de la funcion
+- Evaluar funcion en el punto para obtener vector $P_0$
+- Evaluar derivada en el punto para obtener vector V
+- Armar ecuacion de la recta que pasa por el punto $P_0$ y tiene direccion V
+
+### Resolucion
+![](./practica_final_imgs/fig8.png)
+
+
+# Calcular ecuacion del plano tangente
+# 1)
+## HowTo (DONE)
+
+- Calcular ecuacion
+  - Calcular $f_x(a,b)$
+  - Calcular $f_y(a,b)$
+  - Definir $P_0 = (a,b, f(a,b))$
+  - Definir V = $(1,0, f_x(a,b))$
+  - Definir W = $(0,1, f_y(a,b))$
+  - Armar la ecuacion para el plano que pasa por el punto $P_0$ y es generado por los vectores V y W
+
+- Calcular vector normal
+  - Definir vector normal $N = (-f_x(a,b), - f_y(a,b), 1)$
+
+## Resolucion (CORREGIR)
+
+![](./practica_final_imgs/fig9.png)
+
+Ahora calculemos el vector normal
+
+![](./practica_final_imgs/fig10.png)
+
+# Encontrar ecuacion normal del plano tangente
+## 1)
+## HowTo (DONE)
+- Calcular W = $\nabla f(x_0, y_0, z_0)$
+- Calcular ecuacion del plano normal a W que pasa por $(x_0, y_0, z_0)$
+
+## Resolucion
+![](./practica_final_imgs/fig11.png)
+
+
+
+# Encontrar angulo entre planos
+# 1)
+## HowTo (DONE)
+- Calcular vector normal del plano $\Pi_0$, llamemoslo $N_0$ 
+  - El vector normal es el $\nabla f(x_0,y_0,z_0)$ con $(x_0,y_0,z_0) en S_k$
+- Calcular vector normal del plano $\Pi_1$, llamemoslo $N_1$
+  - Todos los vectores normales al plano tienen la forma $\bar{n} = A\hat{i} + B\hat{j} + C\hat{k}$
+  - Crear vector usando coeficientes del plano
+- Calcular angulo entre $N_0 \text{ y } N_1$
+
+## Resolucion
+![](./practica_final_imgs/fig12.png)
+
+
+# Encontrar puntos extremos
+# 1)
+## HowTo
+- Encontrar puntos criticos de la funcion
+  - Ver coordenadas para las cuales $\nabla f(x,y) = 0$	
+- Evaluar funcion en los puntos criticos y comparar resultados para determinar maximos y minimos
+
+## Resolucion
+
+# Regla de la cadena
+# 1)
+## HowTo (REVISAR)
+- Reemplazar x en w
+- Reemplazar y en w
+- Calcular $\frac{\partial w}{\partial s}$ usando regla de la cadena
+- Calcular $\frac{\partial w}{\partial t}$ usando regla de la cadena
+
+## Resolucion
+
+# 2)
+## HowTo (REVISAR)
+- La derivada direccional maxima de un punto se da en la direccion del gradiente de la funcion en dicho punto
+
+- Calcular gradiente de la funcion en h(0)
+- Usar regla de la cadena para calcular las respectivas derivadas parciales
+- El resultado del gradiente es la direccion u para la cual la derivada es maxima
+
+## Resolucion
+
+# Direcciones tasa de crecimiento
+# 1)
+## HowTo
+- La direccion de mas alta tasa de crecimiento es el gradiente evaluado en el punto
+- La direccion de menor tasa de crecimiento es el gradiente negativo evaluado en el punto
+- Calcular derivadas direcionales usando v y w
+## Resolucion
+
+# Derivada direccional
+# 1)
+## HowTo (DONE)
+- Tener en cuenta que $D_u f((a,b)) = \langle \nabla f((a,b)), u \rangle$
+- Reemplazar derivada direccional por el valor que se desea alcanzar
+- Reemplazar valores de a y b por los valores del punto en donde se está evaluando
+- Despejar u
+
+## Resolucion
+
+# 2)
+## HowTo (DONE)
+- Calcular $\nabla f((a,b))$
+- Tener en cuenta la igualdad $D_u f((a,b)) = \langle \nabla f((a,b)), u \rangle$
+- Reemplazar a,b 
+- Reemplazar u
+- Reemplazar $\nabla f((a,b))$
+
+## Resolucion
+
+
+# Calcular integral doble
+# 1)
+## HowTo
+- Plantear region con y-simple
+- Aplicar teorema de fubini para obtener una integral iterada
+- Resolver integral iterada
+
+## Resolucion
+
+# Calcular volumen
+# 1)
+## HowTo
+- Calcular volumen de la tapa hasta el axis
+- Calcular volumen desde la base hasta el axis
+- Restar volumen de la base por volumen de la tapa
+## Resolucion
+
+

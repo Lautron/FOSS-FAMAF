@@ -1,0 +1,47 @@
+Integral doble de un rectangulo: Norma de la particion de un rectangulo,"[latex]Dada una particion $P = \{Q_{ij}: 1 \le  i \le m , 1 \le j \le n\} $ de un rectangulo  $Q \in \mathbb{R}^2 $<br>
+Definimos la norma de la particion P como la mayor longitud de las diagonales de los subrectangulos $Q_{ij}$ y la denotamos  $\|P\|$[/latex]",Integrales_funciones_de_varias_variables
+Integral doble de un rectangulo: Definicion,"[latex]Sea Q un rectangulo en  $\mathbb{R}^2 \text{ y } f:Q\to \mathbb{R},$<br>
+la integral doble de f sobre el rectangulo Q es:<br>
+$\int\int_Q f(x,y) ~dA = \lim_{\|P\| \to 0} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}, y_{ij})\Delta x_i \Delta y_j$<br>
+si este limite existe. En tal caso f se dice integrable sobre Q[/latex]",Integrales_funciones_de_varias_variables
+Integral doble de un rectangulo: Continuidad e integracion,[latex]f continua en Q $\Rightarrow $ f es integrable sobre Q[/latex],Integrales_funciones_de_varias_variables
+Integral doble de un rectangulo: Volumen bajo el grafico y sobre el rectangulo,"[latex]Si  $f \ge 0$ y es integrable sobre Q<br>
+$\Rightarrow $ $\int \int_Q f(x,y)~dA = $ volumen bajo la grafica de f y arriba del rectangulo Q[/latex]",Integrales_funciones_de_varias_variables
+Integral doble de un rectangulo: Notacion,"[latex]A veces denotamos  $\int\int_Q f(x,y)~dx~dy $ en lugar de $\int\int_Q f(x,y)~dA $[/latex]",Integrales_funciones_de_varias_variables
+Integrales iteradas: Definicion,"[latex]Sean $Q = [a,b] \times [c,d] \text{ y } f:Q\to \mathbb{R}$<br>
+Para cada  $y \in [c,d] $ hacemos  $\int_{a}^{b}f(x,y)~dx,$ esto define una funcion de y que podemos volver a integrar obteniendo:<br>
+$\int_{c}^{d}\left( \int_{a}^{b}f(x,y)~dx \right) ~dy $<br>
+esta integral se llama integral iterada de f[/latex]",Integrales_funciones_de_varias_variables
+Integrales iteradas: Orden inverso,"[latex]Es posible realizar el proceso en orden inverso obteniendo así:<br>
+$\int_{a}^{b}\left( \int_{d}^{c}f(x,y)~dy \right) ~dx$<br>
+lo que nos daria la ""otra"" integral iterada de f[/latex]",Integrales_funciones_de_varias_variables
+Teorema de fubini,"[latex]Si f es continua en el rectangulo 
+$Q = [a,b] \times [c,d],$
+entonces:<br>
+$\int\int_Q f(x,y)~dA = \int_{a}^{b}\int_{c}^{d}f(x,y)~dy ~dx = \int_{c}^{d}\int_{a}^{b}f(x,y)~dx ~dy $<br>
+El teorema también vale si f es acotada en Q, discontinua solo en un nro. finito de curvas suaves y las integrales iteradas existen[/latex]",Integrales_funciones_de_varias_variables
+Integrales dobles en regiones generales: Definicion,"[latex]Sea D una region acotada en  $\mathbb{R}^2 $<br>
+o sea, D está contenida en algun rectangulo Q con lados paralelos a los ejes cartesianos<br>
+Dada f definida en D, extendemos f al rectangulo Q de la siguiente manera<br>
+$F(x,y) = \begin{cases} f(x,y)\quad \text{ si } (x,y) \in D \cap Q \\\\ \quad0\qquad~ \text{ si } (x,y) \in D^c \cap Q \end{cases}$<br>
+Decimos que f es integrable sobre D si F es integrable sobre Q y en ese caso definimos<br>
+$\int\int_D f(x,y)~dA = \int\int_Q F(x,y)~dA $[/latex]",Integrales_funciones_de_varias_variables
+Integrales dobles en regiones generales: Interpretacion de la integral con ,"[latex]Si  $f \ge 0$ en D, entonces la integral se puede interpretar como el volumen del solido debajo del grafico de f y arriba de la region D[/latex]",Integrales_funciones_de_varias_variables
+Tipos de regiones D: Region de tipo 1 ( x-simple),"[latex]Sean  $g_1 \text{ y } g_2$ funciones continuas en [a,b]<br>
+Una region es de tipo 1 si es de la forma:<br>
+$D = \{(x,y) \in  \mathbb{R}^2 : a \le x \le b, g_1(x) \le  y \le g_2(x)\}$[/latex]",Integrales_funciones_de_varias_variables
+Tipos de regiones D: Region de tipo 2 ( y-simple),"[latex]Sean $h_1 \text{ y } h_2$ funciones continuas en [c,d]<br>
+Una region es de tipo 2 si es de la forma:<br>
+$D = \{(x,y) \in \mathbb{R}^2 : c \le  y \le  d , h_1(y) \le  x \le h_2(y)\} $[/latex]",Integrales_funciones_de_varias_variables
+Tipos de regiones D: Region 1 y 2 simultaneamente,"[latex]Existen funciones de tipo 1 y 2 simultaneamente, por ejemplo un circulo, un rectangulo, etc[/latex]",Integrales_funciones_de_varias_variables
+Propiedades de la integral doble: integral de 1,"[latex]Sea D una region y f y g funciones integrables sobre D<br>
+$\int\int_D 1~dA = A(D)\quad$ (area de la region D)[/latex]",Integrales_funciones_de_varias_variables
+Propiedades de la integral doble: Suma,"[latex]Sea D una region y f y g funciones integrables sobre D<br>
+$\int\int_D [f(x,y)+g(x,y)]~dA = \int\int_D f(x,y)~dA + \int\int_D g(x,y)~dA$[/latex]",Integrales_funciones_de_varias_variables
+Propiedades de la integral doble: Multiplicacion por constante,"[latex]Sea D una region y f y g funciones integrables sobre D<br>
+$\int\int c\cdot f(x,y)~dA = c\cdot\int\int f(x,y)~dA,\quad \forall c \in \mathbb{R}$[/latex]",Integrales_funciones_de_varias_variables
+Propiedades de la integral doble: Desigualdad de funciones,"[latex]Sea D una region y f y g funciones integrables sobre D<br>
+$f(x,y) \le g(x,y) \Rightarrow \int\int_D f(x,y)~dA \le \int\int_D g(x,y)~dA$[/latex]",Integrales_funciones_de_varias_variables
+Propiedades de la integral doble: Multiples regiones,"[latex]Sea D una region y f y g funciones integrables sobre D<br>
+Sea $D = D_1 \cup D_2,$ donde  $D_1 \text{ y } D_2$ no se superponen excepto quizas en sus fronteras, entonces:<br>
+$\int\int_D f(x,y)~dA = \int\int_{D_1} f(x,y)~dA + \int\int_{D_2} f(x,y)~dA$[/latex]",Integrales_funciones_de_varias_variables
