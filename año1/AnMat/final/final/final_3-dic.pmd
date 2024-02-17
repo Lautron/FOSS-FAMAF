@@ -1,0 +1,80 @@
+# Final análisis matemático (transcripcion) #
+
+## Ejercicio 1: (20 pts) ##
+a) Resolver y grafica el conjunto de soluciones de la desigualdad $$\frac{|x-6|}{x+2} < x-1$$
+
+b) Dada la funcion $f(x) = \frac{1}{x+x^2}$, $f:\mathbb{R} \to \mathbb{R}$, responder las siguientes preguntas, justificando las respuestas:
+    i) ¿Es f inyectiva?
+    ii) Calcular imagen de f. ¿Es suryectiva?
+    iii) ¿Es f biyectiva?
+    iv) ¿Es necesario restringir el dominio de f para que resulte inyectiva? En caso afirmativo mostrar como hacerlo
+    v) Indicar el dominio y el conjunto de llegada para que f sea biyectiva y calcular su inversa.
+
+## Ejercicio 2: (20 pts) ##
+
+a) Calcular los siguientes limites sin usar la regla de L'Hopital:
+
+    i)$$\lim_{x \to 0} \frac{x\tan(2x)}{sen^2(3x)}$$
+
+    ii)$$\lim_{x \to \infty} \frac{1-2x^3}{5x^3-x^2+3}$$
+ 
+b) Sea $g(x)$ la siguiente funcion definida a tramos
+
+$$
+g(x)
+\begin{cases}
+ \frac{x^2-9}{x+3}\quad &\text{ si }\quad x< -3\\
+ 0 &\text{ si }\quad x= -3\\
+ x-3 &\text{ si }\quad -3 < x \le 0\\
+ x.ln(x) &\text{ si }\quad x>0
+\end{cases}
+$$
+Determinar en que puntos g es discontinua y decir de que tipo es la discontinuidad
+
+c)
+
+    i) Enunciar con precision el teorema del valor intermedio.
+    ii) Demostrar que hay una solucion de la siguiente ecuacion en el intervalo dado.
+$$4-x^4=4^x \text{ en } (0,1)$$
+
+## Ejercicio 3: (20 pts) ##
+
+a)
+    i) Obtener la ecuacion de la recta tangente al grafico de $f(x) = \frac{1}{x+1}$ en el punto $(1, \frac{1}{2})$
+    ii) Utilizar la ecuacion obtenida en (i) para estimar el valor de $f(0.9)$ con una aproximacion lineal.
+    iii) ¿El valor obtenido en (ii) es mayor o menor que el valor exacto de  $f(0.9)$? Justificar
+
+b)
+
+    i) Enunciar con precision el teorema de Rolle.
+    ii) Demostrar que la ecuacion $x^5+3x-7$ tiene a lo sumo 1 raiz en  $\mathbb{R}$
+
+## Ejercicio 4: (20 pts) ##
+Graficar una funcion f que cumpla con todas las siguientes caracteristicas:
+
+a) El dominio de f es todo $\mathbb{R}$
+
+b) $y=0$ es asintota horizontal del grafico y $\lim_{x \to -\infty} = \infty$
+
+c) f solo tiene una discontinuidad en $x=2$ y es esencial.
+
+d) f es continua por izquierda en $x=2$ y $f(2)=-1$
+
+e) $f'(x)$ y $f''(x)$ no existen unicamente para $x=2$ y $x=4$ y $f(4)=1$
+
+f) Los unicos puntos criticos son  $x=0$, $x=4$ y $x=5$
+
+g)  $f'(x) > 0$ exclusivamente en $(0,2)\cup(4,5)$
+
+h) Los unicos puntos de inflexion son  $x=4$ y $x=7$
+
+i)  $f''(x) < 0$ exclusivamente en  $(4,7)$ 
+
+# Ejercicio 5: (20 pts) #
+
+a) Calcular la antiderivada F de $\frac{x^2-x}{\sqrt{2x^3-3x^2+1} }$ que satisface $F(0) = 1$
+
+    ¿Cual es el valor de $F(1)$?
+
+b) Graficar y calcular el area encerrada por las siguientes curvas:
+$$y=4-x,\quad y= \frac{1}{x},\quad x=1 \text{ y } x=e$$

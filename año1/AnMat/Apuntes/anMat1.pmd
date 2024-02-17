@@ -1,0 +1,942 @@
+
+\tableofcontents
+
+\section{Funciones}
+
+\subsection{Funciones lineales}
+
+\subsubsection{Calcular pendiente usando dos puntos }
+
+$P = (x_1, y_1), \space Q = (x_2, y_2)$
+
+$\Rightarrow$ $a = \displaystyle \frac{y_2 - y_1}{x_2-x_1}$
+
+\subsubsection{Obtener ecuación de la recta}
+
+Teniendo en cuenta que la recta pasa por un punto  $(x_1,y_1)$
+
+$y = a(x-x_1)+y_1$
+
+\subsubsection{Calcular pendiente y ecuación}
+
+$y = \displaystyle \frac{y_2 - y_1}{x_2-x_1}(x-x_1)+y_1$
+
+\subsection{Transformaciones}
+
+\subsubsection{Desplazamientos verticales}
+
+$g(x) = f(x) + c$ Arriba
+
+$g(x) = f(x) - c$ Abajo
+
+\subsubsection{Desplazamientos horizontales}
+
+$k(x) = f(x+c)$ Izquierda
+
+$k(x) = f(x-c)$ Derecha
+
+\subsubsection{Reflexiones}
+
+$g(x) = -f(x)$ Refleja respecto al eje x
+
+$g(x) = f(-x)$ Refleja respecto al eje y
+
+\subsection{Rectas paralelas y perpendiculares}
+
+\subsubsection{Paralela}
+
+Una recta es paralela a otra recta $\Leftrightarrow$ las rectas tienen la misma pendiente
+
+\subsubsection{Perpendicular}
+
+Una recta es perpendicular a otra recta $\Leftrightarrow$ las rectas tienen pendientes reciprocas negativas
+
+\subsection{Posibles caracteristicas}
+
+\subsubsection{Par}
+
+Son simetricas en el eje vertical:
+
+$f(-x) = f(x)$
+
+\subsubsection{Impar}
+
+$f(-x) = -f(x)$
+
+\subsubsection{Inyectiva}
+
+No hay dos elementos del Dom(f) con igual imagen:
+
+$f(x_1) = f(x_2) \Rightarrow x_1 = x_2$
+
+\subsubsection{Sobreyectiva}
+
+Una funcion  $f:\mathbb{A}\to \mathbb{B}$ es sobreyectiva si todo elemento del conjunto de llegada es un elemento de Im(f), es decir:
+
+$\mathbb{B} = Im(f)$
+
+\subsubsection{Biyectiva}
+
+Es Inyectiva y Sobreyectiva al mismo tiempo
+
+\subsubsection{Inversa}
+
+Si una función es Biyectiva entonces tiene inversa
+
+$f(x) = y~\Rightarrow ~ f^{-1}(y)=x$
+
+$f(f^-1(x))=x$
+
+\subsection{Parabolas}
+
+\subsubsection{polinomica}
+
+$f(x) = ax^2+bx+c$
+
+\subsubsection{Factorizada}
+
+$f(x) =a(x-x_1)(x-x_2)$
+
+\subsubsection{Canónica}
+
+$f(x) = a(x-x_v)^2+y_v$
+
+$x_v \text{ e } y_v$ son las coordenadas del vertice de la curva
+
+$x_v = -\displaystyle \frac{b}{2a}$
+
+$y_v=f(x_v)$
+
+\subsection{Circunferencia}
+
+$C=\{(x,y) \in \space \mathbb{R}^2|(x-x_0)^2+(y-y_0)^2 = r^2\}$
+
+$(x_0,y_0)$
+Centro de la circunferencia
+
+\subsection{Elipse}
+
+$(x_0,y_0)\quad\rightarrow$
+Centro del elipse
+
+$a\quad\rightarrow$
+Distancia del centro a los vertices (Eje mayor)
+
+$b\quad\rightarrow$
+Distancia del centro a los vertices (Eje menor)
+
+$\displaystyle \frac{(x-x_0)^2}{a^2}+\displaystyle \frac{(y-y_0)^2}{b^2} = 1$
+
+\section{Trigonometria}
+
+\subsection{Seno y Coseno}
+
+\subsubsection{Periodicidad}
+
+$cos(t+2k\pi) = cos(t)$
+
+$sen(t+2k\pi) = sen(t)$
+
+\subsubsection{Identidad trigonometrica}
+
+$cos^2(t) + sen^2(t) = 1$
+
+\subsubsection{Diferencia seno y coseno}
+
+$cos\left(t-\displaystyle \frac{\pi}{2}\right) = sen(t)$
+
+$sen\left(t+\displaystyle \frac{\pi}{2}\right) = cos(t)$
+
+\subsubsection{Invertir signo}
+
+$cos(t+\pi) = -cos(t)$
+
+$sen(t+\pi) = -sen(t)$
+
+\subsubsection{Suma de angulos: Coseno}
+
+$cos(t+s) = cos(t)cos(s)-sen(t)sen(s)$
+
+$t = s$ $\Rightarrow$ $cos(2t) = cos^2(t)-sen^2(t)$
+
+\subsubsection{Suma de angulos: Seno}
+
+$sen(t+s) = sen(t)cos(s)+sen(s)cos(t)$
+
+$t = s$ $\Rightarrow$ $sen(2t) = 2sen(t)cos(t)$
+
+\subsection{Transformaciones: Funciones trigonometricas}
+
+\subsubsection{Amplitud}
+
+$a~cos(t)$
+
+$a~sen(t)$
+
+Cuanto mayor sea a mayor será la amplitud de la función
+
+Si a es negativo existe una reflexión con respecto a uno de los ejes coordenados
+
+\subsubsection{Periodicidad}
+
+$cos(bt)$
+
+$sen(bt)$
+
+b modifica la periodicidad de la función
+
+Si b es negativo existe una reflexión con respecto a uno de los ejes coordenados
+
+\subsection{Tangente}
+
+\subsubsection{Definicion}
+
+$tan(t) = \displaystyle \frac{sen(t)}{cos(t)}$
+
+\subsubsection{Dominio}
+
+$\mathbb{R} - \{(2k+1)\displaystyle \frac{\pi}{2}\}\rightarrow$ $Cos(t) \ne 0$
+
+\subsubsection{Propiedades}
+
+$tan(t + \pi) = tan(t)$ De periodo pi
+
+$tan(-t) = -tan(t)$ Es impar
+
+$a = tan(t)$ Siendo $a = \text{ pendiente}$
+
+\subsection{Otras funciones trigonometricas}
+
+\subsubsection{Secante}
+
+Periodo $2\pi$
+
+Dominio $\mathbb{R} - \{(2k+1)\displaystyle \frac{\pi}{2}\}$
+
+Imagen $\mathbb{R}-(-1,1)$
+
+$sec(t) = \displaystyle \frac{1}{cos(t)}$
+
+\subsubsection{Cosecante}
+
+Periodo $2\pi$
+
+Dominio $\mathbb{R} - \{k\pi|k\in \mathbb{Z}\}$
+
+Imagen $\mathbb{R}-(-1,1)$
+
+$cosec(t) = \displaystyle \frac{1}{sen(t)}$
+
+\subsubsection{Cotangente}
+
+Periodo $\pi$
+
+Dominio $\mathbb{R} - \{k\pi|k\in \mathbb{Z}\}$
+
+Imagen $\mathbb{R}$
+
+$cot(t)= \displaystyle \frac{cos(t)}{sen(t)}$
+
+\subsection{Radianes y angulos}
+
+$\pi \cdot g = 180\cdot h$
+
+\subsection{Angulos notables Seno y Coseno}
+
+\subsubsection{0}
+
+grados: 0
+
+cos: 1
+
+sen: 0
+
+\subsubsection{$\frac{\pi}{6}$}
+
+Grados: 30
+
+cos: $\displaystyle \frac{\sqrt{3}}{2}$
+
+sen: $\displaystyle \frac{1}{2}$
+
+\subsubsection{$\frac{\pi}{4}$}
+
+Grados: 45
+
+cos: $\displaystyle \frac{\sqrt{2}}{2}$
+
+sen: $\displaystyle \frac{\sqrt{2}}{2}$
+
+\subsubsection{$\frac{\pi}{3}$}
+
+Grados: $60$
+
+cos: $\displaystyle \frac{1}{2}$
+
+sen: $\displaystyle \frac{\sqrt{3}}{2}$
+
+\subsubsection{$\frac{\pi}{2}$}
+
+Grados: $90$
+
+cos: $0$
+
+sen: $1$
+
+
+\section{Limites}
+
+\subsection{Definicion}
+
+\subsubsection{Formal}
+
+$\displaystyle \lim_{x\rightarrow a} f(x) = L$ $\forall ~ \epsilon > 0,~ \exists~\delta >0 / si ~ 0< |x-a| < \delta$ $\Rightarrow$ $|f(x)-L| < \epsilon$
+
+\subsection{Propiedades}
+
+\subsubsection{Desigualdad y limite}
+
+$f(x) \leq g(x)$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} f(x) \leq \displaystyle \lim_{x\rightarrow a} g(x)$
+
+\subsubsection{Lema del sandwich}
+
+$f(x) \leq g(x) \leq h(x)$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} f(x) = \displaystyle \lim_{x\rightarrow a} h(x) = L$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} g(x) = L$
+
+\subsubsection{Suma de limites}
+
+Sea $\displaystyle \lim_{x\rightarrow a} f(x) = L~ \wedge ~\displaystyle \lim_{x\rightarrow a} g(x) = M$
+
+$\displaystyle \lim_{x\rightarrow a} (f+g)(x) = L + M$
+
+\subsubsection{Multiplicacion de limites}
+
+Sea $\displaystyle \lim_{x\rightarrow a} f(x) = L~ \wedge ~\displaystyle \lim_{x\rightarrow a} g(x) = M$
+
+$\displaystyle \lim_{x\rightarrow a} (f\cdot g)(x) = L \cdot M$
+
+\subsubsection{Division de limites}
+
+Sea $\displaystyle \lim_{x\rightarrow a} f(x) = L~ \wedge ~\displaystyle \lim_{x\rightarrow a} g(x) = M$
+
+$M \ne 0$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} \left ( \displaystyle \frac{f}{g} \right ) (x) = \displaystyle \frac{L}{M}$
+
+\subsubsection{Raiz de limites}
+
+Sea $\displaystyle \lim_{x\rightarrow a} f(x) = L~ \wedge ~\displaystyle \lim_{x\rightarrow a} g(x) = M$
+
+$n \in \mathbb{N}$
+
+$\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} \sqrt[n]{f(x)} = \sqrt[n]{L}$
+
+\subsubsection{Limite de polinomios}
+
+Cuando se trabaja con polinomios es posible simplemente reemplazar x
+
+Ejemplos:
+
+$\displaystyle \lim_{x\rightarrow a} p(x) = p(a)$
+
+$f(x) = \displaystyle \frac{p(x)}{q(x)} ~\wedge~ q(a) \ne 0$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a}f(x) = \displaystyle \frac{p(a)}{q(a)}$
+
+$f(x) = \sqrt[n]{p(x)}$ $\Rightarrow$ $\displaystyle \lim_{x\rightarrow a} f(x) = \sqrt[n]{p(a)}$
+
+\subsection{Limites laterales}
+
+\subsubsection{Teorema}
+
+$\displaystyle \lim_{x\rightarrow a} f(x) = L$ $\Leftrightarrow$ $\displaystyle \lim_{x\rightarrow a^-} f(x) = L$ $\wedge$ $\displaystyle \lim_{x\rightarrow a^+} f(x) = L$
+
+\section{Continuidad}
+
+\subsection{Requisitos}
+
+$a \in Dom(f) \Rightarrow \exists f(a)$
+
+$\exists~\displaystyle \lim_{x\rightarrow a} f(x)$
+
+$f(a) = \displaystyle \lim_{x\rightarrow a} f(x)$
+
+\subsection{Tipos de discontinuidad}
+
+\subsubsection{Evitable}
+
+Se soluciona redefiniendo f(a) = L
+
+$\exists \displaystyle \lim_{x\rightarrow a} \text{ pero } f(x) \ne f(a)\vee \nexists f(a)$
+
+\subsubsection{De salto}
+
+Los limites laterales no coinciden
+
+$\displaystyle \lim_{x\rightarrow a-} \ne \displaystyle \lim_{x\rightarrow a+}$ $\Rightarrow$ $\nexists\displaystyle \lim_{x\rightarrow a}$
+
+\subsubsection{Esencial}
+
+Cuando uno de los limites laterales es infinito
+
+$\displaystyle \lim_{x\rightarrow a-} = \pm \infty \vee \displaystyle \lim_{x\rightarrow a+} = \pm \infty$ $\Rightarrow$ $\nexists\displaystyle \lim_{x\rightarrow a}$
+
+\subsection{Continuidad lateral}
+
+\subsubsection{Por izquierda}
+
+$\displaystyle \lim_{x\rightarrow a^-} f(x) = f(a)$
+
+\subsubsection{Por derecha}
+
+$\displaystyle \lim_{x\rightarrow a^+} f(x) = f(a)$
+
+\subsection{Continuidad en un intervalo}
+
+\subsubsection{Intervalo Abierto}
+
+f es continua en el intervalo (a,b) si es continua en todo número del intervalo
+
+\subsubsection{Intervalo cerrado}
+
+f es continua en el intervalo [a,b] si:
+
+Es continua en (a,b)
+
+Es continua por derecha en a
+
+Es continua por izquierda en b
+
+\subsection{Propiedades}
+
+\subsubsection{Continuidad y operaciones entre funciones}
+
+Sean f y g continuas en a, las siguientes funciones también lo son
+
+$(f+g)(x)$
+
+$(f\cdot g)(x)$
+
+$c\cdot f (x)$
+
+$g(a)\ne 0$ $\Rightarrow$ $\left(\displaystyle \frac{f}{g}\right)(x)$
+
+f es continua en g(a) $\Rightarrow$ $(f\circ g)(x)$
+
+\subsubsection{Polinomios}
+
+Los polinomios son continuos en $\mathbb{R}$
+
+\subsubsection{Funciones racionales}
+
+Toda función racional es continua en cualquier punto de su dominio
+
+\subsubsection{Radicacion}
+
+La radicación es continua en los puntos de su dominio (sin extremos)
+
+\subsection{Tips}
+
+\subsubsection{Demostrar continuidad en un punto dado}
+
+$a \in Dom(f) \Rightarrow \exists f(a)$
+
+$\exists~\displaystyle \lim_{x\rightarrow a} f(x)$
+
+$f(a) = \displaystyle \lim_{x\rightarrow a} f(x)$
+
+\subsubsection{Determinar en que puntos es discontinua una función}
+
+Determinar el dominio
+
+Determinar continuidad en intervalos abiertos (con propiedades)
+
+Decidir sobre la continuidad en los puntos extremos del intervalo (si es que hay)
+
+Expresar el tipo de continuidad encontrada: Evitable, Salto, Esencial
+
+\subsection{Teoremas}
+
+\subsubsection{Valor intermedio}
+
+Sean $\text{f continua en [a,b]}$
+
+$f(a) < N < f(b)$ o $f(b) < N < f(a)$
+
+$\Rightarrow\quad\exists c:~a<c<b~/~f(c)=N$
+
+\subsubsection{Weierstrass}
+
+Sea $\text{f continua en [a,b]}$
+
+$\Rightarrow\quad\exists~ x_1,x_2 \in [a,b]$ tal que $f(x_1) \leq f(x) \leq f(x_2)~~\forall x\in[a,b]$
+
+\section{Derivadas}
+
+\subsection{Definición}
+
+$\displaystyle \frac{df}{dx} = f'(a) = \displaystyle \lim_{h\rightarrow 0} \displaystyle \frac{f(a+h)-f(a)}{h}$
+
+$f'(a)$
+ es la pendiente de la recta tangente en ese punto 
+
+\subsection{Teorema derivadas y continuidad} 
+
+$\exists f'(a) \Rightarrow \text{f es continua en a}$
+
+$\text{f es NO es continua en a}\Rightarrow \nexists f'(a)$
+
+\subsection{Laterales}
+
+\subsubsection{Izquierda}
+
+Valores negativos de h $(a+h <a)$
+
+$f'^-(a) = \displaystyle \lim_{h\rightarrow 0^-} \displaystyle \frac{f(a+h)-f(a)}{h}$
+
+\subsubsection{Derecha}
+
+Valores positivos de h $(a+h >a)$
+
+$f'^+(a) = \displaystyle \lim_{h\rightarrow 0^+} \displaystyle \frac{f(a+h)-f(a)}{h}$
+
+\subsubsection{Propiedad Derivada y Derivadas laterales}
+
+f'(a) existe solo si las derivadas laterales existen y son iguales
+
+\subsection{Ecuacion de la recta tangente}
+
+$y=f'(a)(x-a)+f(a)$
+
+\subsection{Diferenciacion logarítmica}
+
+Tomar logaritmo de ambos lados
+
+Derivar de ambos lados
+
+Despejar f'(x)
+
+\subsection{Reglas de derivacion}
+
+\subsubsection{$f+g$}
+
+$f'+g'$
+
+\subsubsection{$f.g$}
+
+$f'.g+f.g'$
+
+\subsubsection{$c.f$}
+
+$c.f'$
+
+\subsubsection{$\frac{f}{g}$}
+
+$\displaystyle \frac{f'.g-f.g'}{g^2}$
+
+\subsubsection{$f(g(x))$}
+
+$f'(g(x)).g'(x)$
+
+\subsubsection{$f^{-1}(x)$}
+
+$\displaystyle \frac{1}{f'(f^{-1}(x))}$
+
+\subsection{Derivadas comunes}
+
+\subsubsection{$c$}
+
+$0$
+
+\subsubsection{$x^r$}
+
+$r.x^{r-1}$
+
+\subsubsection{$sen(x)$}
+
+$cos(x)$
+
+\subsubsection{$cos(x)$}
+
+$-sen(x)$
+
+\subsubsection{$e^x$}
+
+$e^x$
+
+\subsubsection{$a^x$}
+
+Sea $a>0$
+
+$ln(a)\cdot a^x$
+
+\subsubsection{$ln(x)$}
+
+Sea $x>0$
+
+$\displaystyle \frac{1}{x}$
+
+\subsubsection{$\log_a(x)$}
+
+Sea $a>0$ y $x>0$
+
+$\displaystyle \frac{1}{ln(a)\cdot x}$
+
+\subsubsection{$arcsen(x)$}
+
+Sea $-1 \le x \le 1$
+
+$\displaystyle \frac{1}{\sqrt{1-x^2}}$
+
+\subsubsection{$arccos(x)$}
+
+Sea $-1 \le x \le 1$
+
+$-\displaystyle \frac{1}{\sqrt{1-x^2}}$
+
+\subsubsection{$arctan(x)$}
+
+$\displaystyle \frac{1}{1-x^2}$
+
+\section{Analisis de funciones}
+
+\subsection{Extremos absolutos}
+
+\subsubsection{Máximo absoluto}
+
+$f(c) \geq f(x) ~\forall x \in Domf$ $\Rightarrow$ La funcion tiene un máximo absoluto en el punto c
+
+\subsubsection{Mínimo absoluto}
+
+$f(c) \leq f(x) ~\forall x \in Domf$ $\Rightarrow$ La funcion tiene un mínimo absoluto en el punto c
+
+\subsection{Extremos locales}
+
+\subsubsection{Máximo local}
+
+Sea $\mathbb{I}$ un intervalo abierto
+
+$c\in \mathbb{I}/f(c) \geq f(x) ~\forall x \in \mathbb{I}$ $\Rightarrow$ el punto c es el máximo local de f
+
+\subsubsection{Mínimo local}
+
+Sea $\mathbb{J}$ un intervalo abierto
+
+$c\in \mathbb{J}/f(d) \leq f(x) ~\forall x \in \mathbb{J}$ $\Rightarrow$ el punto d es el mínimo local de f
+
+\subsubsection{Prueba de la derivada segunda}
+
+Sea f'' continua en un intervalo abierto que contiene a c
+
+$f'(c) = 0 ~\Rightarrow~ c \text{ es } P.C$
+
+$f''(c) < 0 \Rightarrow \text{c es maximo local}$
+
+$f''(c) > 0 \Rightarrow \text{c es minimo local}$
+
+\subsubsection{Derivada y maximo local}
+
+$\exists c \in (a, b)$
+
+$f'(x) > 0$ a la izquierda de c
+
+$f'(x) < 0$ a la derecha de c
+
+$\Rightarrow$ c es un máximo local
+
+\subsubsection{Derivada y minimo local}
+
+$\exists c \in (a, b)$
+
+$f'(x) < 0$ a la izquierda de c
+
+$f'(x) > 0$ a la derecha de c
+
+$\Rightarrow$ c es un mínimo local
+
+\subsubsection{Encontrar extremos en un intervalo cerrado}
+
+Verificar continuidad en el intervalo
+
+Buscar puntos críticos
+
+Evaluar la funcion en los extremos del intervalo y en los puntos criticos dentro del intervalo
+
+Comparar los valores encontrados para determinar los extremos
+
+\subsection{Teoremas}
+
+\subsubsection{Teorema de fermat}
+
+Si $x = c$  es extremo y $\exists f'(c)$
+
+$\Rightarrow$ $f'(c) = 0$
+
+\subsubsection{Teorema de Rolle}
+
+Sea $f(x)$ Continua en [a, b], Derivable en (a, b) y f(a) = f(b)
+
+$\Rightarrow$ $\exists c \in (a,b)/ f'(c) = 0$
+
+\subsubsection{Teorema del Valor Medio}
+
+Sea $f(x)$ Continua en [a, b], Derivable en (a, b)
+
+$\Rightarrow$ $\exists c \in (a,b)/ f'(c) = \displaystyle \frac{f(b)-f(a)}{b -a}$ Es decir, la derivada en c es igual a la pendiente de la recta que une los puntos (a, f(a)) y (b, f(b))
+
+\subsection{Puntos críticos}
+
+$P.C = \{x \in Domf/f'(x) = 0 ~\vee~ \nexists f'(x)\}$
+
+\subsection{Crecimiento y Decrecimiento}
+
+\subsubsection{Funcion creciente}
+
+$f \text{ se dice creciente sobre } \mathbb{I}$ $\Leftrightarrow$ $f(x_1)<f(x_2)\text{ cuando } x_1 < x_2$
+
+\subsubsection{Funcion decreciente}
+
+$f \text{ se dice decreciente sobre } \mathbb{I}$ $\Leftrightarrow$ $f(x_1)>f(x_2)\text{ cuando } x_1 < x_2$
+
+\subsubsection{Derivada y crecimiento}
+
+Sea $f(x)$ Continua en [a, b], Derivable en (a, b)
+
+$f'(x) > 0~ \forall x \in (a, b)$ $\Rightarrow$ f es creciente en [a, b]
+
+$f'(x) < 0~ \forall x \in (a, b)$ $\Rightarrow$ f es decreciente en [a, b]
+
+\subsection{Concavas y Convexas}
+
+\subsubsection{Convexa}
+
+f es derivable en $\mathbb{I}$
+
+la curva de f queda arriba de todas las tangentes a la funcion f es concava hacia arriba (convexa)
+
+\subsubsection{Concava}
+
+f es derivable en $\mathbb{I}$
+
+la curva de f queda abajo de todas las tangentes a la funcion f es concava hacia abajo (concava)
+
+\subsubsection{Prueba de concavidad}
+
+Si f tiene derivadas segundas en un intervalo $\mathbb{I}$
+
+$f''(x) > 0 ~\forall x \in \mathbb{I}$ $\Rightarrow$ f es concava hacia arriba (convexa) en $\mathbb{I}$
+
+$f''(x) < 0 ~\forall x \in \mathbb{I}$ $\Rightarrow$ f es concava hacia abajo en $\mathbb{I}$
+
+\subsubsection{Punto de inflexion}
+
+Sea $f(x)$ Continua en $\mathbb{I}$ y Derivable en $\mathbb{I}$ , salvo quizás en  $x_0$
+
+Si la curva cambia la direccion de su concavidad en el punto $(x_0, f(x_0))$ $\Rightarrow$ $x_0$  se llama punto de inflexion
+
+\subsection{Regla de L'Hopital}
+
+\subsubsection{Cuando tiende a a}
+
+Sean  f(x) y g(x) Derivables en $\mathbb{I}$ , excepto quizás en a, y $g'(x) \ne 0 \text{ en } \mathbb{I}$ . Entonces:
+
+$\displaystyle \lim_{x\rightarrow a} \displaystyle \frac{f(x)}{g(x)} = \displaystyle \lim_{x\rightarrow a} \displaystyle \frac{f'(x)}{g'(x)}$
+
+\subsubsection{Cuando tiende al infinito}
+
+Sean  f(x) y g(x) Derivables $\forall x > N$ y $g'(x) \ne 0~ \forall x > N$ . Entonces:
+
+$\displaystyle \lim_{x\rightarrow \pm\infty} \displaystyle \frac{f(x)}{g(x)} = \displaystyle \lim_{x\rightarrow \pm\infty} \displaystyle \frac{f'(x)}{g'(x)}$
+
+\subsubsection{Corolario}
+
+$f' \text{ es continua}$ $\Rightarrow$ f es derivable
+
+$f'\text{ tiene discontinuidad de salto o esencial}$ $\Rightarrow$ f es no es derivable
+
+$\nexists \displaystyle \lim_{x\rightarrow a} f'(x)$ $\Rightarrow$ No se puede decir nada sobre la derivabilidad de f
+
+\subsection{Aproximacion Lineal}
+
+En un entorno alrededor de
+$x_0$
+, los valores de la funcion se pueden aproximar por los valores de la recta tangente a la funcion en el punto si:
+
+$|x-x_0| < \delta,~ f(x) \sim f(x_0) + f'(x_0)(x-x_0)$
+
+Si la funcion es concava hacia arriba los valores estaran subestimados
+
+Si la funcion es concava hacia abajo los valores estaran sobreestimados
+
+\section{Integrales}
+
+\subsection{Antiderivada o primitiva}
+
+\subsubsection{Definicion}
+
+$f(x) \text{ definida en } \mathbb{I}$
+
+$F'(x) = f(x) ~~\forall x \in \mathbb{I}$ $\Rightarrow$ F(x) es una antiderivada de f(x)
+
+\subsection{Integral indefinida}
+
+\subsubsection{Definicion}
+
+Se llama integral indefinida de f al conjunto de todas sus antiderivadas
+
+Es el conjunto infinito de todas las funciones de la forma 
+
+$G(x) = F(x) + c \Rightarrow \displaystyle \int f(x) ~ dx = F(x) + c$
+
+\subsubsection{Integracion por Sustitucion}
+
+$\displaystyle \int f(g(x)) g'(x) ~dx = \displaystyle \int f(u)~du$
+
+Con $u = g(x),$ $du = g'(x)~dx$
+
+\subsubsection{Integracion por partes}
+
+$\displaystyle \int f(x) g'(x)~dx = f(x)g(x) - \displaystyle \int f'(x)g(x)~dx$
+
+Orden para elegir que funcion derivar ILATE: Inversa Logaritmica Algebraica Trigonometrica Exponencial
+
+\subsection{Integrales comunes}
+
+\subsubsection{0}
+
+c
+
+\subsubsection{$x^r$}
+
+$r \neq -1$
+
+$\Rightarrow \displaystyle \frac{x^{r+1}}{r+1}+c$
+
+\subsubsection{$\frac{1}{x}$}
+
+$x \neq 0$
+
+$\Rightarrow ln(|x|) + c$
+
+\subsubsection{cos(x)}
+
+$sen(x)+c$
+
+\subsubsection{$sen(x)$}
+
+$-cos(x)+c$
+
+\subsubsection{$e^x$}
+
+$e^x+c$
+
+\subsubsection{$a^x$}
+
+$\displaystyle \frac{a^x}{ln(a)}+c$
+
+\subsubsection{$\frac{1}{\sqrt{1-x^2}}$}
+
+$arcsen(x)+c$
+
+$-arccos(x)+c$
+
+\subsubsection{$\frac{1}{1-x^2}$}
+
+$arctan(x)+c$
+
+\subsection{Propiedades integral indefinida}
+
+\subsubsection{Suma y resta}
+
+$\displaystyle \int (f\pm g)(x)~dx = \displaystyle \int f(x)~dx \pm \displaystyle \int g(x)~d$
+
+\subsubsection{Multiplicacion por constante}
+
+$\displaystyle \int k~f(x)~dx = k\displaystyle \int f(x)~dx$
+
+\subsubsection{Integral de 0}
+
+$\displaystyle \int 0~ dx = c$
+
+\subsection{Integral definida}
+
+\subsubsection{Definicion}
+
+Sea $f: [a,b] \rightarrow \mathbb{R}$ continua, $f(x) \geq 0 ~~\forall x \in [a,b],$
+
+La integral definida de f en [a,b] se denota $\displaystyle \int_a^b f(x)~dx$
+
+Está dada por el area debajo de la curva y = f(x) entre las rectas x=a e x=b
+
+\subsubsection{Metodo de sustitucion}
+
+Sean f y g' continuas en sus dominios
+
+$\Rightarrow$ $\displaystyle \int_a^b f(g(x)).g'(x)~dx = \displaystyle \int_{g(a)}^{g(b)} f(u)du$
+
+Si F es primitiva de f:
+
+$\Rightarrow$ $\displaystyle \int_a^b f(g(x)).g'(x)~dx = F(g(b)) - F(g(a))$
+
+\subsubsection{Metodo por partes}
+
+Sean f y g derivables en [a, b]
+
+$\Rightarrow$ $\displaystyle \int_a^b f(x).g'(x)~dx = f(x)g(x)\bigg\vert_a^b - \displaystyle \int_a^b f'(x).g(x)~dx$
+
+\subsubsection{Area entre dos curvas}
+
+Sean f y g tales que $f(x)\geq g(x)~\forall x \in [a,b]$
+
+El area entre f y g es:
+
+$\displaystyle \int_a^b (f(x)-g(x))~ dx$
+
+\subsection{Propiedades integral definida}
+
+\subsubsection{Limites de integracion iguales}
+
+$\displaystyle \int_a^a f(x)dt = 0$
+
+\subsubsection{Inversion de limites de integracion}
+
+$\displaystyle \int_a^b f(x)dt = - \displaystyle \int_b^a f(x)dt$
+
+\subsubsection{Funciones mayores o iguales a 0}
+
+$f(x) \geq 0~\forall x \in [a,b]$
+
+$\Rightarrow$ $\displaystyle \int_a^b f(x)dt \geq 0$
+
+\subsubsection{Multiplicacion por constante}
+
+$k\in \mathbb{R}$
+
+$\Rightarrow$ $\displaystyle \int_a^b k.f(x)dt = k \displaystyle \int_a^b f(x)dt$
+
+\subsubsection{Suma y resta}
+
+$\displaystyle \int_a^b (f(x)\pm g(x))~dt = \displaystyle \int_a^b f(x)~dt\pm \displaystyle \int_a^b g(x)~dt$
+
+\subsubsection{Transitividad de limites de integracion}
+
+$c\in \mathbb{R}$
+
+$\Rightarrow$ $\displaystyle \int_a^b f(x)dx = \displaystyle \int_a^c f(x)dx + \displaystyle \int_c^b f(x)dx$
+
+\subsubsection{Desigualdad de funciones e integrales}
+
+$f(x)\leq g(x)~\forall x\in [a,b]$
+
+$\Rightarrow$ $\displaystyle \int_a^b f(x)dx \leq \displaystyle \int_a^b g(x)dx$
+
+\subsection{Teoremas fundamentales del calculo}
+
+\subsubsection{Primer teorema}
+
+Sea f: [a, b] -> R una funcion continua, $F(x) = \displaystyle \int_a^x f(t)~dt ~~\forall x \in [a,b]$
+
+$\Rightarrow$ $F'(x) = \displaystyle \frac{d}{dx} \displaystyle \int_a^x f(t)~dt=f(x)$
+
+Es decir, F es una antiderivada de f en [a, b]
+
+\subsubsection{Segundo teorema}
+
+Sea f: [a, b] -> R una funcion continua, G una antiderivada de f
+
+$\Rightarrow$ $\displaystyle \int_a^b f(x)~dx = G(x)\bigg\rvert_a^b = G(a)-G(b)\quad$ (Regla de barrow)

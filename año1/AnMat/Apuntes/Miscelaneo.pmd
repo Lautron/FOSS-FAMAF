@@ -1,0 +1,109 @@
+\tableofcontents
+\newpage
+
+# Logaritmo #
+
+## Definicion ##
+$\log_b x = a \Rightarrow x = b^a$
+
+## Propiedades ##
+
+### Exponente ###
+$x^{\log_ba}= a^{\log_b x}$
+
+### Misma base y argumento ###
+$B>0, b\ne 1$
+
+$\log_b b = 1$
+
+### Argumento 1 ###
+$\log_b 1 = 0$
+
+### Producto ###
+$\log_b (x\cdot y) = \log_b x + \log_b y$
+
+### Cociente ###
+$\log_b (\displaystyle \frac{x}{y}) = \log_b x - \log_b y$
+
+### Potencia ###
+$\log_b a^n = n\cdot \log_b a$
+
+### Potencia de base y argumento igual ###
+$\log_{b^n} a^n = \log_b a$
+
+### Cambio de base por argumento ###
+$\log_b a = \displaystyle \frac{1}{\log_a b}$
+
+### Cambio de base ###
+$\log_b a = \displaystyle \frac{\log_c a}{\log_c b}$
+
+# Logaritmo natural #
+
+## Propiedades ##
+
+### Ln de 1 ###
+$\ln 1 = 0$
+
+### Ln de e ###
+$\ln e = 1$
+
+### Ln de $e^x$ ###
+$\ln e^x = x$
+
+### e y potencia $\ln$ ###
+$e^{\ln x} = x$
+
+# Valor absoluto #
+
+## Propiedades ##
+
+### Valor absoluto y menor ###
+$|a| < b \Rightarrow -b < a < b$
+
+Aplica para $\le$
+
+### Valor absoluto y mayor ###
+$|a| > b \Rightarrow a < -b \cup a > b$
+
+Aplica para $\ge$
+
+### Potencia ###
+$x^2 = |x|^2$
+
+### Raiz y potencia ###
+$\sqrt{x^2} = |x|$
+
+# Tips #
+
+## L'Hopital ##
+$x\cdot b = \displaystyle \frac{b}{\displaystyle \frac{1}{x}}$
+
+## Calcular Raiz sin calculadora ##
+Sea $x,k \in \mathbb{Z}: k < x \wedge \sqrt{k} \in \mathbb{Z}$
+
+$\displaystyle\sqrt{x} = \frac{x+k}{2\cdot \sqrt{k}}$
+
+## Ver si polinomio de grado impar tiene raiz en $\mathbb{R}$ ##
+1. Comprobar si la funcion es monotona. 
+2. Ver los limites cuando tiende al infinito.
+3. En base a eso determinar si tiene una unica raiz.
+
+## Ver si ecuacion tiene solucion en intervalo ##
+Aplicar teorema del valor intermedio
+
+## Limites Notables ##
+
+### Seno ###
+$\displaystyle\lim_{\theta \to 0} \frac{sen(\theta)}{\theta}=1$
+
+### Coseno ###
+$\displaystyle\lim_{\theta \to 0} \frac{cos(\theta)-1}{\theta}=0$
+
+### Tangente ###
+$\displaystyle\lim_{\theta \to 0} \frac{tan(\theta)}{\theta}=1$
+
+
+
+
+
+
