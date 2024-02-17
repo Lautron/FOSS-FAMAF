@@ -1,0 +1,25 @@
+{
+  "configurations": {
+    "Launch": {
+      "adapter": "vscode-cpptools",
+      "filetypes": [ "cpp", "c", "objc", "rust" ], // optional
+      "configuration": {
+        "request": "launch",
+        "program": "dijkstra",
+        "args": [ "input/example_graph_1.in" ],
+        "cwd": "${workspaceRoot}",
+        "externalConsole": true,
+        "MIMode": "gdb"
+      }
+    },
+    "Attach": {
+      "adapter": "vscode-cpptools",
+      "filetypes": [ "cpp", "c", "objc", "rust" ], // optional
+      "configuration": {
+        "request": "attach",
+        "program": "sorter",
+        "MIMode": "gdb"
+      }
+    }
+  }
+}

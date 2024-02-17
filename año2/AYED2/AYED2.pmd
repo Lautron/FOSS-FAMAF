@@ -1,0 +1,536 @@
+\tableofcontents
+# Organizacion de la materia
+Asistencia: no se toma.
+
+Parciales: 2 y un recuperatorio
+
+Promocion:
+
+* 15 o mas en los parciales
+* analogo en lab
+
+# Lenguaje de la materia
+## Variables
+\textbf{var} a1,..., an : < tipo>
+
+## Comentario
+\{- Esto es un comentario -\}
+
+## Procedimiento
+### Definicion
+Encapsula un bloque de codigo con su respectiva declaracion de variables.
+
+\begin{tabular}{ l l l }
+& \textbf{proc} nombre(\textbf{<in|out|in/out>} p1: T1, $\ldots$,\textbf{<in|out|in/out>} pn: Tn)\\
+& \quad <declaraciones de variables>\\
+& \quad <sentencias>\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### Observaciones
+- $p1, \ldots, pn$ son nombres de variables.
+
+- $T1, \ldots, Tn$ son sus respectivos tipos
+
+- in: el parametro es de entrada (se puede leer pero no escribir)
+
+- out: el parametro es de salida (podes escribir pero no leer)
+
+- in/out: el parametro es de entrada/salida (podes leer y escribir)
+
+## Funcion
+### Definicion
+Son como los procedimientos pero todos los parametros son \textbf{in} y devuelven algo
+\begin{tabular}{ l l l }
+& \textbf{fun} nombre( p1: T1, $\ldots$,pn: Tn) \textbf{ret} r : T\\
+& \quad <declaraciones de variables>\\
+& \quad <sentencias>\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### Observaciones
+
+- No tenemos sentencia "return", se devuelve lo asignado a la variable declarada como \textbf{ret}
+
+- Las llamadas a funciones no son sentencias si no expresiones
+
+- No tiene efectos colaterales en el estado
+
+## Observaciones funciones y procedimientos
+- Las variables declaradas dentro de funciones y procedimientos no existen fuera de estas.
+
+- Las funcs y procs pueden llamarse entre si y a si mismas.
+
+- No importa el orden en que se declaran. Un proc puede llamar a otro definido más adelante
+
+- No se pueden definir procs o funs adentro de otros procs o funs
+
+## Tipos nativos
+### Tipos basicos
+- bool: true y false
+- int: enteros
+- nat: naturales
+- real: reales
+- char: caracteres ('a', 'j')
+- string: secuencias de caracteres
+
+Se permiten usar constantes como infinito o -infinito
+
+### Tipos estructurados
+
+- array: arreglos
+- pointer: punteros
+
+## Arreglos
+### Declaracion
+var <nombre > : \textbf{array}[N1..M1] ... [Nk..Mk] \textbf{of} T
+
+Donde
+
+- N1, M1, ... , Nk, Mk son numeros
+
+- T es el tipo de los elementos del arreglo
+
+- M-N+1 es el tamaño del arreglo
+
+### Acceso
+a[i1]...[ik]
+
+### Asignacion
+a[i1]...[ik] := E
+
+## Sentencias
+### skip
+La sentencia que no hace nada
+
+### Asignacion
+v := E
+
+Donde v es una variable y E una expresion
+
+No existe la asignacion multiple
+
+### Llamada a proc
+nombreproc(v1, ..., vn)
+
+### Condicional
+\begin{tabular}{ l l l }
+& \textbf{if} B then\\
+& \quad S1\\
+& else\\
+& \quad S2\\
+& \textbf{fi}\\
+\end{tabular}
+
+Donde B es una expresion booleana y S1, S2 son sentencias
+
+No existe if multi-guarda
+
+### Repeticion
+\begin{tabular}{ l l l }
+& \textbf{while} B do\\
+& \quad S\\
+& od\\
+\end{tabular}
+
+En donde B es una expresion booleana y S es una sentencia
+
+### for to
+\begin{tabular}{ l l l }
+& \textbf{for} i := N to M do\\
+& \quad S\\
+& od\\
+\end{tabular}
+Donde N y M son expresiones de tipo int y S es sentencia
+
+### for downto
+\begin{tabular}{ l l l }
+& \textbf{for} i := N downto M do\\
+& \quad S\\
+& od\\
+\end{tabular}
+Donde N y M son expresiones de tipo int y S es sentencia
+
+
+
+# Analisis de Algoritmos
+## Ordenacion por seleccion
+### Idea
+@) Seleccionar el menor elemento
+@) Intercambiarlo con el primer elemento de la parte no ordenada
+@) Repetir hasta que el array esté ordenado
+
+### Invariante
+* El arreglo resultante es una permutacion del original
+* El segmento inicial a[0,i) del arreglo esta ordenado
+* Dicho segmento contiene los elementos minimos del arreglo
+
+### Pseudocodigo
+\begin{tabular}{ l l l }
+& \textbf{proc} selection\_sort(\textbf{in/out} a: array[1..n] of T)\\
+& \quad \textbf{var} minp: \textbf{nat}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad minp:= i\\
+& \quad \quad \textbf{for} j := i+1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{if} a[j] < a[minp] \textbf{then}\\
+& \quad \quad \quad \quad minp:= j\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \quad swap(a, i, minp)\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} swap(\textbf{in/out} a: array[1..n] of T, \textbf{in} i,j: nat)\\
+& \quad \textbf{var} tmp: T\\
+& \quad tmp = a[i]\\
+& \quad a[i] = a[j]\\
+& \quad a[j] = tmp\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### Complejidad
+\begin{tabular}{ |l| l |l| }
+\hline
+& Comp. & Swap\\
+\hline
+Mejor: & $O(n^2)$ & $O(1)$\\
+Promedio: & $O(n^2)$ & $O(n)$\\
+Peor: & $O(n^2)$ & $O(n)$\\
+\hline
+\end{tabular}
+
+## Cantidad de operaciones
+### Bucle for
+\begin{tabular}{ l l l }
+& \textbf{for} i := N \textbf{to} M \textbf{do} C(k) \textbf{od}\\
+& = ops(C(n) + ops(C(n+1) + $\ldots$ + ops(C(m)\\
+\end{tabular}
+
+### Comando if
+$ops(\text{\textbf{if} B \textbf{then} S1 \textbf{else} S2 \textbf{fi}})
+= \begin{cases}
+ops(B)+ops(S1) \quad \text{ caso b = V } \\
+ops(B)+ops(S2) \quad \text{ caso b = F } 
+\end{cases}$
+
+### Asignacion
+$ops(x:=e)
+\begin{cases}
+ops(e)+1 \quad \text{ contando asignacion/modificaciones de memoria } \\
+ops(e) \quad \quad \text{en caso contrario}
+\end{cases}$
+
+### Expresiones
+$ops(e<f)
+\begin{cases}
+ops(e)+ops(f)+1 \quad \text{ contando comparaciones} \\
+ops(e)+ops(f)\quad \quad \text{en caso contrario}
+\end{cases}$
+
+### AÑADIR SUMATORIAS UTILES
+
+## Ordenacion por Insercion
+### Idea
+Empezar desde la posicion 2:
+
+1. Ver si el elemento anterior al puntero es mayor
+2. Si es mayor hacer un swap
+3. Repetir hasta que (1) no se cumpla
+4. Incrementar puntero
+
+### Invariante
+* El arreglo a es una permutacion del original
+* a[1, i] \textbf{sin celda j} está ordenado
+* a[j,i] está ordenado
+
+### Pseudocodigo
+
+\begin{tabular}{ l l l }
+& \textbf{proc} insertion\_sort(\textbf{in/out} a: array[1..n] of T)\\
+& \quad \textbf{for} i := 2 \textbf{to} n \textbf{do}\\
+& \quad \quad j:= i\\
+& \quad \quad \textbf{while} ($j>1 \wedge a[j] < a[j-1]$) \textbf{do}\\
+& \quad \quad \quad swap(a, j-1, j)\\
+& \quad \quad \quad j:= j-1\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### Complejidad
+\begin{tabular}{ |l| l |l| }
+\hline
+& Comp. & Swap\\
+\hline
+Mejor: & $O(n)$ & $O(1)$\\
+Promedio: & $O(n^2)$ & $O(n^2)$\\
+Peor: & $O(n^2)$ & $O(n^2)$\\
+\hline
+\end{tabular}
+
+## Merge Sort
+### Idea
+\begin{tabular}{ l l l }
+& Si la estructura tiene más de 2 elementos:\\
+& \quad Dividir en “mitades”\\
+& \quad Usar merge en la primera mitad\\
+& \quad Usar merge en la segunda mitad\\
+& \quad Intercalar las mitades ordenadas\\
+& Sino:\\
+& \quad si la cantidad de componentes es 2\\
+& \quad Comparar e intercambiar\\
+\end{tabular}
+
+### Pseudocodigo
+\begin{tabular}{ l l l }
+& \textbf{proc} merge\_sort\_rec(\textbf{in/out} a: array[1..n] of T, \textbf{in} lft, rgt: nat)\\
+& \quad \textbf{var} mid: \textbf{nat}\\
+& \quad \textbf{if} rgt > lft \textbf{then}\\
+& \quad \quad mid:= (rgt + lft) / 2\\
+& \quad \quad merge\_sort\_rec(a, lft, mid)\\
+& \quad \quad merge\_sort\_rec(a, mid+1, rgt)\\
+& \quad \quad merge(a, lft, mid, rgt)\\
+& \quad \textbf{fi}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} merge\_sort(\textbf{in/out} a: array[1..n] of T)\\
+& \quad merge\_sort\_rec(a, 1, n)\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} merge(\textbf{in/out} a: array[1..n] of T, \textbf{in} lft, mid, rgt: nat)\\
+& \quad \textbf{var} tmp: \textbf{array[1..n] of T}\\
+& \quad \textbf{var} j, k: \textbf{nat}\\
+& \quad \textbf{for} i := lft \textbf{to} mid \textbf{do}\\
+& \quad \quad tmp[i]:= a[i]\\
+& \quad \textbf{od}\\
+& \quad j:= lft\\
+& \quad k:= mid+1\\
+& \quad \textbf{for} i := lft \textbf{to} rgt \textbf{do}\\
+& \quad \quad \textbf{if} $j\le mid \wedge (k > rgt \vee tmp[j] \le a[k])$ \textbf{then}\\
+& \quad \quad \quad a[i]:= tmp[j]\\
+& \quad \quad \quad j:= j+1\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad a[i]:= a[k]\\
+& \quad \quad \quad k:= k+1\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+## Quicksort
+### Idea
+1) Elegir un elemento arbitrario como pivot
+2) Usar el pivot para partir el array
+3) Aplicar quicksort recursivamente a la particion izquierda
+4) Aplicar quicksort recursivamente a la particion derecha
+
+### Pseudocodigo
+\begin{tabular}{ l l l }
+& \textbf{proc} quick\_sort\_rec(\textbf{in/out} a: array[1..n] of T, \textbf{in} lft, rgt: nat)\\
+& \quad \textbf{var} ppiv: \textbf{nat}\\
+& \quad \textbf{if} rgt $>$ lft $\rightarrow$\\
+& \quad \quad partition(a, lft, rgt, ppiv)\\
+& \quad \quad quick\_sort\_rec(a, lft, ppiv-1)\\
+& \quad \quad quick\_sort\_rec(a, ppiv+1, rgt)\\
+& \quad \textbf{fi}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} quick\_sort(\textbf{in/out} a: array[1..n] of T)\\
+& \quad quick\_sort\_rec(a,1,n)\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} partition(\textbf{in/out} a: array[1..n] of T, \textbf{in} lft, rgt: nat, \textbf{out} ppiv: nat)\\
+& \quad \textbf{var} i,j: \textbf{nat}\\
+& \quad ppiv := lft\\
+& \quad i:= lft+1\\
+& \quad j:= rgt\\
+& \quad \textbf{while} $i\le j$ \textbf{do}\\
+& \quad \quad \textbf{if} a[i] $\le$ a[ppiv] \textbf{then}\\
+& \quad \quad \quad i:= i+1\\
+& \quad \quad \textbf{else if} a[j] $\ge$ a[ppiv] \textbf{then}\\
+& \quad \quad \quad j:= j-1\\
+& \quad \quad \textbf{else if} a[i] $>$ a[ppiv] $\wedge$ a[j] $<$ a[ppiv] \textbf{then}\\
+& \quad \quad \quad swap(a, i, j)\\
+& \quad \quad \quad i:= i+1\\
+& \quad \quad \quad j:= j-1\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad swap(a, ppiv, j)\\
+& \quad ppiv:= j\\
+& \textbf{end proc}\\
+\end{tabular}
+
+## Recurrencias y jerarquia de funciones
+### Algoritmo divide y venceras
+#### Caracteristicas
+* Hay una solucion para los casos sencillos
+* Para los casos complejos se divide o descompone el problema en subproblemas
+  * Cada subproblema es de igual naturaleza que el original
+  * Cada subproblema es una fraccion del original
+  * Se resuelven los subproblemas apelando al mismo algoritmo
+* Se combinan esas soluciones para obtener una solucion del original
+
+#### Pseudocodigo
+\
+\begin{tabular}{ l l l }
+& \textbf{fun} DyV(x) \textbf{ret} y\\
+& \quad \textbf{if} x suficientemente pequeño o simple \textbf{then} y:= ad\_hoc(x)\\
+& \quad \textbf{else} descomponer x en $x_1, x_2, \ldots, x_a$\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} a \textbf{do}\\
+& \quad \quad \quad $y_i$ := DyV($x_i$ )\\
+& \quad \quad \textbf{od}\\
+& \quad \quad combinar $y_1, y_2, \ldots, y_a$ para obtener la solucion y de x\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+Normalmente los $x_i$ son fracciones de x:
+$|x_i| = \frac{|x|}{b}$
+Para algun b fijo mayor que 1
+
+#### Conteo
+a: numero de llamadas recursivas a DyV
+b: relacion entre el tamaño de x y el de $x_i$, satisface $|x_i| = \frac{|x|}{b}$
+k: el orden de descomponer y combinar es $n^k$
+c: constante que representa el costo de la funcion ad_hoc
+g(n): es el costo de los procesos de descomposicion y combinacion
+$$
+t(n) =
+\begin{cases}
+c & \text{ si la entrada es pequeña } \\
+a * t(n/b) + g(n) & \text{ en caso contrario } 
+\end{cases}
+$$
+
+#### Orden de t(n)
+Si t(n) es no decreciente y g(n) es del orden de $n^k$, entonces
+$$
+\text{ t(n) es del orden de } 
+\begin{cases}
+n^{log_b a} & \text{ si } a > b^k\\
+n^k log n & \text{ si } a = b^k\\
+n^k & \text{ si } a < b^k\\
+\end{cases}
+$$ 
+
+## Busqueda Binaria
+### Algoritmo
+\begin{tabular}{ l l l }
+& \textbf{fun} binary\_search\_rec(a: array[1..n] of T, x:T, lft, rgt: nat) \textbf{ret} i : nat\\
+& \quad \textbf{var} mid: \textbf{nat}\\
+& \quad \textbf{if} lft $>$ rgt \textbf{then} i:= 0\\
+& \quad \quad lft $\le$ rgt \textbf{then}\\
+& \quad \quad \quad mid:= (lft+rgt) / 2\\
+& \quad \quad \quad \textbf{if} x $<$ a[mid] \textbf{then} i:= binary\_search\_rec(a, x, lft, mid-1)\\
+& \quad \quad \quad\quad x = a[mid] \textbf{then} i:= mid\\
+& \quad \quad \quad\quad x $>$ a[mid] \textbf{then} i:= binary\_search\_rec(a, x, mid+1, rgt)\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} binary\_search(a: array[1..n] of T, x: T) \textbf{ret} i : nat\\
+& \quad i:= binary\_search\_rec(a, x, 1, n)\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## Comparar ordenes de algoritmos
+### Notacion
+Escribimos $f(n) $
+
+# Tecnicas de resolucion de problemas
+## Algoritmos voraces
+### Idea
+
+* Normalmente se trata de algoritmos que resuelven problemas de optimizacion.
+* Intentan construir la solucion optima buscada paso a paso
+* Eligen en cada paso el componente de la solucion que parece mas apropiado
+* No revisan elecciones ya realizadas
+* No todos los problemas admiten solucion voraz
+
+### Ingredientes
+
+* Los candidatos se van clasificando en 3: los aun no considerados, los incorporados a la solucion parcial y los descartados
+* una manera de saber si los candidatos ya incorporados completan una solucion del problema
+* Una funcion que comprueba si un candidato es factible de formar parte de la solucion
+* Una funcion que selecciona de entre los candidatos no considerados el mas promisorio
+* En cada paso se utiliza la funcion de seleccion para elegir cual candidato considerar
+* Se chequea que el candidato considerado sea factible para incorporarlo a la solucion
+* Se repiten los pasos anteriores hasta que la coleccion de candidatos elegidos sea una solucion
+
+### Esquema
+
+\begin{tabular}{ l l l }
+& \textbf{fun} voraz(C: Set \textbf{of} "Candidato") \textbf{ret} S : "Solucion a construir"\\
+& \quad S:= "solucion vacia"\\
+& \quad \textbf{while} S "no es solucion" \textbf{do}\\
+& \quad \quad c:= "Seleccionar" de C\\
+& \quad \quad elim(C, c)\\
+& \quad \quad \textbf{if} "agregar c a S es factible" \textbf{then}\\
+& \quad \quad \quad "agregar c a S"\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# Recorrida de grafos
+## Definicion
+Recorrer un grafo significa procesar los vertices de manera tal que:
+
+- Todos los vertices sean procesados
+- Que ningun vertice sea procesado mas de una vez
+
+## Depth first search
+### Definicion
+Primero recorre el arbol en profundidad
+
+### Pre-order
+Se recorre primero la raiz, luego el sub-arbol izquierdo y luego el sub-arbol derecho
+
+### In-order
+Se recorre primer el sub-arbol izquierdo, luego la raiz y luego el sub-arbol derecho
+
+### Pos-order
+Se recorre primero sub-arbol izquierdo, luego el sub-arbol derecho y por ultimo la raiz.
+
+### Formas alternativas
+Las anteriores formas tambien se pueden realizar cambiando el orden del subarbol que se recorre primero.
+
+Por ejemplo, en pre-order-der-izq se recorre primero la raiz, el subarbol derecho y luego el subarbol izquierdo
+
+## Breadth first search
+### Definicion
+Recorre el arbol en ancho.
+
+## Arboles finitarios
+### Definicion
+Son arboles en los que cada nodo tiene una cantidad finita (pero posiblemente variable) de hijos
+
+### Recorrida
+Una recorrida in-order deja de tener sentido ya que se dificulta saber en que orden debe visitarse el elemento de la raiz.
+
+Las recorridas DFS y BFS siguen teniendo sentido
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,269 @@
+# 1)
+## a)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} minMatriz(\textbf{in/out} a: array[1..n,1..m] of int, \textbf{out} minimo: int)\\
+& \quad \textbf{var} tmp: \textbf{int}\\
+& \quad minimo := min(a[1])\\
+& \quad \textbf{for} i := 2 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad tmp := min(a[i])\\
+& \quad \quad \quad \textbf{if} tmp < minimo \textbf{then}\\
+& \quad \quad \quad \quad minimo:= tmp\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+## b)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} minimosMatriz(\textbf{in/out} a: array[1..n,1..m] of int, \textbf{out} res: array[1..n] of int)\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad res[i] := min(a[i])\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+# 2)
+## a)
+\newpage
+
+\begin{tabular}{ l l l }
+& \textbf{fun} conseguirAtributo(\\
+& \quad med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat,\\
+& \quad attr: clima\\
+& ) \textbf{ret} res: array[1..(2016-1980+1) * 12 * 28] of int\\
+&\quad \textbf{var} ind: \textbf{nat}\\
+& \quad ind:= 0\\
+& \quad \textbf{for} i := 1980 \textbf{to} 2016 \textbf{do}\\
+& \quad \quad \textbf{for} j := enero \textbf{to} diciembre \textbf{do}\\
+& \quad \quad \quad \textbf{for} k := 1 \textbf{to} 28 \textbf{do}\\
+& \quad \quad \quad \quad res[ind] = med[i, j, k, attr]\\
+& \quad \quad \quad \quad ind:= ind +1\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} temperaturaMinima(med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat) \textbf{ret} r : int\\
+& \quad \textbf{var} tmp: array[1..(2016-1980+1) * 12 * 28] of int\\
+& \quad tmp := conseguirAtributo(med, TempMin)\\
+& \quad r:= min(tmp)\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## b)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} maximoDelAño(\\
+& \quad med: array[enero..diciembre,1..28,Temp..Prec] of nat,\\
+& \quad attr: clima\\
+& ) \textbf{ret} max : nat\\
+& \quad max := med[enero, 1, attr]\\
+& \quad \textbf{for} i := enero \textbf{to} diciembre \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} 28 \textbf{do}\\
+& \quad \quad \quad \textbf{if} med[i, j, attr] > max \textbf{then}\\
+& \quad \quad \quad \quad max:= med[i, j, attr]\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+  
+\begin{tabular}{ l l l }
+& \textbf{fun} tempMaxAño(\\
+& \quad med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat,\\
+& ) \textbf{ret} res: array[1980..2016] of int\\
+& \quad \textbf{for} i := 1980 \textbf{to} 2016 \textbf{do}\\
+& \quad \quad \quad res[i] := maximoDelAño(med, TempMax)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## c)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} maximoMesDelAño(\\
+& \quad  med: array[enero..diciembre,1..28,Temp..Prec] of nat,\\
+& \quad  attr: clima\\
+& ) \textbf{ret} res : mes\\
+& \quad \quad \textbf{var} precM: \textbf{int}\\
+& \quad \quad max := 0\\
+& \quad \quad \textbf{for} m:= enero \textbf{to} diciembre \textbf{do}\\
+& \quad \quad \quad precM:= 0\\
+& \quad \quad \quad \textbf{for} d := 1 \textbf{to} 28 \textbf{do}\\
+& \quad \quad \quad \quad precM:= precM + med[m, d, attr]\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \quad \textbf{if} precM > max \textbf{then}\\
+& \quad \quad \quad \quad max:= precM\\
+& \quad \quad \quad \quad res:= m\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad  \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} precMaxMesPorAño(\\
+& \quad med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat,\\
+& ) \textbf{ret} res: array[1980..2016] of int\\
+& \quad \textbf{for} i := 1980 \textbf{to} 2016 \textbf{do}\\
+& \quad \quad \quad res[i] := maximoMesDelAño(med, Prec)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## d)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cantPrec(\\
+& \quad  med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat,\\
+& \quad  a: \textbf{nat},\\
+& \quad  m: \textbf{mes}\\
+& ) \textbf{ret} cantidad: nat\\
+& \quad cantidad := 0\\
+& \quad \textbf{for} i := 1 \textbf{to} 28 \textbf{do}\\
+& \quad \quad cantidad = cantidad + med[a, m, i, Prec]\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} miniMaxPrecAño(\\
+& \quad  med: array[1980..2016,enero..diciembre,1..28,Temp..Prec] of nat,\\
+& \quad  maxPrecMonth: array[1980..2016] of mes,\\
+& ) \textbf{ret} añoMin: nat\\
+& \quad \quad \textbf{var} cantidad, min: \textbf{nat}\\
+& \quad \quad min:= cantPrec(med, 1980, maxPrecMonth[1980])\\
+& \quad \quad \textbf{for} a := 1981 \textbf{to} 2016 \textbf{do}\\
+& \quad \quad \quad cantidad:= cantPrec(med, a, maxPrecMonth[a])\\
+& \quad \quad \quad \textbf{if} cantidad < min \textbf{then}\\
+& \quad \quad \quad \quad min:= cantidad\\
+& \quad \quad \quad \quad añoMin:= a\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# 3)
+## a)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} edadPesoProm(\\
+& \quad \textbf{in} a: array[1..n] of person,\\
+& \quad \textbf{out} edadProm: \textbf{nat},\\
+& \quad \textbf{out} pesoProm: \textbf{nat}\\
+& )\\
+& \quad \quad edadProm:= 0\\
+& \quad \quad pesoProm:= 0\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad edadProm = edadProm + a[i].age\\
+& \quad \quad \quad pesoProm = pesoProm + a[i].weight\\
+& \quad \quad \textbf{od}\\
+& \quad \quad edadProm:= edadProm / n\\
+& \quad \quad pesoProm:= pesoProm / n\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\newpage
+
+## b)
+
+Suponemos que un string es un array de chars.
+Y tengamos en cuenta que los chars poseen un orden lexicografico
+
+\begin{tabular}{ l l l }
+& \textbf{fun} vaAntes(a: string, b: string) \textbf{ret} r : bool\\
+& \quad \textbf{if} a[1] < b[1] \textbf{then}\\
+& \quad \quad r:= True\\
+& \quad \textbf{else if} a[1] > b[1] \textbf{then}\\
+& \quad \quad r:= False\\
+& \\
+& \quad \{- Si se ejecuta esto quiere decir que a[1] = b[1] -\}\\
+& \quad \textbf{else if} a[2] < b[2] \textbf{then}\\
+& \quad \quad r:= True\\
+& \quad \textbf{else if} a[2] > b[2] \textbf{then}\\
+& \quad \quad r:= False\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} selection\_sort(\textbf{in/out} a: array[1..n] of T)\\
+& \quad \textbf{var} minp: \textbf{nat}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad minp:= i\\
+& \quad \quad \textbf{for} j := i+1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{if} vaAntes(a[j].name, a[minp].name) \textbf{then}\\
+& \quad \quad \quad \quad minp:= j\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \quad swap(a, i, minp)\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+# 4)
+## a)
+\begin{tabular}{ l l l }
+& \textbf{proc} swapPointers(\\
+& \quad \textbf{in/out} p: \textbf{pointer} to \textbf{nat},\\
+& \quad \textbf{in/out} q: \textbf{pointer} to \textbf{nat}\\
+& )\\
+& \quad \quad \textbf{var} tmp: \textbf{pointer} to \textbf{nat}\\
+& \quad \quad tmp = q\\
+& \quad \quad q:= p\\
+& \quad \quad p:= tmp\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} swapPointers(\\
+& \quad \textbf{in/out} p: \textbf{pointer} to \textbf{nat},\\
+& \quad \textbf{in/out} q: \textbf{pointer} to \textbf{nat}\\
+& )\\
+& \quad \quad \textbf{var} tmp: \textbf{nat}\\
+& \quad \quad tmp = *q\\
+& \quad \quad *q:= *p\\
+& \quad \quad *p:= tmp\\
+& \textbf{end proc}\\
+\end{tabular}
+
+# 6)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} sumaMatrices(\\
+& \quad A: \textbf{array}[1..n,1..m] of \textbf{nat},\\
+& \quad B: \textbf{array}[1..n,1..m] of \textbf{nat}\\
+& ) \textbf{ret} C : \textbf{array}[1..n,1..m] of \textbf{nat}\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{for} j := 1 \textbf{to} m \textbf{do}\\
+& \quad \quad \quad \quad C[i,j] = A[i,j] + B[i,j]\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# 7)
+
+
+\begin{tabular}{ l l l }
+& \textbf{fun} multMatrices(\\
+& \quad  A: \textbf{array}[1..n,1..m] of \textbf{nat},\\
+& \quad  B: \textbf{array}[1..m,1..p] of \textbf{nat}\\
+& ) \textbf{ret} C : \textbf{array}[1..m,1..m] of \textbf{nat}\\
+& \quad \quad \textbf{var} sum: \textbf{nat}\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{for} j := 1 \textbf{to} m \textbf{do}\\
+& \quad \quad \quad \quad sum:= 0\\
+& \quad \quad \quad \quad \textbf{for} k := 1 \textbf{to} m \textbf{do}\\
+& \quad \quad \quad \quad \quad sum:= sum + A[i,k] * B[k,j]\\
+& \quad \quad \quad \quad \textbf{od}\\
+& \quad \quad \quad \quad C[i,j]:= sum\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+

@@ -1,0 +1,58 @@
+1)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} factorial(n: \textbf{nat}) \textbf{ret} f : nat\\
+& \quad if n = 0 then\\
+& \quad \quad f := 1\\
+& \quad else\\
+& \quad \quad f := n * factorial(n-1)\\
+& \quad fi\\
+& \textbf{end fun}\\
+\end{tabular}
+
+2)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} factorial(n: \textbf{nat}) \textbf{ret} f : nat\\
+& \quad f := 1\\
+& \quad \textbf{for} i := 2 \textbf{to} n \textbf{do}\\
+& \quad \quad f := f * n\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+3)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} init\_array(\textbf{out} a: \textbf{array[N..M] of int})\\
+& \quad \textbf{for} i := N to M do\\
+& \quad \quad a[i] := 0\\
+& \quad od\\
+& \textbf{end proc}\\
+\end{tabular}
+
+4)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} init\_array(\textbf{in/out} a: \textbf{array[N..M] of int})\\
+& \quad \textbf{for} i := N to M do\\
+& \quad \quad a[i] := a[i] + 1\\
+& \quad od\\
+& \textbf{end proc}\\
+\end{tabular}
+
+5)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} min(a: array[1..N] of int \textbf{ret} i : int\\
+& \quad i := a[1]\\
+& \quad \textbf{for} j := 2 \textbf{to} N \textbf{do}\\
+& \quad \quad \textbf{if} a[j] < i \textbf{then}\\
+& \quad \quad \quad i := a[j]\\
+& \quad \quad else\\
+& \quad \quad \quad skip\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+

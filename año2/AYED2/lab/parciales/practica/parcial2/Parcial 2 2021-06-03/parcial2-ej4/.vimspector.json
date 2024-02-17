@@ -1,0 +1,25 @@
+{
+  "configurations": {
+    "Launch": {
+      "adapter": "vscode-cpptools",
+      "filetypes": [ "cpp", "c", "objc", "rust" ], // optional
+      "configuration": {
+        "request": "launch",
+        "program": "main",
+        "args": [ "\"neuquen\"" ],
+        "cwd": "${workspaceRoot}",
+        "externalConsole": true,
+        "MIMode": "gdb"
+      }
+    },
+    "Attach": {
+      "adapter": "vscode-cpptools",
+      "filetypes": [ "cpp", "c", "objc", "rust" ], // optional
+      "configuration": {
+        "request": "attach",
+        "program": "sorter",
+        "MIMode": "gdb"
+      }
+    }
+  }
+}

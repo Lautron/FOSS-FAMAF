@@ -1,0 +1,235 @@
+## 1)
+### a)
+
+Definimos la funcion recursiva $r(n)$ de la siguiente manera:
+
+$$
+r(n) = \begin{cases}
+0 \\
+\sum_{i=1}^{8} r(n~div~2) + \sum_{i=1}^{n^3} 1\\
+\end{cases}
+$$
+$$\vdots$$
+$$
+r(n) = \begin{cases}
+0 \\
+8 * r(n~div~2) + n^3 \\
+\end{cases}
+$$ 
+
+Por ende el numero de llamadas recursivas es $a=8$
+
+El problema se va achicando a la mitad con cada iteracion,
+por lo cual $b=2$
+
+Y el grado del polinomio g(n) es 3, por ende $k=3$
+
+Finalmente, como $a=8$ y $b^k=8$, entonces tenemos que la funcion es del orden de  $n^3~log(n)$
+
+### b)
+
+$$r(n) = \begin{cases}
+\sum_{i=1}^{n} \sum_{j=1}^{i} 1\\
+\sum_{i=1}^{n} \sum_{j=1}^{i} 1 + \sum_{i=1}^{4} r(n~div~2)\\
+\end{cases}$$
+$$\vdots$$
+$$r(n) = \begin{cases}
+\sum_{i=1}^{n} i\\
+\sum_{i=1}^{n} i + 4 * r(n~div~2)\\
+\end{cases}$$
+$$\vdots$$
+$$r(n) = \begin{cases}
+\frac{n*(n+1)}{2}\\
+\frac{n*(n+1)}{2}+ 4 * r(n~div~2)\\
+\end{cases}$$
+
+$a=4$
+
+$b=2$
+
+$k=2$
+
+$a=b^k \Rightarrow$ orden de $r(n) = n^2 * log(n)$
+
+## 2)
+### a)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} tieneCima(a: array[1..n] of nat ) \textbf{ret} r : bool\\
+& \quad \textbf{var} prev, i: nat\\
+& \quad \textbf{var} hasCrec, hasDec: bool\\
+& \quad hasCrec:= false\\
+& \quad hasDec:= false\\
+& \quad prev:= a[1]\\
+& \quad i:= 2\\
+& \quad \textbf{while} (i <= n $\wedge$ prev <= a[i]) \textbf{do}\\
+& \quad \quad prev:= a[i]\\
+& \quad \quad i:= i + 1\\
+& \quad \quad \textbf{if} $\neg$ hasCrec \textbf{then}\\
+& \quad \quad \quad hasCrec:= true\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad \textbf{while} (i <= n $\wedge$ prev >= a[i]) \textbf{do}\\
+& \quad \quad prev:= a[i]\\
+& \quad \quad i:= i + 1\\
+& \quad \quad \textbf{if} $\neg$ hasDec \textbf{then}\\
+& \quad \quad \quad hasDec:= true\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad r:= (i = n) $\wedge$ hasCrec $\wedge$ hasDec\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### b)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} devuelveCima(a: array[1..n] of nat ) \textbf{ret} r : nat\\
+& \quad \textbf{var} prev, i: nat\\
+& \quad prev:= a[1]\\
+& \quad i:= 2\\
+& \quad \textbf{while} (prev <= a[i]) \textbf{do}\\
+& \quad \quad prev:= a[i]\\
+& \quad \quad i:= i + 1\\
+& \quad \textbf{od}\\
+& \quad r:= i - 1\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### c)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} binary\_search\_rec(a: array[1..n] of T, lft, rgt: nat) \textbf{ret} i : nat\\
+& \quad \textbf{var} mid: \textbf{nat}\\
+& \quad \textbf{if} lft $>$ rgt \textbf{then} i:= 0\\
+& \quad \quad lft $\le$ rgt \textbf{then}\\
+& \quad \quad \quad mid:= (lft+rgt) / 2\\
+& \quad \quad \quad \textbf{if} a[mid-1] $\ge$ a[mid] $\ge$ a[mid+1]\quad \textbf{then} i:= binary\_search\_rec(a, lft, mid-1)\\
+& \quad \quad \quad a[mid-1] $\le$ a[mid] $\ge$ a[mid+1] \textbf{then} i:= mid\\
+& \quad \quad \quad \textbf{if} a[mid-1] $\le$ a[mid] $\le$ a[mid+1]\quad \textbf{then} i:= binary\_search\_rec(a, mid+1, rgt)\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+& \textbf{fun} devuelveCima2(a: array[1..n] of T, x: T) \textbf{ret} i : nat\\
+& \quad i:= binary\_search\_rec(a, 2, n-1)\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 3)
+
+Sea p el largo del framento del arreglo que toma la funcion:
+
+$$r(p) = \begin{cases}
+1 &\quad p=1\\
+1 + r(p ~\mathbf{div}~ 2) + r(p ~\mathbf{div}~ 2) &\quad p \ge 1\\
+\end{cases}$$
+$$\vdots$$
+$$r(p) = \begin{cases}
+1 &\quad p=1\\
+1 + 2*r(p ~\mathbf{div}~ 2)&\quad p \ge 1\\
+\end{cases}$$
+
+Por lo cual, $a=2, b=2, k=0 \Rightarrow a>b^k$
+
+Por ende, el algoritmo tiene una complejidad de $n^{log_ba} = n^{log_2 2} = n^1 = n$
+ 
+## 4)
+
+### a) 
+$n \log 2^n = n^2 * \log 2 \approx n^2$
+
+$2^n \sqsubset 2^n \log n\sqsubset n\log 2^n \sqsubset n! \log n$
+
+### b)
+
+$\log (n^{n^4}) = n^4 * \log n$
+
+$2^{4*\log n} = 2^4 * 2^{\log n} \approx 2^{\log n}$
+
+$2^{4\log n} \sqsubset 4^n \sqsubset n^3\log n \sqsubset n^4 + 2\log n \sqsubset \log (n^{n^4})$
+
+### c)
+$\log (n^n) = n\log n \Rightarrow \log (n^n) \approx n\log n$
+
+$n\log n \sqsubset \log n!$
+
+## 5)
+\begin{align*}
+r(n) & = \sum_{i=1}^{K} r(n~\mathbf{div}~ L) + \sum_{i=1}^{n^4} 1\\
+& = K * r(n~\mathbf{div}~ L) + n^4\\
+\end{align*}
+
+Por lo cual nos queda que:
+$$a=K,\quad b=L,\quad k=4$$
+
+### a)
+Para que el orden sea de $n^4\log n$ se tiene que dar que  $a = b^k \Rightarrow K = L^k$
+
+Por ende elegimos $K=16, L=2 \Rightarrow 16 = 2^4 \Rightarrow 16 = 16$
+
+
+### b)
+Para que el orden sea de $n^4$ se tiene que dar que  $a > b^k \Rightarrow K = L^k$
+
+Por ende elegimos $K=2, L=2 \Rightarrow 2 < 2^4 \Rightarrow 2 < 16$
+
+Por ende nos queda que el orden es: $n^k = n^4$
+
+### c)
+
+Elegimos $K=32, L=2 \Rightarrow 17 > 2^4 \Rightarrow 32 > 16$
+
+Por ende nos queda que el orden es: $n^{log_2 32} = n^5$
+
+## 6)
+
+### a)
+
+\begin{tabular}{ l l l }
+& \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad m:= 1\\
+& \quad \textbf{od}\\
+& \textbf{od}\\
+& \textbf{for} i := 1 \textbf{to} 2 \textbf{do}\\
+& \quad k:= n\\
+& \quad \textbf{while} k != 0 \textbf{do}\\
+& \quad \quad k:= k \textbf{div} 2\\
+& \quad \quad m:= 1\\
+& \quad \textbf{od}\\
+& \textbf{od}\\
+\end{tabular}
+
+### b)
+
+
+\begin{tabular}{ l l l }
+& \textbf{fun} DyV(n) \textbf{ret} r : nat\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad m:= 1\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} i := 1 \textbf{to} 4 \textbf{do}\\
+& \quad \quad r:= DyV(n \textbf{div} 2)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### c)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} rec(n) \textbf{ret} r : type\\
+& \quad \textbf{if} n <= 0 \textbf{then}\\
+& \quad \quad r:= n\\
+& \quad \textbf{else}\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad r:= rec(n-1) + rec(n-1) + rec(n-1)\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+
+
+
+

@@ -1,0 +1,231 @@
+---
+title: Práctico 10 - AYED2
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\newpage
+
+# 3)
+m = [1,2,3,4]
+
+h = [4,3,2,1]
+
+H
+
+## Descripcion
+harina(i, h) = "El mayor importe posible que se puede obtener haciendo los pedidos de i hasta n, tal que h sea mayor o igual a 0"
+
+## Definicion recursiva
+$$harina(i, j) = \begin{cases}
+0 & j = 0\\
+0 & i=n, j < h_i\\
+m_i & i=n, j \ge h_i\\
+harina(i+1, j) & i>0, j < h_i\\
+max(& i>0, j \ge h_i\\
+\quad m_i + harina(i+1, j-h_i),\\
+\quad harina(i+1, j)\\
+) 
+\end{cases}$$
+
+\newpage
+
+# 4)
+
+## Descripcion
+globo(i, h) = "El menor valor de los objetos que van desde 1 hasta i que tengo que tirar tal que el peso de los objetos tirados sea mayor o igual a h"
+
+## Definicion recursiva
+$$globo(i, h) = \begin{cases}
+0 & h\le 0\\
+\infty & i=0, h > 0\\
+min(& i>0, h > 0\\
+\quad v_i + globo(i-1, h-p_i),\\
+\quad globo(i-1, h)\\
+) 
+\end{cases}$$
+
+Veamos un ejemplo:
+
+p = [1,2,3,4]
+
+v = [4,3,2,1]
+
+
+```
+  globo(4, 8)
+  = min(1 + globo(4-1, 8-4), globo(4-1, h))
+  = min(1 + min(2 + globo(3-1, 4-3), globo(3-1, 4)),
+  globo(4-1, 4))
+  ...
+```
+
+\newpage
+
+# 5) 
+p = [1,2,3,4]
+
+r = [4,3,5,6]
+
+m = [5,6,7,8]
+
+## Descripcion
+telefono(d) = "El maximo valor alcanzable alquilando el telefono desde el dia d hasta el ultimo dia"
+
+## Definicion recursiva
+$$telefono(d) = \begin{cases}
+0 & \forall i: p_i > d\\
+max(& else\\
+\quad telefono(d+1),\\
+\quad Max_{\{i \text{ tal que }  p_i = d\} }(m_i * (r_i - p_i + 1) + telefono(r_i+1))\\
+) 
+\end{cases}$$
+
+\newpage
+
+# 6)
+
+<!-- ![](./practico10_imgs/fig1.png) -->
+
+## Descripcion
+prima(i, A, B) = "Calcula el maximo valor venta alcanzable para cada objeto de 1 hasta i tal que la cantidad de material A y la cantidad de material B sean mayores o iguales a 0"
+
+## Definicion recursiva
+$$prima(i, A, B) = \begin{cases}
+0 & A=0 \vee B=0\\
+0 & i=0\\
+prima(i-1, A, B) & A < a_i \vee B  < b_i\\
+max(& A\ge a_i \wedge B \ge b_i\\
+\quad v_i + prima(i-1, A-a_i, B-b_i),\\
+\quad prima(i-1, A, B)\\
+) 
+\end{cases}$$
+
+\newpage
+
+# 7) 
+<!-- ![](./practico10_imgs/fig2.png) -->
+
+## Descripcion
+mochilas(i, w1, w2) = "Calcula el maximo valor valor que se puede alcanzar cargando objetos en las mochilas w1 y w2 tal que el peso de los objetos no supere al peso soportado por ambas mochilas"
+
+## Definicion recursiva
+$$mochilas(i, w1, w2) = \begin{cases}
+0 & i=0\\
+0 & w1=0 \wedge w2=0\\
+\text{\textbf{ // no entra en ninguna }} \\
+mochilas(i-1, w1, w2)& w_i > w1 \wedge w_i > w2\\
+\text{\textbf{ // entra en primera }} \\
+max(& w_i \le w1 \wedge w_i > w2\\
+\quad v_i + mochilas(i-1, w1-w_i, w2),\\
+\quad mochilas(i-1, w1, w2)\\
+)\\ 
+\text{\textbf{ // entra en segunda }} \\
+max(& w_i > w1 \wedge w_i \le w2\\
+\quad v_i + mochilas(i-1, w1, w2-w_i),\\
+\quad mochilas(i-1, w1, w2)\\
+)\\ 
+\text{\textbf{ // entra en ambas }}\\
+max(& w_i \le w2 \wedge w_i \le w2\\
+\quad v_i + mochilas(i-1, w1-w_I, w2),\\
+\quad v_i + mochilas(i-1, w1, w2-w_i),\\
+\quad mochilas(i-1, w1, w2)\\
+)\\ 
+\end{cases}$$
+
+\newpage
+
+# 8) (EN DUDA)
+<!-- ![](./practico10_imgs/fig3.png) -->
+
+## Version 1 (DUDOSA)
+### Descripcion
+automoviles(j) = "Encuentra el costo minimo de fabricar un automovil desde la estacion de ensamblaje numero j hasta el inicio de la linea de ensamblaje utilizando ambas lineas de ensamblaje disponibles"
+
+### Definicion recursiva
+$$automoviles(j) = \begin{cases}
+0 & j=0\\
+\text{Min}_{i \in \{1,2\} }(& j>0\\
+\quad a_{i,j} + automoviles(j-1)\\
+\quad \mathbf{min}~a_{i,j} + t_{i,j}+ automoviles(j-1)\\
+)
+\end{cases}$$
+
+\newpage
+
+## Version 2 (MENOS DUDOSA)
+### Descripcion
+automoviles(i,j) = "Encuentra el costo minimo de fabricar un automovil estando en la linea de ensamblaje $S_i$ desde la estacion de ensamblaje numero j hasta la estacion de ensamblaje n"
+
+### Definicion recursiva
+$$automoviles(i,j) = \begin{cases}
+a_{i,j} & j=n\\
+min(& i=1\\
+\quad a_{i,j} + automoviles(i, j+1),\\
+\quad a_{i,j} + t_{i,j}+ automoviles(i+1, j+1)\\
+)\\
+min(& i=2\\
+\quad a_{i,j} + automoviles(i, j+1),\\
+\quad a_{i,j} + t_{i,j}+ automoviles(i-1, j+1)\\
+)\\
+\end{cases}$$
+\newpage
+
+### Ejemplo
+<!-- ![](./practico10_imgs/fig5.png) -->
+
+### LLamada principal
+r:= max(automoviles(1,1), automoviles(2,1))
+
+# 9)
+
+<!-- ![](./practico10_imgs/fig4.png) -->
+
+## Calcular máximo
+### Descripcion
+maxUp(i,j) = "Encuentra el maximo puntaje que se puede obtener partiendo de la posicion i,j, siendo i la fila y j la columna"
+
+### Definicion recursiva
+$$maxUp(i,j) = \begin{cases}
+c_{i,j} & i=n\\
+max( & i<n\\
+\quad c_{i,j} + maxUp(i+1,max(0,j-1)), & // \text{ Arriba a la izq }\\
+\quad c_{i,j} + maxUp(i+1,j), & // \text{ Arriba al centro }\\
+\quad c_{i,j} + maxUp(i+1,min(j+1, n)) & // \text{ Arriba a la der }\\
+)
+\end{cases}$$
+
+### Calcular máximo de todo el tablero
+\begin{tabular}{ l l l }
+& \textbf{var} maximo: nat\\
+& maximo:= 0\\
+& \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad maximo:= max(maximo, maxUp(0,j))\\
+& \textbf{od}\\
+\end{tabular}
+
+## Calcular minimo
+### Descripcion
+maxUp(i,j) = "Encuentra el minimo puntaje que se puede obtener partiendo de la posicion i,j, siendo i la fila y j la columna"
+
+### Definicion recursiva
+$$minUp(i,j) = \begin{cases}
+c_{i,j} & i=n\\
+min( & i<n\\
+\quad c_{i,j} + minUp(i+1,min(0,j-1)), & // \text{ Arriba a la izq }\\
+\quad c_{i,j} + minUp(i+1,j), & // \text{ Arriba al centro }\\
+\quad c_{i,j} + minUp(i+1,min(j+1, n)) & // \text{ Arriba a la der }\\
+)
+\end{cases}$$
+
+### Calcular minimo de todo el tablero
+\begin{tabular}{ l l l }
+& \textbf{var} minimo: nat\\
+& minimo:= $\infty$\\
+& \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad minimo:= min(minimo, minUp(0,j))\\
+& \textbf{od}\\
+\end{tabular}

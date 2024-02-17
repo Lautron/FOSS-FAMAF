@@ -1,0 +1,65 @@
+---
+title: Práctico 9 - AYED2
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# 1)
+## a)
+![](./practico9_imgs/fig1.png)
+
+## b)
+![](./practico9_imgs/fig2.png)
+
+# 2)
+## a)
+![](./practico9_imgs/fig3.png)
+
+## b)
+![](./practico9_imgs/fig4.png)
+
+# 3)
+## a)
+
+
+
+
+
+\begin{tabular}{ l l l }
+& \textbf{fun} litrosNafta(\\
+& \quad E: array[1..n,1..n] of Nat,\\
+& \quad C: Set \textbf{of} vertice,\\
+& \quad v: vertice, L: Nat) \textbf{ret} D : Set \textbf{of} vertice\\
+& \quad \textbf{var} costos: array[1..n] of nat\\
+& \quad \textbf{var} c1: Set \textbf{of} vertice\\
+& \quad \textbf{var} c: vertice\\
+& \quad D:= empty\_set()\\
+& \quad costos:= djikstra(E, v)\\
+& \quad c1:= set\_copy(C)\\
+& \quad elim(c1, v)\\
+& \quad \textbf{while} !is\_empty\_set(c1) \textbf{do}\\
+& \quad \quad c:= set\_get(c1)\\
+& \quad \quad set\_elim(c1, c)\\
+& \quad \quad \textbf{if} costos[c] $\le$ L \textbf{then}\\
+& \quad \quad \quad set\_add(D, c)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+
+## b)
+![](./practico9_imgs/fig5.png)
+
+
+
+
+
+
+
+
+
+

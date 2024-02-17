@@ -1,0 +1,483 @@
+\tableofcontents
+\newpage
+
+## 1) (OK) 
+
+\textbf{implement} Lista \textbf{of} T \textbf{where}
+
+\begin{tabular}{ l l l }
+& \textbf{type} Node \textbf{of} T = \textbf{tuple}\\
+& \quad elem: T\\
+& \quad next: \textbf{pointer to} (Node \textbf{of} T)\\
+& \textbf{end tuple}\\
+& \textbf{type} Lista \textbf{of} T = \textbf{pointer to} Node \textbf{of} T\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} concat(\textbf{in/out} l: List \textbf{of} T, \textbf{in} l0: List \textbf{of} T )\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{while} (p->next $\ne$ Null) \textbf{do}\\
+& \quad \quad p := p->next\\
+& \quad \textbf{od}\\
+& \quad p->next = l0\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} index(l: List \textbf{of} T, n: nat) \textbf{ret} e : T\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad p:= p->next\\
+& \quad \textbf{od}\\
+& \quad e:= p->elem\\
+& \textbf{end fun}\\
+& \textbf{proc} take(\textbf{in/out} l: List \textbf{of} T, \textbf{in} n: nat)\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad p:= p->next\\
+& \quad \textbf{od}\\
+& \quad p->next = null\\
+& \textbf{end proc}\\
+& \textbf{proc} drop(\textbf{in/out} l: List \textbf{of} T, \textbf{in} n: nat)\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad p:= p->next\\
+& \quad \textbf{od}\\
+& \quad l:= p->next\\
+& \textbf{end proc}\\
+& \textbf{fun} copy\_list(l1: List \textbf{of} T) \textbf{ret} l2 : List \textbf{of} T\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{while} (p->next $\ne$ Null) \textbf{do}\\
+& \quad \quad l2->elem:= p->elem\\
+& \quad \quad l2->next:= p->next\\
+& \quad \quad p := p->next\\
+& \quad \textbf{od}\\
+& \quad p->next = l0\\
+& \textbf{end proc}\\
+\end{tabular}
+
+## 2) (OK?)
+\textbf{implement} Lista \textbf{of} T \textbf{where}
+
+\begin{tabular}{ l l l }
+& \textbf{type} Lista \textbf{of} T = \textbf{tuple}\\
+& \quad elems: array[1..N] of T\\
+& \quad used: Nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} empty() \textbf{ret} l : List \textbf{of} T\\
+& \quad \textbf{var} a: array[1..N] of T\\
+& \quad l->elems:= a\\
+& \quad l->used := 0\\
+& \textbf{end fun}\\
+& \textbf{proc} addl(\textbf{in} e: T, \textbf{in/out} l: List \textbf{of} T)\\
+& \quad \textbf{for} i := 2 \textbf{to} l->used \textbf{do}\\
+& \quad \quad l->elems[i-1] = l->elems[i]\\
+& \quad \textbf{od}\\
+& \quad l->elems[1] = e\\
+& \textbf{end proc}\\
+& \textbf{fun} is\_empty(l: List \textbf{of} T) \textbf{ret} b : bool\\
+& \quad b:= (l->used = 0)\\
+& \textbf{end fun}\\
+& \textbf{fun} head(l: List \textbf{of} T) \textbf{ret} e : T\\
+& \quad e:= l->elems[1]\\
+& \textbf{end fun}\\
+& \textbf{proc} tail(\textbf{in/out} l: List \textbf{of} T)\\
+& \quad \textbf{for} i := 2 \textbf{to} l->used \textbf{do}\\
+& \quad \quad l->elems[i-1] = l->elems[i]\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \textbf{proc} addr(\textbf{in/out} l: List \textbf{of} T, \textbf{in} e: T)\\
+& \quad l->elems[l->used+1]:= e\\
+& \textbf{end proc}\\
+& \textbf{fun} length(l: List \textbf{of} T) \textbf{ret} n : Nat\\
+& \quad n:= l->used\\
+& \textbf{end fun}\\
+& \textbf{proc} concat(\textbf{in/out} l: List \textbf{of} T, \textbf{in} l0: List \textbf{of} T )\\
+& \quad \textbf{var} largo: Nat\\
+& \quad largo:= length(l)\\
+& \quad \textbf{for} i := 1 \textbf{to} length(l0) \textbf{do}\\
+& \quad \quad l->elems[i+largo] = l0->elems[i]\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \textbf{fun} index(l: List \textbf{of} T, n: nat) \textbf{ret} e : T\\
+& \quad e:= l->elems[n]\\
+& \textbf{end fun}\\
+& \textbf{proc} take(\textbf{in/out} l: List \textbf{of} T, \textbf{in} n: nat)\\
+& \quad l->used:= n\\
+& \textbf{end proc}\\
+& \textbf{proc} drop(\textbf{in/out} l: List \textbf{of} T, \textbf{in} n: nat)\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad l->elems[i] = l->elems[i+n]\\
+& \quad \textbf{od}\\
+& \quad l->elems[1] = e\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} copy\_list(l1: List \textbf{of} T) \textbf{ret} l2 : List \textbf{of} T\\
+& \quad \textbf{var} p: \textbf{pointer to} Node \textbf{of} T\\
+& \quad p:= l\\
+& \quad \textbf{while} (p->next $\ne$ Null) \textbf{do}\\
+& \quad \quad l2->elem:= p->elem\\
+& \quad \quad l2->next:= p->next\\
+& \quad \quad p := p->next\\
+& \quad \textbf{od}\\
+& \quad p->next = l0\\
+& \textbf{end proc}\\
+\end{tabular}
+
+
+
+Esta implementacion impone la restriccion de que el tamaño de la lista no será mutable, es decir, solo puede tener un numero N de elementos.
+
+## 3) (OK)
+
+\begin{tabular}{ l l l }
+& \textbf{proc} add\_at(\textbf{in/out} l: Lista \textbf{of} T, n: nat, e: T)\\
+& \quad \textbf{var} end: List \textbf{of} T\\
+& \quad end:= copy\_list(l)\\
+& \quad take(l, n)\\
+& \quad drop(end, n)\\
+& \quad addr(l, e)\\
+& \quad concat(l, end)\\
+& \textbf{end proc}\\
+\end{tabular}
+
+![](./practico5_imgs/fig1.png){ width=250px }
+
+## 4)
+
+### a) (OK)
+
+\textbf{spec} Tablero \textbf{where}
+
+\begin{tabular}{ l l l }
+& \textbf{constructors}\\
+& \quad \{- start of match -\}\\
+& \quad \textbf{fun} start() \textbf{ret} r : Tablero\\
+& \quad \{- new point A -\}\\
+& \quad \textbf{proc} newPointA(\textbf{in/out} t: Tablero)\\
+& \quad \{- new point B -\}\\
+& \quad \textbf{proc} newPointB(\textbf{in/out} t: Tablero)\\
+& \textbf{operations}\\
+& \quad \{- isCounter0 -\}\\
+& \quad \textbf{fun} isCounter0(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- hasAScored -\}\\
+& \quad \textbf{fun} hasAScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- hasBScored -\}\\
+& \quad \textbf{fun} hasBScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- AisWinning -\}\\
+& \quad \textbf{fun} isAWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- BisWinning -\}\\
+& \quad \textbf{fun} isBWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- isTie -\}\\
+& \quad \textbf{fun} isTie(t: Tablero) \textbf{ret} r : bool\\
+& \quad \{- giveApoints -\}\\
+& \quad \textbf{proc} giveAPoints(t: Tablero)\\
+& \quad \{- giveBpoints -\}\\
+& \quad \textbf{proc} giveBPoints(t: Tablero)\\
+& \quad \{- substractApoints -\}\\
+& \quad \textbf{proc} substractAPoints(t: Tablero)\\
+& \quad \{- substractBpoints -\}\\
+& \quad \textbf{proc} substractBPoints(t: Tablero)\\
+\end{tabular}
+
+### b) (OK)
+\begin{tabular}{ l l l }
+& \textbf{implement} Tablero \textbf{of} T \textbf{where}\\
+& \textbf{type} Tablero \textbf{of} T\quad = \textbf{tuple}\\
+& \quad A: Counter \textbf{of} T\\
+& \quad B: Counter \textbf{of} T\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \{- start of match -\}\\
+& \textbf{fun} start() \textbf{ret} r : Tablero\\
+& \quad r->A:= init()\\
+& \quad r->B:= init()\\
+& \textbf{end fun}\\
+& \{- new point A -\}\\
+& \textbf{proc} newPointA(\textbf{in/out} t: Tablero)\\
+& \quad incr(t->A)\\
+& \textbf{end proc}\\
+& \{- new point B -\}\\
+& \textbf{proc} newPointB(\textbf{in/out} t: Tablero)\\
+& \quad incr(t->B)\\
+& \textbf{end proc}\\
+& \{- isCounter0 -\}\\
+& \textbf{fun} isCounter0(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= is\_init(t->A) $\wedge$ is\_init(t->B)\\
+& \textbf{end fun}\\
+& \{- hasAScored -\}\\
+& \textbf{fun} hasAScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= $\neg$ is\_init(t->A)\\
+& \textbf{end fun}\\
+& \{- hasBScored -\}\\
+& \textbf{fun} hasBScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= $\neg$ is\_init(t->B)\\
+& \textbf{end fun}\\
+& \{- AisWinning -\}\\
+& \textbf{fun} isAWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->A $>$ t->B\\
+& \textbf{end fun}\\
+& \{- BisWinning -\}\\
+& \textbf{fun} isBWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->B $>$ t->A\\
+& \textbf{end fun}\\
+& \{- isTie -\}\\
+& \textbf{fun} isTie(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->B = t->A\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \{- giveApoints -\}\\
+& \textbf{proc} giveAPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad incr(t->A)\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \{- giveBpoints -\}\\
+& \textbf{proc} giveBPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad incr(t->B)\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \{- substractApoints -\}\\
+& \textbf{proc} giveAPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{var} i: Nat\\
+& \quad i:= 0\\
+& \quad \textbf{while} ($\neg$ is\_init(t->A) $\wedge i < n$) \textbf{do}\\
+& \quad \quad decr(t->A)\\
+& \quad \quad i = i + 1\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \{- substractBpoints -\}\\
+& \textbf{proc} giveBPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{var} i: Nat\\
+& \quad i:= 0\\
+& \quad \textbf{while} ($\neg$ is\_init(t->B) $\wedge i < n$) \textbf{do}\\
+& \quad \quad decr(t->B)\\
+& \quad \quad i = i + 1\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### c) (OK)
+
+\begin{tabular}{ l l l }
+& \textbf{implement} Tablero \textbf{of} T \textbf{where}\\
+& \textbf{type} Tablero \textbf{of} T\quad = \textbf{tuple}\\
+& \quad A: nat\\
+& \quad B: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+
+\begin{tabular}{ l l l }
+& \{- start of match -\}\\
+& \textbf{fun} start() \textbf{ret} r : Tablero\\
+& \quad r->A:= 0\\
+& \quad r->B:= 0\\
+& \textbf{end fun}\\
+& \{- new point A -\}\\
+& \textbf{proc} newPointA(\textbf{in/out} t: Tablero)\\
+& \quad t->A = t->A + 1\\
+& \textbf{end proc}\\
+& \{- new point B -\}\\
+& \textbf{proc} newPointB(\textbf{in/out} t: Tablero)\\
+& \quad t->B = t->B + 1\\
+& \textbf{end proc}\\
+& \{- isCounter0 -\}\\
+& \textbf{fun} isCounter0(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= (t->A = 0) $\wedge$ (t->A = 0)\\
+& \textbf{end fun}\\
+& \{- hasAScored -\}\\
+& \textbf{fun} hasAScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->A $>$ 0\\
+& \textbf{end fun}\\
+& \{- hasBScored -\}\\
+& \textbf{fun} hasBScored(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->B $>$ 0\\
+& \textbf{end fun}\\
+& \{- AisWinning -\}\\
+& \textbf{fun} isAWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->A $>$ t->B\\
+& \textbf{end fun}\\
+& \{- BisWinning -\}\\
+& \textbf{fun} isBWinning(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= t->B $>$ t->A\\
+& \textbf{end fun}\\
+& \{- isTie -\}\\
+& \textbf{fun} isTie(t: Tablero) \textbf{ret} r : bool\\
+& \quad r:= (t->B = t->A)\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \{- giveApoints -\}\\
+& \textbf{proc} giveAPoints(t: Tablero, n: Nat )\\
+& \quad t->A = t->A + n\\
+& \textbf{end proc}\\
+& \{- giveBpoints -\}\\
+& \textbf{proc} giveBPoints(t: Tablero, n: Nat )\\
+& \quad t->B = t->B + n\\
+& \textbf{end proc}\\
+& \{- substractApoints -\}\\
+& \textbf{proc} substractAPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{if} (t->A - n) $>$ 0 \textbf{then}\\
+& \quad \quad t->A = n\\
+& \quad \textbf{else}\\
+& \quad \quad t->A = 0\\
+& \quad \textbf{fi}\\
+& \textbf{end proc}\\
+& \{- substractBpoints -\}\\
+& \textbf{proc} substractBPoints(t: Tablero, n: Nat )\\
+& \quad \textbf{if} (t->B - n) $>$ 0 \textbf{then}\\
+& \quad \quad t->B = n\\
+& \quad \textbf{else}\\
+& \quad \quad t->B = 0\\
+& \quad \textbf{fi}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+Las operaciones que usan el tipo del Contador quizas sean un poco mas sencillas de entender
+ya que se aplica un nuevo nivel de abstraccion
+
+## 5) (OK)
+
+\begin{tabular}{ l l l }
+& \textbf{spec} Conjunto \textbf{of} T \textbf{where}\\
+& \textbf{constructors}\\
+& \quad \{- Conjunto vacio -\}\\
+& \quad \textbf{fun} empty\_set() \textbf{ret} r : Conjunto\\
+& \quad \{- Agregar elemento -\}\\
+& \quad \textbf{proc} addc(\textbf{in/out} c: Conjunto)\\
+& \textbf{operations}\\
+& \quad \{- isInSet -\}\\
+& \quad \textbf{fun} isInSet(e: T, c: Conjunto) \textbf{ret} r : bool\\
+& \quad \{- isEmpty -\}\\
+& \quad \textbf{fun} isEmpty(c: Conjunto) \textbf{ret} r : bool\\
+& \quad \{- Union -\}\\
+& \quad \textbf{proc} union(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+& \quad \{- Intersect -\}\\
+& \quad \textbf{proc} intersection(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+& \quad \{- Difference -\}\\
+& \quad \textbf{proc} difference(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+\end{tabular}
+
+## 6) (INCOMPLETE)
+
+### a) (OK but INC)
+\textbf{implement} Conjunto \textbf{of} T \textbf{where}
+\textbf{type} Conjunto \textbf{of} T  = Lista \textbf{of} T 
+
+\begin{tabular}{ l l l }
+& \textbf{proc} addc(\textbf{in/out} c: Conjunto, e: T)\\
+& \quad addl(c, e)\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### b) (INCOMPLETE)
+\textbf{implement} Conjunto \textbf{of} T \textbf{where}
+\textbf{type} Conjunto \textbf{of} T  = Lista \textbf{of} T 
+
+\begin{tabular}{ l l l }
+& \{- Conjunto vacio -\}\\
+& \textbf{fun} empty\_set() \textbf{ret} r : Conjunto\\
+& \quad r:= empty()\\
+& \textbf{end fun}\\
+& \{- Agregar elemento -\}\\
+& \textbf{proc} addc(\textbf{in/out} c: Conjunto, e: T )\\
+& \quad \textbf{var} i: Nat\\
+& \quad i:= 0\\
+& \quad \textbf{if} $\neg$ isEmpty(c)\textbf{then}\\
+& \quad \quad \textbf{while} (index(c, i) < e) \textbf{do}\\
+& \quad \quad \quad i = i+1\\
+& \quad \quad \textbf{od}\\
+& \quad \quad add\_at(c, i, e)\\
+& \quad \textbf{else}\\
+& \quad \quad addl(c, e)\\
+& \quad \textbf{fi}\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \{- isInSet -\}\\
+& \textbf{fun} isInSet(e: T, c: Conjunto) \textbf{ret} r : bool\\
+& \quad \textbf{var} c1: Conjunto \textbf{of} T\\
+& \quad \textbf{var} head: T\\
+& \quad c1 := copy\_list(c)\\
+& \quad head:= head(c1)\\
+& \quad tail(c1)\\
+& \quad \textbf{while} ($\neg$ is\_empty(c1) $\wedge$ head != e) \textbf{do}\\
+& \quad \quad head:= head(c1)\\
+& \quad \quad tail(c1)\\
+& \quad \textbf{od}\\
+& \quad \textbf{if} head = e \textbf{then}\\
+& \quad \quad r:= true\\
+& \quad \textbf{else}\\
+& \quad \quad r:= false\\
+& \quad \textbf{fi}\\
+& \textbf{end fun}\\
+& \{- isEmpty -\}\\
+& \textbf{fun} isEmpty(c: Conjunto) \textbf{ret} r : bool\\
+& \quad r:= is\_empty(c)\\
+& \textbf{end fun}\\
+& \{- Union -\}\\
+& \textbf{proc} union(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+& \quad \textbf{var} c3: Conjunto \textbf{of} T\\
+& \quad \textbf{var} head: T\\
+& \quad c3:= copy\_list(c2)\\
+& \quad \textbf{while} ($\neg$ is\_empty\_set(c3)) \textbf{do}\\
+& \quad \quad head:= head(c3)\\
+& \quad \quad tail(c3)\\
+& \quad \quad addc(c1, head)\\
+& \quad \textbf{od}\\
+& \textbf{end proc}\\
+& \{- Intersect -\}\\
+& \textbf{proc} intersection(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+& \quad \textbf{var} c3, c4: Conjunto \textbf{of} T\\
+& \quad \textbf{var} head1, head2: T\\
+& \quad c3:= copy\_list(c2)\\
+& \quad \textbf{while} ($\neg$ is\_empty\_set(c3)) \textbf{do}\\
+& \quad \quad head:= head(c3)\\
+& \quad \quad tail(c3)\\
+& \quad \quad \textbf{if} isInSet(c1, head) \textbf{then}\\
+& \quad \quad \quad addc(c4, head)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad c1:= c4\\
+& \textbf{end proc}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \{- Difference -\}\\
+& \textbf{proc} difference(\textbf{in/out} c1: Conjunto, \textbf{in} c2: Conjunto)\\
+& \quad \textbf{var} c3, c4: Conjunto \textbf{of} T\\
+& \quad \textbf{var} head1, head2: T\\
+& \quad c3:= copy\_list(c1)\\
+& \quad \textbf{while} ($\neg$ is\_empty\_set(c3)) \textbf{do}\\
+& \quad \quad head:= head(c3)\\
+& \quad \quad tail(c3)\\
+& \quad \quad \textbf{if} $\neg$ isInSet(c2, head) \textbf{then}\\
+& \quad \quad \quad addc(c4, head)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad c1:= c4\\
+& \textbf{end proc}\\
+\end{tabular}
+
+
+
+
+

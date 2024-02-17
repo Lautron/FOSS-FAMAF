@@ -1,0 +1,571 @@
+---
+title: Práctico 11 - AYED2
+author: Lautaro Bachmann
+---
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+# Notas
+## Notacion para cuantificar
+Escribir: 
+$$min_{q \in \{0,1,...,j/d_i\} } (q + cambio(i-1, j-q*d_i)$$
+
+Es equivalente a:
+
+\begin{tabular}{ l l l }
+& mimin := infinito\\
+& \textbf{for} q := 0 \textbf{to} (j / d[i]) \textbf{do}\\
+& \quad mimin :=\quad mimin `min` (q + cambio(i-1, j-q*$d_i$)\\
+& \textbf{od}\\
+\end{tabular}
+
+# 1)
+## Como resolver
+1. Determinar argumentos de la funcion
+2. Declarar variables.
+3. Cargar tabla con casos base
+4. Implementar \emph{caso} recursivo
+
+## Resolucion
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cambio(denom: array[1..n] of nat, monto: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..monto] of nat\\
+& \quad \textbf{var} minimo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] := 0\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := 1 \textbf{to} monto \textbf{do}\\
+& \quad \quad tabla[0,j] := $\infty$\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} monto \textbf{do}\\
+& \quad \quad \quad minimo := $\infty$\\
+& \quad \quad \quad \textbf{for} q := 0 \textbf{to} (j/denom[i]) \textbf{do}\\
+& \quad \quad \quad \quad minimo:= min(minimo, q + tabla[i-1, j- q*denom[i]])\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \quad tabla[i,j] := minimo\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, monto]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# 2)
+## Como resolver
+Para determinar la "direccion" en la que debe ser cargada la tabla hay que observar a que valores accede el caso recursivo.
+
+Si el caso recursivo accede a la fila anterior, la tabla debe de ser cargada de arriba hacia abajo.
+
+Algo similar pasa con el caso de determinar si la tabla se debe de cargar de derecha a izquierda y viceversa.
+
+## Resolucion
+La tabla puede ser escrita de derecha a izquiera, sin embargo no puede ser escrita de abajo hacia arriba, ya que en el caso recursivo de la funcion siempre se utilizan elementos de la fila anterior
+
+## Programa modificado
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cambio(denom: array[1..n] of nat, monto: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..monto] of nat\\
+& \quad \textbf{var} minimo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] := 0\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := monto \textbf{downto} 1 \textbf{do}\\
+& \quad \quad tabla[0,j] := $\infty$\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} j := monto \textbf{downto} 1 \textbf{do}\\
+& \quad \quad \quad minimo := $\infty$\\
+& \quad \quad \quad \textbf{for} q := 0 \textbf{to} (j/denom[i]) \textbf{do}\\
+& \quad \quad \quad \quad minimo:= min(minimo, q + tabla[i-1, j- q*denom[i]])\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \quad tabla[i,j] := minimo\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, monto]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# 3)
+
+## a)
+\begin{tabular}{ l l l }
+& \textbf{fun} cambio(denom: array[1..n] of nat, monto: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..monto] of nat\\
+& \quad \textbf{var} minimo: nat\\
+& \quad \textbf{var} i': nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] = 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} monto \textbf{do}\\
+& \quad \quad \quad minimo:= $\infty$\\
+& \quad \quad \quad i':= 1\\
+& \quad \quad \quad \textbf{while} d[i'] $\le$ monto \textbf{do}\\
+& \quad \quad \quad \quad minimo:= min(minimo, tabla[i',j-d[i']])\\
+& \quad \quad \quad \quad i':= i'+1\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \quad tabla[i,j]:= 1 + minimo\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, monto]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## b)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cambio(denom: array[1..n] of nat, monto: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..monto] of nat\\
+& \quad \textbf{var} minimo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] = 0\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := 1 \textbf{to} monto \textbf{do}\\
+& \quad \quad tabla[n,j] := $\infty$\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := n-1 \textbf{downto} 1 \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} monto \textbf{do}\\
+& \quad \quad \quad \textbf{if} d[i] > j \textbf{then}\\
+& \quad \quad \quad \quad tabla[i,j] := tabla[i+1,j]\\
+& \quad \quad \quad \textbf{else}\\
+& 	tabla[i,j]:= min(tabla[i+1,j],1+tabla[i,j-denom[i]])\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, monto]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+# 4)
+## 3)
+
+### Version Normal
+
+\begin{tabular}{ l l l }
+& \textbf{fun} harina(m: array[1..n] of nat, h: array[1..n] of nat, H: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[1..n,0..H] of nat\\
+& \quad \textbf{var} maximo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] := 0\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := 1 \textbf{to} H \textbf{do}\\
+& \quad \quad \textbf{if} j $\ge$ h[n]\textbf{then}\\
+& \quad \quad \quad tabla[n,j]:= m[n]\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad tabla[n,j]:= 0\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := n-1 \textbf{downto} 1 \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} H \textbf{do}\\
+& \quad \quad \quad maximo:= tabla[i+1, j]\\
+& \quad \quad \quad \textbf{if} j $\ge$ h[i] \textbf{then}\\
+& \quad \quad \quad \quad maximo:= max(maximo, m[i] + tabla[i+1, j-h[i]])\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad tabla[i,j] := maximo\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[1, H]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+#### Tabla Casos base
+
+\begin{tabular}{ |c|c|c|c| }
+\hline
+0    &  ?        &  ?    &  ?\\
+\hline
+0    &  ?        &  ?    &  ?\\
+\hline
+0    &  Inicio        &  ?    &  ?\\
+\hline
+0    &  m[n,1]   &  0    &  m[n,3]\\
+\hline
+\end{tabular}
+
+### Version con solucion (CORREGIR)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} harina(m: array[1..n] of nat, h: array[1..n] of nat, H: nat) \textbf{ret} r : List \textbf{of} nat \\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[1..n,0..H] of nat\\
+& \quad \textbf{var} solucion: array[1..n,0..H] of (List \textbf{of} nat)\\
+& \quad \textbf{var} maximo: nat\\
+& \quad \textbf{var} ind\_j: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] := 0\\
+& \quad \quad solucion[i,0]:= empty\_list()\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := 1 \textbf{to} H \textbf{do}\\
+& \quad \quad \textbf{if} j $\ge$ h[n]\textbf{then}\\
+& \quad \quad \quad tabla[n,j]:= m[n]\\
+& \quad \quad \quad solucion[n,j]:= empty\_list()\\
+& \quad \quad \quad list\_addl(solucion[n,j], n)\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad tabla[n,j]:= 0\\
+& \quad \quad \quad solucion[n,j]:= empty\_list()\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := n-1 \textbf{downto} 1 \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} H \textbf{do}\\
+& \quad \quad \quad maximo:= tabla[i+1, j]\\
+& \quad \quad \quad ind\_j:= j\\
+& \quad \quad \quad \textbf{if} j $\ge$ h[i] $\wedge$ m[i] + tabla[i+1, j-h[i]] > maximo \textbf{then}\\
+& \quad \quad \quad \quad maximo:= m[i] + tabla[i+1, j-h[i]]\\
+& \quad \quad \quad \quad ind\_j:= j- h[i]\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad tabla[i,j] := maximo\\
+& \quad \quad \quad solucion[i,j]:= armar\_solucion(solucion[i+1, ind\_j], i)\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= solucion[1, H]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\newpage
+### Ejecucion manual (TERMINAR)
+m:= [1,5,3]
+
+h:= [2,3,6]
+
+H:= 6
+
+n:= 3
+
+#### Casos base:\
+
+tabla:= 
+\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+ 0  &    &    &    &    &   \\
+\hline
+ 0  &    &    &    &    &   \\
+\hline
+ 0  &    &    &    &    &   \\
+\hline
+\end{tabular}
+
+tabla:= 
+\begin{tabular}{ |c|c|c|c|c|c|c| }
+\hline
+ 0  &            &            &            &            &            &           \\
+\hline
+ 0  &            &            &            &            &            &           \\
+\hline
+ 0  &  1<6 => 0  &  2<6 => 0  &  3<6 => 0  &  4<6 => 0  &  5<6 => 0  &  6=6 => 3 \\
+\hline
+\end{tabular}
+
+tabla:= 
+\begin{tabular}{ |c|c|c|c|c|c|c| }
+\hline
+ 0  &     &     &     &     &     &    \\
+\hline
+ 0  &     &     &     &     &     &    \\
+\hline
+ 0  &  0  &  0  &  0  &  0  &  0  &  3 \\
+\hline
+\end{tabular}
+
+solucion:= 
+\begin{tabular}{ |c|c|c|c|c|c|c| }
+\hline
+ []  &      &      &      &      &      &      \\
+\hline
+ []  &      &      &      &      &      &      \\
+\hline
+ []  &  []  &  []  &  []  &  []  &  []  &  [3] \\
+\hline
+\end{tabular}
+
+#### Caso recursivo:
+## 4)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} globo(v: array[1..n] of nat, p: array[1..n] of nat, P: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..P] of nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i,0] := 0\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} j := 1 \textbf{to} P \textbf{do}\\
+& \quad \quad tabla[0,j]:= $\infty$\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} j := 1 \textbf{to} P \textbf{do}\\
+& \quad \quad \quad tabla[i,j] := min(v[i] + tabla[i-1,j-p[i]], tabla[i-1,j])\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, P]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 5)
+### Version normal
+
+\begin{tabular}{ l l l }
+& \textbf{fun} telefono(m: array[1..n] of nat,\\
+& 	\quad r: array[1..n] of nat,\\
+& 	\quad p: array[1..n] of nat,\\
+& 	\quad ultimo\_d: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..ultimo\_d] of nat\\
+& \quad \textbf{var} ultima\_p: nat\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad ultima\_p:= max(ultima\_p, p[i])\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := ultima\_p+1 \textbf{to} ultimo\_d \textbf{do}\\
+& \quad \quad tabla[i]:= 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} d := ultima\_p \textbf{downto} 1 \textbf{do}\\
+& \quad \quad maximo:= 0\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{if} p[i] = d \textbf{then}\\
+& \quad \quad \quad \quad maximo:= max(maximo, m[i] * (r[i] - p[i] + 1) + tabla[r[i]+1])\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \quad tabla[d] := max(tabla[d+1], maximo)\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[0]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### Version con solucion (COMPLETAR) 
+
+\begin{tabular}{ l l l }
+& \textbf{fun} telefono(m: array[1..n] of nat,\\
+& 	\quad r: array[1..n] of nat,\\
+& 	\quad p: array[1..n] of nat,\\
+& 	\quad ultimo\_d: nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..ultimo\_d] of nat\\
+& \quad \textbf{var} ultima\_p: nat\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad ultima\_p:= max(ultima\_p, p[i])\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := ultima\_p+1 \textbf{to} ultimo\_d \textbf{do}\\
+& \quad \quad tabla[i]:= 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} d := ultima\_p \textbf{downto} 1 \textbf{do}\\
+& \quad \quad maximo:= 0\\
+& \quad \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \quad \textbf{if} p[i] = d \textbf{then}\\
+& \quad \quad \quad \quad maximo:= max(maximo, m[i] * (r[i] - p[i] + 1) + tabla[r[i]+1])\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{od}\\
+& \quad \quad tabla[d] := max(tabla[d+1], maximo)\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[0]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 6)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} prima(vs: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad as: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad bs: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad A: nat,\\
+& \quad \quad \quad \quad \quad B: nat\\
+& 	\quad ) \textbf{ret} r : type\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad tabla: array[0..n,0..A,0..B] of nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} a := 0 \textbf{to} A \textbf{do}\\
+& \quad \quad \textbf{for} b := 0 \textbf{to} B \textbf{do}\\
+& \quad \quad \quad tabla[0, a, b] := 0\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i, 0, 0] := 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} a := 1 \textbf{to} A \textbf{do}\\
+& \quad \quad \quad \textbf{for} b := 1 \textbf{to} B \textbf{do}\\
+& \quad \quad \quad \quad \quad \textbf{if} a < as[i] $\vee$ b < bs[i]\textbf{then}\\
+& \quad \quad \quad \quad \quad \quad tabla[i, a, b] := tabla[i-1, a, b]\\
+& \quad \quad \quad \quad \quad \textbf{else}\\
+& \quad \quad \quad \quad \quad \quad tabla[i, a, b] := max(tabla[i-1, a, b],\\
+& \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad vs[i] + tabla[i-1,a-as[i],b-bs[i]]\\
+& \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad )\\
+& \quad \quad \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n,A,B]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 7)
+
+### Version normal
+
+\begin{tabular}{ l l l }
+& \textbf{fun} mochilas(v: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad \quad  w: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad \quad  W1: nat,\\
+& \quad \quad \quad \quad \quad \quad  W2: nat\\
+& \quad \quad \quad \quad \quad \quad  ) \textbf{ret} r : type\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..W1,0..W2] of int\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} w1 := 0 \textbf{to} A \textbf{do}\\
+& \quad \quad \textbf{for} w2 := 0 \textbf{to} B \textbf{do}\\
+& \quad \quad \quad tabla[0, w1, w2] := 0\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i, 0, 0] := 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} w1 := 1 \textbf{to} W1 \textbf{do}\\
+& \quad \quad \quad \textbf{for} w2 := 1 \textbf{to} W2 \textbf{do}\\
+& \quad \quad \quad \quad maximo := tabla[i - 1, w1, w2]\\
+& \quad \quad \quad \quad \textbf{if} w[i] $\le$ w1\textbf{then}\\
+& \quad \quad \quad \quad \quad maximo:= max(v[i] + tabla[i - 1, w1 - w[i], w2], maximo)\\
+& \quad \quad \quad \quad \textbf{else if} w[i] $\le$ w2 \textbf{then}\\
+& \quad \quad \quad \quad \quad maximo:= max(v[i] + tabla[i - 1, w1, w2 - w[i]], maximo)\\
+& \quad \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad \quad tabla[i, w1, w2]:= maximo\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, W1, W2]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+### Version con solucion (COMPLETAR)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} mochilas(v: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad \quad  w: array[1..n] of nat,\\
+& \quad \quad \quad \quad \quad \quad  W1: nat,\\
+& \quad \quad \quad \quad \quad \quad  W2: nat\\
+& \quad \quad \quad \quad \quad \quad  ) \textbf{ret} r : type\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad \textbf{var} tabla: array[0..n,0..W1,0..W2] of int\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} w1 := 0 \textbf{to} A \textbf{do}\\
+& \quad \quad \textbf{for} w2 := 0 \textbf{to} B \textbf{do}\\
+& \quad \quad \quad tabla[0, w1, w2] := 0\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad \textbf{for} i := 0 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[i, 0, 0] := 0\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad \textbf{for} w1 := 1 \textbf{to} W1 \textbf{do}\\
+& \quad \quad \quad \textbf{for} w2 := 1 \textbf{to} W2 \textbf{do}\\
+& \quad \quad \quad \quad maximo := tabla[i - 1, w1, w2]\\
+& \quad \quad \quad \quad \textbf{if} w[i] $\le$ w1\textbf{then}\\
+& \quad \quad \quad \quad \quad maximo:= max(v[i] + tabla[i - 1, w1 - w[i], w2], maximo)\\
+& \quad \quad \quad \quad \textbf{else if} w[i] $\le$ w2 \textbf{then}\\
+& \quad \quad \quad \quad \quad maximo:= max(v[i] + tabla[i - 1, w1, w2 - w[i]], maximo)\\
+& \quad \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad \quad tabla[i, w1, w2]:= maximo\\
+& \quad \quad \quad \textbf{od}\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= tabla[n, W1, W2]\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 8)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} automoviles(a: array[1..2,1..n] of nat,\\
+& \quad \quad \quad \quad \quad \quad \quad \quad t: array[1..2,1..n] of nat\\
+& ) \textbf{ret} r : type\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad tabla: array[1..2,1..n] of nat\\
+& \quad \textbf{var} minimo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} 2 \textbf{do}\\
+& \quad \quad tabla[i, n]:= a[i,n]\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := 1 \textbf{to} 2 \textbf{do}\\
+& \quad \quad \textbf{for} j := n-1 \textbf{to} 1 \textbf{do}\\
+& \quad \quad \quad minimo:= a[i,j] + tabla[i,j+1]\\
+& \quad \quad \quad \textbf{if} i = 1 \textbf{then}\\
+& \quad \quad \quad \quad minimo:= min(minimo,a[i,j] + t[i,j] + tabla[i+1, j+1])\\
+& \quad \quad \quad \textbf{else}\\
+& \quad \quad \quad \quad minimo:= min(minimo,a[i,j] + t[i,j] + tabla[i-1, j+1])\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \quad tabla[i,j] := minimo\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= min(tabla[1,1], tabla[2,1])\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 9)
+
+\begin{tabular}{ l l l }
+& \textbf{fun} maxUp(c: array[1..n,1..n] of nat) \textbf{ret} r : nat\\
+& \quad \emph{\{- Declaracion de variables -\}}\\
+& \quad tabla: array[1..2,1..n] of nat\\
+& \quad \textbf{var} maximo: nat\\
+& \quad \emph{\{- Casos base -\}}\\
+& \quad \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad tabla[n, j]:= c[n, j]\\
+& \quad \textbf{od}\\
+& \quad \emph{\{- Caso recursivo -\}}\\
+& \quad \textbf{for} i := n-1 \textbf{to} 1 \textbf{do}\\
+& \quad \quad \textbf{for} j := n \textbf{to} 1 \textbf{do}\\
+& \quad \quad \quad tabla[i,j]:= c[i,j] + tabla[i+1,j]\\
+& \quad \quad \quad \quad\textbf{max} c[i,j] + tabla[i+1, max(j-1, 0)]\\
+& \quad \quad \quad \quad\textbf{max} c[i,j] + tabla[i+1, min(n, j+1)]\\
+& \quad \quad \textbf{od}\\
+& \quad \textbf{od}\\
+& \quad r:= 0\\
+& \quad \textbf{for} j := 1 \textbf{to} n \textbf{do}\\
+& \quad \quad r:= max(r, maxUp(1,j))\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

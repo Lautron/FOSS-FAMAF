@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/lautarob/Documents/Facultad/AYED2/lab/parciales/practica/parcial2-recuperatorio/C/kickstart-C/ParcialC'
+gcc -Wall -Werror -Wextra -pedantic -std=c99 -g -c pqueue.c -o pqueue.o
+ 
+gcc -Wall -Werror -Wextra -pedantic -std=c99 -g -c main.c -o main.o
+gcc -Wall -Werror -Wextra -pedantic -std=c99 -g -o dispatch_patients pqueue.o main.o  
+make: Leaving directory '/home/lautarob/Documents/Facultad/AYED2/lab/parciales/practica/parcial2-recuperatorio/C/kickstart-C/ParcialC'
+ 

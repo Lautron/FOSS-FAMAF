@@ -1,0 +1,122 @@
+## 1)
+\textbf{implement} Stack \textbf{of} T \textbf{where}
+\textbf{type} Stack \textbf{of} T = List \textbf{of} T 
+
+\textbf{fun} empty_stack() \textbf{ret} s: Stack
+  s:= empty()
+\textbf{end fun}
+
+\textbf{proc} push(\textbf{in} e: T, \textbf{in/out} s: Stack)
+  addl(s, e)
+\textbf{end proc}
+
+\textbf{fun} is\_empty\_stack(s: Stack ) \textbf{ret} b : bool
+  b:= is\_empty(s)
+\textbf{end fun}
+
+\textbf{fun} top(s: Stack ) \textbf{ret} e : T
+  e:= head(s)
+\textbf{end fun}
+
+\textbf{proc} pop(\textbf{in/out} s: Stack)
+  tail(s)
+\textbf{end proc}
+
+## 2)
+
+\textbf{implement} Stack \textbf{of} T \textbf{where}
+\textbf{type} Node \textbf{of} T = \textbf{tuple}
+  elem: T
+  next: \textbf{pointer to} (Node \textbf{of} T)
+\textbf{end tuple}
+\textbf{type} Stack \textbf{of} T  = \textbf{pointer to} (Node \textbf{of} T )
+
+\textbf{fun} empty_stack() \textbf{ret} s: Stack
+  s:= null
+\textbf{end fun}
+
+\textbf{proc} push(\textbf{in} e: T, \textbf{in/out} s: Stack)
+  \textbf{var} p: \textbf{pointer to} Node
+  alloc(p)
+  p->elem:= e
+  p->next:= s
+  s:=p
+\textbf{end proc}
+
+\textbf{fun} is\_empty\_stack(s: Stack ) \textbf{ret} b : bool
+  b:= (s = null)
+\textbf{end fun}
+
+\textbf{fun} top(s: Stack ) \textbf{ret} e : T
+  e:= s->elem
+\textbf{end fun}
+
+\textbf{proc} pop(\textbf{in/out} s: Stack)
+  \textbf{var} p: \textbf{pointer to} Node
+  p:= s
+  s:= s->next
+  free(s)
+\textbf{end proc}
+
+## 3)
+### a)
+
+\textbf{implement} Queue \textbf{of} T \textbf{where}
+\begin{tabular}{ l l l }
+& \textbf{type} Queue \textbf{of} T = \textbf{tuple}\\
+& \quad elems: array[0..N-1] \textbf{of} T\\
+& \quad size: nat\\
+& \textbf{end tuple}\\
+& \textbf{fun} empty\_queue() \textbf{ret} q : Queue\\
+& \quad \textbf{var} a: array[1..N-1] of T\\
+& \quad q->elems:= a\\
+& \quad q->size:= 0\\
+& \textbf{end fun}\\
+& \textbf{proc} enqueue(\textbf{in/out} q: Queue \textbf{of} T, \textbf{in} e: T)\\
+& \quad q->size = q->size + 1\\
+& \quad \textbf{for} i := q->size \textbf{to} 2 \textbf{do}\\
+& \quad \quad q->elems[i+1] = q->elems[i]\\
+& \quad \textbf{od}\\
+& \quad q->elems[1] := e\\
+& \textbf{end proc}\\
+& \textbf{fun} is\_empty\_queue(q: Queue \textbf{of} T) \textbf{ret} b : bool\\
+& \quad b:= (q->size = 0)\\
+& \textbf{end fun}\\
+& \textbf{fun} first(q: Queue \textbf{of} T) \textbf{ret} e : T\\
+& \quad e:= q->elems[q->size]\\
+& \textbf{end fun}\\
+& \textbf{proc} dequeue(\textbf{in/out} q: Queue \textbf{of} T)\\
+& \quad q->size = q->size - 1\\
+& \textbf{end proc}\\
+\end{tabular}
+
+### b)
+
+\textbf{implement} Queue \textbf{of} T \textbf{where}
+\begin{tabular}{ l l l }
+& \textbf{type} Queue \textbf{of} T = \textbf{tuple}\\
+& \quad elems: array[0..N-1] \textbf{of} T\\
+& \quad size: nat\\
+& \quad start: nat\\
+& \textbf{end tuple}\\
+& \textbf{fun} empty\_queue() \textbf{ret} q : Queue\\
+& \quad \textbf{var} a: array[1..N-1] of T\\
+& \quad q->elems:= a\\
+& \quad q->size:= 0\\
+& \quad q->start:= 1\\
+& \textbf{end fun}\\
+& \textbf{proc} enqueue(\textbf{in/out} q: Queue \textbf{of} T, \textbf{in} e: T)\\
+& \quad q->size = q->size + 1\\
+& \quad q->elems[q->start + q->size] := e\\
+& \textbf{end proc}\\
+& \textbf{fun} is\_empty\_queue(q: Queue \textbf{of} T) \textbf{ret} b : bool\\
+& \quad b:= (q->size = 0)\\
+& \textbf{end fun}\\
+& \textbf{fun} first(q: Queue \textbf{of} T) \textbf{ret} e : T\\
+& \quad e:= q->elems[q->start]\\
+& \textbf{end fun}\\
+& \textbf{proc} dequeue(\textbf{in/out} q: Queue \textbf{of} T)\\
+& \quad q->start = q->start + 1\\
+& \quad q->size := q->size - 1\\
+& \textbf{end proc}\\
+\end{tabular}

@@ -1,0 +1,1321 @@
+desc: (none)
+cmd: ./solve-hanoi 10
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=771498
+mem_heap_B=1267
+mem_heap_extra_B=261
+mem_stacks_B=0
+heap_tree=detailed
+n6: 1267 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48F5570: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x490323F: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x490323F: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49025C7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+     n1: 1024 0x490176D: _IO_new_file_xsputn (fileops.c:1243)
+      n1: 1024 0x490176D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+       n1: 1024 0x48F7045: _IO_padn (iopadn.c:64)
+        n1: 1024 0x48EE270: pad_func (vfprintf-internal.c:196)
+         n1: 1024 0x48EE270: __vfprintf_internal (vfprintf-internal.c:1517)
+          n1: 1024 0x48D78FE: printf (printf.c:33)
+           n1: 1024 0x109909: print_disks (hanoi.c:126)
+            n1: 1024 0x109AA9: print (hanoi.c:155)
+             n1: 1024 0x1094FD: hanoi_print (hanoi.c:45)
+              n0: 1024 0x109B70: main (main.c:20)
+ n2: 160 0x109203: stack_push (stack.c:20)
+  n1: 96 0x10947C: hanoi_init (hanoi.c:32)
+   n0: 96 0x109B60: main (main.c:19)
+  n2: 64 0x1095D0: move (hanoi.c:65)
+   n2: 48 0x109594: move (hanoi.c:62)
+    n2: 48 0x109594: move (hanoi.c:62)
+     n1: 32 0x109594: move (hanoi.c:62)
+      n1: 32 0x109594: move (hanoi.c:62)
+       n1: 32 0x109594: move (hanoi.c:62)
+        n2: 32 0x109594: move (hanoi.c:62)
+         n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+          n0: 16 0x109B7C: main (main.c:21)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+           n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 16 0x109604: move (hanoi.c:67)
+      n1: 16 0x109594: move (hanoi.c:62)
+       n1: 16 0x109594: move (hanoi.c:62)
+        n1: 16 0x109594: move (hanoi.c:62)
+         n1: 16 0x109594: move (hanoi.c:62)
+          n1: 16 0x109594: move (hanoi.c:62)
+           n1: 16 0x109594: move (hanoi.c:62)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 16 0x109604: move (hanoi.c:67)
+    n1: 16 0x109594: move (hanoi.c:62)
+     n1: 16 0x109594: move (hanoi.c:62)
+      n1: 16 0x109594: move (hanoi.c:62)
+       n1: 16 0x109594: move (hanoi.c:62)
+        n1: 16 0x109594: move (hanoi.c:62)
+         n1: 16 0x109594: move (hanoi.c:62)
+          n2: 16 0x109594: move (hanoi.c:62)
+           n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+            n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 32 0x109405: hanoi_init (hanoi.c:26)
+  n0: 32 0x109B60: main (main.c:19)
+ n2: 28 0x10934C: stack_to_array (stack.c:68)
+  n1: 20 0x109A1F: print (hanoi.c:147)
+   n2: 20 0x1094FD: hanoi_print (hanoi.c:45)
+    n2: 20 0x1095E3: move (hanoi.c:66)
+     n2: 20 0x109594: move (hanoi.c:62)
+      n2: 20 0x109594: move (hanoi.c:62)
+       n1: 20 0x109604: move (hanoi.c:67)
+        n1: 20 0x109594: move (hanoi.c:62)
+         n1: 20 0x109594: move (hanoi.c:62)
+          n1: 20 0x109594: move (hanoi.c:62)
+           n1: 20 0x109594: move (hanoi.c:62)
+            n1: 20 0x109594: move (hanoi.c:62)
+             n1: 20 0x109594: move (hanoi.c:62)
+              n1: 20 0x1094C8: hanoi_solve (hanoi.c:39)
+               n0: 20 0x109B7C: main (main.c:21)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 8 in 2 places, all below massif's threshold (1.00%)
+ n2: 21 0x109773: position_str (hanoi.c:103)
+  n2: 17 0x109808: print_disks (hanoi.c:120)
+   n2: 17 0x10995F: print_disks (hanoi.c:133)
+    n2: 17 0x10995F: print_disks (hanoi.c:133)
+     n2: 17 0x10995F: print_disks (hanoi.c:133)
+      n2: 17 0x10995F: print_disks (hanoi.c:133)
+       n2: 17 0x10995F: print_disks (hanoi.c:133)
+        n2: 17 0x10995F: print_disks (hanoi.c:133)
+         n2: 17 0x10995F: print_disks (hanoi.c:133)
+          n2: 17 0x10995F: print_disks (hanoi.c:133)
+           n2: 17 0x10995F: print_disks (hanoi.c:133)
+            n1: 17 0x109AA9: print (hanoi.c:155)
+             n2: 17 0x1094FD: hanoi_print (hanoi.c:45)
+              n2: 17 0x1095E3: move (hanoi.c:66)
+               n2: 17 0x109594: move (hanoi.c:62)
+                n2: 17 0x109594: move (hanoi.c:62)
+                 n1: 17 0x109604: move (hanoi.c:67)
+                  n1: 17 0x109594: move (hanoi.c:62)
+                   n1: 17 0x109594: move (hanoi.c:62)
+                    n1: 17 0x109594: move (hanoi.c:62)
+                     n1: 17 0x109594: move (hanoi.c:62)
+                      n1: 17 0x109594: move (hanoi.c:62)
+                       n1: 17 0x109594: move (hanoi.c:62)
+                        n1: 17 0x1094C8: hanoi_solve (hanoi.c:39)
+                         n0: 17 0x109B7C: main (main.c:21)
+                 n0: 0 in 1 place, below massif's threshold (1.00%)
+                n0: 0 in 1 place, below massif's threshold (1.00%)
+               n0: 0 in 1 place, below massif's threshold (1.00%)
+              n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 4 in 2 places, all below massif's threshold (1.00%)
+ n0: 2 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=1501255
+mem_heap_B=1248
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=2448108
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=3170108
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=4211004
+mem_heap_B=1250
+mem_heap_extra_B=206
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=5649153
+mem_heap_B=1248
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=6249396
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=7254710
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=8075480
+mem_heap_B=1260
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=8800500
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=9617066
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=10527856
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=11158847
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=12195178
+mem_heap_B=1259
+mem_heap_extra_B=197
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=12790468
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=13980116
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=15022182
+mem_heap_B=1264
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=16510243
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=17847964
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=19077702
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=20011358
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=20711423
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=21645171
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=22578660
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=23210713
+mem_heap_B=1282
+mem_heap_extra_B=262
+mem_stacks_B=0
+heap_tree=peak
+n6: 1282 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48F5570: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x490323F: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x490323F: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49025C7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+     n1: 1024 0x490176D: _IO_new_file_xsputn (fileops.c:1243)
+      n1: 1024 0x490176D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+       n1: 1024 0x48F7045: _IO_padn (iopadn.c:64)
+        n1: 1024 0x48EE270: pad_func (vfprintf-internal.c:196)
+         n1: 1024 0x48EE270: __vfprintf_internal (vfprintf-internal.c:1517)
+          n1: 1024 0x48D78FE: printf (printf.c:33)
+           n1: 1024 0x109909: print_disks (hanoi.c:126)
+            n1: 1024 0x109AA9: print (hanoi.c:155)
+             n1: 1024 0x1094FD: hanoi_print (hanoi.c:45)
+              n0: 1024 0x109B70: main (main.c:20)
+ n2: 160 0x109203: stack_push (stack.c:20)
+  n2: 144 0x1095D0: move (hanoi.c:65)
+   n2: 96 0x109604: move (hanoi.c:67)
+    n3: 48 0x109594: move (hanoi.c:62)
+     n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+      n0: 16 0x109B7C: main (main.c:21)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n1: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x109594: move (hanoi.c:62)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+        n0: 16 0x109B7C: main (main.c:21)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 48 0x109604: move (hanoi.c:67)
+     n2: 32 0x109604: move (hanoi.c:67)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+          n0: 16 0x109B7C: main (main.c:21)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+           n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+         n0: 16 0x109B7C: main (main.c:21)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+   n3: 48 0x109594: move (hanoi.c:62)
+    n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+     n0: 16 0x109B7C: main (main.c:21)
+    n2: 16 0x109594: move (hanoi.c:62)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n1: 16 0x109604: move (hanoi.c:67)
+          n2: 16 0x109594: move (hanoi.c:62)
+           n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+            n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 16 0x109604: move (hanoi.c:67)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+       n0: 16 0x109B7C: main (main.c:21)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 16 0x10947C: hanoi_init (hanoi.c:32)
+   n0: 16 0x109B60: main (main.c:19)
+ n3: 35 0x109773: position_str (hanoi.c:103)
+  n2: 17 0x109820: print_disks (hanoi.c:121)
+   n2: 17 0x10995F: print_disks (hanoi.c:133)
+    n2: 17 0x10995F: print_disks (hanoi.c:133)
+     n2: 17 0x10995F: print_disks (hanoi.c:133)
+      n2: 17 0x10995F: print_disks (hanoi.c:133)
+       n2: 17 0x10995F: print_disks (hanoi.c:133)
+        n2: 17 0x10995F: print_disks (hanoi.c:133)
+         n2: 17 0x10995F: print_disks (hanoi.c:133)
+          n2: 17 0x10995F: print_disks (hanoi.c:133)
+           n2: 17 0x10995F: print_disks (hanoi.c:133)
+            n1: 17 0x10995F: print_disks (hanoi.c:133)
+             n1: 17 0x109AA9: print (hanoi.c:155)
+              n2: 17 0x1094FD: hanoi_print (hanoi.c:45)
+               n2: 17 0x1095E3: move (hanoi.c:66)
+                n2: 17 0x109604: move (hanoi.c:67)
+                 n2: 17 0x109594: move (hanoi.c:62)
+                  n2: 17 0x109594: move (hanoi.c:62)
+                   n2: 17 0x109594: move (hanoi.c:62)
+                    n2: 17 0x109594: move (hanoi.c:62)
+                     n2: 17 0x109594: move (hanoi.c:62)
+                      n2: 17 0x109604: move (hanoi.c:67)
+                       n1: 17 0x109604: move (hanoi.c:67)
+                        n1: 17 0x109594: move (hanoi.c:62)
+                         n1: 17 0x1094C8: hanoi_solve (hanoi.c:39)
+                          n0: 17 0x109B7C: main (main.c:21)
+                       n0: 0 in 1 place, below massif's threshold (1.00%)
+                      n0: 0 in 2 places, all below massif's threshold (1.00%)
+                     n0: 0 in 2 places, all below massif's threshold (1.00%)
+                    n0: 0 in 2 places, all below massif's threshold (1.00%)
+                   n0: 0 in 2 places, all below massif's threshold (1.00%)
+                  n0: 0 in 2 places, all below massif's threshold (1.00%)
+                 n0: 0 in 1 place, below massif's threshold (1.00%)
+                n0: 0 in 1 place, below massif's threshold (1.00%)
+               n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n2: 15 0x109808: print_disks (hanoi.c:120)
+   n2: 15 0x10995F: print_disks (hanoi.c:133)
+    n2: 15 0x10995F: print_disks (hanoi.c:133)
+     n2: 15 0x10995F: print_disks (hanoi.c:133)
+      n2: 15 0x10995F: print_disks (hanoi.c:133)
+       n2: 15 0x10995F: print_disks (hanoi.c:133)
+        n2: 15 0x10995F: print_disks (hanoi.c:133)
+         n2: 15 0x10995F: print_disks (hanoi.c:133)
+          n2: 15 0x10995F: print_disks (hanoi.c:133)
+           n2: 15 0x10995F: print_disks (hanoi.c:133)
+            n1: 15 0x10995F: print_disks (hanoi.c:133)
+             n1: 15 0x109AA9: print (hanoi.c:155)
+              n2: 15 0x1094FD: hanoi_print (hanoi.c:45)
+               n2: 15 0x1095E3: move (hanoi.c:66)
+                n2: 15 0x109604: move (hanoi.c:67)
+                 n2: 15 0x109594: move (hanoi.c:62)
+                  n2: 15 0x109594: move (hanoi.c:62)
+                   n2: 15 0x109594: move (hanoi.c:62)
+                    n2: 15 0x109594: move (hanoi.c:62)
+                     n2: 15 0x109594: move (hanoi.c:62)
+                      n2: 15 0x109604: move (hanoi.c:67)
+                       n1: 15 0x109604: move (hanoi.c:67)
+                        n1: 15 0x109594: move (hanoi.c:62)
+                         n1: 15 0x1094C8: hanoi_solve (hanoi.c:39)
+                          n0: 15 0x109B7C: main (main.c:21)
+                       n0: 0 in 1 place, below massif's threshold (1.00%)
+                      n0: 0 in 2 places, all below massif's threshold (1.00%)
+                     n0: 0 in 2 places, all below massif's threshold (1.00%)
+                    n0: 0 in 2 places, all below massif's threshold (1.00%)
+                   n0: 0 in 2 places, all below massif's threshold (1.00%)
+                  n0: 0 in 2 places, all below massif's threshold (1.00%)
+                 n0: 0 in 1 place, below massif's threshold (1.00%)
+                n0: 0 in 1 place, below massif's threshold (1.00%)
+               n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 3 in 1 place, below massif's threshold (1.00%)
+ n1: 32 0x109405: hanoi_init (hanoi.c:26)
+  n0: 32 0x109B60: main (main.c:19)
+ n2: 28 0x10934C: stack_to_array (stack.c:68)
+  n1: 20 0x109A1F: print (hanoi.c:147)
+   n2: 20 0x1094FD: hanoi_print (hanoi.c:45)
+    n2: 20 0x1095E3: move (hanoi.c:66)
+     n2: 20 0x109604: move (hanoi.c:67)
+      n2: 20 0x109594: move (hanoi.c:62)
+       n2: 20 0x109594: move (hanoi.c:62)
+        n2: 20 0x109594: move (hanoi.c:62)
+         n2: 20 0x109594: move (hanoi.c:62)
+          n2: 20 0x109594: move (hanoi.c:62)
+           n2: 20 0x109604: move (hanoi.c:67)
+            n1: 20 0x109604: move (hanoi.c:67)
+             n1: 20 0x109594: move (hanoi.c:62)
+              n1: 20 0x1094C8: hanoi_solve (hanoi.c:39)
+               n0: 20 0x109B7C: main (main.c:21)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 8 in 2 places, all below massif's threshold (1.00%)
+ n0: 3 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=23915965
+mem_heap_B=1249
+mem_heap_extra_B=183
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=24852864
+mem_heap_B=1252
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=25792659
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=26499702
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=27442576
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=28856259
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=29793023
+mem_heap_B=1251
+mem_heap_extra_B=189
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=30884856
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=31974680
+mem_heap_B=1249
+mem_heap_extra_B=183
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=32700478
+mem_heap_B=1246
+mem_heap_extra_B=146
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=34156060
+mem_heap_B=1248
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=detailed
+n5: 1248 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48F5570: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x490323F: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x490323F: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49025C7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+     n1: 1024 0x490176D: _IO_new_file_xsputn (fileops.c:1243)
+      n1: 1024 0x490176D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+       n1: 1024 0x48F7045: _IO_padn (iopadn.c:64)
+        n1: 1024 0x48EE270: pad_func (vfprintf-internal.c:196)
+         n1: 1024 0x48EE270: __vfprintf_internal (vfprintf-internal.c:1517)
+          n1: 1024 0x48D78FE: printf (printf.c:33)
+           n1: 1024 0x109909: print_disks (hanoi.c:126)
+            n1: 1024 0x109AA9: print (hanoi.c:155)
+             n1: 1024 0x1094FD: hanoi_print (hanoi.c:45)
+              n0: 1024 0x109B70: main (main.c:20)
+ n2: 160 0x109203: stack_push (stack.c:20)
+  n3: 160 0x1095D0: move (hanoi.c:65)
+   n2: 96 0x109604: move (hanoi.c:67)
+    n3: 48 0x109594: move (hanoi.c:62)
+     n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+      n0: 16 0x109B7C: main (main.c:21)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+         n0: 16 0x109B7C: main (main.c:21)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n2: 16 0x109594: move (hanoi.c:62)
+           n1: 16 0x109604: move (hanoi.c:67)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 48 0x109604: move (hanoi.c:67)
+     n3: 32 0x109594: move (hanoi.c:62)
+      n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+       n0: 16 0x109B7C: main (main.c:21)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+          n0: 16 0x109B7C: main (main.c:21)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+           n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+   n3: 48 0x109594: move (hanoi.c:62)
+    n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+     n0: 16 0x109B7C: main (main.c:21)
+    n2: 16 0x109594: move (hanoi.c:62)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+        n0: 16 0x109B7C: main (main.c:21)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 16 0x109604: move (hanoi.c:67)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n2: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+            n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+   n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+    n0: 16 0x109B7C: main (main.c:21)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 32 0x109405: hanoi_init (hanoi.c:26)
+  n0: 32 0x109B60: main (main.c:19)
+ n2: 28 0x10934C: stack_to_array (stack.c:68)
+  n1: 16 0x109A2F: print (hanoi.c:148)
+   n1: 16 0x1094FD: hanoi_print (hanoi.c:45)
+    n2: 16 0x1095E3: move (hanoi.c:66)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n2: 16 0x109594: move (hanoi.c:62)
+           n2: 16 0x109604: move (hanoi.c:67)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+            n0: 0 in 2 places, all below massif's threshold (1.00%)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n0: 12 in 2 places, all below massif's threshold (1.00%)
+ n0: 4 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=35244581
+mem_heap_B=1256
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=36333271
+mem_heap_B=1252
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=37059932
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=38506746
+mem_heap_B=1250
+mem_heap_extra_B=238
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=39232492
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=40682845
+mem_heap_B=1246
+mem_heap_extra_B=162
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=41773613
+mem_heap_B=1255
+mem_heap_extra_B=177
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=42500222
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=43950043
+mem_heap_B=1244
+mem_heap_extra_B=140
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=44676549
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=46129579
+mem_heap_B=1250
+mem_heap_extra_B=206
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=47219630
+mem_heap_B=1246
+mem_heap_extra_B=162
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=47946626
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=48541964
+mem_heap_B=1255
+mem_heap_extra_B=169
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=49139369
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=detailed
+n5: 1248 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48F5570: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x490323F: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x490323F: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49025C7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+     n1: 1024 0x490176D: _IO_new_file_xsputn (fileops.c:1243)
+      n1: 1024 0x490176D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+       n1: 1024 0x48F7045: _IO_padn (iopadn.c:64)
+        n1: 1024 0x48EE270: pad_func (vfprintf-internal.c:196)
+         n1: 1024 0x48EE270: __vfprintf_internal (vfprintf-internal.c:1517)
+          n1: 1024 0x48D78FE: printf (printf.c:33)
+           n1: 1024 0x109909: print_disks (hanoi.c:126)
+            n1: 1024 0x109AA9: print (hanoi.c:155)
+             n1: 1024 0x1094FD: hanoi_print (hanoi.c:45)
+              n0: 1024 0x109B70: main (main.c:20)
+ n2: 160 0x109203: stack_push (stack.c:20)
+  n3: 160 0x1095D0: move (hanoi.c:65)
+   n3: 80 0x109594: move (hanoi.c:62)
+    n3: 48 0x109604: move (hanoi.c:67)
+     n2: 32 0x109604: move (hanoi.c:67)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+           n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n2: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+            n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+      n0: 16 0x109B7C: main (main.c:21)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 32 0x109594: move (hanoi.c:62)
+     n2: 32 0x109604: move (hanoi.c:67)
+      n3: 32 0x109604: move (hanoi.c:67)
+       n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+        n0: 16 0x109B7C: main (main.c:21)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109594: move (hanoi.c:62)
+          n2: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x109604: move (hanoi.c:67)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n3: 64 0x109604: move (hanoi.c:67)
+    n3: 32 0x109594: move (hanoi.c:62)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+         n0: 16 0x109B7C: main (main.c:21)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+       n0: 16 0x109B7C: main (main.c:21)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+     n0: 16 0x109B7C: main (main.c:21)
+    n2: 16 0x109604: move (hanoi.c:67)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+          n0: 16 0x109B7C: main (main.c:21)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+   n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+    n0: 16 0x109B7C: main (main.c:21)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 32 0x109405: hanoi_init (hanoi.c:26)
+  n0: 32 0x109B60: main (main.c:19)
+ n2: 28 0x10934C: stack_to_array (stack.c:68)
+  n1: 20 0x109A3F: print (hanoi.c:149)
+   n1: 20 0x1094FD: hanoi_print (hanoi.c:45)
+    n2: 20 0x1095E3: move (hanoi.c:66)
+     n2: 20 0x109594: move (hanoi.c:62)
+      n2: 20 0x109604: move (hanoi.c:67)
+       n2: 20 0x109604: move (hanoi.c:67)
+        n2: 20 0x109604: move (hanoi.c:67)
+         n2: 20 0x109594: move (hanoi.c:62)
+          n2: 20 0x109594: move (hanoi.c:62)
+           n2: 20 0x109604: move (hanoi.c:67)
+            n2: 20 0x109604: move (hanoi.c:67)
+             n1: 20 0x1094C8: hanoi_solve (hanoi.c:39)
+              n0: 20 0x109B7C: main (main.c:21)
+             n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 2 places, all below massif's threshold (1.00%)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n0: 8 in 2 places, all below massif's threshold (1.00%)
+ n0: 4 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=52
+#-----------
+time=49737555
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=50336235
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=50931544
+mem_heap_B=1252
+mem_heap_extra_B=180
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=51526970
+mem_heap_B=1251
+mem_heap_extra_B=157
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=52124741
+mem_heap_B=1276
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=52723420
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=53319334
+mem_heap_B=1252
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=53914892
+mem_heap_B=1240
+mem_heap_extra_B=120
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=54512049
+mem_heap_B=1276
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=55109355
+mem_heap_B=1268
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=detailed
+n6: 1268 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48F5570: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x490323F: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x490323F: _IO_doallocbuf (genops.c:342)
+    n1: 1024 0x49025C7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+     n1: 1024 0x490176D: _IO_new_file_xsputn (fileops.c:1243)
+      n1: 1024 0x490176D: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+       n1: 1024 0x48F7045: _IO_padn (iopadn.c:64)
+        n1: 1024 0x48EE270: pad_func (vfprintf-internal.c:196)
+         n1: 1024 0x48EE270: __vfprintf_internal (vfprintf-internal.c:1517)
+          n1: 1024 0x48D78FE: printf (printf.c:33)
+           n1: 1024 0x109909: print_disks (hanoi.c:126)
+            n1: 1024 0x109AA9: print (hanoi.c:155)
+             n1: 1024 0x1094FD: hanoi_print (hanoi.c:45)
+              n0: 1024 0x109B70: main (main.c:20)
+ n2: 160 0x109203: stack_push (stack.c:20)
+  n3: 160 0x1095D0: move (hanoi.c:65)
+   n3: 96 0x109604: move (hanoi.c:67)
+    n3: 48 0x109604: move (hanoi.c:67)
+     n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+      n0: 16 0x109B7C: main (main.c:21)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+           n0: 16 0x109B7C: main (main.c:21)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109594: move (hanoi.c:62)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n2: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+            n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+    n3: 32 0x109594: move (hanoi.c:62)
+     n2: 16 0x109594: move (hanoi.c:62)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n2: 16 0x109604: move (hanoi.c:67)
+         n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+          n0: 16 0x109B7C: main (main.c:21)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+        n0: 16 0x109B7C: main (main.c:21)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+     n0: 16 0x109B7C: main (main.c:21)
+   n3: 48 0x109594: move (hanoi.c:62)
+    n2: 32 0x109604: move (hanoi.c:67)
+     n3: 32 0x109604: move (hanoi.c:67)
+      n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+       n0: 16 0x109B7C: main (main.c:21)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109594: move (hanoi.c:62)
+        n2: 16 0x109594: move (hanoi.c:62)
+         n2: 16 0x109604: move (hanoi.c:67)
+          n2: 16 0x109604: move (hanoi.c:67)
+           n1: 16 0x109604: move (hanoi.c:67)
+            n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+             n0: 16 0x109B7C: main (main.c:21)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 2 places, all below massif's threshold (1.00%)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 16 0x109594: move (hanoi.c:62)
+     n2: 16 0x109604: move (hanoi.c:67)
+      n2: 16 0x109604: move (hanoi.c:67)
+       n2: 16 0x109604: move (hanoi.c:67)
+        n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+         n0: 16 0x109B7C: main (main.c:21)
+        n0: 0 in 2 places, all below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n1: 16 0x1094C8: hanoi_solve (hanoi.c:39)
+    n0: 16 0x109B7C: main (main.c:21)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 32 0x10934C: stack_to_array (stack.c:68)
+  n1: 24 0x109A3F: print (hanoi.c:149)
+   n1: 24 0x1094FD: hanoi_print (hanoi.c:45)
+    n2: 24 0x1095E3: move (hanoi.c:66)
+     n2: 24 0x109604: move (hanoi.c:67)
+      n2: 24 0x109604: move (hanoi.c:67)
+       n2: 24 0x109604: move (hanoi.c:67)
+        n2: 24 0x109594: move (hanoi.c:62)
+         n2: 24 0x109594: move (hanoi.c:62)
+          n2: 24 0x109604: move (hanoi.c:67)
+           n2: 24 0x109604: move (hanoi.c:67)
+            n2: 24 0x109604: move (hanoi.c:67)
+             n1: 24 0x1094C8: hanoi_solve (hanoi.c:39)
+              n0: 24 0x109B7C: main (main.c:21)
+             n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 2 places, all below massif's threshold (1.00%)
+           n0: 0 in 2 places, all below massif's threshold (1.00%)
+          n0: 0 in 2 places, all below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n0: 8 in 2 places, all below massif's threshold (1.00%)
+ n1: 32 0x109405: hanoi_init (hanoi.c:26)
+  n0: 32 0x109B60: main (main.c:19)
+ n2: 20 0x109773: position_str (hanoi.c:103)
+  n2: 17 0x109838: print_disks (hanoi.c:122)
+   n2: 17 0x10995F: print_disks (hanoi.c:133)
+    n2: 17 0x10995F: print_disks (hanoi.c:133)
+     n2: 17 0x10995F: print_disks (hanoi.c:133)
+      n2: 17 0x10995F: print_disks (hanoi.c:133)
+       n2: 17 0x10995F: print_disks (hanoi.c:133)
+        n2: 17 0x10995F: print_disks (hanoi.c:133)
+         n2: 17 0x10995F: print_disks (hanoi.c:133)
+          n2: 17 0x10995F: print_disks (hanoi.c:133)
+           n2: 17 0x10995F: print_disks (hanoi.c:133)
+            n1: 17 0x109AA9: print (hanoi.c:155)
+             n2: 17 0x1094FD: hanoi_print (hanoi.c:45)
+              n2: 17 0x1095E3: move (hanoi.c:66)
+               n2: 17 0x109604: move (hanoi.c:67)
+                n2: 17 0x109604: move (hanoi.c:67)
+                 n2: 17 0x109604: move (hanoi.c:67)
+                  n2: 17 0x109594: move (hanoi.c:62)
+                   n2: 17 0x109594: move (hanoi.c:62)
+                    n2: 17 0x109604: move (hanoi.c:67)
+                     n2: 17 0x109604: move (hanoi.c:67)
+                      n2: 17 0x109604: move (hanoi.c:67)
+                       n1: 17 0x1094C8: hanoi_solve (hanoi.c:39)
+                        n0: 17 0x109B7C: main (main.c:21)
+                       n0: 0 in 1 place, below massif's threshold (1.00%)
+                      n0: 0 in 2 places, all below massif's threshold (1.00%)
+                     n0: 0 in 2 places, all below massif's threshold (1.00%)
+                    n0: 0 in 2 places, all below massif's threshold (1.00%)
+                   n0: 0 in 2 places, all below massif's threshold (1.00%)
+                  n0: 0 in 1 place, below massif's threshold (1.00%)
+                 n0: 0 in 2 places, all below massif's threshold (1.00%)
+                n0: 0 in 2 places, all below massif's threshold (1.00%)
+               n0: 0 in 2 places, all below massif's threshold (1.00%)
+              n0: 0 in 1 place, below massif's threshold (1.00%)
+            n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+          n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 3 in 2 places, all below massif's threshold (1.00%)
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=62
+#-----------
+time=55706434
+mem_heap_B=1263
+mem_heap_extra_B=201
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=56301845
+mem_heap_B=1247
+mem_heap_extra_B=161
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=56897780
+mem_heap_B=1264
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=57495689
+mem_heap_B=1261
+mem_heap_extra_B=171
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=58094312
+mem_heap_B=1253
+mem_heap_extra_B=163
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=58690254
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=59287178
+mem_heap_B=1248
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=59882962
+mem_heap_B=1248
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=60479580
+mem_heap_B=1264
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty

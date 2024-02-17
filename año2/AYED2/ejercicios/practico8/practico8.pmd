@@ -1,0 +1,359 @@
+\tableofcontents
+\newpage
+
+## 3)
+
+\begin{tabular}{ l l l }
+& \textbf{type} localidad = \textbf{tuple}\\
+& \quad name: String,\\
+& \quad dist: Nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cargarCombustible(A: Nat, l1: List \textbf{of} localidad) \textbf{ret} res : List \textbf{of} localidad\\
+& \quad \textbf{var} l2: list \textbf{of} localidad\\
+& \quad \textbf{var} distSum: nat\\
+& \quad distSum:= 0\\
+& \quad res:= empty\_list()\\
+& \quad l2:= copy\_list(l1)\\
+& \quad \textbf{while} !list\_is\_empty(l2) \textbf{do}\\
+& \quad \quad head:= list\_head(l2)\\
+& \quad \quad list\_tail(l2)\\
+& \quad \quad \textbf{if} distSum + head.dist $\le$ A \textbf{then}\\
+& \quad \quad \quad distSum:= distSum + head.dist\\
+& \quad \quad \quad prevHead:= head\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad list\_addr(res, prevHead)\\
+& \quad\quad \quad distSum:= head.dist\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 4)
+
+\begin{tabular}{ l l l }
+& \textbf{type} ballena = \textbf{tuple}\\
+& \quad id: nat\\
+& \quad timeLeft: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} salvarBallenas(ballenas: set \textbf{of} ballena ) \textbf{ret} res : Queue of Ballena\\
+& \quad \textbf{var} ballenasVivas: set \textbf{of} ballena\\
+& \quad \textbf{var} tiempo: nat\\
+& \quad ballenasVivas:= set\_copy(ballenas)\\
+& \quad res:= empty\_queue()\\
+& \quad \textbf{while} !set\_is\_empty(ballenasVivas) \textbf{do}\\
+& \quad \quad salvada:= seleccionarBallena(ballenasVivas)\\
+& \quad \quad enqueue(res, salvada)\\
+& \quad \quad set\_elim(ballenasVivas, salvada)\\
+& \quad \quad tiempo:= tiempo + t\\
+& \quad \quad ballenasVivas:= quitarMuertas(ballenasVivas, tiempo)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarBallena(ballenas: set \textbf{of} ballena) \textbf{ret} res : ballena\\
+& \quad \textbf{var} ballenas2: set \textbf{of} ballena\\
+& \quad \textbf{var} head: ballena\\
+& \quad res:= set\_get(ballenas2)\\
+& \quad \textbf{while} !set\_is\_empty(ballenas2) \textbf{do}\\
+& \quad \quad head:= set\_get(ballenas2)\\
+& \quad \quad set\_elim(ballenas, head)\\
+& \quad \quad \textbf{if} head.timeLeft < res.timeLeft \textbf{then}\\
+& \quad \quad \quad res:= head\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} eliminarBallenas(\textbf{in/out} ballenas: set of ballena, \textbf{in} tiempo: nat)\\
+& \quad \textbf{var} head: ballena\\
+& \quad \textbf{var} ballenas2: set \textbf{of} ballena\\
+& \quad ballenas2:= set\_copy(ballenas)\\
+& \quad \textbf{while} !set\_is\_empty(ballenas2) \textbf{do}\\
+& \quad \quad head:= set\_get(ballenas2)\\
+& \quad \quad set\_elim(ballenas2, head)\\
+& \quad \quad \textbf{if} head.timeLeft < tiempo \textbf{then}\\
+& \quad \quad \quad set\_elim(ballenas, head)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 5)
+\begin{tabular}{ l l l }
+& \textbf{type} amigo = \textbf{tuple}\\
+& \quad partida: nat,\\
+& \quad regreso: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} aQuienPrestar(amigos: set \textbf{of} amigo) \textbf{ret} res : Queue \textbf{of} Amigo\\
+& \quad \textbf{var} amigosPendientes: set \textbf{of} amigo\\
+& \quad \textbf{var} seleccion: amigo\\
+& \quad \textbf{var} dia: nat\\
+& \quad res:= empty\_queue()\\
+& \quad amigosPendientes:= set\_copy(amigos)\\
+& \quad \textbf{while} !set\_is\_empty(amigosPendientes) \textbf{do}\\
+& \quad \quad seleccion:= seleccionarAmigo(amigosPendientes)\\
+& \quad \quad set\_elim(amigosPendientes, seleccion)\\
+& \quad \quad dia:= seleccion.regreso\\
+& \quad \quad enqueue(res, seleccion)\\
+& \quad \quad eliminarAmigos(amigosPendientes, dia)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarAmigo(amigos: set \textbf{of} amigo) \textbf{ret} res : amigo\\
+& \quad \textbf{var} amigos2: set \textbf{of} amigo\\
+& \quad \textbf{var} head: amigo\\
+& \quad res:= set\_get(amigos2)\\
+& \quad \textbf{while} !set\_is\_empty(amigos2) \textbf{do}\\
+& \quad \quad head:= set\_get(amigos2)\\
+& \quad \quad set\_elim(amigos, head)\\
+& \quad \quad \textbf{if} head.regreso < res.regreso \textbf{then}\\
+& \quad \quad \quad res:= head\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} eliminarAmigos(\textbf{in/out} amigos: set of amigo, \textbf{in} dia: nat)\\
+& \quad \textbf{var} head: amigo\\
+& \quad \textbf{var} amigos2: set \textbf{of} amigo\\
+& \quad amigos2:= set\_copy(amigos)\\
+& \quad \textbf{while} !set\_is\_empty(amigos2) \textbf{do}\\
+& \quad \quad head:= set\_get(amigos2)\\
+& \quad \quad set\_elim(amigos2, head)\\
+& \quad \quad \textbf{if} head.partida $\le$ dia \textbf{then}\\
+& \quad \quad \quad set\_elim(amigos, head)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 6)
+
+
+\begin{tabular}{ l l l }
+& \textbf{type} factura = \textbf{tuple}\\
+& \quad tmin: nat,\\
+& \quad tmax: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} cuandoSacar(facturas: set \textbf{of} factura) \textbf{ret} res : Queue \textbf{of} nat\\
+& \quad \textbf{var} facturasPendientes: set \textbf{of} factura\\
+& \quad \textbf{var} seleccion: factura\\
+& \quad \textbf{var} t: nat\\
+& \quad res:= empty\_queue()\\
+& \quad facturasPendientes:= set\_copy(facturas)\\
+& \quad \textbf{while} !set\_is\_empty(facturasPendientes) \textbf{do}\\
+& \quad \quad seleccion:= seleccionarFactura(facturasPendientes)\\
+& \quad \quad set\_elim(facturasPendientes, seleccion)\\
+& \quad \quad t:= seleccion.tmax\\
+& \quad \quad enqueue(res, t)\\
+& \quad \quad eliminarFactura(facturasPendientes, t)\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarFactura(facturas: set \textbf{of} factura) \textbf{ret} res : factura\\
+& \quad \textbf{var} facturas2: set \textbf{of} factura\\
+& \quad \textbf{var} head: factura\\
+& \quad res:= set\_get(facturas2)\\
+& \quad \textbf{while} !set\_is\_empty(facturas2) \textbf{do}\\
+& \quad \quad head:= set\_get(facturas2)\\
+& \quad \quad set\_elim(facturas, head)\\
+& \quad \quad \textbf{if} head.tmax < res.tmax \textbf{then}\\
+& \quad \quad \quad res:= head\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{proc} eliminarFacturas(\textbf{in/out} facturas: set of factura, \textbf{in} t: nat)\\
+& \quad \textbf{var} head: factura\\
+& \quad \textbf{var} facturas2: set \textbf{of} factura\\
+& \quad facturas2:= set\_copy(facturas)\\
+& \quad \textbf{while} !set\_is\_empty(facturas2) \textbf{do}\\
+& \quad \quad head:= set\_get(facturas2)\\
+& \quad \quad set\_elim(facturas2, head)\\
+& \quad \quad \textbf{if} head.tmin $\le$ t \textbf{then}\\
+& \quad \quad \quad set\_elim(facturas, head)\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 7)
+### a)
+
+
+\begin{tabular}{ l l l }
+& \textbf{type} tripulante = \textbf{tuple}\\
+& \quad id: nat\\
+& \quad oxPerMin: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} salvarTripulantes(tripulantes: set \textbf{of} tripulante ) \textbf{ret} res : Queue of Ballena\\
+& \quad \textbf{var} tripulantesVivos: set \textbf{of} tripulante\\
+& \quad \textbf{var} oxigenoActual: int\\
+& \quad oxigenoActual:= C\\
+& \quad tripulantesVivos:= set\_copy(tripulantes)\\
+& \quad res:= empty\_queue()\\
+& \quad \textbf{while} !set\_is\_empty(tripulantesVivos) \textbf{do}\\
+& \quad \quad salvado:= seleccionarTripulante(tripulantesVivos)\\
+& \quad \quad enqueue(res, salvado)\\
+& \quad \quad set\_elim(tripulantesVivos, salvado)\\
+& \quad \quad oxigenoActual:= oxigenoActual - oxigenoTotalPorMin(tripulantesVivos) * t\\
+& \quad \quad \textbf{if} oxigenoActual $\le$ 0 \textbf{then}\\
+& \quad \quad \quad set\_destroy(tripulantesVivos)\\
+& \quad \quad \quad tripulantesVivos:= empty\_set()\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarTripulante(tripulantes: set \textbf{of} tripulante) \textbf{ret} res : tripulante\\
+& \quad \textbf{var} tripulantes2: set \textbf{of} tripulante\\
+& \quad \textbf{var} head: tripulante\\
+& \quad res:= set\_get(tripulantes2)\\
+& \quad \textbf{while} !set\_is\_empty(tripulantes2) \textbf{do}\\
+& \quad \quad head:= set\_get(tripulantes2)\\
+& \quad \quad set\_elim(tripulantes, head)\\
+& \quad \quad \textbf{if} head.oxPerMin $\ge$ res.oxPerMin \textbf{then}\\
+& \quad \quad \quad res:= head\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} oxigenoTotalPorMin(tripulantes: set \textbf{of} tripulante ) \textbf{ret} res : nat\\
+& \quad \textbf{var} tripulantes2: set \textbf{of} tripulante\\
+& \quad \textbf{var} head: tripulante\\
+& \quad tripulantes2:= set\_copy(tripulantes)\\
+& \quad res:= 0\\
+& \quad \textbf{while} !set\_is\_empty(tripulantes2) \textbf{do}\\
+& \quad \quad head:= set\_get(tripulantes2)\\
+& \quad \quad set\_elim(tripulantes, head)\\
+& \quad \quad res:= res + head.oxPerMin\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 8)
+
+\begin{tabular}{ l l l }
+& \textbf{type} tronco = \textbf{tuple}\\
+& \quad temp: nat\\
+& \quad duracion: nat\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} quemarTroncos(troncos: set \textbf{of} tronco ) \textbf{ret} res : Queue of tronco\\
+& \quad \textbf{var} troncosVivos: set \textbf{of} tronco\\
+& \quad \textbf{var} tiempo: nat\\
+& \quad tiempo:= 0\\
+& \quad troncosVivos:= set\_copy(troncos)\\
+& \quad res:= empty\_queue()\\
+& \quad \textbf{while} !set\_is\_empty(troncosVivos)$\wedge$time$\le$840 \textbf{do}\\
+& \quad \quad \textbf{if} tiempo $\le$ 480 \textbf{then}\\
+& \quad \quad \quad quemado:= seleccionarTronco(troncosVivos, K1)\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad quemado:= seleccionarTronco(troncosVivos, K2)\\
+& \quad \quad \textbf{fi}\\
+& \quad \quad set\_elim(troncosVivos, quemado)\\
+& \quad \quad enqueue(res, quemado)\\
+& \quad \quad tiempo:= tiempo + quemado.duracion\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarTronco(troncos: set \textbf{of} tronco, tempMin: nat) \textbf{ret} res : tronco\\
+& \quad \textbf{var} troncos2: set \textbf{of} tronco\\
+& \quad \textbf{var} head: tronco\\
+& \quad res:= set\_get(troncos2)\\
+& \quad \textbf{while} !set\_is\_empty(troncos2) \textbf{do}\\
+& \quad \quad head:= set\_get(troncos2)\\
+& \quad \quad set\_elim(troncos, head)\\
+& \quad \quad \textbf{if} head.duracion $\ge$ res.duracion $\wedge$ head.temp $\ge$ tempMin \textbf{then}\\
+& \quad \quad \quad res:= head\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+## 9)
+
+\begin{tabular}{ l l l }
+& \textbf{type} bar = \textbf{tuple}\\
+& \quad happyh: nat,\\
+& \quad price: float\\
+& \textbf{end tuple}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} sobredosisDeLimonada(bares: set \textbf{of} bar) \textbf{ret} res : float\\
+& \quad \textbf{var} baresPendientes: set \textbf{of} bar\\
+& \quad \textbf{var} seleccion: bar\\
+& \quad \textbf{var} t: nat\\
+& \quad t:= 0\\
+& \quad res:= empty\_queue()\\
+& \quad baresPendientes:= set\_copy(bares)\\
+& \quad \textbf{while} !set\_is\_empty(baresPendientes) $\wedge$ t $\le$ 8 \textbf{do}\\
+& \quad \quad seleccion:= seleccionarBar(baresPendientes)\\
+& \quad \quad set\_elim(baresPendientes, seleccion)\\
+& \quad \quad \textbf{if} seleccion.happyh $\le$ t \textbf{then}\\
+& \quad \quad \quad res:= res + seleccion.price\\
+& \quad \quad \textbf{else}\\
+& \quad \quad \quad res:= res + seleccion.price * 2\\
+& \quad \quad \textbf{fi}\\
+& \quad \quad t:= t + 1\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+\begin{tabular}{ l l l }
+& \textbf{fun} seleccionarBar(bares: set \textbf{of} bar) \textbf{ret} res : bar\\
+& \quad \textbf{var} bares2: set \textbf{of} bar\\
+& \quad \textbf{var} head: bar\\
+& \quad res:= set\_get(bares2)\\
+& \quad \textbf{while} !set\_is\_empty(bares2) \textbf{do}\\
+& \quad \quad head:= set\_get(bares2)\\
+& \quad \quad set\_elim(bares, head)\\
+& \quad \quad \textbf{if} head.happyh $\le$ res.happyh \textbf{then}\\
+& \quad \quad \quad \textbf{if} head.happyh = res.happyh $\wedge$ head.price $\ge$ res.price \textbf{then}\\
+& \quad \quad \quad \quad skip\\
+& \quad \quad \quad \textbf{else}\\
+& \quad \quad \quad \quad res:= head\\
+& \quad \quad \quad \textbf{fi}\\
+& \quad \quad \textbf{fi}\\
+& \quad \textbf{od}\\
+& \textbf{end fun}\\
+\end{tabular}
+
+
+
+
+
+
+
