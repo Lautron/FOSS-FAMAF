@@ -1,0 +1,200 @@
+¿Cómo se organiza la data en un hard disk drive?;La data se organiza en círculos concéntricos llamados tracks.;BBDD::indexacion
+¿Qué son los tracks en un hard disk drive?;Los tracks son círculos concéntricos donde se graba la data.;BBDD::indexacion
+¿Cómo se dividen los tracks?;Se dividen en sectores.;BBDD::indexacion
+¿Qué son los sectores en un hard disk drive?;Los sectores son las unidades más pequeñas de data.;BBDD::indexacion
+¿Cómo se agrupan los sectores?;Se agrupan en blocks para la transferencia de data.;BBDD::indexacion
+¿Cuál es la idea principal del almacenamiento de registros de longitud fija?;La idea principal es almacenar el registro *i* comenzando en el byte *n* (*i* -1).;BBDD::indexacion
+¿Por qué se asegura que cada registro quepa dentro de un solo block?;Para evitar accesos adicionales.;BBDD::indexacion
+¿Cuáles son los dos enfoques para manejar la eliminación de registros en un archivo?;1) Desplazamiento de registros. 2) Listas enlazadas.;BBDD::indexacion
+¿Qué implica el desplazamiento de registros?;Mover registros subsiguientes para llenar el espacio creado.;BBDD::indexacion
+¿Qué implica el uso de listas enlazadas?;Enlazar espacios libres usando punteros sin mover registros.;BBDD::indexacion
+¿Cuál es la diferencia entre la organización de archivos heap y secuencial?;La organización heap permite colocar registros en cualquier lugar.;BBDD::indexacion
+¿Cómo se almacena la organización secuencial?;Se almacena en un orden específico basado en una clave de búsqueda.;BBDD::indexacion
+¿Por qué puede ser ineficiente la organización de archivos secuencial para consultas con natural join?;Requiere recorrer todo el archivo en el orden especificado.;BBDD::indexacion
+¿Cuál es el propósito de un index en una base de datos?;Mejorar la velocidad de recuperación de datos.;BBDD::indexacion
+¿Qué se requiere al usar un index?;Requiere espacio adicional y debe actualizarse con cada modificación de la data.;BBDD::indexacion
+¿Cuál es la diferencia entre un dense index y un sparse index?;Un dense index tiene una entrada para cada valor de clave de búsqueda.;BBDD::indexacion
+¿Qué tiene un sparse index?;Tiene entradas solo para un subconjunto de esos valores.;BBDD::indexacion
+¿Por qué los secondary indexes son siempre densos?;Porque requieren una entrada para cada valor posible.;BBDD::indexacion
+¿Qué es un multilevel index?;Es un índice a otro índice.;BBDD::indexacion
+¿Por qué se utiliza un multilevel index?;Para mejorar el rendimiento de búsqueda.;BBDD::indexacion
+¿Qué es un track en el contexto de un disco duro?;Un track es un camino circular en un disco donde se graba la data.;BBDD::indexacion
+¿Qué es un sector en un disco duro?;Un sector es una subdivisión de un track.;BBDD::indexacion
+¿Qué es un block en el contexto de un disco duro?;Un block es una secuencia contigua de sectors.;BBDD::indexacion
+¿Qué caracteriza a la organización de archivos heap?;Se caracteriza por almacenar registros sin un orden particular.;BBDD::indexacion
+¿Qué caracteriza a la organización de archivos secuencial?;Se caracteriza por almacenar registros en secuencia basada en una clave de búsqueda.;BBDD::indexacion
+¿Qué es un dense index?;Es un índice que contiene una entrada para cada valor de clave de búsqueda.;BBDD::indexacion
+¿Qué es un sparse index?;Es un índice que contiene entradas solo para un subconjunto de valores de clave de búsqueda.;BBDD::indexacion
+¿Qué es un multilevel index?;Es un índice a otro índice.;BBDD::indexacion
+¿Qué es un B+ tree index?;Es una estructura de datos de árbol balanceado para indexación en bases de datos.;BBDD::indexacion
+¿Qué ofrece un B+ tree index?;Ofrece operaciones eficientes de búsqueda, inserción y eliminación.;BBDD::indexacion
+¿Qué es la prefix compression?;Es una técnica para acortar claves de índice al almacenar solo un prefijo.;BBDD::indexacion
+¿Qué es un operador de álgebra relacional?;Es una función que toma una o más relaciones como entrada.;BBDD::AlgebraRelacional
+¿Qué produce un operador de álgebra relacional?;Produce una nueva relación como salida.;BBDD::AlgebraRelacional
+¿Cómo se traduce una consulta SQL en álgebra relacional?;Descomponiendo la consulta en componentes más pequeños.;BBDD::AlgebraRelacional
+¿Cuáles son los dos tipos de operadores de álgebra relacional?;Operadores lógicos y operadores físicos.;BBDD::AlgebraRelacional
+¿Qué definen los operadores lógicos?;Definen la operación a realizar.;BBDD::AlgebraRelacional
+¿Qué definen los operadores físicos?;Definen cómo se implementa la operación lógica.;BBDD::AlgebraRelacional
+¿Qué representa el "costo" en álgebra relacional?;Se refiere a los recursos utilizados al realizar una operación.;BBDD::AlgebraRelacional
+¿Cómo se mide el costo en álgebra relacional?;Típicamente medido en términos de transferencias de bloques de disco.;BBDD::AlgebraRelacional
+¿Qué significa la notación "R = (A1::T1, ..., An::Tn)"?;Representa un esquema relacional para una relación llamada 'R'.;BBDD::AlgebraRelacional
+¿Qué define un esquema relacional?;Define la estructura de una relación.;BBDD::AlgebraRelacional
+¿Qué es la proyección generalizada en álgebra relacional?;Es una extensión de la proyección estándar.;BBDD::AlgebraRelacional
+¿Cuál es el propósito de la operación de selección en álgebra relacional?;Recupera tuplas de una relación que satisfacen una condición dada.;BBDD::AlgebraRelacional
+¿Cómo funciona el algoritmo de búsqueda lineal para la operación de selección?;Escanea cada bloque de la relación y verifica cada tupla.;BBDD::AlgebraRelacional
+¿Qué es un factor de selectividad en álgebra relacional?;Es una estimación de la fracción de tuplas que satisfacen una condición.;BBDD::AlgebraRelacional
+¿Qué es un join natural en álgebra relacional?;Es una operación que combina tuplas de dos relaciones.;BBDD::AlgebraRelacional
+¿Qué es una relación en el contexto de álgebra relacional?;Es una tabla con filas (tuplas) y columnas (atributos).;BBDD::AlgebraRelacional
+¿Qué es una tupla en álgebra relacional?;Es una fila en una relación que representa una única instancia de datos.;BBDD::AlgebraRelacional
+¿Qué es un atributo en álgebra relacional?;Es una columna nombrada en una relación.;BBDD::AlgebraRelacional
+¿Qué es un dominio en álgebra relacional?;Es el conjunto de valores posibles que un atributo puede tomar.;BBDD::AlgebraRelacional
+¿Qué es el álgebra relacional?;Es un lenguaje de consulta formal para manipular relaciones.;BBDD::AlgebraRelacional
+¿Qué es un operador lógico en álgebra relacional?;Es un operador que define la operación a realizar.;BBDD::AlgebraRelacional
+¿Qué es un operador físico en álgebra relacional?;Es una implementación concreta de un operador lógico.;BBDD::AlgebraRelacional
+¿Qué es la optimización de consultas?;Es el proceso de encontrar la forma más eficiente de ejecutar una consulta.;BBDD::AlgebraRelacional
+¿Qué es una transferencia de bloque de disco?;Es el movimiento de un bloque de datos entre disco y memoria.;BBDD::AlgebraRelacional
+¿Qué es un índice B+ Tree?;Es una estructura de datos en forma de árbol para ejecutar consultas.;BBDD::AlgebraRelacional
+¿Qué es un join de bucle anidado?;Es un algoritmo de join que itera sobre cada tupla en la relación externa.;BBDD::AlgebraRelacional
+¿Qué es un merge-join?;Es un algoritmo de join que ordena ambas relaciones en los atributos de join.;BBDD::AlgebraRelacional
+¿Qué es la eliminación de duplicados en álgebra relacional?;Es el proceso de eliminar tuplas duplicadas de una relación.;BBDD::AlgebraRelacional
+¿Qué es el ordenamiento externo?;Es un algoritmo de ordenamiento para conjuntos de datos grandes.;BBDD::AlgebraRelacional
+¿Qué es la concatenación (Union All) en álgebra relacional?;Es una operación que combina las tuplas de dos relaciones sin eliminar duplicados.;BBDD::AlgebraRelacional
+¿Qué es la intersección en álgebra relacional?;Es una operación que devuelve solo las tuplas presentes en ambas relaciones.;BBDD::AlgebraRelacional
+¿Qué es la diferencia (Minus) en álgebra relacional?;Es una operación que devuelve las tuplas presentes en la primera relación.;BBDD::AlgebraRelacional
+¿Qué es un query evaluation plan?;Es una descripción de los pasos específicos para ejecutar una consulta.;BBDD::OptimizacionConsultas
+¿Cuál es la diferencia entre materialización y pipelining en la evaluación de consultas?;La materialización almacena resultados intermedios en disco.;BBDD::OptimizacionConsultas
+¿Qué hace el pipelining en la evaluación de consultas?;Pasa directamente los resultados entre operadores sin almacenarlos.;BBDD::OptimizacionConsultas
+¿Cuál es el propósito del selectivity factor en la optimización de consultas?;Estima la fracción de tuplas que satisfacen una condición de selección.;BBDD::OptimizacionConsultas
+¿Qué es "pushing selections" en la optimización de consultas?;Es una técnica que aplica selecciones tan pronto como sea posible.;BBDD::OptimizacionConsultas
+¿Por qué el orden de los natural joins puede impactar el rendimiento?;Diferentes órdenes producen relaciones intermedias de tamaños variables.;BBDD::OptimizacionConsultas
+¿Qué es un left-deep join tree?;Es un árbol de unión donde el operando derecho es siempre una relación base.;BBDD::OptimizacionConsultas
+¿Por qué se utilizan heurísticas en la optimización de consultas?;Porque encontrar el plan óptimo puede ser costoso.;BBDD::OptimizacionConsultas
+Da un ejemplo de una regla heurística para la selección del orden de unión.;Unir las relaciones más pequeñas primero.;BBDD::OptimizacionConsultas
+¿Cuáles son las ventajas de usar programación dinámica para la optimización del orden de unión?;Reduce el espacio de búsqueda y evita cálculos redundantes.;BBDD::OptimizacionConsultas
+¿Cómo combinan los enfoques híbridos heurísticas y optimización basada en costos?;Aplican heurísticas para partes de la consulta y optimización basada en costos para otras.;BBDD::OptimizacionConsultas
+¿Qué es la optimización de consultas?;Es el proceso de encontrar la forma más eficiente de ejecutar una consulta.;BBDD::OptimizacionConsultas
+¿Qué es la materialización en la evaluación de consultas?;Es una estrategia donde los resultados intermedios se almacenan en disco.;BBDD::OptimizacionConsultas
+¿Qué es el pipelining en la evaluación de consultas?;Es una estrategia donde los resultados se pasan directamente al siguiente operador.;BBDD::OptimizacionConsultas
+¿Qué es el selectivity factor?;Es una medida estadística para estimar la fracción de tuplas que satisfacen un predicado.;BBDD::OptimizacionConsultas
+¿Qué significa "pushing selections"?;Es una técnica que aplica selecciones tan pronto como sea posible.;BBDD::OptimizacionConsultas
+¿Qué es el join order?;Es el orden en que se unen las relaciones en una consulta.;BBDD::OptimizacionConsultas
+¿Qué es un left-deep join tree?;Es un árbol de consulta donde el operando derecho es siempre una relación base.;BBDD::OptimizacionConsultas
+¿Qué es una heurística en la optimización de consultas?;Es una regla general para tomar decisiones rápidas.;BBDD::OptimizacionConsultas
+¿Qué es la optimización basada en costos?;Es un enfoque que asigna costos a diferentes planes de ejecución.;BBDD::OptimizacionConsultas
+¿Qué es la programación dinámica en la optimización de consultas?;Es una técnica que descompone el problema en subproblemas más pequeños.;BBDD::OptimizacionConsultas
+¿Qué es la optimización híbrida de consultas?;Es una combinación de técnicas de optimización basadas en heurísticas y en costos.;BBDD::OptimizacionConsultas
+¿Qué es information retrieval (IR)?;Es el proceso de encontrar documentos relevantes para una consulta de un usuario.;BBDD::RecuperacionInfo
+¿Qué tipo de datos manejan típicamente los sistemas de IR?;Manejan datos no estructurados en lenguaje natural.;BBDD::RecuperacionInfo
+¿Cuáles son tres diferencias clave entre bases de datos relacionales y sistemas de IR?;1) Datos estructurados vs. no estructurados. 2) Lenguajes de consulta estructurados vs. consultas en lenguaje natural. 3) Coincidencias exactas vs. clasificación por relevancia.;BBDD::RecuperacionInfo
+¿Qué son las consultas Booleanas?;Permiten combinar palabras clave con operadores como AND, OR y NOT.;BBDD::RecuperacionInfo
+¿Qué son las consultas en lenguaje natural?;Permiten expresar necesidades de información en lenguaje cotidiano.;BBDD::RecuperacionInfo
+¿Cuál es el propósito de los proximity operators en consultas de IR?;Especifican cuán cerca deben estar ciertos términos entre sí.;BBDD::RecuperacionInfo
+¿Cómo maneja Google Search las consultas en lenguaje natural?;Utiliza un algoritmo para entender la intención detrás de las consultas.;BBDD::RecuperacionInfo
+¿Cuáles son los principales factores que determinan la relevancia de un documento?;1) Frecuencia de término. 2) Frecuencia inversa de documento. 3) Enlaces a un documento.;BBDD::RecuperacionInfo
+¿Qué es el modelo Boolean de recuperación de información?;Representa documentos como conjuntos de términos.;BBDD::RecuperacionInfo
+¿Cuáles son las limitaciones del modelo Boolean?;Dificultad para expresar necesidades complejas y falta de coincidencias parciales.;BBDD::RecuperacionInfo
+¿Cómo representa el modelo de espacio vectorial documentos y consultas?;Como vectores en un espacio multidimensional.;BBDD::RecuperacionInfo
+¿Cómo se mide la relevancia en el modelo de espacio vectorial?;Mediante la similitud del coseno entre el vector de consulta y los vectores de documentos.;BBDD::RecuperacionInfo
+¿Qué es TF-IDF?;Es una estadística que evalúa la importancia de un término en un documento.;BBDD::RecuperacionInfo
+¿Cuál es el propósito del stemming en IR?;Reducir palabras a su forma raíz para agrupar palabras similares.;BBDD::RecuperacionInfo
+¿Qué es un inverted index?;Es una estructura de datos que mapea términos a los documentos que los contienen.;BBDD::RecuperacionInfo
+¿Qué es la precisión en el contexto de IR?;Mide la proporción de documentos recuperados que son relevantes.;BBDD::RecuperacionInfo
+¿Qué es el recall en IR?;Mide la proporción de documentos relevantes que son recuperados.;BBDD::RecuperacionInfo
+¿Qué son las stop words?;Son palabras comunes eliminadas de documentos y consultas.;BBDD::RecuperacionInfo
+¿Qué es la relevancia en IR?;Es el grado en que un documento satisface la necesidad de información.;BBDD::RecuperacionInfo
+¿Qué es la similitud del coseno?;Es una medida de similitud entre dos vectores.;BBDD::RecuperacionInfo
+¿Qué es el modelo de espacio vectorial?;Es un modelo que representa documentos y consultas como vectores.;BBDD::RecuperacionInfo
+¿Cuál es la diferencia fundamental entre un motor de búsqueda web y un motor de búsqueda tradicional?;Los motores de búsqueda web descubren e indexan nuevas páginas constantemente.;BBDD::RecuperacionInfoWeb
+¿Cómo utilizan los web crawlers los hipervínculos?;Siguen hipervínculos para encontrar nuevos documentos.;BBDD::RecuperacionInfoWeb
+¿Por qué es crucial que los motores de búsqueda web tengan sistemas de indexación robustos?;Permiten una recuperación rápida y eficiente de páginas relevantes.;BBDD::RecuperacionInfoWeb
+¿Cuáles son los desafíos que plantean las páginas de spam a los motores de búsqueda web?;Manipulan algoritmos de búsqueda con palabras clave y enlaces artificiales.;BBDD::RecuperacionInfoWeb
+¿Por qué resultó insuficiente confiar únicamente en TF-IDF para clasificar las páginas web?;No podía reflejar con precisión la verdadera relevancia o autoridad.;BBDD::RecuperacionInfoWeb
+¿Qué es "site popularity"?;Se refiere a métricas como el número de visitas o enlaces a un sitio.;BBDD::RecuperacionInfoWeb
+¿Cómo contribuye la popularidad del sitio al ranking de resultados de búsqueda?;Sirve como un proxy para la calidad y confiabilidad de un sitio.;BBDD::RecuperacionInfoWeb
+¿Cómo utiliza PageRank un modelo de caminata aleatoria?;Simula un surfista web aleatorio que hace clic en enlaces al azar.;BBDD::RecuperacionInfoWeb
+¿Cuál es la importancia del anchor text en la evaluación de la relevancia?;Proporciona pistas contextuales sobre el contenido de la página enlazada.;BBDD::RecuperacionInfoWeb
+¿Cómo utiliza Google el comportamiento de búsqueda de los usuarios?;Rastrea clics y tiempo de permanencia para refinar algoritmos de clasificación.;BBDD::RecuperacionInfoWeb
+¿Qué información se presenta en un resultado típico de búsqueda de Google?;Incluye el título, URL, snippet de texto relevante y breadcrumbs.;BBDD::RecuperacionInfoWeb
+¿Qué es un web crawler?;Es un programa que navega sistemáticamente por la World Wide Web.;BBDD::RecuperacionInfoWeb
+¿Qué es el indexing en el contexto de la recuperación de información?;Es el proceso de crear una estructura de datos para búsqueda eficiente.;BBDD::RecuperacionInfoWeb
+¿Qué es un inverted index?;Es una estructura de datos que mapea palabras a los documentos en los que aparecen.;BBDD::RecuperacionInfoWeb
+¿Qué significa TF-IDF?;TF-IDF significa Frecuencia de Término-Frecuencia Inversa de Documento.;BBDD::RecuperacionInfoWeb
+¿Qué es PageRank?;Es un algoritmo que mide la importancia relativa de documentos.;BBDD::RecuperacionInfoWeb
+¿Qué es un snippet en motores de búsqueda?;Es un breve extracto de texto de una página web.;BBDD::RecuperacionInfoWeb
+¿Qué es un breadcrumb en un sitio web?;Es una ayuda de navegación que muestra el camino tomado.;BBDD::RecuperacionInfoWeb
+¿Qué es un knowledge panel?;Es una caja que proporciona un resumen de información en los resultados de búsqueda.;BBDD::RecuperacionInfoWeb
+
+¿Qué es el Procesamiento de Lenguaje Natural (NLP)?;El Procesamiento de Lenguaje Natural (NLP) es un subcampo de la inteligencia artificial.;BBDD::NLP
+¿Qué se centra el Procesamiento de Lenguaje Natural (NLP)?;Se centra en permitir que las computadoras comprendan, interpreten y generen lenguaje humano.;BBDD::NLP
+¿Cuál es el objetivo principal del Procesamiento de Lenguaje Natural (NLP)?;El objetivo principal del NLP es cerrar la brecha de comunicación entre humanos y máquinas.;BBDD::NLP
+¿Qué permite el objetivo principal del NLP?;Permite interacciones más naturales y efectivas.;BBDD::NLP
+¿Qué es el análisis sintáctico en NLP?;El análisis sintáctico es el estudio de la estructura gramatical de las oraciones.;BBDD::NLP
+¿Qué identifica el análisis sintáctico en NLP?;Identifica partes del discurso y sus relaciones.;BBDD::NLP
+¿Qué es el análisis semántico en NLP?;El análisis semántico se centra en el significado de las palabras y frases en contexto.;BBDD::NLP
+¿Qué permite el análisis semántico en NLP?;Permite que las máquinas comprendan el contenido.;BBDD::NLP
+¿Qué es el Reconocimiento de Entidades Nombradas (NER)?;El Reconocimiento de Entidades Nombradas (NER) identifica y clasifica entidades dentro del texto.;BBDD::NLP
+¿Qué tipos de entidades clasifica el NER?;Clasifica nombres de personas, lugares u organizaciones.;BBDD::NLP
+¿Qué es la Generación de Lenguaje Natural (NLG)?;La Generación de Lenguaje Natural (NLG) permite a las máquinas generar texto coherente y relevante.;BBDD::NLP
+¿De qué se basa la NLG para generar texto?;Se basa en datos estructurados.;BBDD::NLP
+¿Qué es el análisis de sentimientos en NLP?;El análisis de sentimientos evalúa el tono emocional del texto.;BBDD::NLP
+¿Qué determina el análisis de sentimientos?;Determina si el tono es positivo, negativo o neutral.;BBDD::NLP
+¿Qué es la Comprensión del Lenguaje Natural (NLU)?;La Comprensión del Lenguaje Natural (NLU) es un subcampo de AI.;BBDD::NLP
+¿Qué centra la NLU?;Centra en entrenar a las máquinas para comprender e interpretar el lenguaje humano de manera significativa.;BBDD::NLP
+¿Qué es la tokenización en NLP?;La tokenización es el proceso de descomponer el texto en unidades más pequeñas.;BBDD::NLP
+¿Qué unidades se obtienen en la tokenización?;Se obtienen palabras o frases.;BBDD::NLP
+¿Qué son las "stop words" en NLP?;Las "stop words" son palabras comunes que no contribuyen con un significado significativo.;BBDD::NLP
+¿Qué ejemplos de "stop words" existen?;Ejemplos son "y", "el", "de".;BBDD::NLP
+¿Qué es el stemming en NLP?;El stemming es el proceso de reducir las palabras a su forma raíz.;BBDD::NLP
+¿Qué se elimina en el stemming?;Se eliminan sufijos y prefijos.;BBDD::NLP
+¿Qué es la lematización en NLP?;La lematización es similar al stemming.;BBDD::NLP
+¿Qué devuelve la lematización?;Devuelve la forma base o raíz de una palabra.;BBDD::NLP
+¿Qué considera la lematización?;Considera su contexto gramatical.;BBDD::NLP
+¿Qué es el etiquetado de partes del discurso en NLP?;El etiquetado de partes del discurso consiste en asignar etiquetas gramaticales a cada token.;BBDD::NLP
+¿Qué tipos de etiquetas se asignan en el etiquetado de partes del discurso?;Se asignan etiquetas como sustantivo, verbo, adjetivo, etc.;BBDD::NLP
+¿Qué es el contexto en NLP?;El contexto es la información circundante que ayuda a interpretar el significado.;BBDD::NLP
+¿Qué ayuda a interpretar el contexto?;Ayuda a interpretar el significado de una palabra, frase o conversación.;BBDD::NLP
+¿Qué es el contexto local en NLP?;El contexto local es el entorno inmediato de una palabra o frase.;BBDD::NLP
+¿Qué es el contexto global en NLP?;El contexto global es la información que se extiende más allá de una sola oración o párrafo.;BBDD::NLP
+¿Qué incluye el contexto global?;Incluye el historial de interacciones.;BBDD::NLP
+¿Qué es el contexto conversacional en NLP?;El contexto conversacional se refiere a la dinámica del diálogo entre los participantes.;BBDD::NLP
+¿Qué aspectos incluye el contexto conversacional?;Incluye turnos de habla y respuestas anteriores.;BBDD::NLP
+¿Qué es el contexto situacional en NLP?;El contexto situacional son factores externos que influyen en la interpretación del lenguaje.;BBDD::NLP
+¿Qué factores influyen en el contexto situacional?;Influyen el entorno físico o el estado emocional.;BBDD::NLP
+¿Qué es el contexto histórico en NLP?;El contexto histórico se refiere al conocimiento acumulado sobre un tema.;BBDD::NLP
+¿Qué se considera en el contexto histórico?;Se consideran preferencias del usuario a lo largo del tiempo.;BBDD::NLP
+¿Qué es el contexto cultural en NLP?;El contexto cultural son factores sociales y culturales que influyen en la interpretación del lenguaje.;BBDD::NLP
+¿Cómo afecta el contexto cultural al lenguaje?;Afecta tanto la forma como el contenido.;BBDD::NLP
+¿Qué es la resolución de correferencias en NLP?;La resolución de correferencias es el proceso de identificar a qué entidades se refieren los pronombres o expresiones en un texto.;BBDD::NLP
+¿Qué es el análisis pragmático en NLP?;El análisis pragmático considera el contexto situacional y la intención del hablante.;BBDD::NLP
+¿Qué más considera el análisis pragmático?;Considera las implicaciones sociales para interpretar el lenguaje.;BBDD::NLP
+¿Qué es un prompt en el contexto del NLP?;Un prompt es una instrucción o pregunta proporcionada a un modelo de NLP.;BBDD::Prompts
+¿Qué guía un prompt en NLP?;Guía la respuesta y especifica el formato de salida deseado.;BBDD::Prompts
+¿Qué es la ingeniería de prompts en NLP?;La ingeniería de prompts implica el diseño y optimización de prompts.;BBDD::Prompts
+¿Qué se busca con la ingeniería de prompts?;Se busca obtener resultados precisos y eficientes de los modelos de NLP.;BBDD::Prompts
+¿Qué es la tokenización y por qué es relevante para trabajar con modelos de lenguaje grandes?;La tokenización es el proceso de descomponer la entrada de texto en unidades individuales llamadas tokens.;BBDD::Prompts
+¿Por qué es relevante la tokenización en modelos de lenguaje grandes?;Es relevante porque los costos de uso de modelos de lenguaje a menudo se basan en el número de tokens procesados.;BBDD::Prompts
+¿Cómo afecta el parámetro "temperatura" la salida de un modelo de lenguaje?;El parámetro "temperatura" controla la aleatoriedad de la salida de un modelo de lenguaje.;BBDD::Prompts
+¿Qué afecta la aleatoriedad en la salida de un modelo de lenguaje?;Afecta la diversidad y precisión de las respuestas.;BBDD::Prompts
+¿Qué es el "TopP" en el contexto de modelos de lenguaje?;"TopP" (muestreo de núcleo) restringe el rango de opciones de texto consideradas por el modelo.;BBDD::Prompts
+¿Qué equilibra el "TopP"?;Equilibra creatividad y precisión.;BBDD::Prompts
+¿Cuál es la diferencia entre "Frecuencia Penalty" y "Presence Penalty"?;La "Frecuencia Penalty" desalienta la repetición de tokens específicos.;BBDD::Prompts
+¿Qué penaliza la "Presence Penalty"?;Penaliza la aparición de cualquier token que ya se haya utilizado.;BBDD::Prompts
+¿Qué son los modelos de texto?;Los modelos de texto son sistemas basados en NLP diseñados para tareas de lectura y escritura.;BBDD::Chatbots
+¿Qué tareas pueden realizar los modelos de texto?;Pueden realizar tareas como resumen, mapeo mental y traducción.;BBDD::Chatbots
+¿Qué es el modelado de lenguaje?;El modelado de lenguaje opera bajo el principio de que las palabras en un idioma están relacionadas de maneras predecibles.;BBDD::Chatbots
+¿Qué permite el modelado de lenguaje?;Permite a los modelos predecir la siguiente palabra en una secuencia.;BBDD::Chatbots
+¿Qué son los Modelos de Lenguaje Grandes (LLMs)?;Los Modelos de Lenguaje Grandes (LLMs) son modelos entrenados en enormes conjuntos de datos de texto.;BBDD::Chatbots
+¿Qué utilizan los LLMs para aprender patrones de lenguaje?;Utilizan redes neuronales profundas.;BBDD::Chatbots
+¿Qué es un modelo conversacional?;Un modelo conversacional es un tipo de modelo de lenguaje entrenado específicamente para participar en conversaciones.;BBDD::Chatbots
+¿Qué genera un modelo conversacional?;Genera respuestas similares a las humanas.;BBDD::Chatbots
+¿Cuáles son las etapas principales en la creación de un modelo de IA?;Las etapas principales son la preparación de datos, el entrenamiento del modelo y la validación.;BBDD::Chatbots
+¿Qué es el ajuste fino en el contexto de modelos de IA?;El ajuste fino es el proceso de adaptar un modelo preentrenado.;BBDD::Chatbots
+¿Para qué se adapta un modelo preentrenado?;Se adapta para sobresalir en una tarea o dominio específico.;BBDD::Chatbots
+¿Qué papel juega un componente de gestión de diálogos en un chatbot?;El componente de gestión de diálogos asegura conversaciones coherentes y atractivas.;BBDD::Chatbots
+¿Qué gestiona el componente de gestión de diálogos?;Gestiona el estado actual del diálogo y rastrea el historial de la conversación.;BBDD::Chatbots
+¿Cómo difiere un modelo de lenguaje de propósito general de un chatbot conversacional inteligente?;Los modelos de lenguaje de propósito general manejan cada prompt de manera independiente.;BBDD::Chatbots
+¿Qué incorporan los chatbots conversacionales?;Incorporan estrategias de gestión de diálogos para mantener el contexto y la coherencia.;BBDD::Chatbots
+¿Cuáles son las funciones primarias de un codificador en una arquitectura de transformador?;Los codificadores procesan y comprenden secuencias de texto.;BBDD::Chatbots
+¿Qué transforman los codificadores en una arquitectura de transformador?;Transforman el texto de entrada en representaciones contextuales.;BBDD::Chatbots
+¿Qué mecanismos utilizan los codificadores?;Utilizan mecanismos como la tokenización y la autoatención.;BBDD::Chatbots
+

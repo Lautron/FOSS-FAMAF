@@ -1,0 +1,176 @@
+USE sakila;
+
+-- -- 1)
+-- DROP TABLE IF EXISTS directors;
+-- CREATE TABLE directors (
+--     first_name VARCHAR(50),
+--     last_name VARCHAR(50),
+--     movie_count INT
+-- );
+--
+-- -- 2)
+-- INSERT INTO directors
+-- SELECT
+--     a.first_name,
+--     a.last_name,
+--     COUNT(fa.film_id) AS num_peliculas
+-- FROM actor AS a INNER JOIN film_actor AS fa
+--     ON a.actor_id = fa.actor_id
+-- GROUP BY fa.actor_id
+-- ORDER BY num_peliculas DESC
+-- LIMIT 5;
+--
+-- -- 3)
+--
+-- ALTER TABLE customer
+-- ADD premium_customer ENUM('T', 'F') DEFAULT 'F';
+--
+-- -- 4)
+--
+-- CREATE VIEW best_customers AS (
+--     SELECT
+--         c.customer_id,
+--         c.last_name,
+--         SUM(p.amount) AS spent_amount
+--     FROM customer AS c INNER JOIN payment AS p
+--         ON c.customer_id = p.customer_id
+--     GROUP BY c.customer_id
+--     ORDER BY spent_amount DESC
+--     LIMIT 10
+-- );
+--
+-- UPDATE customer
+-- SET premium_customer = 'T'
+-- WHERE customer_id IN (
+--     SELECT customer_id
+--     FROM best_customers
+-- );
+--
+-- SELECT
+--     customer.last_name,
+--     customer.premium_customer
+-- FROM customer
+-- ORDER BY customer.premium_customer DESC;
+--
+-- -- 5)
+--
+-- SELECT
+--     f.rating,
+--     COUNT(f.film_id) AS movie_amount
+-- FROM film AS f
+-- GROUP BY f.rating
+-- ORDER BY movie_amount desc;
+--
+--
+-- -- 6)
+-- SELECT
+--     MAX(p.payment_date) AS last_date,
+--     MIN(p.payment_date) AS first_date
+-- FROM payment AS p;
+--
+-- -- 7)
+-- SELECT
+--     MONTH(p.payment_date) AS month_num,
+--     AVG(p.amount) AS sells_avg
+-- FROM payment AS p
+-- GROUP BY month_num;
+--
+-- -- 8)
+--
+-- SELECT
+--     a.district,
+--     COUNT(r.rental_id) AS rental_count
+-- FROM rental AS r
+-- INNER JOIN inventory AS i
+--     ON r.inventory_id = i.inventory_id
+-- INNER JOIN store AS s
+--     ON i.store_id = s.store_id
+-- INNER JOIN address AS a
+--     ON s.address_id = a.address_id
+-- GROUP BY a.district;
+--
+-- -- 9)
+-- ALTER TABLE inventory
+-- ADD stock INT DEFAULT 5;
+--
+-- -- 10)
+--
+-- DROP TRIGGER IF EXISTS update_stock;
+-- CREATE TRIGGER update_stock AFTER INSERT
+-- ON rental FOR EACH ROW
+-- BEGIN
+--     UPDATE inventory AS i
+--     SET i.stock = i.stock - 1
+--     WHERE i.inventory_id = NEW.inventory_id AND i.stock > 0;
+-- END;
+--
+-- -- 11)
+-- DROP TABLE IF EXISTS fines;
+-- CREATE TABLE fines (
+--     fine_id INT NOT NULL AUTO_INCREMENT,
+--     PRIMARY KEY (fine_id),
+--     rental_id INT NOT NULL,
+--     amount DECIMAL(5, 2),
+--     FOREIGN KEY (rental_id) REFERENCES rental (rental_id)
+-- );
+--
+-- -- 12)
+-- DROP PROCEDURE IF EXISTS check_date_and_fine;
+-- CREATE PROCEDURE CHECK_DATE_AND_FINE () BEGIN
+-- INSERT INTO fines (rental_id, amount)
+-- SELECT
+--     r.rental_id,
+--     ROUND(DATEDIFF(r.return_date, r.rental_date) * 1.5) AS amount
+-- FROM rental AS r
+-- WHERE DATEDIFF(r.return_date, r.rental_date) > 3
+-- AND NOT EXISTS (
+--     SELECT 1
+--     FROM fines f
+--     WHERE r.rental_id = f.rental_id
+-- );
+-- END;
+--
+-- -- TEST (12)
+-- START TRANSACTION;
+-- SELECT
+--     *
+-- FROM
+--     fines;
+--
+-- CALL check_date_and_fine();
+-- CALL check_date_and_fine();
+--
+-- SELECT
+--     COUNT(*)
+-- FROM
+--     fines;
+-- ROLLBACK;
+
+-- -- 13)
+-- CREATE ROLE IF NOT EXISTS employee;
+--
+-- GRANT INSERT, DELETE, UPDATE
+-- ON rental
+-- TO employee;
+--
+-- -- 14)
+-- REVOKE DELETE
+-- ON rental
+-- FROM employee;
+--
+-- SHOW GRANTS FOR 'employee';
+-- CREATE ROLE IF NOT EXISTS administrator;
+--
+-- GRANT ALL PRIVILEGES
+-- ON sakila.*
+-- TO administrator;
+--
+-- SHOW GRANTS FOR 'administrator';
+--
+-- -- 15)
+--
+-- DROP USER IF EXISTS empleado1@localhost;
+-- CREATE USER empleado1@localhost IDENTIFIED BY "123" DEFAULT ROLE employee;
+--
+-- DROP USER IF EXISTS empleado2@localhost;
+-- CREATE USER empleado2@localhost DEFAULT ROLE administrator;
