@@ -1,0 +1,39 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.8.23)  13 SEP 2024 09:56
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**out.tex
+(./out.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+! Undefined control sequence.
+l.1 \section
+            {2023}\label{section}
+? asdf
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? 1
+l.1 \section{
+             2023}\label{section}
+? 9
+l.1 \section{2023}\label{se
+                           ction}
+? 
+! Emergency stop.
+l.1 
+    
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 16 strings out of 476076
+ 378 string characters out of 5793775
+ 1925187 words of memory out of 5000000
+ 22223 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 12i,0n,13p,68b,8s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
